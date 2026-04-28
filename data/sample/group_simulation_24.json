@@ -1,0 +1,287 @@
+{
+    "group_id": 24,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_f",
+        "rest_e",
+        "rest_i",
+        "rest_o",
+        "rest_q",
+        "rest_g",
+        "rest_s",
+        "rest_u",
+        "rest_h",
+        "rest_p"
+    ],
+    "agents": [
+        {
+            "name": "Blair",
+            "history": {
+                "rest_f": 5,
+                "rest_e": 5,
+                "rest_i": 2,
+                "rest_o": 1,
+                "rest_q": 10,
+                "rest_g": 3,
+                "rest_s": 8,
+                "rest_u": 1,
+                "rest_h": 3,
+                "rest_p": 5
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.6,
+                "conscientiousness": 0.3,
+                "extraversion": 0.38,
+                "agreeableness": 0.24,
+                "neuroticism": 0.52
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Asher",
+            "history": {
+                "rest_f": 5,
+                "rest_e": 1,
+                "rest_i": 9,
+                "rest_o": 5,
+                "rest_q": 3,
+                "rest_g": 8,
+                "rest_s": 1,
+                "rest_u": 7,
+                "rest_h": 6,
+                "rest_p": 2
+            },
+            "tone": "Stoic and terse",
+            "personality": {
+                "openness": 0.86,
+                "conscientiousness": 0.82,
+                "extraversion": 0.5,
+                "agreeableness": 0.06,
+                "neuroticism": 0.83
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Olivia",
+            "history": {
+                "rest_f": 7,
+                "rest_e": 9,
+                "rest_i": 5,
+                "rest_o": 1,
+                "rest_q": 3,
+                "rest_g": 1,
+                "rest_s": 5,
+                "rest_u": 10,
+                "rest_h": 10,
+                "rest_p": 9
+            },
+            "tone": "Overconfident and cocky",
+            "personality": {
+                "openness": 0.73,
+                "conscientiousness": 0.22,
+                "extraversion": 0.88,
+                "agreeableness": 0.08,
+                "neuroticism": 0.07
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Morgan",
+            "history": {
+                "rest_f": 5,
+                "rest_e": 1,
+                "rest_i": 1,
+                "rest_o": 8,
+                "rest_q": 8,
+                "rest_g": 9,
+                "rest_s": 10,
+                "rest_u": 10,
+                "rest_h": 9,
+                "rest_p": 5
+            },
+            "tone": "Sincere and thoughtful",
+            "personality": {
+                "openness": 0.35,
+                "conscientiousness": 0.17,
+                "extraversion": 0.35,
+                "agreeableness": 0.24,
+                "neuroticism": 0.69
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Lowen",
+            "history": {
+                "rest_f": 4,
+                "rest_e": 10,
+                "rest_i": 5,
+                "rest_o": 8,
+                "rest_q": 1,
+                "rest_g": 10,
+                "rest_s": 8,
+                "rest_u": 1,
+                "rest_h": 7,
+                "rest_p": 5
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.43,
+                "conscientiousness": 0.16,
+                "extraversion": 0.02,
+                "agreeableness": 0.61,
+                "neuroticism": 0.68
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Mia",
+            "history": {
+                "rest_f": 9,
+                "rest_e": 10,
+                "rest_i": 1,
+                "rest_o": 8,
+                "rest_q": 10,
+                "rest_g": 10,
+                "rest_s": 1,
+                "rest_u": 5,
+                "rest_h": 5,
+                "rest_p": 1
+            },
+            "tone": "Bitter and resentful",
+            "personality": {
+                "openness": 0.8,
+                "conscientiousness": 0.88,
+                "extraversion": 0.81,
+                "agreeableness": 0.44,
+                "neuroticism": 0.6
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Blair-Asher": 38.47076812334269,
+        "Blair-Olivia": 47.843494855622744,
+        "Blair-Morgan": 41.32795663954365,
+        "Blair-Lowen": 46.010868281309364,
+        "Blair-Mia": 47.25462940284264,
+        "Asher-Olivia": 48.4458460551573,
+        "Asher-Morgan": 40.32369030731191,
+        "Asher-Lowen": 45.110974274559844,
+        "Asher-Mia": 39.0,
+        "Olivia-Morgan": 48.40454524112379,
+        "Olivia-Lowen": 50.556898639058154,
+        "Olivia-Mia": 42.96510211788167,
+        "Morgan-Lowen": 47.31807265728392,
+        "Morgan-Mia": 33.95585369269929,
+        "Lowen-Mia": 39.89987468652001
+    },
+    "conversation": [
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_q. \n\nGiven my preferences, a restaurant scoring a 10/10 in quality is the most logical choice. While other options offer acceptable qualities, this one maximizes satisfaction. We could consider rest_s for a balance of quality and something new, or rest_p if we prioritize a specific cuisine. However, the highest quality option presents the most efficient path to a positive dining experience. I'm open to discussing alternatives if someone has a compelling reason to deviate.\n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_i. \n\nIt offers a solid experience. A 9/10 isn't to be dismissed. The others are... compromises. Quality shouldn't be sacrificed. If someone has a specific craving, we can address that later. But starting with a strong foundation is sensible. \n\n\n\n"
+        },
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_u. Honestly, are we even debating this? It's a 10/10! The rest are just… well, *less*. I refuse to settle for anything less than optimal. If you want a truly satisfying meal, you'll follow my lead on this one. It's the obvious choice, and frankly, I'm surprised it hasn't been decided already. Don't waste my time with frivolous suggestions.\n\n\n\n"
+        },
+        {
+            "agent": "Morgan",
+            "message": "My current suggestion is rest_s. I know I've been pretty firm on the quality front, but I genuinely feel like rest_s offers the best combination of everything. It's not just about the food being excellent – it's the atmosphere, the service... it all just *works*. I'm not saying the others are bad, but I think rest_s delivers a truly exceptional experience. I'm happy to hear other perspectives, of course, but I stand by my assessment.\n\n\n\n"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_e. Oh, I absolutely adore rest_e! It just feels so... right, you know? The whole experience is wonderful, and it's truly a 10/10 in my book. I'm so happy to see it being suggested! It really does have everything – the food is delightful, the atmosphere is cozy, and everyone there is so kind. I think it's a perfect choice for us! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Mia",
+            "message": "My current suggestion is rest_e. Honestly, it's the only sensible choice. A 10/10 isn't something to pass up for some vague \"combination of things.\" We're here to *eat*, not be mildly entertained. If we're prioritizing a truly enjoyable experience, rest_e is the clear winner. I'm not sure why it needs further discussion.\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_e. The consensus seems to be leaning towards options with higher ratings. While rest_q holds the highest individual score, the overwhelming preference for rest_e, with multiple endorsements and a strong 10/10 rating, indicates a more agreeable choice for the group. It's logical to prioritize a restaurant that is already highly regarded by several members."
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_e. The consensus is clear. Rest_e has multiple endorsements and a 10/10 rating. That's not something to ignore. I've stated my preference for quality. This aligns with the group's apparent desire for a highly-rated experience. I'm not going to argue against that.\n\n\n\n"
+        },
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_e. Honestly, are you all blind? It's a 10/10! The fact that we're still debating this is baffling. Clearly, the majority knows best. I'm not wasting any more time on this. Let's just go with what everyone else has already decided – it's a no-brainer."
+        },
+        {
+            "agent": "Morgan",
+            "message": "My current suggestion is rest_e. It seems like everyone's really leaning towards rest_e, and honestly, with a 10/10 rating from multiple people, it's hard to argue against that. I've been pushing for quality, and rest_e clearly delivers on that. I'm not going to hold up the decision any longer if the group feels so strongly about it."
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_e. It's so wonderful that we're all feeling so strongly about rest_e! A 10/10 is a really great sign, and it makes me feel really good that we're all on the same page about it. I'm happy to go with the flow and trust everyone's positive experiences with it. It sounds like it's going to be a really lovely meal! 😊"
+        },
+        {
+            "agent": "Mia",
+            "message": "My current suggestion is rest_e. Fine, if everyone's already made up their mind about this… 10/10, really? It's almost insulting how much you're all agreeing. I suppose I can concede. Just don't expect me to be thrilled about it. It's not like there are a million other options out there, are there?"
+        }
+    ],
+    "turn_preferences": {
+        "Blair": [
+            "rest_q",
+            "rest_e"
+        ],
+        "Asher": [
+            "rest_i",
+            "rest_e"
+        ],
+        "Olivia": [
+            "rest_u",
+            "rest_e"
+        ],
+        "Morgan": [
+            "rest_s",
+            "rest_e"
+        ],
+        "Lowen": [
+            "rest_e",
+            "rest_e"
+        ],
+        "Mia": [
+            "rest_e",
+            "rest_e"
+        ]
+    },
+    "votes": {
+        "rest_e": 6
+    },
+    "vote_details": [
+        {
+            "agent": "Blair",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Asher",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Olivia",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Morgan",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Lowen",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Mia",
+            "vote": "rest_e"
+        }
+    ],
+    "final_rec": "rest_e",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

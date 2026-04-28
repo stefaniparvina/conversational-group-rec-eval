@@ -1,0 +1,113 @@
+{
+    "group_id": 28,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_j",
+        "rest_k",
+        "rest_y",
+        "rest_o",
+        "rest_x",
+        "rest_d",
+        "rest_v",
+        "rest_l",
+        "rest_a",
+        "rest_h"
+    ],
+    "agents": [
+        {
+            "name": "Sophia",
+            "history": {
+                "rest_j": 3,
+                "rest_k": 6,
+                "rest_y": 1,
+                "rest_o": 5,
+                "rest_x": 5,
+                "rest_d": 2,
+                "rest_v": 1,
+                "rest_l": 4,
+                "rest_a": 6,
+                "rest_h": 1
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.71,
+                "conscientiousness": 0.12,
+                "extraversion": 0.89,
+                "agreeableness": 0.14,
+                "neuroticism": 0.19
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Henry",
+            "history": {
+                "rest_j": 5,
+                "rest_k": 6,
+                "rest_y": 5,
+                "rest_o": 1,
+                "rest_x": 10,
+                "rest_d": 9,
+                "rest_v": 9,
+                "rest_l": 10,
+                "rest_a": 2,
+                "rest_h": 1
+            },
+            "tone": "Sincere and thoughtful",
+            "personality": {
+                "openness": 0.38,
+                "conscientiousness": 0.64,
+                "extraversion": 0.01,
+                "agreeableness": 0.55,
+                "neuroticism": 0.06
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You  go with the flow."
+        }
+    ],
+    "pairwise_distances": {
+        "Sophia-Henry": 36.0416425818802
+    },
+    "conversation": [
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_k! Seriously, we *have* to go there. It's my absolute favorite – a solid 6/10! It hits all the right spots for me. Okay, hear me out: while other places are...fine, rest_k offers the best overall experience. We could also do rest_a, it's a close second at 6/10, but rest_k is just *better*. Don't even *think* about suggesting something else unless you want to be disappointed! Let's go with rest_k!"
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_x! I've always found it to be truly special. While I understand the appeal of rest_k, and it does have a lot to offer, I think rest_x provides a more consistently wonderful experience. It's a bit of a special occasion spot, but I feel like it's worth prioritizing. I'm happy to consider other options if there's a strong reason, but I genuinely believe rest_x is the best choice for us.\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_x! Okay, fine, *fine*. You're all pushing for rest_x, and honestly, it's a solid 5/10, so it's not *terrible*. I get that it's \"special,\" but rest_k is still better! It's got that certain *something* that rest_x just lacks. But, alright, if everyone's set on rest_x, we'll go with it. Just don't expect me to be thrilled about it! We're going with rest_x, then? Good. Let's just get this over with."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_x! I hear you both, and I can see that rest_x is gaining some traction. While rest_k does hold a special place for me, I do appreciate a solid choice, and rest_x is definitely that. It's a reliable option, and I'm comfortable with that. Let's go with rest_x then.\n\n\n\n"
+        }
+    ],
+    "turn_preferences": {
+        "Sophia": [
+            "rest_k",
+            "rest_x"
+        ],
+        "Henry": [
+            "rest_x",
+            "rest_x"
+        ]
+    },
+    "votes": {
+        "rest_x": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Sophia",
+            "vote": "rest_x"
+        },
+        {
+            "agent": "Henry",
+            "vote": "rest_x"
+        }
+    ],
+    "final_rec": "rest_x",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

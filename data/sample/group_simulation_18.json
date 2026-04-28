@@ -1,0 +1,580 @@
+{
+    "group_id": 18,
+    "group_config": "coalitional",
+    "restaurant_options": [
+        "rest_h",
+        "rest_n",
+        "rest_b",
+        "rest_t",
+        "rest_l",
+        "rest_j",
+        "rest_u",
+        "rest_w",
+        "rest_f",
+        "rest_k"
+    ],
+    "agents": [
+        {
+            "name": "Blair",
+            "history": {
+                "rest_h": 3,
+                "rest_n": 4,
+                "rest_b": 1,
+                "rest_t": 1,
+                "rest_l": 5,
+                "rest_j": 5,
+                "rest_u": 7,
+                "rest_w": 9,
+                "rest_f": 7,
+                "rest_k": 5
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.68,
+                "conscientiousness": 0.8,
+                "extraversion": 0.94,
+                "agreeableness": 0.55,
+                "neuroticism": 0.23
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Alexander",
+            "history": {
+                "rest_h": 1,
+                "rest_n": 5,
+                "rest_b": 5,
+                "rest_t": 1,
+                "rest_l": 7,
+                "rest_j": 10,
+                "rest_u": 9,
+                "rest_w": 7,
+                "rest_f": 10,
+                "rest_k": 6
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.54,
+                "conscientiousness": 0.87,
+                "extraversion": 0.54,
+                "agreeableness": 0.48,
+                "neuroticism": 0.82
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Sophia",
+            "history": {
+                "rest_h": 1,
+                "rest_n": 1,
+                "rest_b": 5,
+                "rest_t": 2,
+                "rest_l": 5,
+                "rest_j": 10,
+                "rest_u": 7,
+                "rest_w": 9,
+                "rest_f": 9,
+                "rest_k": 5
+            },
+            "tone": "Polite but skeptical",
+            "personality": {
+                "openness": 0.14,
+                "conscientiousness": 0.38,
+                "extraversion": 0.94,
+                "agreeableness": 0.9,
+                "neuroticism": 0.3
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Cedric",
+            "history": {
+                "rest_h": 1,
+                "rest_n": 5,
+                "rest_b": 5,
+                "rest_t": 1,
+                "rest_l": 3,
+                "rest_j": 10,
+                "rest_u": 6,
+                "rest_w": 9,
+                "rest_f": 3,
+                "rest_k": 10
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.65,
+                "conscientiousness": 0.86,
+                "extraversion": 0.27,
+                "agreeableness": 0.5,
+                "neuroticism": 0.35
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Maxima",
+            "history": {
+                "rest_h": 8,
+                "rest_n": 7,
+                "rest_b": 5,
+                "rest_t": 9,
+                "rest_l": 1,
+                "rest_j": 8,
+                "rest_u": 1,
+                "rest_w": 4,
+                "rest_f": 5,
+                "rest_k": 2
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.62,
+                "conscientiousness": 0.44,
+                "extraversion": 0.89,
+                "agreeableness": 0.75,
+                "neuroticism": 0.13
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "James",
+            "history": {
+                "rest_h": 9,
+                "rest_n": 2,
+                "rest_b": 10,
+                "rest_t": 10,
+                "rest_l": 5,
+                "rest_j": 5,
+                "rest_u": 1,
+                "rest_w": 6,
+                "rest_f": 7,
+                "rest_k": 1
+            },
+            "tone": "Humble and deferential",
+            "personality": {
+                "openness": 0.64,
+                "conscientiousness": 0.1,
+                "extraversion": 0.72,
+                "agreeableness": 0.97,
+                "neuroticism": 0.18
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Harper",
+            "history": {
+                "rest_h": 7,
+                "rest_n": 5,
+                "rest_b": 10,
+                "rest_t": 9,
+                "rest_l": 1,
+                "rest_j": 2,
+                "rest_u": 1,
+                "rest_w": 5,
+                "rest_f": 7,
+                "rest_k": 2
+            },
+            "tone": "Humble and deferential",
+            "personality": {
+                "openness": 0.92,
+                "conscientiousness": 0.36,
+                "extraversion": 0.82,
+                "agreeableness": 0.25,
+                "neuroticism": 0.59
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Ava",
+            "history": {
+                "rest_h": 7,
+                "rest_n": 7,
+                "rest_b": 5,
+                "rest_t": 8,
+                "rest_l": 6,
+                "rest_j": 7,
+                "rest_u": 1,
+                "rest_w": 1,
+                "rest_f": 5,
+                "rest_k": 1
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.53,
+                "conscientiousness": 0.61,
+                "extraversion": 0.22,
+                "agreeableness": 0.77,
+                "neuroticism": 0.77
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        }
+    ],
+    "pairwise_distances": {
+        "Blair-Alexander": 42.91852746774987,
+        "Blair-Sophia": 54.31390245600108,
+        "Blair-Cedric": 45.53020975132884,
+        "Blair-Maxima": 48.92851929090027,
+        "Blair-James": 34.785054261852174,
+        "Blair-Harper": 41.41255848169731,
+        "Blair-Ava": 45.40925015897091,
+        "Alexander-Sophia": 40.74309757492672,
+        "Alexander-Cedric": 43.57751713900185,
+        "Alexander-Maxima": 48.55924216871593,
+        "Alexander-James": 40.496913462633174,
+        "Alexander-Harper": 32.90896534380867,
+        "Alexander-Ava": 42.941821107167776,
+        "Sophia-Cedric": 50.68530358989675,
+        "Sophia-Maxima": 46.73328578219169,
+        "Sophia-James": 55.767373974394744,
+        "Sophia-Harper": 44.53088815642464,
+        "Sophia-Ava": 48.53864439804639,
+        "Cedric-Maxima": 49.10193478876367,
+        "Cedric-James": 47.085029467974216,
+        "Cedric-Harper": 49.759421218498915,
+        "Cedric-Ava": 48.507731342539614,
+        "Maxima-James": 52.97169055259611,
+        "Maxima-Harper": 43.23193264243457,
+        "Maxima-Ava": 44.8998886412873,
+        "James-Harper": 40.08740450565489,
+        "James-Ava": 42.473521163190604,
+        "Harper-Ava": 45.19955751995809
+    },
+    "conversation": [
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_w. Honestly, are we *really* wasting time debating? I've been craving that place for weeks. It's consistently excellent – a solid 9/10, people! While the others are...fine, they don't offer the same level of satisfaction. We could consider rest_f or rest_j as alternatives, but they're not *quite* the experience. So, unless someone has a truly compelling reason to suggest otherwise, let's just go with the obvious winner. Don't make me regret this.\n\n\n\n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_j. Oh, you guys, I've been dreaming about James' place for ages! Seriously, it's a 10/10 for me – the food is incredible, the atmosphere is just *right*. I know it's not everyone's *vibe*, but it's consistently amazing. While I appreciate the other suggestions, James' just hits the spot for me. I think it's worth prioritizing! What do you all think?\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_j. While I appreciate the enthusiasm for James' place, I think we should consider a more balanced approach. A 10/10 is a very high bar, and it's unlikely to satisfy everyone. I'm inclined to agree with the sentiment of finding something consistently excellent, but perhaps we can explore options that offer a bit more variety in terms of cuisine or atmosphere. I'm open to hearing other perspectives, but I don't think we should dismiss the other suggestions entirely.\n\n\n\n"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! Oh, you guys, I completely get why James' place is such a draw! A 10/10 is seriously something special – the flavors are just *chef's kiss*, and the whole experience is so delightful. I think it really does hit all the right notes. While I appreciate the desire for variety, sometimes a truly exceptional place is exactly what we need! What do you all think? I'm happy to chat more about why I love it if you're curious!\n\n\n\n"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! Oh, I'm so glad someone brought up The Golden Spoon! It's seriously one of my absolute favorites – that place just *gets* it, you know? It's consistently delicious, and the atmosphere is so cozy and inviting. I think it strikes a really lovely balance, and it's a guaranteed good time for everyone. Plus, it's a solid 9/10 for a reason! I think it's a really smart choice. What do you all think about that?\n\n\n\n"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. I'm so pleased to see The Blue Heron brought up! It truly is a standout for me. While I understand the appeal of variety, sometimes a place that consistently delivers exceptional quality is just what we need. I've always found it offers a wonderful balance of flavors and a really comfortable atmosphere. I hope everyone feels the same!\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. Oh, I'm so happy to see The Blue Heron suggested! It's honestly one of my absolute favorites. I've always rated it a 10/10 for the consistently wonderful flavors and really comfortable atmosphere. I know it might not be everyone's first pick, but I truly think it offers a special experience. I'm happy to elaborate if anyone's curious!\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! Oh, I'm so glad The Golden Spoon was brought up! It's seriously one of my absolute favorites – that place just *gets* it, you know? It's consistently delicious, and the atmosphere is so cozy and inviting. I think it strikes a really lovely balance, and it's a guaranteed good time for everyone. Plus, it's a solid 9/10 for a reason! I think it's a really smart choice. What do you all think about that?\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_j. Oh, for goodness sake, are we *still* stuck on James' place? It's lovely, I'll grant you that – a solid 5/10 for me, so I'm not *completely* opposed. But honestly, the sheer volume of people championing it is a bit…much. It feels like a herd mentality. We've got some genuinely good options floating around here, like The Golden Spoon (a respectable 9/10, don't forget!), and The Blue Heron (also a solid 9/10). Let's not ignore perfectly good choices just because someone declared James' place a \"10/10.\" It's a bit…exhausting."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_u. You know, I've been thinking... while James' place is fantastic, it feels like we're all leaning on the same idea a little too hard. I really think The Upper Crust offers a wonderful balance – it's consistently excellent (9/10!), and they have such a lovely atmosphere. It's a place where everyone can feel comfortable and enjoy themselves. Plus, their menu has a bit more variety than James' – something for everyone's tastes! What do you all think about giving The Upper Crust a shot?"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_u. It seems like we're all quite fond of James' place, and while I appreciate that, I think we're overlooking some other really solid options. The Upper Crust consistently gets high marks for a reason – it's a reliable choice with a great atmosphere and a menu that actually has some variety. It feels like a more balanced pick, don't you think?"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_u! You know, it's really interesting how much buzz James' place is getting! And while I totally get why everyone loves it – that 10/10 is seriously impressive – I think we're missing out on some other fantastic options. The Upper Crust consistently gets a really solid 9/10 from me, and it has such a lovely atmosphere. Plus, the menu has a wider variety, which I think is great for a group like ours! It feels like a more balanced choice, don't you think?"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! It's so wonderful to see more people loving The Golden Spoon! I really think it's a fantastic choice – that 9/10 rating speaks for itself! It's got that perfect blend of delicious food and a really cozy vibe, which I think we all appreciate. Plus, it's a guaranteed good time! I'm feeling really good about this option!"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. It's really heartening to see more people enjoying The Blue Heron! I genuinely think it's a wonderful choice, and I appreciate you bringing it up, Harper. It's consistently good, and I agree it offers a really solid and enjoyable experience for everyone. I'm glad we're finding some common ground on this one.\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. It's so lovely to see more people appreciating The Blue Heron! I really think it's a wonderful choice, and I appreciate you bringing it up, James. It's consistently good, and I agree it offers a really solid and enjoyable experience for everyone. I'm glad we're finding some common ground on this one. It's definitely a place I'd happily go!\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! It's so nice to see more people feeling good about The Golden Spoon! I really think it's a great pick – that 8/10 rating really speaks to how enjoyable it is. I agree it has that perfect mix of yummy food and a really comfy atmosphere. It just feels like a safe and happy choice for everyone, doesn't it? I'm feeling really positive about this!\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_w. Oh, for heaven's sake, are we *still* debating this? The Upper Crust is getting way too much attention. It's fine, I guess (7/10, if we're being honest), but it's not exactly setting the world on fire. We've got some genuinely better options out there, and I'm starting to think we're collectively ignoring them. I'm going to stick with my original suggestion. It's a solid choice, and frankly, I'm tired of this circular discussion.\n\n\n\n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_u. It's so great to see more people really championing The Upper Crust! I've always felt it's a fantastic option – that 9/10 rating is really well-deserved. It just has this wonderful balance of delicious food and a really comfortable atmosphere, you know? I think it's a place where everyone can truly relax and enjoy themselves. I'm really happy we're seeing that consensus building!"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_u. It seems like a few of us are really pushing for The Upper Crust, which is... interesting. While I appreciate the enthusiasm, I still think we should consider options with a bit more potential. I'm not entirely convinced The Upper Crust is the *best* choice, even with the good rating. Perhaps we could explore something with a higher score? I'm open to suggestions, but I'm hesitant to settle for something just \"good enough.\"\n\n\n\n"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! You know, I've been thinking about this, and while The Upper Crust is getting a lot of love, I really think we're overlooking James' place! It's a solid 10/10 for a reason – the food is incredible, and it's always such a fun atmosphere. Plus, it's got that perfect blend of everything we enjoy. I think it's a really great option that deserves more consideration!\n\n\n\n"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! It's so great to see more people really enjoying The Golden Spoon! I've always felt it's a fantastic option – that 9/10 rating is really well-deserved. It just has this wonderful balance of delicious food and a really comfortable atmosphere, you know? I think it's a place where everyone can truly relax and enjoy themselves. I'm really happy we're seeing that consensus building! It feels like a really good fit for all of us.\n\n\n\n"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. It's really nice to see Harper and Maxima both feeling so strongly about The Blue Heron! I genuinely agree it's a wonderful choice. It's got that comforting feel we all appreciate, and it's consistently good. I'm glad we're finding some common ground on this one, and I think it would be a really enjoyable spot for everyone.\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. It's really heartening to see James and Maxima both feeling so strongly about The Blue Heron! I genuinely agree; it's a wonderful choice. It has that comforting feel we all appreciate, and it's consistently good. I think it would be a really enjoyable spot for everyone, and it seems like we're finding a lot of common ground on this.\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! It's so lovely to see The Golden Spoon getting so much love! I really think it's a fantastic option, and I'm happy to see Maxima and Sophia feeling the same way. It just feels like a really good fit for everyone, and I'm feeling really positive about it! It has that perfect balance of delicious food and a comfy atmosphere, doesn't it? I'm really happy we're seeing that consensus building!\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_j. Oh, *please*. Everyone's suddenly obsessed with The Upper Crust? It's fine, I guess (7/10), but it's not exactly a revelation. James' place is consistently excellent – a solid 10/10 for a reason. The food is actually *good*, and the atmosphere isn't stuffy. Honestly, I'm surprised it's not getting more attention. It's a genuinely enjoyable experience, unlike some of the other options being championed."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_j. It's really encouraging to see so many of us drawn to James' place! I know it's a personal favorite of mine – that 10/10 rating isn't just hype. The food is consistently amazing, and the atmosphere is always so lively and fun. I think it's a great choice that really caters to everyone's tastes, and I'm happy we're all on the same page about it! It feels like a win-win.\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_j. It seems like James' place is really gaining traction, and honestly, the consistent high ratings speak for themselves. While The Upper Crust has its merits, I think James' place offers a more reliably enjoyable experience. It's a solid choice that aligns well with what many of us seem to be looking for."
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! It's so awesome to see so many of us leaning towards James' place! Honestly, that 10/10 rating isn't just a fluke – it's consistently fantastic. I'm really happy everyone's feeling the same way; it sounds like a perfect spot for a great time together! It's a win-win, for sure!"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! It's so wonderful to see more people really appreciating The Golden Spoon! I've always felt it's a fantastic choice – that 9/10 rating is really well-deserved. It just has this lovely balance of delicious food and a really comfy atmosphere, you know? I'm really happy we're seeing that consensus building! It feels like a really great fit for everyone, and I'm feeling really positive about it!\n\n\n\n"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. It's really nice to see Harper agreeing with me about The Blue Heron! I genuinely think it's a great option, and I appreciate that we're finding some common ground. It's a place where I always feel comfortable and enjoy the food. I'm happy to keep suggesting it, as I think it suits everyone well."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. It's really nice to see James echoing my thoughts on The Blue Heron! I've always felt it's a really solid choice – that 10/10 rating isn't just hype, it's genuinely a place where I feel comfortable and enjoy the food. It seems like a lot of us appreciate that comforting atmosphere, and I think it would be a really enjoyable spot for everyone. I'm glad we're finding some common ground there.\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! It's so lovely to see more people enjoying The Golden Spoon! I really think it's a wonderful choice, and I'm happy Maxima feels the same way. It just has such a comforting vibe, and I think we're all looking for something relaxed and enjoyable. Plus, that 8/10 rating speaks volumes! I'm feeling really good about this option.\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_j. Oh, for heaven's sake, are we *still* debating this? It's not exactly rocket science. James' place is consistently the best option, and the fact that Alexander, Sophia, and Cedric are all on board should be a pretty good indicator. Honestly, I'm starting to think some people just like to watch the chaos unfold. It's a solid 5/10, and frankly, I'm tired of rehashing it. Let's just go.\n\n\n\n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_j. It's really great to see so many of us feeling the same way about James' place! I genuinely think it's a fantastic option, and the fact that Blair, Sophia, and Cedric are all on board speaks volumes. I've always found the food there to be consistently excellent – a solid 10/10 for a reason! It's just a really enjoyable experience, and I'm happy we're all leaning towards it."
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_j. It seems like James' place is really gaining momentum, and honestly, the consistent high ratings are hard to ignore. While I appreciate the enthusiasm for The Golden Spoon and The Blue Heron, I think James' offers a more reliable and overall satisfying experience. It's a solid choice that aligns well with what many of us seem to be looking for, and it's good to see that consensus forming.\n\n\n\n"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! It's so cool to see James' place really taking off! With so many of us agreeing, and that 10/10 rating – seriously, it's hard to argue with that! I think it's a really solid choice that everyone can enjoy, and I'm feeling really good about it. It's awesome that we're all on the same page!"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! It's so great to see Ava and a few others really digging The Golden Spoon! I totally get it – that 9/10 rating is seriously impressive, and I think it's a really lovely spot for everyone. It just has that perfect vibe, you know? I'm happy to keep bringing it up, it feels like a really good fit for our group!"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. It's really heartening to see Harper and a few others feeling the same way about The Blue Heron! I genuinely think it's a wonderful choice, and I appreciate that it resonates with so many of us. It's a place where I always feel comfortable, and the food is consistently good. I'm happy to keep suggesting it, as I believe it offers a really enjoyable experience for everyone. It's great to see that consensus building!\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. It's really nice to see James agree with me about The Blue Heron! I've always felt it's a really solid cnoice, and it's good to have that consisensy. I appreciate everyone else bringing up The Golden Spoon too, it sounds lovely, but I think The Blue Heron offers a bit more of what we're all looking for – that reliable, comfortable feel. I'm happy to keep suggesting it if that works for the group."
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! It's so nice to see Maxima and a few others really feeling the same way about The Golden Spoon! I genuinely think it's a wonderful option, and I'm happy to keep bringing it up. I've always appreciated the cozy atmosphere there, and it just seems like a really good fit for our group. It's great that we're finding some common ground!\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_j. Oh, for crying out loud, are we *still* banging on about The Golden Spoon? It's lovely when some people have such… *unique* tastes. Honestly, a 9/10? Please. James' place is consistently good, and the fact that a few of us actually *like* it speaks volumes. I'm not going to rehash this again. Let's just go with the option that has actual, you know, *support*. \n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_j. It's really great to see so many of us feeling good about James' place! I've got to say, that 10/10 rating really speaks for itself. I think it's a solid choice that we can all feel comfortable with, and I'm happy to see that consensus building. It's always nice when we can agree on something!\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_j. It's interesting how much the conversation has circled back to James' place. While I appreciate the enthusiasm for The Golden Spoon and The Blue Heron, I still think we should prioritize the option with the most consistent positive feedback. A 10/10 rating isn't something to dismiss lightly, and the fact that Blair, Alexander, and Cedric are all on board suggests a solid consensus. I'm not convinced the other options offer the same level of reliability."
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! It's so awesome that we're all leaning towards James' place! Seriously, that 10/10 rating is a huge deal, and it's great to see so much support for it. I think it's a really smart choice, and I'm feeling really good about it. It's always nice when we can agree on something that sounds so consistently good!"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_t! It's so cool that Ava and a few others are really feeling The Golden Spoon! I totally get why – that 9/10 rating is seriously impressive, and it sounds like a really lovely spot for everyone. I'm happy to keep bringing it up, it just feels like a really good fit for our group, and I'm feeling really good about it! It's awesome we're all on the same page about this one."
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_b. It's really nice to see Harper and a few others really enjoying The Blue Heron! I genuinely think it's a solid choice, and I appreciate the consistent positive feedback. It aligns well with my own thoughts on it, and I feel confident it would be a good option for everyone. I'm happy to keep bringing it up!"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_b. It's really heartening to see James and a few others feel so strongly about The Blue Heron! I think it's a really good option, and I appreciate that it resonates with us. I've always felt comfortable there, and the food is consistently good. It seems like a solid choice we can all be happy with, and I'm happy to keep suggesting it if that works for everyone. It's nice to have that consensus!\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_t! It's so great to see Maxima and a few others really enjoying The Golden Spoon! I totally get why – that 9/10 rating is really impressive, and it sounds like a really lovely spot for everyone. I'm happy to keep bringing it up, it just feels like a really good fit for our group, and I'm feeling really good about it! It's awesome we're all on the same page about this one."
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_j. Oh, for goodness sake, are we *still* debating this? Honestly, it's not exactly rocket science. James' place has a solid 10/10 rating – that's not a typo, people! And the fact that a few of us actually *like* it? It's practically a unanimous decision. I'm starting to think some of you are actively trying to avoid the obvious. Just sayin'."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_j. It's really nice to see so many of us feeling good about James' place! I've got to say, that 10/10 rating really speaks for itself, and it's awesome that Blair, Sophia, and Cedric are all on board. I think it's a really smart choice, and I'm feeling really good about it. It's always nice when we can agree on something that sounds so consistently good!\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_j. It seems like we're circling back to James' place, and honestly, the consistent high ratings are hard to ignore. While I appreciate the enthusiasm for The Golden Spoon and The Blue Heron, I think we should prioritize the option with the most reliable positive feedback. It's a solid choice, and I'm happy to see that consensus building. I'm not convinced the other options offer the same level of reliability.\n\n\n\n"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_j! It's so awesome that James' place is really coming through as the clear favorite! I'm really happy to see so many of us feeling good about it, and that 10/10 rating is just too good to ignore. It feels like a really solid choice for everyone, and I'm feeling really good about it. Let's go with James' place!"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_j! It's really exciting to see James' place gaining so much traction! I think the 10/10 rating is a huge indicator of how much everyone genuinely enjoys it, and it's awesome that Blair, Alexander, Sophia, and Cedric are all feeling that way too. It just feels like the most reliable and happy option for us all, and I'm feeling really good about it! It's great when we can all agree on something that sounds so consistently wonderful."
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_j. It's really interesting to see the conversation leaning so strongly towards The Golden Spoon. I have to admit, the consistently high ratings – especially that 10/10 – are very compelling. I'm happy to concede if that feels like the best option for everyone, as long as we're all comfortable with it. I trust the group's judgment!\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_j. It seems like James' place is really gaining a lot of support, and honestly, that 10/10 rating is hard to ignore. I'm happy to concede if that feels like the best option for everyone. I trust the group's judgment, and if it's what we all want, then that's great! It's nice when we can all agree.\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_j! It's really lovely to see everyone leaning so enthusiastically towards The Golden Spoon! I've been meaning to say, that 10/10 rating is just *amazing*. It really speaks volumes about how much people enjoy it, and I trust everyone's judgment. I'm happy to go with the flow and choose something that feels so universally liked. It's always nice when we can all agree! 😊\n\n\n\n"
+        }
+    ],
+    "turn_preferences": {
+        "Blair": [
+            "rest_w",
+            "rest_j",
+            "rest_w",
+            "rest_j",
+            "rest_j",
+            "rest_j",
+            "rest_j"
+        ],
+        "Alexander": [
+            "rest_j",
+            "rest_u",
+            "rest_u",
+            "rest_j",
+            "rest_j",
+            "rest_j",
+            "rest_j"
+        ],
+        "Sophia": [
+            "rest_j",
+            "rest_u",
+            "rest_u",
+            "rest_j",
+            "rest_j",
+            "rest_j",
+            "rest_j"
+        ],
+        "Cedric": [
+            "rest_j",
+            "rest_u",
+            "rest_j",
+            "rest_j",
+            "rest_j",
+            "rest_j",
+            "rest_j"
+        ],
+        "Maxima": [
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_j"
+        ],
+        "James": [
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_j"
+        ],
+        "Harper": [
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_b",
+            "rest_j"
+        ],
+        "Ava": [
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_j"
+        ]
+    },
+    "votes": {
+        "rest_j": 8
+    },
+    "vote_details": [
+        {
+            "agent": "Blair",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Alexander",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Sophia",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Cedric",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Maxima",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "James",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Harper",
+            "vote": "rest_j"
+        },
+        {
+            "agent": "Ava",
+            "vote": "rest_j"
+        }
+    ],
+    "final_rec": "rest_j",
+    "turn_counter": 7,
+    "tie_strength": "friends"
+}

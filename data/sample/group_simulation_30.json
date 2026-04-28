@@ -1,0 +1,579 @@
+{
+    "group_id": 30,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_h",
+        "rest_a",
+        "rest_i",
+        "rest_x",
+        "rest_n",
+        "rest_c",
+        "rest_k",
+        "rest_t",
+        "rest_r",
+        "rest_u"
+    ],
+    "agents": [
+        {
+            "name": "Cameron",
+            "history": {
+                "rest_h": 1,
+                "rest_a": 5,
+                "rest_i": 1,
+                "rest_x": 9,
+                "rest_n": 6,
+                "rest_c": 5,
+                "rest_k": 3,
+                "rest_t": 6,
+                "rest_r": 3,
+                "rest_u": 5
+            },
+            "tone": "Anxious and defensive",
+            "personality": {
+                "openness": 0.07,
+                "conscientiousness": 0.53,
+                "extraversion": 0.65,
+                "agreeableness": 0.31,
+                "neuroticism": 0.35
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Charlotte",
+            "history": {
+                "rest_h": 10,
+                "rest_a": 1,
+                "rest_i": 10,
+                "rest_x": 3,
+                "rest_n": 6,
+                "rest_c": 2,
+                "rest_k": 8,
+                "rest_t": 5,
+                "rest_r": 1,
+                "rest_u": 5
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.52,
+                "conscientiousness": 0.1,
+                "extraversion": 0.5,
+                "agreeableness": 0.74,
+                "neuroticism": 0.19
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Amelia",
+            "history": {
+                "rest_h": 9,
+                "rest_a": 8,
+                "rest_i": 5,
+                "rest_x": 10,
+                "rest_n": 1,
+                "rest_c": 8,
+                "rest_k": 5,
+                "rest_t": 1,
+                "rest_r": 9,
+                "rest_u": 10
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.38,
+                "conscientiousness": 0.74,
+                "extraversion": 0.15,
+                "agreeableness": 0.23,
+                "neuroticism": 0.69
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Noah",
+            "history": {
+                "rest_h": 8,
+                "rest_a": 7,
+                "rest_i": 10,
+                "rest_x": 3,
+                "rest_n": 5,
+                "rest_c": 10,
+                "rest_k": 1,
+                "rest_t": 5,
+                "rest_r": 10,
+                "rest_u": 1
+            },
+            "tone": "Sincere and thoughtful",
+            "personality": {
+                "openness": 0.78,
+                "conscientiousness": 0.5,
+                "extraversion": 0.53,
+                "agreeableness": 0.61,
+                "neuroticism": 0.91
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Cameron-Charlotte": 46.4327470649756,
+        "Cameron-Amelia": 46.3033476111609,
+        "Cameron-Noah": 43.15089802078283,
+        "Charlotte-Amelia": 47.60252094164762,
+        "Charlotte-Noah": 47.43416490252569,
+        "Amelia-Noah": 46.71188285650665
+    },
+    "conversation": [
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, look, I know we're trying to decide, and I really think we should go with that place. It's my absolute favorite! It's got a 9/10 rating for a reason. Seriously, the atmosphere is perfect, and the food is incredible. I know it's a bit of a specific choice, but it really hits all the right spots for me. Are you sure you don't want to at least consider it? I'm just saying, it's *really* good.\n\n\n\n"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_h. Oh, you guys! I'm so excited you're open to suggestions! Honestly, I think we *have* to go to that place – it's my absolute favorite! I've given it a solid 10/10, and it just *gets* me, you know? It's got everything: amazing food, a super cozy vibe, and it's always a delightful experience. I know it's not everyone's cup of tea, but I truly believe it'll be a wonderful choice for all of us! What do you all think?\n\n\n\n"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Oh my gosh, seriously, you guys HAVE to try it! I've been raving about that place for ages – it's a solid 10/10 for me! The whole vibe is just *chef's kiss*, and the food? Forget about it! It's unlike anything else around. I know it's a little out there, but trust me, it'll be an amazing experience. What do you think? Don't let the initial impression fool you! ✨\n\n\n\n"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. I'm really glad Charlotte brought up that place! It's honestly one of my absolute favorites. I know it might not be for everyone, but the atmosphere is so comforting and the food is just... *chef's kiss*. I think it has a really special quality that we all appreciate, and it's worth considering. What do you all think about giving it a shot?\n\n\n\n"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's good that Amelia likes it too! I just... I really think it's the best option. It's got that amazing quality, you know? And honestly, I've heard such great things about the food there. I'm just a little worried about going with something that hasn't gotten as much buzz. But if you guys are leaning towards it, then yeah, let's do it! I'm just saying, it's a really solid choice."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. Oh wow, it seems like we're all really leaning towards rest_x and rest_i! I'm so happy to see everyone excited about good food and a great atmosphere. While I do love rest_h, and it's still a fantastic option for me, it sounds like rest_x and rest_i are hitting the spot for the group right now. Let's go with what everyone's feeling! It'll be a blast! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Oh my gosh, it's so awesome that more people are feeling the same way about it! I'm seriously thrilled! I know it's a really special place, and I think we're going to have such a great time there. The atmosphere is just *perfect*, and the food is out of this world! I'm so happy we're on the same page about this one! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte and Amelia feeling so strongly about rest_i too! I genuinely think it's a fantastic choice. I know it might not be everyone's first pick, but the atmosphere and food are just so special. It's one of those places that really leaves a positive feeling, you know? I'm happy we're all on the same page about this one."
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really good that Amelia is on board with this! I just... I really think it's going to be the best option for us. I know it's not everyone's *absolute* favorite, but it's got that amazing quality, you know? And honestly, I've heard such great things about the food there. I'm just a little worried if we switch to something else now, but if you guys are feeling it, then yeah, let's do it! I'm just saying, it's a really solid choice."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. Oh my goodness, it's so wonderful that Noaah and Amelia are feeling so strongly about rest_i too! It really warms my heart to see such enthusiasm for a place I adore. I think it has a really special charm that we all appreciate, and it's definitely worth giving a shot! It sounds like we're all on the same page, which is just fantastic! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Oh my gosh, it's so awesome that Cameron is feeling the same way about it! I'm seriously so excited – I think it's going to be such a blast! I know it's not *everyone's* top pick, but the vibe is just *chef's kiss*, and the food is seriously amazing. Plus, it's got that special something, you know? I'm really happy we're all on the same page about this! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see Charlotte still feeling so strongly about rest_i! Honestly, I think it's a really great option for all of us. I know rest_x has been getting a lot of buzz, but the atmosphere at rest_i is just so comforting, and the food is truly something special. It's one of those places that just makes you feel good, you know? I think that's really valuable when we're all hanging out.\n\n\n\n"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really good that Amelia is feeling so strongly about it! I'm just... I really think it's the best option, you know? I've heard such amazing things about the food there, and the atmosphere is just *perfect*. I'm a little worried if we switch now, but if you guys are all for it, then yeah, let's go with rest_x! I'm just saying, it's a really solid choice. I'm glad we're finally on the same page about this one! 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so lovely to see Noaah still feeling good about rest_i! I totally get why you like it – it's got such a cozy vibe, and honestly, the food is just *chef's kiss*. Plus, it's always a good idea to have a backup plan, right? It's great we're considering options that everyone enjoys! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Oh my gosh, it's seriously looking like rest_x is the winner! I'm so happy everyone's feeling that way – it's such a fantastic spot! I know rest_i is lovely, and Charlotte and Noaah clearly adore it, but honestly, rest_x just has *everything*! The food is incredible, the atmosphere is perfect, and it's just... *vibey*, you know? I'm so excited for us to go there! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see Charlotte still so enthusiastic about rest_i! I have to admit, I'm leaning that way too. It's just... there's a certain warmth to it that I really appreciate, and the food is consistently good. Plus, it feels like a place where we can all genuinely relax and enjoy each other's company, which is what I value most in a get-together. I think it's a solid choice that caters to everyone's preferences."
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really good that Amelia is on board with this! I just... I really think it's going to be the best option for us, you know? I know rest_i is lovely and Noaah and Charlotte really like it, but honestly, rest_x just has *everything*. The food is incredible, and the atmosphere is perfect. I'm just a little worried if we switch now, but if you guys are all for it, then yeah, let's go with rest_x! I'm just saying, it's a really solid choice. I'm glad we're finally on the same page about this one! 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. Oh, wow! It's so cool that rest_x is getting so much love! I'm really happy for it, honestly. But you know, I still think rest_i has a special something that makes it perfect for *us*. It's got that cozy feel, and the food is just *chef's kiss*! Plus, it's a place where we can all truly relax and enjoy each other's company, which is what I value most. I'm glad we're considering options that cater to everyone's preferences! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Seriously, it's so awesome that Cameron is feeling the same way! I'm just so thrilled that we're all leaning towards rest_x – it's got *everything*! I know rest_i is lovely, and I really do appreciate that, but rest_x just has that extra *spark*, you know? The food is incredible, the atmosphere is perfect, and it's just... *chef's kiss*! I think it's going to be such a fun night! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte still so passionate about rest_i! I have to admit, I'm feeling that way too. There's just a certain comfort and warmth there that I really value in a get-together. Plus, the food is consistently excellent – it's a place where we can all truly relax and enjoy each other's company. I think it's a really thoughtful choice that considers everyone's preferences."
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really good that Amelia is feeling so strongly about this! I'm just... I really think it's the best option, you know? I've heard such amazing things about the food there, and the atmosphere is just *perfect*. I'm a little worried if we switch now, but if you guys are all for it, then yeah, let's go with rest_x! I'm just saying, it's a really solid choice. I'm glad we're finally on the same page about this one! 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so nice to see Noaah still feeling good about rest_i! I totally get why you like it – it's got such a cozy vibe, and honestly, the food is just *chef's kiss*. Plus, it's a always a good idea to have a backup plan, right? It's great we're considering options that everyone enjoys! 😊 I'm happy to keep chatting about it if you guys want!"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's really awesome that Cameron is feeling so strongly about rest_x! I'm just... I really think it's the best option, you know? I've heard such amazing things about the food there, and the atmosphere is just *perfect*. I'm a little worried if we switch now, but if you guys are all for it, then yeah, let's go with rest_x! I'm just saying, it's a really solid choice. I'm glad we're finally on the same page about this one! 😊 I'm so excited!"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see rest_x getting so much attention, and I appreciate that everyone's excited! But honestly, I still feel like rest_i offers something special for us. I value that cozy atmosphere and the consistently great food – it just makes for a more relaxed and enjoyable time together, don't you think? I'm happy to go with the flow if everyone else feels strongly about rest_x, but I wanted to reiterate why I think rest_i is a solid choice too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really good that Amelia is feeling so strongly about this! I'm just... I really think it's the best option, you know? I've heard such amazing things about the food there, and the atmosphere is just *perfect*. I'm a little worried if we switch now, but if you guys are all for it, then yeah, let's go with rest_x! I'm just saying, it's a really solid choice. I'm glad we're finally on the same page about this one! 😊 It'll be fun!"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. Wow, it's really cool how much everyone is digging rest_x! I totally get the appeal – the food sounds amazing! But you know, I still think rest_i has a special charm that makes it perfect for *us*. It's got that cozy feel, and the food is just *chef's kiss*! Plus, it's a place where we can truly relax and enjoy each other's compaany, which is what I value most. If everyone's happy with rest_x, then awesome! But I wanted to make sure we acknowledged how much I love rest_i too! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's *so* cool that Cameron is totally on board with rest_x! I'm just saying, I think it's the *perfect* choice! I mean, the ratings are incredible – seriously, a 10! And everyone's been raving about the food and the vibe. I know Charlotte and Noaah love rest_i, and that's awesome, but sometimes it's good to try something new, right? Plus, it'll be so much fun to experience something different together! 😄 I'm really excited about this!"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see rest_x getting so much love, and I appreciate that! But honestly, I still feel like rest_i offers something really special for us as a group. I value that cozy atmosphere and the consistently great food – it just makes for a more relaxed and enjoyable time together, don't you think? I'm happy to go with the flow if everyone's happy with rest_x, but I wanted to reiterate how much I love rest_i too. 😊 It's just... it feels like *us*, you know?"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really great that Amelia is feeling so strongly about rest_x! I'm just... I really think it's the best option, you know? I've heard such amazing things about the food there, and the atmosphere is just *perfect*. It's a solid choice, and honestly, I'm glad we're leaning that way. I'm a little worried about switching now, but if everyone else is happy, then yeah, let's go with rest_x! 😊 It'll be fun!"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting so much love, guys! I totally get why Cameron and Amelia are excited – the ratings are amazing! But you know, I still feel like rest_i offers something really special for *us*. It's got that cozy vibe, and the food is just *chef's kiss*! Plus, it's a place where we can truly relax and enjoy each other's compaany, which is what I value most. If everyone's happy with rest_x, then awesome! But I wanted to reiterate how much I love rest_i too. 😊 It's just... it feels like *us*, you know?"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously awesome that Cameron is so into rest_x! And honestly, the ratings are insane – a 10?! That's practically a guarantee of a good time! I'm starting to think everyone's right about this one. I'm happy to go with the flow if you guys are all feeling it, because a solid choice is always a good thing! Plus, it'll be so much fun to try something new! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really interesting to see the conversation shift towards rest_x! I appreciate that Cameron and Amelia are so enthusiastic about it – the ratings are definitely impressive. But honestly, I still feel a strong pull towards rest_i. It just feels like the place where we can all truly unwind and connect, you know? Plus, the atmosphere is so comforting, and I really value that. If everyone else is happy with rest_x, then that's great! But I wanted to make sure my preference for rest_i was voiced too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really cool that Amelia is so sure about rest_x! I... I guess it does sound amazing, and the ratings are insane. I'm just... a little worried about not giving it enough thought, you know? But if everyone else is really feeling it, then yeah, let's go with rest_x. I just... hope it's good! 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting all the hype! I totally get why Cameron and Amelia are so excited – a 10 rating is seriously impressive! But you know, I still feel like rest_i offers something really special for *us*. It's got that cozy vibe, and the food is just *chef's kiss*! Plus, it's a place where we can truly relax and enjoy each other's company, which is what I value most. If everyone else is happy with rest_x, then awesome! But I wanted to make sure my preference for rest_i was voiced too. 😊 It's just... it feels like *us*, you know?"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously awesome that Cameron is so on board with rest_x! And honestly, the ratings are insane – a 10?! That's practically a guarantee of a good time! I'm starting to think everyone's right about this one. I'm happy to go with the flow if you guys are all feeling it, because a solid choice is always a good thing! Plus, it'll be so much fun to try something new! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see the conversation leaning towards rest_x, and I appreciate that Cameron and Amelia are so enthusiastic about it! The ratings are definitely impressive. But honestly, I still feel like rest_i offers something really special for *us*. It's got that cozy vibe, and the food is just *chef's kiss*! Plus, it's a place where we can truly relax and enjoy each other's company, which is what I value most. If everyone else is happy with rest_x, then awesome! But I wanted to make sure my preference for rest_i was voiced too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really cool that Amelia is so set on rest_x! And the ratings *are* insane – a 10 is a huge deal. I... I guess I'm okay with it, if everyone else is happy. It just feels like we're all leaning that way now, and I don't want to be the one holding things up. Plus, a good rating is always a good thing, right? 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting so much love, guys! And a 10 rating? Seriously, that's a huge deal! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestly, my gut is really telling me that's where we'll have the best time. 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously awesome that Cameron is so set on rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really interesting to see the conversation shift towards rest_x, and I appreciate that Amelia and Cameron are so enthusiastic about it! The ratings are definitely impressive. But honestly, I still feel like rest_i offers something really special for *us*. It's got that cozy vibe, and the food is just *chef's kiss*! Plus, it's a place where we can truly relax and enjoy each other's company, which is what I value most. It's nice that Charlotte feels the same way too! If everyone else is happy with rest_x, then awesome! But I wanted to make sure my preference for rest_i was voiced too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, it's really cool that Amelia is so sure about rest_x! And honestly, a 10 rating is... a big deal. I guess I'm okay with it, if everyone else is feeling it. It just feels like we're all leaning that way now, and I don't want to be the one slowing things down. Plus, a good rating is always good, right? 😊 I'm just... relieved we can agree on something!"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much attention, guys! And a 10 rating? Seriously, that's a huge deal! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestly, my gut is really telling me that's where we'll have the best time. 😊 It's nice that Noaah feels the same way too! I think we should really consider what *we* want, and rest_i just ticks all the boxes for us."
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestly, a good rating is a good rating! Let's do it!"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte and Amelia championing rest_i! I know it's got a special place in all of our hearts, and honestly, the thought of sharing that with everyone feels really good. Plus, my gut is screaming that it'll be the most enjoyable experience for *us*. If we're all on board, that's fantastic! 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it seems like rest_x is really gaining traction, and Amelia's definitely a big fan! And a 10 rating? That's... that's seriously impressive. I guess... I guess I'm okay with going with rest_x if everyone else is happy. It's just... I don't want to rock the boat or anything. Plus, a good rating is a good rating, right? I just... hope it's a good time for everyone. 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting so much love, guys! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestlly, my gut is really telling me that's where we'll have the best time. 😊 It's nice that Noaah feels the same way too! I think we should really consider what *we* want, and rest_i just ticks all the boxes for us."
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously awesome that Cameron is so set on rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestly, a good rating is a good rating! Let's do it!"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really interesting to see the conversation leaning towards rest_x, and I appreciate Amelia and Cameron's enthusiasm! But honestly, I still feel strongly about rest_i. It's got that special something, and my gut is telling me it'll be the most enjoyable experience for us. Plus, Charlotte agrees, which is always a good sign! I think we should really consider what *we* want, and rest_i just feels like the best fit. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it seems like rest_x is really gaining traction, and Amelia's definitely a big fan! And a 10 rating? That's practically a guarantee of a good time! I guess... I guess I'm okay with going with rest_x if everyone else is happy. It's just... I don't want to rock the boat or anythin'. Plus, a good rating is a good rating, right? I just... hope it's a good time for everyone. 😊\n\n\n\n"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much attention, guys! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestlly, my gut is really telling me that's where we'll have the best time. 😊 It's nice that Noaah agrees too! I think we should really consider what *we* want, and rest_i just ticks all the boxes for us. I'm really feeling good about this! 😄"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, it's seriously cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, a good rating is a good rating! Let's do it! It's awesome that we're all agreeing! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte's enthusiasm for rest_i, and I have to agree – it's a place that just *gets* us, you know? I know rest_x has a good rating, but honestly, the atmosphere and the overall vibe of rest_i are what I value most. Plus, my gut is really pulling me towards it. 😊 I think we'll have a much better time if we go with what we know we all enjoy."
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it seems like rest_x is really gaining traction, and Amelia's definitely a big fan! And a 10 rating? That's practically a guarantee of a good time! I guess... I guess I'm okay with going with rest_x if everyone else is happy. It's just... I don't want to rock the boat or anythin'. Plus, a good rating is a good rating, right? I just... hope it's a good time for everyone. 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting so much love, guys! And a 10 rating? That's practically a guarantee of a good time! I'm totallly happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestlly, my gut is really telling me that's where we'll have the best time. 😊 It's nice that Noaah agrees too! I think we should really consider what *we* want, and rest_i just ticks all the boxes for us. I'm really feeling good about this! 😄"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's seriously awesome that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid cvoiice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, a good rating is a good rating! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see Charlotte and me both feeling so strongly about rest_i! I know rest_x has a good rating, but honestly, the atmosphere and the overall experience at rest_i just resonate with me more. Plus, it's a place where we can all truly relax and connect. I think that's what matters most, right? 😊 I'm really glad we're all on the same page about this one!"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it seems like rest_x is really gaining traction, and Amelia's definitely a big fan! And a 10 rating? That's practically a guarantee of a good time! I guess... I guess I'm okay with going with rest_x if everyone else is happy. It's just... I don't want to rock the boat or anything. Plus, a good rating is a good rating, right? I just... hope it's a good time for everyone. 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much attention, guys! And a 10 rating? That's practically a guarantee of a good time! I'm totallly happy to go with the flow if everyone else is feeling it – a solid cvoiice is a good thing! But I also really want to reiterate how much I love rest_i. It just feels like *us*, you know? And honestlly, my gut is really telling me that's where we'll have the best time. 😊 It's nice that Noaah agrees too! I think we should really consider what *we* want, and rest_i just ticks all the boxes for us. I'm really feeling good about this! 😄"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's seriously awesome that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestly, a good rating is a good rating! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see Charlotte and Amelia both championing rest_x, and I get that a 10 rating is super appealing! But honestly, I'm still leaning towards rest_i. It just feels like it aligns better with what we all appreciate – a comfortable atmosphere and good food. I think we'll have a more relaxed and enjoyable time there. 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too."
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it's really cool that Amelia is so keen on rest_x! And a 10 rating? Seriously, that's hard to ignore. I... I guess I'm okay with it if everyone else is really set on it. It just feels like a safer bet, you know? I don't want things to get awkward if we don't all love it. Plus, that rating is seriously impressive! 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting all this buzz, guys! And a 10 rating? Seriously impressive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can all truly relax and connect, and honestly, that's what matters most to me. I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too! 😊 I think it'll be a really enjoyable time for everyone. 😄"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's seriously awesome that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is always a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestly, that rating is seriously impressive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte and Amelia both really feeling the pull towards rest_i! And honestly, with my own rating for it being so high, I can't help but feel like it's the best option for us. I think we'd all genuinely enjoy ourselves there. I'm happy to let Cameron decide if he's still leaning towards rest_x, but I really think rest_i is where we'll have the most fun. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it seems like rest_x is really gaining momentum, and Amelia's definitely a big supporter! And a 10 rating? That's... that's really hard to argue with, right? I guess... I guess I'm okay with it. It just feels... safer, somehow. I don't want things to get weird if we don't all love it. Plus, that rating is seriously impressive! 😊 I'm glad everyone else is feeling it too."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much love, guys! And a 10 rating? That's seriously impressive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestly, that's what matters most to me. Noaah gets it too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too! I think we'd all genuinely enjoy ourselves there. 😄"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's really cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid cvoiice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, that rating is seriously impressiive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see rest_x getting so much support, and I know a 10 rating is a big deal! But honestly, I still feel like rest_i is the best choice for us. It's a place where we can all truly relax and connect, and that's what I value most in a friend gathering. Charlotte gets that too, right? I'm happy to go with the flow if everyone else is really set on rest_x, but I wanted to reiterate why I feel rest_i is a great option too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it's really cool that Amelia is so set on rest_x! And a 10 rating? Seriously, that's a huge deal. I... I guess I'm still a little hesitant, but if everyone else really feels strongly about it, then... then it's probably best. I just don't want to mess things up if it's not what we all want. 😊 I trust your judgment, guys."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting all the hype, guys! And a 10 rating? That's seriously impressive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestly, that's what matters most to me. Noaah gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too! I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun!"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's really cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid cvoiice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, that rating is seriously impressiive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really nice to see rest_x getting so much love, guys! And a 10 rating? That's seriously impressive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestly, that's what matters most to me. Charlotte gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too. I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun!"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it's really cool that Amelia is pushing for rest_x! And a 10 rating? Seriously, that's... that's a really strong argument. I guess... I guess I'm okay with it. It just feels like a safer bet, you know? I don't want things to get weird if we don't all love it. Plus, that rating is... it's really impressive. I'm glad Amelia is feeling it too! 😊 It's good to have a solid choice."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much love, guys! And a 10 rating? That's seriouslly impressiive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestlly, that's what matters most to me. Noaah gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too! I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's really cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid cvoiice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, that rating is seriouslly impressiive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really interesting to see the push for rest_x, and I appreciate that Amelia and Cameron are so enthusiastic about it! But honestly, I still feel really strongly about rest_i. It consistently gets such high ratings for a reason – it's just a place where I feel like we can all truly be ourselves and connect. Plus, it's got that cozy atmosphere we all enjoy. I'm happy to try rest_x if everyone's really set on it, but I think rest_i offers the best overall experience for our group. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it's really cool that Amelia is so set on rest_x! And a 10 rating? Seriously, that's... that's a really strong argument. I guess... I guess I'm okay with it. It just feels like a safer bet, you know? I don't want things to get weird if we don't all love it. Plus, that rating is... it's really impressive. I'm glad Amelia is feeling it too! 😊 It's good to have a solid choice. I'm not gonna fight it anymore, if everyone else is leaning that way. Just... just hope it's good, okay? 😊"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so cool that rest_x is getting so much love, guys! And a 10 rating? That's seriously impressive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestly, that's what matters most to me. Noaah gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I feel rest_i is a great option too. I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's really cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestly, that rating is seriously impressive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really heartening to see Charlotte and Amelia both really championing rest_x! And that 10 rating is seriously hard to ignore. I get the appeal – it sounds like a really fun night out. But, honestly, I still feel a strong pull towards rest_i. It just feels like the best fit for *us*, you know? It's where I feel most comfortable and connected. I'm happy to go with the flow if everyone else is really set on rest_x, but I wanted to reiterate why I think rest_i is such a great option too. 😊"
+        },
+        {
+            "agent": "Cameron",
+            "message": "My current suggestion is rest_x. Okay, so it's really cool that Amelia is pushing for rest_x! And a 10 rating? That's... that's a really strong argument, I guess. I'm still a little hesitant, you know? I just... I don't want things to be weird if it's not *really* for everyone. But if Amelia and Charlotte are both feeling it, and that rating is *that* high... okay. Fine. I'm willing to try it. Just... just promise me it won't be too... *much*? 😊 I'm trying to be okay with this, really I am."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. It's so awesome that rest_x is getting so much love, guys! And a 10 rating? That's seriouslly impressiive! But, you know how much I love rest_i – it just *gets* us, right? It's a place where we can truly relax and connect, and honestlly, that's what matters most to me. Noaah gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I think rest_i is such a great option too. I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_x! Okay, so it's really cool that Cameron is so on board with rest_x! And a 10 rating? That's practically a guarantee of a good time! I'm totally happy to go with the flow if everyone else is feeling it – a solid choice is a good thing! Plus, I'm kinda excited to try it out! 😄 It sounds like we're all leaning that way, and honestlly, that rating is seriouslly impressiive! Let's do it! I'm really feeling good about this! 😊"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. It's really interesting to see the conversation leaning towards rest_x, and I appreciate Amelia and Cameron's enthusiasm! But, honestly, I still feel really strongly about rest_i. It consistently gets such high ratings for a reason – it just *gets* us, right? It's a place where I feel like we can truly relax and connect, and that's what matters most to me. Charlotte gets that too! 😊 I'm happy to go with the flow if the group really wants to try rest_x, but I wanted to reiterate why I think rest_i is a great option too. I think we'd all genuinely enjoy ourselves there. 😄 It would be so fun! 😊"
+        }
+    ],
+    "turn_preferences": {
+        "Cameron": [
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x"
+        ],
+        "Charlotte": [
+            "rest_h",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i"
+        ],
+        "Amelia": [
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x",
+            "rest_x"
+        ],
+        "Noah": [
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i",
+            "rest_i"
+        ]
+    },
+    "votes": {
+        "rest_x": 2,
+        "rest_i": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Cameron",
+            "vote": "rest_x"
+        },
+        {
+            "agent": "Charlotte",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Amelia",
+            "vote": "rest_x"
+        },
+        {
+            "agent": "Noah",
+            "vote": "rest_i"
+        }
+    ],
+    "final_rec": "NO CONSENSUS REACHED",
+    "turn_counter": 21,
+    "tie_strength": "friends"
+}

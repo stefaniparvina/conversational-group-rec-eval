@@ -1,0 +1,288 @@
+{
+    "group_id": 10,
+    "group_config": "coalitional",
+    "restaurant_options": [
+        "rest_r",
+        "rest_v",
+        "rest_m",
+        "rest_i",
+        "rest_a",
+        "rest_w",
+        "rest_c",
+        "rest_f",
+        "rest_s",
+        "rest_g"
+    ],
+    "agents": [
+        {
+            "name": "William",
+            "history": {
+                "rest_r": 5,
+                "rest_v": 5,
+                "rest_m": 5,
+                "rest_i": 3,
+                "rest_a": 1,
+                "rest_w": 4,
+                "rest_c": 6,
+                "rest_f": 3,
+                "rest_s": 7,
+                "rest_g": 1
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.04,
+                "conscientiousness": 0.88,
+                "extraversion": 0.03,
+                "agreeableness": 0.82,
+                "neuroticism": 0.68
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You push your favorites and do not give up easily.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Alexander",
+            "history": {
+                "rest_r": 5,
+                "rest_v": 1,
+                "rest_m": 5,
+                "rest_i": 3,
+                "rest_a": 3,
+                "rest_w": 7,
+                "rest_c": 9,
+                "rest_f": 1,
+                "rest_s": 4,
+                "rest_g": 5
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.66,
+                "conscientiousness": 0.51,
+                "extraversion": 0.37,
+                "agreeableness": 0.49,
+                "neuroticism": 0.42
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Homer",
+            "history": {
+                "rest_r": 5,
+                "rest_v": 8,
+                "rest_m": 6,
+                "rest_i": 1,
+                "rest_a": 1,
+                "rest_w": 1,
+                "rest_c": 9,
+                "rest_f": 4,
+                "rest_s": 5,
+                "rest_g": 9
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.87,
+                "conscientiousness": 0.68,
+                "extraversion": 0.77,
+                "agreeableness": 0.56,
+                "neuroticism": 0.93
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Emma",
+            "history": {
+                "rest_r": 4,
+                "rest_v": 1,
+                "rest_m": 4,
+                "rest_i": 10,
+                "rest_a": 9,
+                "rest_w": 5,
+                "rest_c": 1,
+                "rest_f": 9,
+                "rest_s": 9,
+                "rest_g": 5
+            },
+            "tone": "Humble and deferential",
+            "personality": {
+                "openness": 0.15,
+                "conscientiousness": 0.04,
+                "extraversion": 0.76,
+                "agreeableness": 0.51,
+                "neuroticism": 0.36
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Sophia",
+            "history": {
+                "rest_r": 1,
+                "rest_v": 5,
+                "rest_m": 2,
+                "rest_i": 7,
+                "rest_a": 10,
+                "rest_w": 6,
+                "rest_c": 1,
+                "rest_f": 8,
+                "rest_s": 3,
+                "rest_g": 5
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.91,
+                "conscientiousness": 0.74,
+                "extraversion": 0.98,
+                "agreeableness": 0.37,
+                "neuroticism": 0.39
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Mickey",
+            "history": {
+                "rest_r": 5,
+                "rest_v": 1,
+                "rest_m": 5,
+                "rest_i": 10,
+                "rest_a": 10,
+                "rest_w": 1,
+                "rest_c": 2,
+                "rest_f": 7,
+                "rest_s": 6,
+                "rest_g": 9
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.85,
+                "conscientiousness": 0.2,
+                "extraversion": 0.44,
+                "agreeableness": 0.49,
+                "neuroticism": 0.46
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "William-Alexander": 49.90991885387112,
+        "William-Homer": 50.17967716117751,
+        "William-Emma": 39.44616584663204,
+        "William-Sophia": 41.97618372363071,
+        "William-Mickey": 40.45985664828782,
+        "Alexander-Homer": 47.29693436154187,
+        "Alexander-Emma": 37.589892258425,
+        "Alexander-Sophia": 36.89173349139343,
+        "Alexander-Mickey": 49.25444142409901,
+        "Homer-Emma": 35.66510900025401,
+        "Homer-Sophia": 45.8257569495584,
+        "Homer-Mickey": 39.91240408695021,
+        "Emma-Sophia": 43.9089968002003,
+        "Emma-Mickey": 41.24318125460256,
+        "Sophia-Mickey": 35.90264614203248
+    },
+    "conversation": [
+        {
+            "agent": "William",
+            "message": "My current suggestion is rest_s. Honestly, after all this deliberation, it's the only sensible choice. Seven out of ten! That's practically glowing in the current culinary landscape. While the others... well, let's just say I'm not *thrilled* with the alternatives. It's got the right balance of everything, you know? I'm not going to keep pushing for something less than optimal. So, are we agreed? Or are we going to debate the merits of, say, a *gourmet* establishment? Please.\n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_c. I have to admit, I'm quite partial to that place. It just *gets* it, you know? A wonderful blend of flavors and atmosphere. While I appreciate everyone's input, and I'm always open to new experiences, I think we've thoroughly explored the options, and rest_c really stands out. It offers a level of comfort and quality that I believe we're all looking for tonight. What are your thoughts? I'm happy to elaborate if anyone has specific concerns.\n\n\n\n"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_c! Oh, come on, guys! Seriously, that place is *chef's kiss*. Nine out of ten! That's practically a perfect score! I mean, who doesn't love a little comfort and quality? William, Alexander, Emma, Sophia, even you, Mickey – you gotta admit, it's a winner! Don't tell me you're all secretly craving their [mention a specific dish from rest_c]? I bet you are! 😜\n\n\n\n"
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_i. I have to say, I'm really leaning towards that one. It just… hits all the right notes for me. I know it might not have the highest rating overall, but the atmosphere and the thoughtful menu really resonate with what I'm looking for tonight. I'm curious to hear if anyone else feels similarly drawn to it. I think it offers a really nice balance.\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_a. The assessment is clear. A perfect score indicates optimal selection. The others present deficiencies. William, Alexander, and Homeer's preferences are demonstrably less refined. Emma and Mickey's input is irrelevant given the established data. We proceed with the most logical choice."
+        },
+        {
+            "agent": "Mickey",
+            "message": "My current suggestion is rest_i. Oh wow, I'm really excited about this one! I gave it a 10/10, and I honestly think it's perfect for tonight. It just feels… right, you know? Like it understands what we need. I'm curious to hear what everyone else thinks! I'm happy to chat more about why I like it if you're interested. 😊\n\n\n\n"
+        },
+        {
+            "agent": "William",
+            "message": "My current suggestion is rest_c. Oh, for goodness sake, are we really still debating this? It's a *no-brainer*. Six out of ten! That's practically a landslide. While I appreciate the… *enthusiasm* for the other options, they just don't measure up. Seriously, are we aiming for mediocrity here? I'm not going to keep banging my head against a brick wall. Let's just go with the clearly superior choice, shall we? It'll save us all a lot of time and potential disappointment."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_c. It seems like a lot of us are feeling the same way about this place, and honestly, the ratings speak for themselves! Nine out of ten is a pretty strong endorsement, and I think it really hits the sweet spot for what we're all looking for tonight. I'm glad we're on the same page about this one. 😊"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_c! Hey, hey, hey! Looks like some of us have taste buds that know what's up! 😉 Nine out of ten, people! That's like a gold star! Emma and Mickey, bless your hearts, but a 1 and a 1? Come on! We gotta stick with the good stuff, the *really* good stuff. It's got that… *something*, you know? That special *je ne sais quoi*! Plus, William and Alexander are with me, and they're usually pretty good judges of character... and food! So, yeah, let's go with the winner! 🏆"
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_i. It's really heartening to see that Mickey and a few others feel the same way about rest_i! I know it doesn't have the highest overall rating, but I genuinely think it's a great fit for what we're looking for tonight. I appreciate everyone else's thoughts on rest_c and rest_a, but I feel like rest_i offers a unique and enjoyable experience that aligns well with my preferences. I'm happy to elaborate on why I think it's a good choice if anyone is curious.\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_c. The data is overwhelmingly in favor of this establishment. Six out of ten is a significant positive indicator, and the consensus among William, Alexander, and Homer further validates its selection. While Emma and Mickey express interest in rest_i, their ratings of 1 and 1 respectively are statistically insignificant. I will not deviate from the most logical choice."
+        },
+        {
+            "agent": "Mickey",
+            "message": "My current suggestion is rest_i. It's really nice to see Emma feels the same way about rest_i! I think it has a lot of potential, and I appreciate that it offers a different vibe from the other suggestions. While I understand the appeal of rest_c with its higher rating, I genuinely feel like rest_i would be a more enjoyable experience for us tonight. I'm happy to go with it if everyone else is open to it! 😊"
+        }
+    ],
+    "turn_preferences": {
+        "William": [
+            "rest_s",
+            "rest_c"
+        ],
+        "Alexander": [
+            "rest_c",
+            "rest_c"
+        ],
+        "Homer": [
+            "rest_c",
+            "rest_c"
+        ],
+        "Emma": [
+            "rest_i",
+            "rest_i"
+        ],
+        "Sophia": [
+            "rest_a",
+            "rest_c"
+        ],
+        "Mickey": [
+            "rest_i",
+            "rest_i"
+        ]
+    },
+    "votes": {
+        "rest_c": 4,
+        "rest_i": 2
+    },
+    "vote_details": [
+        {
+            "agent": "William",
+            "vote": "rest_c"
+        },
+        {
+            "agent": "Alexander",
+            "vote": "rest_c"
+        },
+        {
+            "agent": "Homer",
+            "vote": "rest_c"
+        },
+        {
+            "agent": "Emma",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Sophia",
+            "vote": "rest_c"
+        },
+        {
+            "agent": "Mickey",
+            "vote": "rest_i"
+        }
+    ],
+    "final_rec": "rest_c",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

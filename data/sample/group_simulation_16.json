@@ -1,0 +1,113 @@
+{
+    "group_id": 16,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_s",
+        "rest_z",
+        "rest_p",
+        "rest_n",
+        "rest_t",
+        "rest_y",
+        "rest_b",
+        "rest_r",
+        "rest_d",
+        "rest_m"
+    ],
+    "agents": [
+        {
+            "name": "Homer",
+            "history": {
+                "rest_s": 4,
+                "rest_z": 5,
+                "rest_p": 5,
+                "rest_n": 9,
+                "rest_t": 1,
+                "rest_y": 5,
+                "rest_b": 7,
+                "rest_r": 6,
+                "rest_d": 9,
+                "rest_m": 1
+            },
+            "tone": "Laid-back and casual",
+            "personality": {
+                "openness": 0.63,
+                "conscientiousness": 0.71,
+                "extraversion": 0.94,
+                "agreeableness": 0.61,
+                "neuroticism": 0.47
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Willem-Alexander",
+            "history": {
+                "rest_s": 5,
+                "rest_z": 1,
+                "rest_p": 8,
+                "rest_n": 7,
+                "rest_t": 9,
+                "rest_y": 9,
+                "rest_b": 5,
+                "rest_r": 8,
+                "rest_d": 1,
+                "rest_m": 7
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.93,
+                "conscientiousness": 1.0,
+                "extraversion": 0.38,
+                "agreeableness": 0.11,
+                "neuroticism": 0.44
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Homer-Willem-Alexander": 50.08991914547278
+    },
+    "conversation": [
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_n. \n\nHey Willem-Alexander! So, uh, food time, huh? I was thinkin'... that fancy place, the one with the... *ahem*... nice food? The \"n\" one? Yeah, that's my pick. It's a real good spot, a solid 9 outta 10! I'm kinda in the mood for somethin' a little special, ya know? What do you think? We could always go somewhere else, but I reckon that'd be the best bet. Unless you got somethin' else in mind? No worries either way! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_t. Oh, absolutely! I've been craving that place too! The food is just *divine*, honestly. I think it hits all the right notes – a perfect balance of flavors and presentation. I agree with your 9/10 rating! It's a really lovely atmosphere as well, very comfortable. I'm so happy you brought it up, it's exactly what I was hoping for! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_t. \nWell, shoot. Looks like you really like that place, Willem-Alexander! And it does sound pretty good, you're right. A 10 outta 10? That's somethin'! I'm always up for tryin' somethin' folks are really keen on. So, yeah, let's do it! That \"t\" place it is then. Hope they got enough donuts. 😉"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_t. Oh, fantastic! It's so wonderful that we're all on the same page about that place. I've heard such lovely things about their menu, and honestly, the atmosphere is just *perfect* for a good catch-up. I'm really looking forward to it! It's always nice when we can all agree, isn't it? 😊"
+        }
+    ],
+    "turn_preferences": {
+        "Homer": [
+            "rest_n",
+            "rest_t"
+        ],
+        "Willem-Alexander": [
+            "rest_t",
+            "rest_t"
+        ]
+    },
+    "votes": {
+        "rest_t": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Homer",
+            "vote": "rest_t"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "vote": "rest_t"
+        }
+    ],
+    "final_rec": "rest_t",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

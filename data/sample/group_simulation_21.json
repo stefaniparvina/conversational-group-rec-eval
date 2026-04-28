@@ -1,0 +1,123 @@
+{
+    "group_id": 21,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_i",
+        "rest_m",
+        "rest_a",
+        "rest_h",
+        "rest_z",
+        "rest_k",
+        "rest_b",
+        "rest_n",
+        "rest_j",
+        "rest_g"
+    ],
+    "agents": [
+        {
+            "name": "Bart",
+            "history": {
+                "rest_i": 5,
+                "rest_m": 9,
+                "rest_a": 4,
+                "rest_h": 5,
+                "rest_z": 10,
+                "rest_k": 1,
+                "rest_b": 10,
+                "rest_n": 9,
+                "rest_j": 3,
+                "rest_g": 1
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.17,
+                "conscientiousness": 0.37,
+                "extraversion": 0.74,
+                "agreeableness": 0.17,
+                "neuroticism": 0.02
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Benjamin",
+            "history": {
+                "rest_i": 9,
+                "rest_m": 3,
+                "rest_a": 5,
+                "rest_h": 1,
+                "rest_z": 1,
+                "rest_k": 8,
+                "rest_b": 5,
+                "rest_n": 7,
+                "rest_j": 10,
+                "rest_g": 3
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.5,
+                "conscientiousness": 0.23,
+                "extraversion": 0.04,
+                "agreeableness": 0.6,
+                "neuroticism": 0.54
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        }
+    ],
+    "pairwise_distances": {
+        "Bart-Benjamin": 49.467160824126545
+    },
+    "conversation": [
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_z. \n\nGiven my preferences, rest_z aligns most closely with my ideal. It's a clear top choice, scoring a 10. While rest_b and rest_n are also highly rated (10 and 9 respectively), rest_z offers the most complete satisfaction based on my criteria. Alternatives like rest_m (9) or rest_h (5) are acceptable, but less optimal. I'm open to other suggestions if you have any, but I'd lean towards rest_z.\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_j! Oh, come on, you guys *know* I'm a sucker for that place. Seriously, it's just... *chef's kiss*. I've thought about it, and honestly? It hits all the right spots. I'm not saying it's *the only* option, but... well, let's just say it's pretty hard to beat, wouldn't you agree? 😉 What do you think, Bart? Don't leave me hanging!\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_b. \n\nWhile rest_j has its merits, its rating of 3 doesn't align with a consistently positive experience. I've noted that rest_z and rest_n are highly rated, and rest_b also scores well at 10. Given the potential for a more agreeable option and the fact that we're aiming for a generally positive outcome, rest_b presents a more logical choice. It offers a solid balance."
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_n! Oh, come on, Bart, don't be such a stickler! I know you like a solid choice, but rest_n is actually *really* good. Like, seriously good. It's got that certain *je ne sais quoi*, you know? And it's way better than some of those other places we've been talking about. Plus, it's not like I'm *forcing* it on anyone. 😉 Just saying, it's a pretty awesome option! What do you say?"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. \n \nGiven Benjamine's strong endorsement and rest_n's rating of 9, it presents a viable option. While rest_b also scores highly, the consensus seems to be shifting towards rest_n. A 9 is a solid indicator of a positive experience, and I'm willing to concede that it might be the most agreeable choice for the group."
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_n! Well, well, well, look who's finally seeing the light! 😉 I knew you'd come around, Bart. It's a solid choice, really. And hey, a 7 is still pretty darn good, right? Plus, it's not like I'm *forcing* my awesome taste on anyone. Just sayin'! 😄"
+        }
+    ],
+    "turn_preferences": {
+        "Bart": [
+            "rest_z",
+            "rest_b",
+            "rest_n"
+        ],
+        "Benjamin": [
+            "rest_j",
+            "rest_n",
+            "rest_n"
+        ]
+    },
+    "votes": {
+        "rest_n": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Bart",
+            "vote": "rest_n"
+        },
+        {
+            "agent": "Benjamin",
+            "vote": "rest_n"
+        }
+    ],
+    "final_rec": "rest_n",
+    "turn_counter": 3,
+    "tie_strength": "friends"
+}

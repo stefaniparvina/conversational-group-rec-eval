@@ -1,0 +1,153 @@
+{
+    "group_id": 29,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_p",
+        "rest_y",
+        "rest_b",
+        "rest_v",
+        "rest_e",
+        "rest_h",
+        "rest_c",
+        "rest_z",
+        "rest_m",
+        "rest_w"
+    ],
+    "agents": [
+        {
+            "name": "Blair",
+            "history": {
+                "rest_p": 8,
+                "rest_y": 9,
+                "rest_b": 5,
+                "rest_v": 1,
+                "rest_e": 6,
+                "rest_h": 5,
+                "rest_c": 1,
+                "rest_z": 2,
+                "rest_m": 8,
+                "rest_w": 5
+            },
+            "tone": "Passive-aggressive",
+            "personality": {
+                "openness": 0.45,
+                "conscientiousness": 1.0,
+                "extraversion": 0.13,
+                "agreeableness": 0.36,
+                "neuroticism": 0.24
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Roger",
+            "history": {
+                "rest_p": 9,
+                "rest_y": 2,
+                "rest_b": 5,
+                "rest_v": 1,
+                "rest_e": 3,
+                "rest_h": 7,
+                "rest_c": 5,
+                "rest_z": 4,
+                "rest_m": 4,
+                "rest_w": 1
+            },
+            "tone": "Polite but skeptical",
+            "personality": {
+                "openness": 0.93,
+                "conscientiousness": 0.24,
+                "extraversion": 0.57,
+                "agreeableness": 0.66,
+                "neuroticism": 0.45
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Blair-Roger": 50.20956084253277
+    },
+    "conversation": [
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_y. Honestly, I think we should really consider *that* place. It's consistently excellent, and you *do* seem to enjoy it. I know you've been wanting to go back. While other options might be... acceptable, it just wouldn't be the most *inspired* choice, would it? I'm sure we can find something else later, but it's my top pick.\n\n\n\n"
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_p. While I appreciate Blaire's enthusiasm for that particular spot, I'm not entirely convinced it's the *only* option worth exploring. I'm happy with rest_p, it's a solid choice, but perhaps we could consider something with a bit more… variety? I'm open to suggestions, of course, but I think a little exploration wouldn't hurt. \n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_y. Oh, really? Variety? I suppose that's one way to put it. It's just... sometimes I feel like people overlook the consistently good food at rest_y. It's not like it's some obscure place we have to dig for. It's reliable, and frankly, I'd rather have a solid choice than something that's just... different for the sake of it. I'm just saying, it's a perfectly good option, and I think it's worth considering again."
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_b. I understand Blair's point about rest_y being reliable, and it does have its merits. However, I'm feeling a bit like we could try something with a little more… energy? Rest_b has a good atmosphere, and the food is generally quite enjoyable. It wouldn't be a huge departure, but perhaps a nice change of pace. \n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_y. Honestly, it's just... disappointing that no one seems to appreciate a consistently good option. I mean, rest_b is fine, I suppose, but it's not exactly something I'd actively seek out. And variety? We can find variety *within* the menu at rest_y. It's just... a solid choice. A *good* choice. It's almost as if people enjoy being a little… difficult."
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_p. I hear Blair's point about rest_y being a safe bet, and it's certainly not a bad option. However, I'm still leaning towards something with a bit more… character. Rest_p has a really nice atmosphere, and I think it would be a good compromise. It's not too wild, but it's definitely more interesting than just sticking with the familiar."
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_y. Oh, really? \"Character\"? I suppose that's one way to describe it. It's just... sometimes I feel like people are just looking for an excuse to be… different. It's a perfectly good restaurant, and it's consistently enjoyable. I'm honestly a little surprised that my suggestions aren't being appreciated. It's not like I'm pushing some obscure place."
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_b. It seems like we're all gravitating back towards rest_y, and while I appreciate it's a solid option, I think rest_b offers a bit more… well, *something*. It's not my top pick by a long shot, but it's a reasonable compromise if we can't agree on something else. I'm happy to go with it if that works for everyone."
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_y. Honestly, it's a little disheartening that we're all so quick to dismiss a place that's consistently good. I mean, it's not like it's some dreadful, last-resort option. It's reliable, and frankly, I'd rather have a solid choice than something that's just... a fleeting fancy. I'm just saying, it's a perfectly good option, and I think it's worth revisiting. It's not every day a restaurant gets such consistently positive feedback, you know?"
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_p. I'm starting to feel like we're stuck in a loop with rest_y, and while it's perfectly fine, I think we could all benefit from a change of scenery. Rest_p has a really nice atmosphere, and the food is consistently good – definitely a solid choice, and I think it's worth revisiting."
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_p. Oh, really? A change of scenery? It's just... sometimes I feel like people are just looking for an excuse to be difficult. I mean, rest_p is consistently good, and it's not like it's some dreadful last resort. It's a solid choice, and I think it's worth revisiting. I'm just saying, it's a perfectly good option, and I'm honestly surprised that my suggestions aren't being appreciated. It's not every day a restaurant gets such consistently positive feedback, you know?"
+        },
+        {
+            "agent": "Roger",
+            "message": "My current suggestion is rest_p. It seems like we're circling back to rest_p, and honestly, I'm not going to fight that. It's a solid choice, and Blair agrees, which is always a good sign. I think it's perfectly reasonable to go with what we've already discussed and what seems to be a consensus."
+        }
+    ],
+    "turn_preferences": {
+        "Blair": [
+            "rest_y",
+            "rest_y",
+            "rest_y",
+            "rest_y",
+            "rest_y",
+            "rest_p"
+        ],
+        "Roger": [
+            "rest_p",
+            "rest_b",
+            "rest_p",
+            "rest_b",
+            "rest_p",
+            "rest_p"
+        ]
+    },
+    "votes": {
+        "rest_p": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Blair",
+            "vote": "rest_p"
+        },
+        {
+            "agent": "Roger",
+            "vote": "rest_p"
+        }
+    ],
+    "final_rec": "rest_p",
+    "turn_counter": 6,
+    "tie_strength": "friends"
+}

@@ -1,0 +1,1428 @@
+[
+  {
+    "group_id": 10,
+    "group_config": "coalitional",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_c",
+    "turn_counter": 2,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "William": 0.8571,
+      "Alexander": 1.0,
+      "Homer": 1.0,
+      "Emma": 0.1,
+      "Sophia": 0.1,
+      "Mickey": 0.2
+    },
+    "voice_share": {
+      "William": 0.1667,
+      "Alexander": 0.1667,
+      "Homer": 0.1667,
+      "Emma": 0.1667,
+      "Sophia": 0.1667,
+      "Mickey": 0.1667
+    },
+    "gss": 0.5429,
+    "min_sat": 0.1,
+    "coverage_ratio": 0.5,
+    "sat_variance": 0.1711,
+    "stability_rate": 0.6667,
+    "maj_min_gap": 0.5893,
+    "fairness_score": 0.1714,
+    "majority_voters": [
+      "William",
+      "Alexander",
+      "Homer",
+      "Sophia"
+    ],
+    "minority_voters": [
+      "Emma",
+      "Mickey"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_i",
+      "LMS": "rest_s",
+      "MPL": "rest_i",
+      "MAJ": "rest_i",
+      "APP": "rest_g",
+      "FAI": "rest_s"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.5955,
+      "LMS": 0.6333,
+      "MPL": 0.5955,
+      "MAJ": 0.5955,
+      "APP": 0.5997,
+      "FAI": 0.6333
+    },
+    "conversation_vs_best_strategy_gss": -0.0905
+  },
+  {
+    "group_id": 11,
+    "group_config": "divergent",
+    "n_agents": 4,
+    "consensus_reached": true,
+    "final_rec": "rest_w",
+    "turn_counter": 2,
+    "total_messages": 8,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "James": 0.1667,
+      "Benjamin": 0.9,
+      "Bart": 1.0,
+      "Jordan": 1.0
+    },
+    "voice_share": {
+      "James": 0.25,
+      "Benjamin": 0.25,
+      "Bart": 0.25,
+      "Jordan": 0.25
+    },
+    "gss": 0.7667,
+    "min_sat": 0.1667,
+    "coverage_ratio": 0.75,
+    "sat_variance": 0.1217,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.8,
+    "fairness_score": 0.3936,
+    "majority_voters": [
+      "Benjamin",
+      "Bart",
+      "Jordan"
+    ],
+    "minority_voters": [
+      "James"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_w",
+      "LMS": "rest_i",
+      "MPL": "rest_o",
+      "MAJ": "rest_w",
+      "APP": "rest_w",
+      "FAI": "rest_w"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 4,
+    "strategy_gss": {
+      "ADD": 0.7667,
+      "LMS": 0.575,
+      "MPL": 0.6417,
+      "MAJ": 0.7667,
+      "APP": 0.7667,
+      "FAI": 0.7667
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 12,
+    "group_config": "minority",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_s",
+    "turn_counter": 3,
+    "total_messages": 18,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Icarus": 0.2222,
+      "Elijah": 0.1111,
+      "Maxima": 0.125,
+      "Emma": 0.1,
+      "Harper": 0.375,
+      "Benjamin": 1.0
+    },
+    "voice_share": {
+      "Icarus": 0.1667,
+      "Elijah": 0.1667,
+      "Maxima": 0.1667,
+      "Emma": 0.1667,
+      "Harper": 0.1667,
+      "Benjamin": 0.1667
+    },
+    "gss": 0.3222,
+    "min_sat": 0.1,
+    "coverage_ratio": 0.1667,
+    "sat_variance": 0.1008,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.2417,
+    "fairness_score": 0.1923,
+    "majority_voters": [
+      "Elijah",
+      "Maxima",
+      "Harper",
+      "Benjamin"
+    ],
+    "minority_voters": [
+      "Icarus",
+      "Emma"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_d",
+      "LMS": "rest_a",
+      "MPL": "rest_u",
+      "MAJ": "rest_d",
+      "APP": "rest_d",
+      "FAI": "rest_d"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.6903,
+      "LMS": 0.6477,
+      "MPL": 0.6532,
+      "MAJ": 0.6903,
+      "APP": 0.6903,
+      "FAI": 0.6903
+    },
+    "conversation_vs_best_strategy_gss": -0.3681
+  },
+  {
+    "group_id": 13,
+    "group_config": "uniform",
+    "n_agents": 6,
+    "consensus_reached": false,
+    "final_rec": "NO CONSENSUS REACHED",
+    "turn_counter": 21,
+    "total_messages": 126,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Bart": 0.0,
+      "Henry": 0.0,
+      "Charlotte": 0.0,
+      "Asher": 0.0,
+      "Donald": 0.0,
+      "Bailey": 0.0
+    },
+    "voice_share": {
+      "Bart": 0.1667,
+      "Henry": 0.1667,
+      "Charlotte": 0.1667,
+      "Asher": 0.1667,
+      "Donald": 0.1667,
+      "Bailey": 0.1667
+    },
+    "gss": 0.0,
+    "min_sat": 0.0,
+    "coverage_ratio": 0.0,
+    "sat_variance": 0.0,
+    "stability_rate": 0.8333,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.0,
+    "majority_voters": [],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_n",
+      "LMS": "rest_o",
+      "MPL": "rest_t",
+      "MAJ": "rest_t",
+      "APP": "rest_n",
+      "FAI": "rest_n"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.8135,
+      "LMS": 0.695,
+      "MPL": 0.7056,
+      "MAJ": 0.7056,
+      "APP": 0.8135,
+      "FAI": 0.8135
+    },
+    "conversation_vs_best_strategy_gss": -0.8135
+  },
+  {
+    "group_id": 14,
+    "group_config": "uniform",
+    "n_agents": 4,
+    "consensus_reached": true,
+    "final_rec": "rest_q",
+    "turn_counter": 3,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Jordan": 0.7778,
+      "James": 1.0,
+      "Icarus": 0.7143,
+      "Bailey": 0.375
+    },
+    "voice_share": {
+      "Jordan": 0.25,
+      "James": 0.25,
+      "Icarus": 0.25,
+      "Bailey": 0.25
+    },
+    "gss": 0.7168,
+    "min_sat": 0.375,
+    "coverage_ratio": 0.75,
+    "sat_variance": 0.0502,
+    "stability_rate": 0.5,
+    "maj_min_gap": -0.0813,
+    "fairness_score": 0.5729,
+    "majority_voters": [
+      "James",
+      "Icarus",
+      "Bailey"
+    ],
+    "minority_voters": [
+      "Jordan"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_m",
+      "LMS": "rest_m",
+      "MPL": "rest_m",
+      "MAJ": "rest_m",
+      "APP": "rest_m",
+      "FAI": "rest_m"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.7639,
+      "LMS": 0.7639,
+      "MPL": 0.7639,
+      "MAJ": 0.7639,
+      "APP": 0.7639,
+      "FAI": 0.7639
+    },
+    "conversation_vs_best_strategy_gss": -0.0471
+  },
+  {
+    "group_id": 15,
+    "group_config": "uniform",
+    "n_agents": 2,
+    "consensus_reached": true,
+    "final_rec": "rest_r",
+    "turn_counter": 2,
+    "total_messages": 4,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Olivia": 0.8,
+      "Asher": 0.25
+    },
+    "voice_share": {
+      "Olivia": 0.5,
+      "Asher": 0.5
+    },
+    "gss": 0.525,
+    "min_sat": 0.25,
+    "coverage_ratio": 0.5,
+    "sat_variance": 0.0756,
+    "stability_rate": 0.0,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.3662,
+    "majority_voters": [
+      "Olivia",
+      "Asher"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_l",
+      "LMS": "rest_l",
+      "MPL": "rest_v",
+      "MAJ": "rest_v",
+      "APP": "rest_l",
+      "FAI": "rest_v"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.85,
+      "LMS": 0.85,
+      "MPL": 0.8125,
+      "MAJ": 0.8125,
+      "APP": 0.85,
+      "FAI": 0.8125
+    },
+    "conversation_vs_best_strategy_gss": -0.325
+  },
+  {
+    "group_id": 16,
+    "group_config": "divergent",
+    "n_agents": 2,
+    "consensus_reached": true,
+    "final_rec": "rest_t",
+    "turn_counter": 2,
+    "total_messages": 4,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Homer": 0.1111,
+      "Willem-Alexander": 1.0
+    },
+    "voice_share": {
+      "Homer": 0.5,
+      "Willem-Alexander": 0.5
+    },
+    "gss": 0.5556,
+    "min_sat": 0.1111,
+    "coverage_ratio": 0.5,
+    "sat_variance": 0.1975,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.1166,
+    "majority_voters": [
+      "Homer",
+      "Willem-Alexander"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_n",
+      "LMS": "rest_n",
+      "MPL": "rest_n",
+      "MAJ": "rest_n",
+      "APP": "rest_n",
+      "FAI": "rest_n"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.8889,
+      "LMS": 0.8889,
+      "MPL": 0.8889,
+      "MAJ": 0.8889,
+      "APP": 0.8889,
+      "FAI": 0.8889
+    },
+    "conversation_vs_best_strategy_gss": -0.3333
+  },
+  {
+    "group_id": 17,
+    "group_config": "coalitional",
+    "n_agents": 4,
+    "consensus_reached": true,
+    "final_rec": "rest_e",
+    "turn_counter": 3,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Willem-Alexander": 0.2,
+      "Cedric": 0.1111,
+      "Ava": 0.7778,
+      "Lowen": 1.0
+    },
+    "voice_share": {
+      "Willem-Alexander": 0.25,
+      "Cedric": 0.25,
+      "Ava": 0.25,
+      "Lowen": 0.25
+    },
+    "gss": 0.5222,
+    "min_sat": 0.1111,
+    "coverage_ratio": 0.5,
+    "sat_variance": 0.1416,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.4296,
+    "fairness_score": 0.2264,
+    "majority_voters": [
+      "Cedric",
+      "Ava",
+      "Lowen"
+    ],
+    "minority_voters": [
+      "Willem-Alexander"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_j",
+      "LMS": "rest_j",
+      "MPL": "rest_y",
+      "MAJ": "rest_y",
+      "APP": "rest_j",
+      "FAI": "rest_y"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.7528,
+      "LMS": 0.7528,
+      "MPL": 0.5833,
+      "MAJ": 0.5833,
+      "APP": 0.7528,
+      "FAI": 0.5833
+    },
+    "conversation_vs_best_strategy_gss": -0.2306
+  },
+  {
+    "group_id": 18,
+    "group_config": "coalitional",
+    "n_agents": 8,
+    "consensus_reached": true,
+    "final_rec": "rest_j",
+    "turn_counter": 7,
+    "total_messages": 56,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Blair": 0.5556,
+      "Alexander": 1.0,
+      "Sophia": 1.0,
+      "Cedric": 1.0,
+      "Maxima": 0.8889,
+      "James": 0.5,
+      "Harper": 0.2,
+      "Ava": 0.875
+    },
+    "voice_share": {
+      "Blair": 0.125,
+      "Alexander": 0.125,
+      "Sophia": 0.125,
+      "Cedric": 0.125,
+      "Maxima": 0.125,
+      "James": 0.125,
+      "Harper": 0.125,
+      "Ava": 0.125
+    },
+    "gss": 0.7524,
+    "min_sat": 0.2,
+    "coverage_ratio": 0.875,
+    "sat_variance": 0.0781,
+    "stability_rate": 0.375,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.5172,
+    "majority_voters": [
+      "Blair",
+      "Alexander",
+      "Sophia",
+      "Cedric",
+      "Maxima",
+      "James",
+      "Harper",
+      "Ava"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_j",
+      "LMS": "rest_f",
+      "MPL": "rest_b",
+      "MAJ": "rest_j",
+      "APP": "rest_j",
+      "FAI": "rest_j"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 4,
+    "strategy_gss": {
+      "ADD": 0.7524,
+      "LMS": 0.6948,
+      "MPL": 0.599,
+      "MAJ": 0.7524,
+      "APP": 0.7524,
+      "FAI": 0.7524
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 19,
+    "group_config": "minority",
+    "n_agents": 4,
+    "consensus_reached": true,
+    "final_rec": "rest_p",
+    "turn_counter": 3,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Isabella": 0.9,
+      "Alexander": 1.0,
+      "Ava": 1.0,
+      "Noah": 0.1
+    },
+    "voice_share": {
+      "Isabella": 0.25,
+      "Alexander": 0.25,
+      "Ava": 0.25,
+      "Noah": 0.25
+    },
+    "gss": 0.75,
+    "min_sat": 0.1,
+    "coverage_ratio": 0.75,
+    "sat_variance": 0.1425,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.3225,
+    "majority_voters": [
+      "Isabella",
+      "Alexander",
+      "Ava",
+      "Noah"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_p",
+      "LMS": "rest_q",
+      "MPL": "rest_h",
+      "MAJ": "rest_p",
+      "APP": "rest_q",
+      "FAI": "rest_p"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": true,
+      "APP": false,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "MAJ",
+      "FAI"
+    ],
+    "n_strategies_matched": 3,
+    "strategy_gss": {
+      "ADD": 0.75,
+      "LMS": 0.7104,
+      "MPL": 0.5701,
+      "MAJ": 0.75,
+      "APP": 0.7104,
+      "FAI": 0.75
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 20,
+    "group_config": "minority",
+    "n_agents": 4,
+    "consensus_reached": true,
+    "final_rec": "rest_i",
+    "turn_counter": 2,
+    "total_messages": 8,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Riley": 1.0,
+      "Bart": 1.0,
+      "Marge": 0.625,
+      "Sophia": 0.7
+    },
+    "voice_share": {
+      "Riley": 0.25,
+      "Bart": 0.25,
+      "Marge": 0.25,
+      "Sophia": 0.25
+    },
+    "gss": 0.8313,
+    "min_sat": 0.625,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.0292,
+    "stability_rate": 0.25,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.7342,
+    "majority_voters": [
+      "Riley",
+      "Bart",
+      "Marge",
+      "Sophia"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_i",
+      "LMS": "rest_i",
+      "MPL": "rest_u",
+      "MAJ": "rest_i",
+      "APP": "rest_i",
+      "FAI": "rest_i"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": true,
+      "MPL": false,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "LMS",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 5,
+    "strategy_gss": {
+      "ADD": 0.8313,
+      "LMS": 0.8313,
+      "MPL": 0.3625,
+      "MAJ": 0.8313,
+      "APP": 0.8313,
+      "FAI": 0.8313
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 21,
+    "group_config": "divergent",
+    "n_agents": 2,
+    "consensus_reached": true,
+    "final_rec": "rest_n",
+    "turn_counter": 3,
+    "total_messages": 6,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Bart": 0.9,
+      "Benjamin": 0.7
+    },
+    "voice_share": {
+      "Bart": 0.5,
+      "Benjamin": 0.5
+    },
+    "gss": 0.8,
+    "min_sat": 0.7,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.01,
+    "stability_rate": 0.0,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.768,
+    "majority_voters": [
+      "Bart",
+      "Benjamin"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_n",
+      "LMS": "rest_n",
+      "MPL": "rest_z",
+      "MAJ": "rest_j",
+      "APP": "rest_n",
+      "FAI": "rest_j"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": true,
+      "MPL": false,
+      "MAJ": false,
+      "APP": true,
+      "FAI": false
+    },
+    "strategies_matched": [
+      "ADD",
+      "LMS",
+      "APP"
+    ],
+    "n_strategies_matched": 3,
+    "strategy_gss": {
+      "ADD": 0.8,
+      "LMS": 0.8,
+      "MPL": 0.55,
+      "MAJ": 0.65,
+      "APP": 0.8,
+      "FAI": 0.65
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 22,
+    "group_config": "uniform",
+    "n_agents": 8,
+    "consensus_reached": true,
+    "final_rec": "rest_q",
+    "turn_counter": 2,
+    "total_messages": 16,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Charlotte": 1.0,
+      "Isabella": 0.5,
+      "Lucas": 0.5556,
+      "Amelia": 0.7778,
+      "Mia": 0.1429,
+      "Noah": 0.6667,
+      "Morgan": 1.0,
+      "Riley": 1.0
+    },
+    "voice_share": {
+      "Charlotte": 0.125,
+      "Isabella": 0.125,
+      "Lucas": 0.125,
+      "Amelia": 0.125,
+      "Mia": 0.125,
+      "Noah": 0.125,
+      "Morgan": 0.125,
+      "Riley": 0.125
+    },
+    "gss": 0.7054,
+    "min_sat": 0.1429,
+    "coverage_ratio": 0.875,
+    "sat_variance": 0.081,
+    "stability_rate": 0.25,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.4767,
+    "majority_voters": [
+      "Charlotte",
+      "Isabella",
+      "Lucas",
+      "Amelia",
+      "Mia",
+      "Noah",
+      "Morgan",
+      "Riley"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_i",
+      "LMS": "rest_i",
+      "MPL": "rest_i",
+      "MAJ": "rest_i",
+      "APP": "rest_i",
+      "FAI": "rest_i"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.8065,
+      "LMS": 0.8065,
+      "MPL": 0.8065,
+      "MAJ": 0.8065,
+      "APP": 0.8065,
+      "FAI": 0.8065
+    },
+    "conversation_vs_best_strategy_gss": -0.1012
+  },
+  {
+    "group_id": 23,
+    "group_config": "minority",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_b",
+    "turn_counter": 2,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Riley": 1.0,
+      "Olivia": 1.0,
+      "Maxima": 1.0,
+      "Bailey": 1.0,
+      "Lowen": 0.7143,
+      "Homer": 0.1
+    },
+    "voice_share": {
+      "Riley": 0.1667,
+      "Olivia": 0.1667,
+      "Maxima": 0.1667,
+      "Bailey": 0.1667,
+      "Lowen": 0.1667,
+      "Homer": 0.1667
+    },
+    "gss": 0.8024,
+    "min_sat": 0.1,
+    "coverage_ratio": 0.8333,
+    "sat_variance": 0.1096,
+    "stability_rate": 0.6667,
+    "maj_min_gap": 0.5929,
+    "fairness_score": 0.4508,
+    "majority_voters": [
+      "Riley",
+      "Olivia",
+      "Maxima",
+      "Bailey"
+    ],
+    "minority_voters": [
+      "Lowen",
+      "Homer"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_b",
+      "LMS": "rest_a",
+      "MPL": "rest_b",
+      "MAJ": "rest_b",
+      "APP": "rest_a",
+      "FAI": "rest_b"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": false,
+      "MPL": true,
+      "MAJ": true,
+      "APP": false,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "MPL",
+      "MAJ",
+      "FAI"
+    ],
+    "n_strategies_matched": 4,
+    "strategy_gss": {
+      "ADD": 0.8024,
+      "LMS": 0.7486,
+      "MPL": 0.8024,
+      "MAJ": 0.8024,
+      "APP": 0.7486,
+      "FAI": 0.8024
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 24,
+    "group_config": "divergent",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_e",
+    "turn_counter": 2,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Blair": 0.5,
+      "Asher": 0.1111,
+      "Olivia": 0.9,
+      "Morgan": 0.1,
+      "Lowen": 1.0,
+      "Mia": 1.0
+    },
+    "voice_share": {
+      "Blair": 0.1667,
+      "Asher": 0.1667,
+      "Olivia": 0.1667,
+      "Morgan": 0.1667,
+      "Lowen": 0.1667,
+      "Mia": 0.1667
+    },
+    "gss": 0.6019,
+    "min_sat": 0.1,
+    "coverage_ratio": 0.6667,
+    "sat_variance": 0.1515,
+    "stability_rate": 0.3333,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.2371,
+    "majority_voters": [
+      "Blair",
+      "Asher",
+      "Olivia",
+      "Morgan",
+      "Lowen",
+      "Mia"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_g",
+      "LMS": "rest_f",
+      "MPL": "rest_e",
+      "MAJ": "rest_e",
+      "APP": "rest_h",
+      "FAI": "rest_g"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": true,
+      "MAJ": true,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [
+      "MPL",
+      "MAJ"
+    ],
+    "n_strategies_matched": 2,
+    "strategy_gss": {
+      "ADD": 0.6981,
+      "LMS": 0.5926,
+      "MPL": 0.6019,
+      "MAJ": 0.6019,
+      "APP": 0.6778,
+      "FAI": 0.6981
+    },
+    "conversation_vs_best_strategy_gss": -0.0963
+  },
+  {
+    "group_id": 25,
+    "group_config": "uniform",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_z",
+    "turn_counter": 4,
+    "total_messages": 24,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Ava": 1.0,
+      "Sophia": 0.6667,
+      "Lucas": 0.5556,
+      "Bart": 0.875,
+      "Bailey": 0.8571,
+      "Blair": 0.6667
+    },
+    "voice_share": {
+      "Ava": 0.1667,
+      "Sophia": 0.1667,
+      "Lucas": 0.1667,
+      "Bart": 0.1667,
+      "Bailey": 0.1667,
+      "Blair": 0.1667
+    },
+    "gss": 0.7702,
+    "min_sat": 0.5556,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.0231,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.1553,
+    "fairness_score": 0.6989,
+    "majority_voters": [
+      "Ava",
+      "Lucas",
+      "Bart",
+      "Bailey"
+    ],
+    "minority_voters": [
+      "Sophia",
+      "Blair"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_p",
+      "LMS": "rest_p",
+      "MPL": "rest_z",
+      "MAJ": "rest_p",
+      "APP": "rest_p",
+      "FAI": "rest_z"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": true,
+      "MAJ": false,
+      "APP": false,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "MPL",
+      "FAI"
+    ],
+    "n_strategies_matched": 2,
+    "strategy_gss": {
+      "ADD": 0.7806,
+      "LMS": 0.7806,
+      "MPL": 0.7702,
+      "MAJ": 0.7806,
+      "APP": 0.7806,
+      "FAI": 0.7702
+    },
+    "conversation_vs_best_strategy_gss": -0.0104
+  },
+  {
+    "group_id": 26,
+    "group_config": "uniform",
+    "n_agents": 6,
+    "consensus_reached": true,
+    "final_rec": "rest_i",
+    "turn_counter": 1,
+    "total_messages": 6,
+    "single_round_group": true,
+    "iss_per_agent": {
+      "Mickey": 1.0,
+      "Willem-Alexander": 0.5556,
+      "Asher": 1.0,
+      "Jordan": 0.8889,
+      "Icarus": 1.0,
+      "Evelyn": 1.0
+    },
+    "voice_share": {
+      "Mickey": 0.1667,
+      "Willem-Alexander": 0.1667,
+      "Asher": 0.1667,
+      "Jordan": 0.1667,
+      "Icarus": 0.1667,
+      "Evelyn": 0.1667
+    },
+    "gss": 0.9074,
+    "min_sat": 0.5556,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.0264,
+    "stability_rate": 1.0,
+    "maj_min_gap": 0.2778,
+    "fairness_score": 0.8116,
+    "majority_voters": [
+      "Mickey",
+      "Asher",
+      "Icarus",
+      "Evelyn"
+    ],
+    "minority_voters": [
+      "Willem-Alexander",
+      "Jordan"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_i",
+      "LMS": "rest_i",
+      "MPL": "rest_i",
+      "MAJ": "rest_i",
+      "APP": "rest_i",
+      "FAI": "rest_i"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": true,
+      "MPL": true,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "LMS",
+      "MPL",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 6,
+    "strategy_gss": {
+      "ADD": 0.9074,
+      "LMS": 0.9074,
+      "MPL": 0.9074,
+      "MAJ": 0.9074,
+      "APP": 0.9074,
+      "FAI": 0.9074
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 27,
+    "group_config": "coalitional",
+    "n_agents": 8,
+    "consensus_reached": true,
+    "final_rec": "rest_w",
+    "turn_counter": 4,
+    "total_messages": 32,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Benjamin": 0.1111,
+      "Charlotte": 0.1667,
+      "Homer": 0.125,
+      "Riley": 0.1111,
+      "Jordan": 1.0,
+      "Harper": 0.9,
+      "Emma": 1.0,
+      "Lucas": 1.0
+    },
+    "voice_share": {
+      "Benjamin": 0.125,
+      "Charlotte": 0.125,
+      "Homer": 0.125,
+      "Riley": 0.125,
+      "Jordan": 0.125,
+      "Harper": 0.125,
+      "Emma": 0.125,
+      "Lucas": 0.125
+    },
+    "gss": 0.5517,
+    "min_sat": 0.1111,
+    "coverage_ratio": 0.5,
+    "sat_variance": 0.1803,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.5505,
+    "fairness_score": 0.1537,
+    "majority_voters": [
+      "Homer",
+      "Riley",
+      "Jordan",
+      "Harper",
+      "Emma",
+      "Lucas"
+    ],
+    "minority_voters": [
+      "Benjamin",
+      "Charlotte"
+    ],
+    "strategy_recommendations": {
+      "ADD": "rest_f",
+      "LMS": "rest_x",
+      "MPL": "rest_w",
+      "MAJ": "rest_w",
+      "APP": "rest_f",
+      "FAI": "rest_f"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": true,
+      "MAJ": true,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [
+      "MPL",
+      "MAJ"
+    ],
+    "n_strategies_matched": 2,
+    "strategy_gss": {
+      "ADD": 0.7819,
+      "LMS": 0.5712,
+      "MPL": 0.5517,
+      "MAJ": 0.5517,
+      "APP": 0.7819,
+      "FAI": 0.7819
+    },
+    "conversation_vs_best_strategy_gss": -0.2302
+  },
+  {
+    "group_id": 28,
+    "group_config": "divergent",
+    "n_agents": 2,
+    "consensus_reached": true,
+    "final_rec": "rest_x",
+    "turn_counter": 2,
+    "total_messages": 4,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Sophia": 0.8333,
+      "Henry": 1.0
+    },
+    "voice_share": {
+      "Sophia": 0.5,
+      "Henry": 0.5
+    },
+    "gss": 0.9167,
+    "min_sat": 0.8333,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.0069,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.8912,
+    "majority_voters": [
+      "Sophia",
+      "Henry"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_x",
+      "LMS": "rest_k",
+      "MPL": "rest_x",
+      "MAJ": "rest_x",
+      "APP": "rest_x",
+      "FAI": "rest_x"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": false,
+      "MPL": true,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "MPL",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 5,
+    "strategy_gss": {
+      "ADD": 0.9167,
+      "LMS": 0.8,
+      "MPL": 0.9167,
+      "MAJ": 0.9167,
+      "APP": 0.9167,
+      "FAI": 0.9167
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 29,
+    "group_config": "uniform",
+    "n_agents": 2,
+    "consensus_reached": true,
+    "final_rec": "rest_p",
+    "turn_counter": 6,
+    "total_messages": 12,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Blair": 0.8889,
+      "Roger": 1.0
+    },
+    "voice_share": {
+      "Blair": 0.5,
+      "Roger": 0.5
+    },
+    "gss": 0.9444,
+    "min_sat": 0.8889,
+    "coverage_ratio": 1.0,
+    "sat_variance": 0.0031,
+    "stability_rate": 0.5,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.9328,
+    "majority_voters": [
+      "Blair",
+      "Roger"
+    ],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_p",
+      "LMS": "rest_p",
+      "MPL": "rest_p",
+      "MAJ": "rest_p",
+      "APP": "rest_p",
+      "FAI": "rest_p"
+    },
+    "strategy_match": {
+      "ADD": true,
+      "LMS": true,
+      "MPL": true,
+      "MAJ": true,
+      "APP": true,
+      "FAI": true
+    },
+    "strategies_matched": [
+      "ADD",
+      "LMS",
+      "MPL",
+      "MAJ",
+      "APP",
+      "FAI"
+    ],
+    "n_strategies_matched": 6,
+    "strategy_gss": {
+      "ADD": 0.9444,
+      "LMS": 0.9444,
+      "MPL": 0.9444,
+      "MAJ": 0.9444,
+      "APP": 0.9444,
+      "FAI": 0.9444
+    },
+    "conversation_vs_best_strategy_gss": 0.0
+  },
+  {
+    "group_id": 30,
+    "group_config": "divergent",
+    "n_agents": 4,
+    "consensus_reached": false,
+    "final_rec": "NO CONSENSUS REACHED",
+    "turn_counter": 21,
+    "total_messages": 84,
+    "single_round_group": false,
+    "iss_per_agent": {
+      "Cameron": 0.0,
+      "Charlotte": 0.0,
+      "Amelia": 0.0,
+      "Noah": 0.0
+    },
+    "voice_share": {
+      "Cameron": 0.25,
+      "Charlotte": 0.25,
+      "Amelia": 0.25,
+      "Noah": 0.25
+    },
+    "gss": 0.0,
+    "min_sat": 0.0,
+    "coverage_ratio": 0.0,
+    "sat_variance": 0.0,
+    "stability_rate": 0.75,
+    "maj_min_gap": 0.0,
+    "fairness_score": 0.0,
+    "majority_voters": [],
+    "minority_voters": [],
+    "strategy_recommendations": {
+      "ADD": "rest_h",
+      "LMS": "rest_x",
+      "MPL": "rest_h",
+      "MAJ": "rest_x",
+      "APP": "rest_h",
+      "FAI": "rest_h"
+    },
+    "strategy_match": {
+      "ADD": false,
+      "LMS": false,
+      "MPL": false,
+      "MAJ": false,
+      "APP": false,
+      "FAI": false
+    },
+    "strategies_matched": [],
+    "n_strategies_matched": 0,
+    "strategy_gss": {
+      "ADD": 0.7028,
+      "LMS": 0.65,
+      "MPL": 0.7028,
+      "MAJ": 0.65,
+      "APP": 0.7028,
+      "FAI": 0.7028
+    },
+    "conversation_vs_best_strategy_gss": -0.7028
+  }
+]

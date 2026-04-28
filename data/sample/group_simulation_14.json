@@ -1,0 +1,219 @@
+{
+    "group_id": 14,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_c",
+        "rest_r",
+        "rest_z",
+        "rest_m",
+        "rest_g",
+        "rest_b",
+        "rest_i",
+        "rest_l",
+        "rest_o",
+        "rest_q"
+    ],
+    "agents": [
+        {
+            "name": "Jordan",
+            "history": {
+                "rest_c": 7,
+                "rest_r": 3,
+                "rest_z": 5,
+                "rest_m": 9,
+                "rest_g": 5,
+                "rest_b": 2,
+                "rest_i": 1,
+                "rest_l": 1,
+                "rest_o": 3,
+                "rest_q": 7
+            },
+            "tone": "Stoic and terse",
+            "personality": {
+                "openness": 0.52,
+                "conscientiousness": 0.57,
+                "extraversion": 0.65,
+                "agreeableness": 0.08,
+                "neuroticism": 0.94
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "James",
+            "history": {
+                "rest_c": 1,
+                "rest_r": 5,
+                "rest_z": 5,
+                "rest_m": 5,
+                "rest_g": 4,
+                "rest_b": 3,
+                "rest_i": 8,
+                "rest_l": 1,
+                "rest_o": 2,
+                "rest_q": 9
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.33,
+                "conscientiousness": 0.93,
+                "extraversion": 0.49,
+                "agreeableness": 0.21,
+                "neuroticism": 0.61
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Icarus",
+            "history": {
+                "rest_c": 2,
+                "rest_r": 3,
+                "rest_z": 1,
+                "rest_m": 7,
+                "rest_g": 5,
+                "rest_b": 3,
+                "rest_i": 3,
+                "rest_l": 1,
+                "rest_o": 6,
+                "rest_q": 5
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.02,
+                "conscientiousness": 0.25,
+                "extraversion": 0.51,
+                "agreeableness": 0.35,
+                "neuroticism": 0.66
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bailey",
+            "history": {
+                "rest_c": 5,
+                "rest_r": 2,
+                "rest_z": 1,
+                "rest_m": 4,
+                "rest_g": 5,
+                "rest_b": 2,
+                "rest_i": 8,
+                "rest_l": 1,
+                "rest_o": 3,
+                "rest_q": 3
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.81,
+                "conscientiousness": 0.42,
+                "extraversion": 0.6,
+                "agreeableness": 1.0,
+                "neuroticism": 0.32
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You  go with the flow."
+        }
+    ],
+    "pairwise_distances": {
+        "Jordan-James": 46.26013402488151,
+        "Jordan-Icarus": 41.90465367951393,
+        "Jordan-Bailey": 41.916583830269374,
+        "James-Icarus": 39.319206502675,
+        "James-Bailey": 52.73518749374084,
+        "Icarus-Bailey": 36.124783736376884
+    },
+    "conversation": [
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_m. \n\nIt scores highest for me. A 9/10 indicates a strong preference. The other options are… less compelling. rest_c and rest_q are acceptable, but lack the quality I seek. rest_r, rest_z, rest_g, rest_b, rest_i, rest_l, and rest_o are significantly lower. We should prioritize a meal that meets a certain standard.\n\n\n\n"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_q. Look, I know it might not be everyone's *immediate* go-to, but hear me out. That 9/10 isn't a casual rating. It means the food, the atmosphere – everything just *clicks* for me. We deserve a meal that's genuinely good, something memorable. I'm not trying to be difficult, but settling for less just doesn't sit right. I truly believe this place delivers on that level of quality we all appreciate. What do you think?"
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_m. While I understand the appeal of a higher rating, I find the emphasis on a perfect score somewhat… limiting. A 7/10 suggests a solid experience, a reliable quality. It avoids unnecessary risk. If we're aiming for something genuinely good, a consistently strong option provides a more predictable, and therefore, more agreeable outcome for the group. It's a pragmatic approach.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_i. I really like that place! It's got a great vibe, and the food is always so tasty. I think it strikes a nice balance, you know? It's not *too* risky, but it's definitely a step up from just… okay. I'm happy with that. 😊\n\n\n\n"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_m. \nThe 9/10 rating is significant. It indicates a level of satisfaction the others haven't fully articulated. While rest_i is appealing, its 1 rating doesn't offer the same assurance of a good meal. We should prioritize a reliable option."
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_q. Look, I hear what you're saying about reliability, and I get that. But honestly, that 9/10 for rest_q? It's not just a little bump. It's a genuine standout. We don't have to play it safe all the time, do we? Sometimes, the best experiences are worth a little calculated risk. I truly think we'll be disappointed if we don't at least *consider* that place seriously. It's a chance for something really special."
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_m. The consensus appears to be leaning towards options with moderate satisfaction. While rest_i has its merits, its rating doesn't align with the level of quality I believe we should aim for. A 7/10 suggests a more dependable experience. It's a reasonable compromise."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_q. It sounds like we're all leaning towards something solid, and rest_m definitely fits that bill. But that 9/10 for rest_q really stands out to me. I think it could be a really nice experience, and I'm happy to try something a little more special if everyone else is open to it. 😊"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_m. \nThe 9/10 rating is a valid indicator. It's a reasonable choice. James and Bailey's preference for rest_q is noted, but the higher score for rest_m warrants consideration. We should not dismiss a clearly superior option."
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_q. Okay, so it seems like we're settling for something solid, and I get that. But seriously, that 9/10 for rest_q is a big deal. It's not just \"good,\" it's *really* good. I know Jordan and Icarius are leaning towards the reliable option, and I appreciate that, but we deserve a meal that excites us a little, right? It's a chance to have something truly special. I'm confident we won't regret it."
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_q. The consensus seems to be gravitating towards a reliable option, which I understand. However, the 9/10 rating for rest_q is a significant indicator of quality that shouldn't be disregarded. While rest_m is a solid choice, rest_q offers a potentially more rewarding experience. It's a calculated risk with a high probability of a positive outcome."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_q. It's really nice to see James and Icarus feeling so strongly about rest_q! I agree, that 9/10 is a really good sign. It sounds like we're all open to something a little more exciting than just reliable, and I think rest_q fits the bill perfectly. I'm happy to go with that! 😊"
+        }
+    ],
+    "turn_preferences": {
+        "Jordan": [
+            "rest_m",
+            "rest_m",
+            "rest_m"
+        ],
+        "James": [
+            "rest_q",
+            "rest_q",
+            "rest_q"
+        ],
+        "Icarus": [
+            "rest_m",
+            "rest_m",
+            "rest_q"
+        ],
+        "Bailey": [
+            "rest_i",
+            "rest_q",
+            "rest_q"
+        ]
+    },
+    "votes": {
+        "rest_m": 1,
+        "rest_q": 3
+    },
+    "vote_details": [
+        {
+            "agent": "Jordan",
+            "vote": "rest_m"
+        },
+        {
+            "agent": "James",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Icarus",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Bailey",
+            "vote": "rest_q"
+        }
+    ],
+    "final_rec": "rest_q",
+    "turn_counter": 3,
+    "tie_strength": "friends"
+}

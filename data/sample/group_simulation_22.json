@@ -1,0 +1,380 @@
+{
+    "group_id": 22,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_i",
+        "rest_c",
+        "rest_y",
+        "rest_q",
+        "rest_z",
+        "rest_s",
+        "rest_g",
+        "rest_v",
+        "rest_n",
+        "rest_j"
+    ],
+    "agents": [
+        {
+            "name": "Charlotte",
+            "history": {
+                "rest_i": 5,
+                "rest_c": 1,
+                "rest_y": 4,
+                "rest_q": 5,
+                "rest_z": 3,
+                "rest_s": 2,
+                "rest_g": 2,
+                "rest_v": 2,
+                "rest_n": 3,
+                "rest_j": 1
+            },
+            "tone": "Grumpy and dismissive",
+            "personality": {
+                "openness": 0.16,
+                "conscientiousness": 0.66,
+                "extraversion": 0.77,
+                "agreeableness": 0.44,
+                "neuroticism": 0.26
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Isabella",
+            "history": {
+                "rest_i": 5,
+                "rest_c": 6,
+                "rest_y": 1,
+                "rest_q": 3,
+                "rest_z": 1,
+                "rest_s": 4,
+                "rest_g": 4,
+                "rest_v": 4,
+                "rest_n": 5,
+                "rest_j": 5
+            },
+            "tone": "Bitter and resentful",
+            "personality": {
+                "openness": 0.35,
+                "conscientiousness": 0.29,
+                "extraversion": 0.84,
+                "agreeableness": 0.84,
+                "neuroticism": 0.24
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Lucas",
+            "history": {
+                "rest_i": 5,
+                "rest_c": 1,
+                "rest_y": 1,
+                "rest_q": 5,
+                "rest_z": 9,
+                "rest_s": 6,
+                "rest_g": 3,
+                "rest_v": 1,
+                "rest_n": 6,
+                "rest_j": 2
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.7,
+                "conscientiousness": 0.86,
+                "extraversion": 0.15,
+                "agreeableness": 0.98,
+                "neuroticism": 0.46
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Amelia",
+            "history": {
+                "rest_i": 9,
+                "rest_c": 5,
+                "rest_y": 1,
+                "rest_q": 7,
+                "rest_z": 2,
+                "rest_s": 5,
+                "rest_g": 1,
+                "rest_v": 1,
+                "rest_n": 2,
+                "rest_j": 6
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.77,
+                "conscientiousness": 0.33,
+                "extraversion": 0.12,
+                "agreeableness": 0.26,
+                "neuroticism": 0.82
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Mia",
+            "history": {
+                "rest_i": 5,
+                "rest_c": 3,
+                "rest_y": 3,
+                "rest_q": 1,
+                "rest_z": 5,
+                "rest_s": 2,
+                "rest_g": 4,
+                "rest_v": 1,
+                "rest_n": 7,
+                "rest_j": 6
+            },
+            "tone": "Blunt and aggressive",
+            "personality": {
+                "openness": 0.93,
+                "conscientiousness": 0.29,
+                "extraversion": 0.42,
+                "agreeableness": 0.76,
+                "neuroticism": 0.68
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Noah",
+            "history": {
+                "rest_i": 9,
+                "rest_c": 1,
+                "rest_y": 1,
+                "rest_q": 6,
+                "rest_z": 5,
+                "rest_s": 9,
+                "rest_g": 5,
+                "rest_v": 4,
+                "rest_n": 7,
+                "rest_j": 3
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.71,
+                "conscientiousness": 0.82,
+                "extraversion": 0.75,
+                "agreeableness": 0.04,
+                "neuroticism": 0.17
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Morgan",
+            "history": {
+                "rest_i": 7,
+                "rest_c": 1,
+                "rest_y": 1,
+                "rest_q": 9,
+                "rest_z": 4,
+                "rest_s": 1,
+                "rest_g": 5,
+                "rest_v": 5,
+                "rest_n": 4,
+                "rest_j": 3
+            },
+            "tone": "Grumpy and dismissive",
+            "personality": {
+                "openness": 0.99,
+                "conscientiousness": 0.88,
+                "extraversion": 0.86,
+                "agreeableness": 0.18,
+                "neuroticism": 0.68
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Riley",
+            "history": {
+                "rest_i": 4,
+                "rest_c": 6,
+                "rest_y": 1,
+                "rest_q": 7,
+                "rest_z": 5,
+                "rest_s": 5,
+                "rest_g": 7,
+                "rest_v": 1,
+                "rest_n": 6,
+                "rest_j": 1
+            },
+            "tone": "Blunt and aggressive",
+            "personality": {
+                "openness": 0.39,
+                "conscientiousness": 0.0,
+                "extraversion": 0.49,
+                "agreeableness": 0.56,
+                "neuroticism": 0.43
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Charlotte-Isabella": 39.0,
+        "Charlotte-Lucas": 42.661458015403085,
+        "Charlotte-Amelia": 50.1098792654702,
+        "Charlotte-Mia": 40.22437072223753,
+        "Charlotte-Noah": 44.54211490264017,
+        "Charlotte-Morgan": 46.57252408878007,
+        "Charlotte-Riley": 43.45112196480086,
+        "Isabella-Lucas": 33.71943060017473,
+        "Isabella-Amelia": 43.3358973600409,
+        "Isabella-Mia": 44.57577817604534,
+        "Isabella-Noah": 40.53393639902249,
+        "Isabella-Morgan": 37.94733192202055,
+        "Isabella-Riley": 43.37049688440288,
+        "Lucas-Amelia": 51.54609587543949,
+        "Lucas-Mia": 44.85532298401161,
+        "Lucas-Noah": 45.14421336118285,
+        "Lucas-Morgan": 41.86884283091664,
+        "Lucas-Riley": 44.06812907306141,
+        "Amelia-Mia": 43.162483709814474,
+        "Amelia-Noah": 42.532340636273474,
+        "Amelia-Morgan": 34.08812109811862,
+        "Amelia-Riley": 40.45985664828782,
+        "Mia-Noah": 40.620192023179804,
+        "Mia-Morgan": 36.565010597564445,
+        "Mia-Riley": 34.75629439396553,
+        "Noah-Morgan": 38.03945320322047,
+        "Noah-Riley": 43.88621651498338,
+        "Morgan-Riley": 34.044089061098404
+    },
+    "conversation": [
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_i. Honestly, it's the most sensible choice. I've rated it a 5, and that's saying something. It ticks all the important boxes – quality, atmosphere, and value. The others are… questionable. rest_c is far too crowded, and rest_y? Don't even get me started. It's all flash and no substance. We need something solid, and rest_i delivers. Are we clear on that?\n"
+        },
+        {
+            "agent": "Isabella",
+            "message": "My current suggestion is rest_c. Look, I'm not going to pretend I *love* it, but it's got potential. A 6 is a solid score, and it's the only one with any real… vibrancy. I'm not keen on sterile environments, and rest_i is suffocatingly predictable. While it's sensible, sometimes sensible is just… boring. We need a little life, a little *something*. Don't mistake my appreciation for rest_i for a desire for blandness.\n\n\n\n"
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_z. Ooh, seriously, you guys are missing out! I *really* loved that place. It's got everything – the food was incredible, the vibe was just *chef's kiss*, and it wasn't crazy expensive. I get the practicality of rest_i, I do, but sometimes you gotta live a little, right? Plus, a 9 is a *9*! It's practically a guarantee of a good time. 😉 What do you think? Anyone else feelin' the love for rest_z?\n\n\n\n"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_i. Oh my goodness, I'm so glad you guys are considering it! I know it might seem… straightforward, but honestly, it just *works*. A 9 isn't given lightly, you know? It's a perfect blend of everything we're looking for – delicious food, a lovely atmosphere, and it won't break the bank. I think it's the best option for a genuinely enjoyable evening, and I really hope we go for it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Mia",
+            "message": "My current suggestion is rest_n. Seriously, are we just going to ignore the obvious? It's a solid 7, and that's more than enough. I get the fuss about vibrancy, but sometimes a place just *delivers* on quality without needing to be a circus. We're here to eat, not be overwhelmed. Don't overthink it."
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_i. Honestly, the fact that it's consistently the top-rated option speaks for itself. A 9 isn't a typo, people. It's a clear indication of a well-rounded experience. If you're looking for a good time without unnecessary distractions, it's the logical choice. Don't waste time debating the obvious."
+        },
+        {
+            "agent": "Morgan",
+            "message": "My current suggestion is rest_q. Honestly, it's the only sensible choice. A 9 isn't a suggestion, it's a recommendation. Are you all actively trying to make this more difficult than it needs to be? It's good food, a pleasant atmosphere, and won't cost us a fortune. End of discussion."
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_q. Seriously? Are we seriously still going back and forth? It's a 9, people. A *nine*. It's got everything we've been talking about – quality, atmosphere, and a price point that doesn't make you wince. Stop overthinking it and just pick the damn place that's clearly the best option. It's not rocket science."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_q. Honestly, all this back and forth is getting tedious. We've been over this. rest_q is a solid 9. It's good food, a decent atmosphere, and it's not going to empty our wallets. Are we seriously still debating this? It's the logical choice, and frankly, I'm starting to lose patience."
+        },
+        {
+            "agent": "Isabella",
+            "message": "My current suggestion is rest_q. Honestly, are we really going in circles here? Everyone else seems to have made up their minds about rest_q, and frankly, it's not a terrible choice. A 3 isn't fantastic, but it's not offensively bad either. It's a perfectly acceptable option, and at this point, I'm not going to fight it. Let's just pick something and get this over with."
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_q. Okay, okay, I see the tide is turning! 😉 Honestly, rest_q keeps popping up, and it's not *wrong*. A 9 is a 9, right? And you guys are all pretty insistent. I guess sometimes the obvious *is* the right choice. Fine by me! Let's go with it. 😊"
+        },
+        {
+            "agent": "Amelia",
+            "message": "My current suggestion is rest_q. Okay, okay, I see the tide is turning! 😉 Honestly, rest_q keeps popping up, and it's not *wrong*. A 9 is a 9, right? And you guys are all pretty insistent. I guess sometimes the obvious *is* the right choice. Fine by me! Let's go with it. 😊"
+        },
+        {
+            "agent": "Mia",
+            "message": "My current suggestion is rest_q. Seriously? Are we still dragging this out? It's a 9, people. A *nine*. I'm starting to think some of you are actively trying to avoid a decent meal. It's got everything we've been discussing – quality, atmosphere, and a price point that doesn't make you wince. Just pick the damn place that's clearly the best option and let's move on. I'm not repeating myself again."
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_q. Honestly, are we *still* doing this? It's a 9, people. A nine! I'm starting to think some of you are actively trying to make this harder than it needs to be. It's got everything we've been discussing – quality, atmosphere, and a price point that doesn't make you wince. Just pick the damn place that's clearly the best option and let's move on. I'm not repeating myself again. It's not exactly a hidden gem, you know."
+        },
+        {
+            "agent": "Morgan",
+            "message": "My current suggestion is rest_q. Fine. You've all made up your minds. It's a 9. I'm not going to argue with a herd. Just don't expect me to be thrilled about it. I'm not saying it's *great*, but it's the least awful option on the table. Let's go."
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_q. Alright, alright, it seems like we're all stuck on the same page. Fine by me. It's a solid choice, and honestly, I'm glad we're not wasting time debating this. Let's just go. I'm not going to keep pushing it."
+        }
+    ],
+    "turn_preferences": {
+        "Charlotte": [
+            "rest_i",
+            "rest_q"
+        ],
+        "Isabella": [
+            "rest_c",
+            "rest_q"
+        ],
+        "Lucas": [
+            "rest_z",
+            "rest_q"
+        ],
+        "Amelia": [
+            "rest_i",
+            "rest_q"
+        ],
+        "Mia": [
+            "rest_n",
+            "rest_q"
+        ],
+        "Noah": [
+            "rest_i",
+            "rest_q"
+        ],
+        "Morgan": [
+            "rest_q",
+            "rest_q"
+        ],
+        "Riley": [
+            "rest_q",
+            "rest_q"
+        ]
+    },
+    "votes": {
+        "rest_q": 8
+    },
+    "vote_details": [
+        {
+            "agent": "Charlotte",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Isabella",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Lucas",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Amelia",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Mia",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Noah",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Morgan",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Riley",
+            "vote": "rest_q"
+        }
+    ],
+    "final_rec": "rest_q",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

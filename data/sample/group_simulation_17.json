@@ -1,0 +1,219 @@
+{
+    "group_id": 17,
+    "group_config": "coalitional",
+    "restaurant_options": [
+        "rest_y",
+        "rest_p",
+        "rest_f",
+        "rest_t",
+        "rest_o",
+        "rest_e",
+        "rest_i",
+        "rest_v",
+        "rest_n",
+        "rest_j"
+    ],
+    "agents": [
+        {
+            "name": "Willem-Alexander",
+            "history": {
+                "rest_y": 10,
+                "rest_p": 3,
+                "rest_f": 9,
+                "rest_t": 1,
+                "rest_o": 1,
+                "rest_e": 2,
+                "rest_i": 8,
+                "rest_v": 5,
+                "rest_n": 5,
+                "rest_j": 9
+            },
+            "tone": "Stoic and terse",
+            "personality": {
+                "openness": 0.85,
+                "conscientiousness": 0.37,
+                "extraversion": 0.73,
+                "agreeableness": 0.42,
+                "neuroticism": 0.51
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Cedric",
+            "history": {
+                "rest_y": 9,
+                "rest_p": 5,
+                "rest_f": 4,
+                "rest_t": 5,
+                "rest_o": 4,
+                "rest_e": 1,
+                "rest_i": 7,
+                "rest_v": 6,
+                "rest_n": 1,
+                "rest_j": 5
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.69,
+                "conscientiousness": 0.04,
+                "extraversion": 0.32,
+                "agreeableness": 0.09,
+                "neuroticism": 0.39
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Ava",
+            "history": {
+                "rest_y": 1,
+                "rest_p": 7,
+                "rest_f": 1,
+                "rest_t": 5,
+                "rest_o": 9,
+                "rest_e": 7,
+                "rest_i": 4,
+                "rest_v": 2,
+                "rest_n": 8,
+                "rest_j": 5
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.06,
+                "conscientiousness": 0.43,
+                "extraversion": 0.63,
+                "agreeableness": 0.31,
+                "neuroticism": 0.64
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Lowen",
+            "history": {
+                "rest_y": 2,
+                "rest_p": 4,
+                "rest_f": 1,
+                "rest_t": 3,
+                "rest_o": 5,
+                "rest_e": 9,
+                "rest_i": 1,
+                "rest_v": 5,
+                "rest_n": 9,
+                "rest_j": 9
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.75,
+                "conscientiousness": 0.7,
+                "extraversion": 0.43,
+                "agreeableness": 0.05,
+                "neuroticism": 0.71
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Willem-Alexander-Cedric": 37.64306044943742,
+        "Willem-Alexander-Ava": 43.034869582700026,
+        "Willem-Alexander-Lowen": 45.8257569495584,
+        "Cedric-Ava": 37.107950630558946,
+        "Cedric-Lowen": 41.09744517606904,
+        "Ava-Lowen": 29.223278392404914
+    },
+    "conversation": [
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_y. \n\nIt aligns with my preferences. A high rating indicates quality and satisfaction. While other options possess merit, 'rest_y' offers the most complete fulfillment of desired attributes. I am open to considering alternatives if presented with compelling justifications. Let's hear what you propose.\n\n\n\n"
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_y! Oh my goodness, I've heard *amazing* things about that place! Seriously, it's got everything – the food is supposed to be incredible, and the atmosphere is just... *chef's kiss*. I know I'm a big fan of cozy spots, and it seems like it ticks all the boxes. What do you all think? I'm really excited about it! ✨\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_o! Ooh, seriously, you guys *have* to try it! I'm practically drooling just thinking about it. It's got that perfect blend of deliciousness and a vibe that just *gets* me, you know? Like, it's not stuffy or anything, but still super classy. Willem-Alexander, you'd appreciate the ambiance, and Cedric, I bet they have something to pique your culinary curiosity! Lowen, you'll love the little details. Don't let the rating fool you, it's *really* good. 😉\n\n\n\n"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_e! Oh my gosh, you guys are *selling* me on rest_o, and it sounds incredible! But honestly, rest_e is just *perfect* for me. That 9/10 rating isn't just a number, it's a promise of a truly delightful experience! I'm a little worried about it being *too* fancy, but if you all really think it'll be amazing, I'm willing to trust your judgment! ✨ Let's go with it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_y. \nThe consensus leans towards 'rest_o' and 'rest_e'. While those have their merits, 'rest_y' remains the most consistently favorable option. Its high rating suggests a reliable experience. I will not deviate unless a compelling argument for another restaurant is presented."
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_y! Woohoo! It's so awesome that Willem-Alexander is on board with this! I've been saying how much I love that place, and the fact that it's got a 9/10 rating just makes me so confident it'll be amazing. Plus, I really appreciate the cozy vibe – it's just perfect for a chill hangout with friends! 😊 I'm seriously getting super excited about it now! ✨"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_e! Okay, okay, you guys are *really* pushing for rest_y, and honestly, it *does* sound amazing. But... that 9/10 for rest_e? It's just too tempting to ignore! I'm feeling like a little bit of fancy is what we need tonight. 😉 Plus, I'm kinda curious to see what Lowen thinks – you always have the best taste! So, can we at least *consider* it? Pretty please? ✨\n\n\n\n"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_e! Okay, okay, I see you guys are really leaning towards rest_y, and it *is* super tempting! But... that 9/10 for rest_e is just *calling* my name! Seriously, I'm feeling like a little bit of fancy is what we need tonight. Plus, Ava agrees with me, and you know she has amazing taste! 😉 Let's go for it! ✨ I think it'll be a really special experience! 😊"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_y. \nThe consensus favors 'rest_e' and 'rest_y'. While 'rest_e' has a strong appeal, 'rest_y' consistently demonstrates higher quality based on available data. I will not advocate for a less optimal choice."
+        },
+        {
+            "agent": "Cedric",
+            "message": "My current suggestion is rest_e! Okay, okay, you guys are *really* selling me on rest_e! I'm seeing the excitement, and honestly, that 9/10 rating is just too good to pass up! Ava and Lowen both agree, and you know they have amazing taste! 😉 I'm feeling like a little bit of fancy is *exactly* what we need tonight. Plus, I'm super curious to see what it's like! ✨ Let's do it! 😊"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_e! Seriously, it seems like rest_e is the clear winner here, and honestly? I'm totally on board! Cedric and Lowen are right – that 9/10 rating is seriously tempting. Plus, it sounds like the kind of place where we can all have a really fun time. 😉 I'm feeling good about this! ✨"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_e! Okay, okay, it's *really* starting to look like rest_e is the winner, and honestly? I'm totally on board! Ava and Cedric are right – that 9/10 rating is seriously tempting! Plus, it sounds like the kind of place where we can all have a really fun time. 😉 I'm feeling good about this! ✨ I'm so excited to try it! 😊"
+        }
+    ],
+    "turn_preferences": {
+        "Willem-Alexander": [
+            "rest_y",
+            "rest_y",
+            "rest_y"
+        ],
+        "Cedric": [
+            "rest_y",
+            "rest_y",
+            "rest_e"
+        ],
+        "Ava": [
+            "rest_o",
+            "rest_e",
+            "rest_e"
+        ],
+        "Lowen": [
+            "rest_e",
+            "rest_e",
+            "rest_e"
+        ]
+    },
+    "votes": {
+        "rest_y": 1,
+        "rest_e": 3
+    },
+    "vote_details": [
+        {
+            "agent": "Willem-Alexander",
+            "vote": "rest_y"
+        },
+        {
+            "agent": "Cedric",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Ava",
+            "vote": "rest_e"
+        },
+        {
+            "agent": "Lowen",
+            "vote": "rest_e"
+        }
+    ],
+    "final_rec": "rest_e",
+    "turn_counter": 3,
+    "tie_strength": "friends"
+}

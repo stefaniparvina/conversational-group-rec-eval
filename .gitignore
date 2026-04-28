@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Data - full dataset too large for GitHub
+data/full_dataset/
+data/raw/
+
+# Other
+more/
+src/module2/llm_evaluator.py

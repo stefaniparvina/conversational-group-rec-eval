@@ -1,0 +1,318 @@
+{
+    "group_id": 12,
+    "group_config": "minority",
+    "restaurant_options": [
+        "rest_a",
+        "rest_b",
+        "rest_d",
+        "rest_u",
+        "rest_c",
+        "rest_s",
+        "rest_t",
+        "rest_z",
+        "rest_q",
+        "rest_e"
+    ],
+    "agents": [
+        {
+            "name": "Icarus",
+            "history": {
+                "rest_a": 6,
+                "rest_b": 2,
+                "rest_d": 6,
+                "rest_u": 9,
+                "rest_c": 1,
+                "rest_s": 2,
+                "rest_t": 9,
+                "rest_z": 1,
+                "rest_q": 5,
+                "rest_e": 5
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.92,
+                "conscientiousness": 0.83,
+                "extraversion": 0.26,
+                "agreeableness": 0.36,
+                "neuroticism": 0.24
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Elijah",
+            "history": {
+                "rest_a": 4,
+                "rest_b": 5,
+                "rest_d": 9,
+                "rest_u": 4,
+                "rest_c": 1,
+                "rest_s": 1,
+                "rest_t": 5,
+                "rest_z": 3,
+                "rest_q": 4,
+                "rest_e": 6
+            },
+            "tone": "Passive-aggressive",
+            "personality": {
+                "openness": 0.5,
+                "conscientiousness": 0.25,
+                "extraversion": 0.03,
+                "agreeableness": 0.96,
+                "neuroticism": 0.21
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You  go with the flow."
+        },
+        {
+            "name": "Maxima",
+            "history": {
+                "rest_a": 8,
+                "rest_b": 7,
+                "rest_d": 7,
+                "rest_u": 7,
+                "rest_c": 4,
+                "rest_s": 1,
+                "rest_t": 1,
+                "rest_z": 4,
+                "rest_q": 5,
+                "rest_e": 5
+            },
+            "tone": "Humble and deferential",
+            "personality": {
+                "openness": 0.9,
+                "conscientiousness": 0.08,
+                "extraversion": 0.78,
+                "agreeableness": 0.04,
+                "neuroticism": 0.78
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Emma",
+            "history": {
+                "rest_a": 4,
+                "rest_b": 3,
+                "rest_d": 5,
+                "rest_u": 10,
+                "rest_c": 5,
+                "rest_s": 1,
+                "rest_t": 3,
+                "rest_z": 5,
+                "rest_q": 6,
+                "rest_e": 1
+            },
+            "tone": "Humble and deferential",
+            "personality": {
+                "openness": 0.4,
+                "conscientiousness": 0.73,
+                "extraversion": 0.9,
+                "agreeableness": 0.7,
+                "neuroticism": 0.31
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Harper",
+            "history": {
+                "rest_a": 7,
+                "rest_b": 1,
+                "rest_d": 8,
+                "rest_u": 4,
+                "rest_c": 1,
+                "rest_s": 3,
+                "rest_t": 5,
+                "rest_z": 6,
+                "rest_q": 5,
+                "rest_e": 4
+            },
+            "tone": "Laid-back and casual",
+            "personality": {
+                "openness": 0.94,
+                "conscientiousness": 0.03,
+                "extraversion": 0.53,
+                "agreeableness": 0.94,
+                "neuroticism": 0.72
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Benjamin",
+            "history": {
+                "rest_a": 5,
+                "rest_b": 5,
+                "rest_d": 1,
+                "rest_u": 1,
+                "rest_c": 4,
+                "rest_s": 10,
+                "rest_t": 7,
+                "rest_z": 2,
+                "rest_q": 9,
+                "rest_e": 10
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.48,
+                "conscientiousness": 0.74,
+                "extraversion": 0.54,
+                "agreeableness": 0.76,
+                "neuroticism": 0.18
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Icarus-Elijah": 36.373066958946424,
+        "Icarus-Maxima": 48.4458460551573,
+        "Icarus-Emma": 38.36665218650175,
+        "Icarus-Harper": 43.95452195167182,
+        "Icarus-Benjamin": 39.949968710876355,
+        "Elijah-Maxima": 42.89522117905443,
+        "Elijah-Emma": 42.22558466143482,
+        "Elijah-Harper": 47.25462940284264,
+        "Elijah-Benjamin": 35.874782229304195,
+        "Maxima-Emma": 44.50842616853577,
+        "Maxima-Harper": 48.938737212968626,
+        "Maxima-Benjamin": 46.37887450122092,
+        "Emma-Harper": 45.27692569068709,
+        "Emma-Benjamin": 38.57460304397182,
+        "Harper-Benjamin": 29.086079144497972
+    },
+    "conversation": [
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_u. \n\nHello everyone! I've been giving this a bit of thought, and I'm leaning strongly towards rest_u. It's my absolute favorite – a solid 9/10! I find the atmosphere and cuisine there consistently delightful. While rest_a and rest_d are good options, they don't quite reach the same level of enjoyment for me. Rest_t is also excellent, but rest_u offers a unique blend that I think we'd all appreciate. What are your initial thoughts? I'm open to hearing other perspectives, of course!\n\n\n\n"
+        },
+        {
+            "agent": "Elijah",
+            "message": "My current suggestion is rest_d. \n\nIt's just... it's such a reliably good experience, isn't it? I always feel like everyone enjoys themselves there. I suppose it's a safe choice, but sometimes a safe choice is the best choice, don't you think? I'm not sure I'd want to risk something less... consistently pleasant. I'm sure the others have valid points, but I just feel rest_d offers the most overall satisfaction.\n\n\n\n"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_a. \n\nHonestly, I'm surprised no one's pushed for rest_a yet. It's a solid 8/10 for a reason! It's got everything – good food, a lively vibe, and it's not stuffy. I get the appeal of rest_d's reliability, but sometimes you *want* a little more excitement. We're a group, aren't we? Let's actually *enjoy* ourselves, not just be comfortable. I think it'll suit us better.\n\n\n\n"
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_u. I have to admit, I'm a little surprised no one's really championed rest_u yet! It's honestly my absolute favorite – a solid 10/10 in my book. I know it might not be everyone's *usual* choice, but I think the atmosphere and food are just... special. It offers something a little different, and I feel like it would create a really memorable evening for us all. What do you think? I'm happy to elaborate if anyone's curious!\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_d. It's cool that Benjamin brought it up! I totally get the appeal of a place that's always good and reliable. Sometimes that's just what you need, you know? It's nice to have a solid option when you don't want to take a chance. Plus, it sounds like everyone generally has a good time there, which is a big plus! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_s. Honestly, I'm a little taken aback that we haven't really focused on rest_s yet! It's truly exceptional – a solid 10/10 for me. While rest_d offers reliability, and rest_a has its charm, rest_s just hits a different note. The ambiance is incredible, and the food is consistently outstanding. I genuinely believe it would make for a really special evening for us. What do you all think? I'm happy to share why I feel so strongly about it!\n\n\n\n"
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_u. It's really heartening to see more people appreciating rest_u! I genuinely think it has the potential to be a truly memorable night for us all. It's got that special something that sets it apart, you know? While rest_d is a solid choice, and rest_a is always good fun, rest_u offers a bit more magic. I'm confident we'll all have a wonderful time there. What do you say, everyone?"
+        },
+        {
+            "agent": "Elijah",
+            "message": "My current suggestion is rest_d. \nIt's... nice to see rest_d still getting some attention. I suppose it's a solid choice, and I'm not really trying to argue with that. It's just... sometimes I feel like we're overlooking other options that might be a little more... engaging? But hey, if everyone's comfortable with rest_d, that's perfectly fine. I just thought I'd mention it.\n\n\n\n"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_s. \nAlright, alright, I see everyone's leaning towards rest_u and rest_d. I get that they're reliable, and I appreciate that. But honestly, rest_s is just... it's a really special place. I know it's not everyone's first pick, but the atmosphere and food are truly something else. It's got a unique charm that I think we'd all really enjoy. I'm not trying to push it, but I genuinely think it would make for a more memorable evening. What do you all think?"
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_u. It's really nice to see so many people enjoying the idea of rest_u! I think it has a real chance of being a highlight of our evening. I know rest_d is a solid pick, and rest_s is fantastic, but rest_u just has that certain spark that makes it feel special. I'm happy to go with whatever the group feels is best, but I genuinely believe it would be a wonderful choice."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_s. It's cool that a few people are digging rest_s! I think it has a really nice vibe, and the food is usually pretty good. It's not my absolute favorite, but it seems like a good compromise since a lot of us are open to it. Plus, it's definitely better than some of the other options we've brought up! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_s. It's fantastic to see more people feeling the same way about rest_s! Honestly, it really does stand out. While rest_u and rest_d are great, rest_s offers a unique blend of atmosphere and food that I think we're all craving. I'm really feeling like it'll be the highlight of our night, and with so many of us on board, I think it's a pretty solid choice. What do you all think?\n\n\n\n"
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_u. It's really wonderful to see so many of us drawn to rest_u! I genuinely think it's going to be the highlight of our evening. It's got that special something that makes it truly memorable, and with so many people feeling the same way, I feel confident it's the perfect choice for us all. I'm excited about it!"
+        },
+        {
+            "agent": "Elijah",
+            "message": "My current suggestion is rest_s. It's... interesting how much conversation rest_s is generating. I suppose it does have a certain appeal, and I'm not really trying to fight that. It's just... I'm not sure if it's *quite* the right fit for everyone. But if the group feels strongly about it, then that's perfectly alright. I'm just... observing."
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_s. It's... well, it's really heartening to see so many of you leaning towards rest_s. I know rest_u is popular, and rest_d is a solid choice, but honestly, rest_s just has that something special. I'm not trying to force it on anyone, but I genuinely think it'll be the most enjoyable evening for us. The atmosphere and food are just... *good*. If the group feels that way, then that's all that matters, of course. But I feel like it's a pretty good bet."
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_u. It's really lovely to see so many of us feeling drawn to rest_u! I think it has the potential to be a truly special evening for everyone. I know rest_s is popular, and it's a great place, but rest_u just has that certain charm that I feel we've all been missing. I'm happy to go with whatever the group decides, but I genuinely believe it would be a wonderful choice."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_s. It's pretty cool that rest_s is getting so much love! I'm happy to see everyone feeling that way. It's definitely got a nice vibe, and I think we'll all have a good time there. I'm not really pushing for anything else, as long as the group's happy with it. 😊\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_s. It's really encouraging to see so many of us feeling good about rest_s! I genuinely think it's going to be a really enjoyable evening there. The atmosphere and food are just top-notch, and I feel like it's a pretty safe bet for making our night memorable. I'm happy to see the group leaning in that direction."
+        }
+    ],
+    "turn_preferences": {
+        "Icarus": [
+            "rest_u",
+            "rest_u",
+            "rest_u"
+        ],
+        "Elijah": [
+            "rest_d",
+            "rest_d",
+            "rest_s"
+        ],
+        "Maxima": [
+            "rest_a",
+            "rest_s",
+            "rest_s"
+        ],
+        "Emma": [
+            "rest_u",
+            "rest_u",
+            "rest_u"
+        ],
+        "Harper": [
+            "rest_d",
+            "rest_s",
+            "rest_s"
+        ],
+        "Benjamin": [
+            "rest_s",
+            "rest_s",
+            "rest_s"
+        ]
+    },
+    "votes": {
+        "rest_u": 2,
+        "rest_s": 4
+    },
+    "vote_details": [
+        {
+            "agent": "Icarus",
+            "vote": "rest_u"
+        },
+        {
+            "agent": "Elijah",
+            "vote": "rest_s"
+        },
+        {
+            "agent": "Maxima",
+            "vote": "rest_s"
+        },
+        {
+            "agent": "Emma",
+            "vote": "rest_u"
+        },
+        {
+            "agent": "Harper",
+            "vote": "rest_s"
+        },
+        {
+            "agent": "Benjamin",
+            "vote": "rest_s"
+        }
+    ],
+    "final_rec": "rest_s",
+    "turn_counter": 3,
+    "tie_strength": "friends"
+}

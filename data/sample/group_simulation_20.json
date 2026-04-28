@@ -1,0 +1,198 @@
+{
+    "group_id": 20,
+    "group_config": "minority",
+    "restaurant_options": [
+        "rest_g",
+        "rest_q",
+        "rest_a",
+        "rest_u",
+        "rest_l",
+        "rest_m",
+        "rest_i",
+        "rest_n",
+        "rest_d",
+        "rest_x"
+    ],
+    "agents": [
+        {
+            "name": "Riley",
+            "history": {
+                "rest_g": 9,
+                "rest_q": 6,
+                "rest_a": 1,
+                "rest_u": 10,
+                "rest_l": 5,
+                "rest_m": 6,
+                "rest_i": 10,
+                "rest_n": 1,
+                "rest_d": 4,
+                "rest_x": 5
+            },
+            "tone": "Grumpy and dismissive",
+            "personality": {
+                "openness": 0.31,
+                "conscientiousness": 0.86,
+                "extraversion": 0.32,
+                "agreeableness": 0.58,
+                "neuroticism": 0.36
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bart",
+            "history": {
+                "rest_g": 4,
+                "rest_q": 7,
+                "rest_a": 1,
+                "rest_u": 1,
+                "rest_l": 3,
+                "rest_m": 3,
+                "rest_i": 10,
+                "rest_n": 2,
+                "rest_d": 5,
+                "rest_x": 5
+            },
+            "tone": "Sincere and thoughtful",
+            "personality": {
+                "openness": 0.71,
+                "conscientiousness": 0.5,
+                "extraversion": 0.99,
+                "agreeableness": 0.42,
+                "neuroticism": 0.49
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Marge",
+            "history": {
+                "rest_g": 7,
+                "rest_q": 8,
+                "rest_a": 1,
+                "rest_u": 2,
+                "rest_l": 7,
+                "rest_m": 5,
+                "rest_i": 5,
+                "rest_n": 3,
+                "rest_d": 1,
+                "rest_x": 4
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.87,
+                "conscientiousness": 0.64,
+                "extraversion": 0.63,
+                "agreeableness": 0.17,
+                "neuroticism": 0.21
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Sophia",
+            "history": {
+                "rest_g": 1,
+                "rest_q": 4,
+                "rest_a": 9,
+                "rest_u": 1,
+                "rest_l": 10,
+                "rest_m": 5,
+                "rest_i": 7,
+                "rest_n": 9,
+                "rest_d": 5,
+                "rest_x": 10
+            },
+            "tone": "Bitter and resentful",
+            "personality": {
+                "openness": 0.78,
+                "conscientiousness": 0.1,
+                "extraversion": 0.3,
+                "agreeableness": 0.46,
+                "neuroticism": 0.06
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Riley-Bart": 43.64630568559039,
+        "Riley-Marge": 47.62352359916263,
+        "Riley-Sophia": 40.44749683231337,
+        "Bart-Marge": 45.92385001282014,
+        "Bart-Sophia": 44.41846462902562,
+        "Marge-Sophia": 51.45872132107443
+    },
+    "conversation": [
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_u. Honestly, it's the only decent option here. I've rated it a 10/10 for a reason. It ticks all the boxes – atmosphere, food, the whole shebang. The others? Don't even get me started. We'll be back here. Don't expect me to debate this.\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_i. I know I'm pretty emphatic about it, but I genuinely think it's the best choice for us tonight. I've been thinking about it, and it really does have everything – a comfortable vibe, food that's consistently delicious, and it's a place where we can all easily relax and chat. I'm happy to hear your thoughts, of course, but I feel confident in this one. I'm not trying to force it on anyone, just sharing what I feel is a really good fit.\n\n\n\n"
+        },
+        {
+            "agent": "Marge",
+            "message": "My current suggestion is rest_q. I have to agree with Sophia, it's a really lovely spot! It's got that perfect blend of cozy and lively, you know? And the menu is just *chef's kiss*. While I appreciate the consistency of the other place, sometimes a little more vibrancy is what we need. Plus, it's easier to actually *talk* without shouting over the noise there, which is a definite plus for a catch-up. What do you all think?\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_l. Honestly, it's the only sensible choice. I'm not going to rehash the points I made earlier. If you'd actually *considered* my rating, you wouldn't be asking. It's consistently good, and frankly, I'm tired of having to explain the obvious. Let's just go.\n\n\n\n"
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_i. Honestly, you're all missing the point. I've said it before, and I'll say it again – rest_i is the only sensible choice. It's got a solid 10 for a reason. You're chasing after places with mediocre ratings. We're going with what actually *works*. Don't make me spell it out for you."
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_i. It's really heartening to see Riley and you both leaning towards it. I know it might not have the same immediate buzz as rest_q, but honestly, the consistent quality and comfortable atmosphere at rest_i are what I value most for a good catch-up. It's a reliable spot, and I think we'll all be more relaxed and able to truly connect there. I'm glad we're on the same page about this one."
+        },
+        {
+            "agent": "Marge",
+            "message": "My current suggestion is rest_i. It's really great to see Riley and Bart so keen on it! I know it might not have the same immediate buzz as rest_q, but honestly, the consistent quality and comfortable atmosphere at rest_i are what I value most for a good catch-up. It's a reliable spot, and I think we'll all be more relaxed and able to truly connect there. I'm glad we're on the same page about this one."
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_i. Fine, you've all made up your minds. It's not like I have any other ideas worth mentioning. Just don't come crying to me when you realize you're missing out on something truly *good*. I'm not going to argue with a consensus."
+        }
+    ],
+    "turn_preferences": {
+        "Riley": [
+            "rest_u",
+            "rest_i"
+        ],
+        "Bart": [
+            "rest_i",
+            "rest_i"
+        ],
+        "Marge": [
+            "rest_q",
+            "rest_i"
+        ],
+        "Sophia": [
+            "rest_l",
+            "rest_i"
+        ]
+    },
+    "votes": {
+        "rest_i": 4
+    },
+    "vote_details": [
+        {
+            "agent": "Riley",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Bart",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Marge",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Sophia",
+            "vote": "rest_i"
+        }
+    ],
+    "final_rec": "rest_i",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

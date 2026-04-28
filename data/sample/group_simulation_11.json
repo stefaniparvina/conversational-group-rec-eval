@@ -1,0 +1,199 @@
+{
+    "group_id": 11,
+    "group_config": "divergent",
+    "restaurant_options": [
+        "rest_o",
+        "rest_v",
+        "rest_r",
+        "rest_l",
+        "rest_w",
+        "rest_g",
+        "rest_i",
+        "rest_x",
+        "rest_c",
+        "rest_f"
+    ],
+    "agents": [
+        {
+            "name": "James",
+            "history": {
+                "rest_o": 4,
+                "rest_v": 1,
+                "rest_r": 5,
+                "rest_l": 6,
+                "rest_w": 1,
+                "rest_g": 2,
+                "rest_i": 3,
+                "rest_x": 4,
+                "rest_c": 3,
+                "rest_f": 5
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.46,
+                "conscientiousness": 0.4,
+                "extraversion": 0.77,
+                "agreeableness": 0.9,
+                "neuroticism": 0.02
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Benjamin",
+            "history": {
+                "rest_o": 1,
+                "rest_v": 10,
+                "rest_r": 6,
+                "rest_l": 5,
+                "rest_w": 9,
+                "rest_g": 5,
+                "rest_i": 7,
+                "rest_x": 7,
+                "rest_c": 9,
+                "rest_f": 1
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.1,
+                "conscientiousness": 0.74,
+                "extraversion": 0.44,
+                "agreeableness": 0.69,
+                "neuroticism": 0.67
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bart",
+            "history": {
+                "rest_o": 8,
+                "rest_v": 5,
+                "rest_r": 1,
+                "rest_l": 5,
+                "rest_w": 10,
+                "rest_g": 9,
+                "rest_i": 6,
+                "rest_x": 9,
+                "rest_c": 1,
+                "rest_f": 10
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.4,
+                "conscientiousness": 0.21,
+                "extraversion": 0.7,
+                "agreeableness": 0.57,
+                "neuroticism": 0.48
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Jordan",
+            "history": {
+                "rest_o": 10,
+                "rest_v": 1,
+                "rest_r": 8,
+                "rest_l": 1,
+                "rest_w": 10,
+                "rest_g": 10,
+                "rest_i": 5,
+                "rest_x": 1,
+                "rest_c": 10,
+                "rest_f": 5
+            },
+            "tone": "Anxious and defensive",
+            "personality": {
+                "openness": 0.64,
+                "conscientiousness": 0.43,
+                "extraversion": 0.27,
+                "agreeableness": 0.29,
+                "neuroticism": 0.45
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "James-Benjamin": 47.686476070265456,
+        "James-Bart": 36.40054944640259,
+        "James-Jordan": 54.75399528801528,
+        "Benjamin-Bart": 53.056573579529235,
+        "Benjamin-Jordan": 56.72741841473134,
+        "Bart-Jordan": 44.48595283907045
+    },
+    "conversation": [
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_l. \n\nHello everyone! I was thinking we could try that lovely Italian place – you know, the one with the fantastic pasta? It's actually one of my top choices, and I've heard really good things about their atmosphere. It scores quite high for me personally! Of course, I'm open to other ideas too. What are your thoughts? Perhaps something with a bit more vibrancy, or maybe a more relaxed vibe? Let's weigh the options together!\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_v. \n\nOh, seriously? You guys haven't been to *Resto V*? Are you kidding me? It's practically a religious experience! The food is divine, the ambiance is *chef's kiss*, and honestly, it's my absolute favorite. Don't even *think* about suggesting anything else – unless you want to face my disappointment! 😉 I'm just saying, you're missing out on peak deliciousness. 😜\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_w.\n\nBenjamin, while I appreciate your enthusiasm for Resto V, and acknowledge its high rating for you, I believe a balanced approach is warranted. Your preference is noted, but it doesn't necessarily reflect the group's collective desires. Resto W consistently scores very highly across multiple parameters – ambiance, food quality, and overall experience. It presents a more neutral, yet still positive, option that accommodates diverse tastes without polarizing the decision. A consensus is preferable to prioritizing one individual's strong preference.\n\n\n\n"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_o. \n\nOkay, look, I really think we should go with Resto. It's just... it's perfect, you know? The food is incredible, and the atmosphere is so calming. I know Benj appreciates Resto V, but it feels a little *too* intense for everyone. I'm not saying it's bad, but maybe we can find something that everyone can genuinely enjoy? I just want us all to be comfortable and have a good time, and Resto just *feels* right for that. I hope that's okay.\n\n\n\n"
+        },
+        {
+            "agent": "James",
+            "message": "My current suggestion is rest_l. \n \nAlright, I hear you all. While Resto V sounds amazing, and Resto W has its merits, I still think Resto L offers the best overall experience. It's got that perfect blend of delicious food and a really comfortable atmosphere – a solid 6 for me! Plus, it's flexible enough to please everyone. I'm happy to go with whatever feels right for the group, but I genuinely believe Resto L is a strong contender. What do you think?"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_w. \nUgh, fine, fine! You guys are being so stubborn. But seriously, *Resto W* is actually a really solid pick. It's got that vibe everyone seems to like, and honestly, it's not *terrible* – a respectable 9 from me! I just feel like we're overlooking a perfectly good option. Don't say I didn't warn you when you're all raving about how great it is! 😉\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_w.\nThe conversation has highlighted a divergence in preferences. While Resto V is clearly favored by one person, the consensus leans towards a more balanced option. Resto L is also a reasonable suggestion, but Resto W consistently scores higher across my criteria, particularly in atmosphere and overall experience. It offers a good compromise without sacrificing quality. I believe it's the most logical choice to ensure everyone is reasonably satisfied.\n\n\n\n"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_w. \nOkay, so... I know I really wanted to try Resto L, and it scores really well for me, like, a 10! But it seems like you guys are really leaning towards Resto W, and it does have a lot of good points. Especially with Bart and Benja saying so. I guess... I can see that. It's just, I'm a little worried we're missing out on something really great. But if it makes everyone happy, then that's... good, right? I just hope it's still a nice experience."
+        }
+    ],
+    "turn_preferences": {
+        "James": [
+            "rest_l",
+            "rest_l"
+        ],
+        "Benjamin": [
+            "rest_v",
+            "rest_w"
+        ],
+        "Bart": [
+            "rest_w",
+            "rest_w"
+        ],
+        "Jordan": [
+            "rest_o",
+            "rest_w"
+        ]
+    },
+    "votes": {
+        "rest_l": 1,
+        "rest_w": 3
+    },
+    "vote_details": [
+        {
+            "agent": "James",
+            "vote": "rest_l"
+        },
+        {
+            "agent": "Benjamin",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Bart",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Jordan",
+            "vote": "rest_w"
+        }
+    ],
+    "final_rec": "rest_w",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

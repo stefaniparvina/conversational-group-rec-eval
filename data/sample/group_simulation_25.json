@@ -1,0 +1,348 @@
+{
+    "group_id": 25,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_m",
+        "rest_n",
+        "rest_j",
+        "rest_x",
+        "rest_r",
+        "rest_f",
+        "rest_p",
+        "rest_z",
+        "rest_k",
+        "rest_e"
+    ],
+    "agents": [
+        {
+            "name": "Ava",
+            "history": {
+                "rest_m": 4,
+                "rest_n": 2,
+                "rest_j": 5,
+                "rest_x": 7,
+                "rest_r": 1,
+                "rest_f": 5,
+                "rest_p": 9,
+                "rest_z": 10,
+                "rest_k": 5,
+                "rest_e": 1
+            },
+            "tone": "Overconfident and cocky",
+            "personality": {
+                "openness": 0.48,
+                "conscientiousness": 0.53,
+                "extraversion": 0.56,
+                "agreeableness": 0.69,
+                "neuroticism": 0.71
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Sophia",
+            "history": {
+                "rest_m": 4,
+                "rest_n": 2,
+                "rest_j": 5,
+                "rest_x": 5,
+                "rest_r": 5,
+                "rest_f": 3,
+                "rest_p": 6,
+                "rest_z": 4,
+                "rest_k": 1,
+                "rest_e": 1
+            },
+            "tone": "Stoic and terse",
+            "personality": {
+                "openness": 0.55,
+                "conscientiousness": 0.57,
+                "extraversion": 0.24,
+                "agreeableness": 0.94,
+                "neuroticism": 0.42
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Lucas",
+            "history": {
+                "rest_m": 2,
+                "rest_n": 1,
+                "rest_j": 9,
+                "rest_x": 4,
+                "rest_r": 7,
+                "rest_f": 5,
+                "rest_p": 4,
+                "rest_z": 5,
+                "rest_k": 3,
+                "rest_e": 1
+            },
+            "tone": "Friendly but firm",
+            "personality": {
+                "openness": 0.7,
+                "conscientiousness": 0.8,
+                "extraversion": 0.71,
+                "agreeableness": 0.91,
+                "neuroticism": 0.38
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bart",
+            "history": {
+                "rest_m": 4,
+                "rest_n": 1,
+                "rest_j": 1,
+                "rest_x": 8,
+                "rest_r": 4,
+                "rest_f": 5,
+                "rest_p": 5,
+                "rest_z": 7,
+                "rest_k": 2,
+                "rest_e": 4
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.4,
+                "conscientiousness": 0.38,
+                "extraversion": 0.4,
+                "agreeableness": 0.71,
+                "neuroticism": 0.98
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bailey",
+            "history": {
+                "rest_m": 4,
+                "rest_n": 1,
+                "rest_j": 2,
+                "rest_x": 5,
+                "rest_r": 1,
+                "rest_f": 4,
+                "rest_p": 5,
+                "rest_z": 6,
+                "rest_k": 7,
+                "rest_e": 1
+            },
+            "tone": "Friendly but firm",
+            "personality": {
+                "openness": 0.22,
+                "conscientiousness": 0.74,
+                "extraversion": 0.17,
+                "agreeableness": 0.16,
+                "neuroticism": 0.53
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Blair",
+            "history": {
+                "rest_m": 2,
+                "rest_n": 1,
+                "rest_j": 5,
+                "rest_x": 1,
+                "rest_r": 5,
+                "rest_f": 7,
+                "rest_p": 9,
+                "rest_z": 6,
+                "rest_k": 3,
+                "rest_e": 4
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.81,
+                "conscientiousness": 0.7,
+                "extraversion": 0.78,
+                "agreeableness": 0.55,
+                "neuroticism": 0.23
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Ava-Sophia": 37.16180835212409,
+        "Ava-Lucas": 45.02221673796171,
+        "Ava-Bart": 42.941821107167776,
+        "Ava-Bailey": 41.557189510360296,
+        "Ava-Blair": 41.12177038990418,
+        "Sophia-Lucas": 37.17526059088221,
+        "Sophia-Bart": 45.617978911828175,
+        "Sophia-Bailey": 45.21061822182926,
+        "Sophia-Blair": 42.638011210655684,
+        "Lucas-Bart": 46.184412955021955,
+        "Lucas-Bailey": 46.62617290749907,
+        "Lucas-Blair": 35.608987629529715,
+        "Bart-Bailey": 36.124783736376884,
+        "Bart-Blair": 42.555845661906424,
+        "Bailey-Blair": 38.7556447501522
+    },
+    "conversation": [
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_z. Honestly, it's the *only* logical choice. A 10/10 rating? Come on, that speaks for itself. I've thoroughly weighed all options, and while some are decent – like rest_p or rest_f – they simply don't *compare*. I'm flexible, of course, but if we want the best experience, we go with the highest-rated. Don't waste my time with inferior options. 😉\n\n\n\n"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_p. It offers a solid experience. I understand the rating isn't as high as rest_z, but it presents a balanced selection of dishes. A reasonable compromise if consensus is desired. I'm open to considering other suggestions if they demonstrate comparable qualities. \n\n\n\n"
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_j. I'm really leaning towards that one – it's consistently fantastic, and I think it hits all the right notes for a good group outing. I know it's not the absolute highest rated, but the quality is really solid, and it offers a great atmosphere. I think it's a smart middle ground. What do you all think? I'm happy to hear other perspectives, but I feel like it's a really strong contender.\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_x. While I acknowledge rest_z boasts a higher rating, the variance in scores across platforms warrants further consideration. Rest_x consistently receives positive feedback regarding both food quality and ambiance. It presents a more reliable, less polarizing option. I'm not advocating for mediocrity, but for a calculated choice based on demonstrable consistency. Does that align with the group's priorities?\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_k. I know it isn't the highest rated, but honestly, I think it offers the best blend of everything we're looking for. It's got that fantastic atmosphere we all appreciate, and the food is consistently delicious. I've always had such a good experience there. I'm not trying to steer the ship entirely, but I genuinely believe it's a really solid choice and deserves serious consideration. What do you all think?\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_p. Honestly, it's a perfectly sensible choice. While I appreciate the fervent devotion to rest_z – a bit much, don't you think? – rest_p offers a reliably good experience without the hype. It's a solid 9/10, and sometimes, solid is exactly what we need. Plus, it's not like I'm actively trying to deprive anyone of a decent meal. 😉"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_x. Honestly, you're all missing out on a really solid option. I get that rest_z has a flashy rating, but rest_x is consistently good – a reliable 7. That's not chump change. It's a smart choice when you want quality without the… well, the *hype*. Plus, it's less likely to disappoint, and that's a major win in my book. Don't knock it 'til you've tried it. 😉"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_p. The consensus leans towards a reliable option. While rest_z has a high rating, the variability in reviews is notable. Rest_p offers a consistent experience, and several members have expressed satisfaction. It's a reasonable choice given the current discussion.\n\n\n\n"
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_r. Okay, it seems like we're not really clicking on the higher-rated options right now, and that's alright. I've been thinking, and rest_r consistently gets good reviews – solid 7/10. It's reliable, and I think it offers a good balance that most people can appreciate. Plus, it's not a place that's likely to disappoint. I think it's a fair compromise given what everyone's suggesting. What do you all think about that?"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_x. The consensus seems to be gravitating towards more moderate options, and while I initially highlighted rest_z's high rating, the feedback suggests it might be overly hyped. Rest_x consistently scores well and offers a reliable experience. It aligns with the group's desire for something solid without the potential for disappointment. I think it's a sensible compromise."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_z. Okay, so it seems like we're all leaning towards something a bit more… reliable, and I get that. But honestly, I still think rest_z deserves a really good look. It's got that high rating for a reason! I know it's not the loudest choice, but it consistently gets great reviews across the board. It's a solid 6, and that's pretty impressive. I think it offers a good balance of quality and a pleasant atmosphere. We've talked about compromise, and I genuinely believe this hits that sweet spot. What do you think?\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_p. Seriously, are we *still* debating this? It's a solid 9/10 for a reason! I'm starting to think some people are actively trying to avoid good choices. Look, I get the allure of a flashy rating, but rest_p consistently delivers. It's reliable, it's enjoyable, and frankly, it's less likely to end in a culinary disappointment. If we're aiming for a good time, this is the obvious path. Don't overthink it. 😉\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_z. Look, I'm not going to keep banging the drum about rest_x when everyone else is clearly gravitating towards something… less impressive. I get it, the hype around rest_z can be a bit much, but my gut tells me it's worth the risk. It's a solid 10 for a reason! We're aiming for a memorable meal, and rest_z has the potential to deliver that. Plus, a little adventure never hurt anyone. 😉"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_p. The discussion has circled back to options with solid, consistent reviews. Rest_p aligns with that. It's a dependable choice, and Blair's agreement suggests it's a reasonable consideration for the group. I concur."
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_j. Okay, it seems like we're stuck in a bit of a debate without a clear winner. While I appreciate the enthusiasm for rest_z and the solid choices for rest_p and rest_x, I think we're overlooking a really great option. Rest_j consistently gets fantastic reviews – a solid 9/10 for a reason! It's a bit of a splurge, but it offers a truly memorable experience. I think it's worth considering if we're aiming for something special. What do you all think about giving it a shot?"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_z. The conversation has clearly shifted towards rest_z and rest_p, and while I initially advocated for rest_x, the consensus seems to be leaning elsewhere. Rest_z has a solid 7, and the repeated mentions suggest it's a strong contender. I'm willing to concede and align with the group's preference for a potentially more memorable experience. It's a reasonable compromise.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_z. It's really heartening to see more people feeling the same way about rest_z! I know it wasn't the first pick, but the consistent positive feedback is hard to ignore. Plus, with a few others already on board, it feels like a solid choice for a memorable meal. I think we're onto something good here!"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_p. Oh, for goodness sake, are we *still* circling back to rest_z? It's a perfectly good option, and frankly, it's not like we're asking for a culinary miracle. Rest_p is a solid 9/10 for a reason – it's reliable and enjoyable. If we're aiming for something decent without needing to overthink it, I'm not sure what more we could want. Seriously, let's just pick the sensible choice and move on."
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_z. Alright, alright, it seems like rest_z is actually gaining some traction! Honestly, I knew that place was special. A solid 10 isn't just a number, it's a statement. And with Bart and Bailey backing me up, it's pretty clear we're looking at a genuinely fantastic meal. Don't let the initial hype scare you off – it's earned every bit of praise. We're talking about a truly memorable experience here, people. 😉"
+        },
+        {
+            "agent": "Sophia",
+            "message": "My current suggestion is rest_p. The discussion has lingered on rest_z, but the consistent ratings for rest_p are worth noting. It offers a reliable experience. I've previously suggested it, and it aligns with a reasonable choice for the group. I'll maintain this suggestion."
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_z. It seems like rest_z is really resonating with everyone, and honestly, the consistently high ratings are hard to ignore. I'm willing to concede and go with the group's preference for a potentially more memorable meal. It's a reasonable choice, and I trust the collective judgment here. Plus, it's always good to try something new!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_z. The consensus appears to be shifting firmly towards rest_z, and with a significant number of people already on board, it's logical to align. While rest_p offers a reliable option, the consistently higher ratings for rest_z suggest a potentially more rewarding experience. I'm willing to concede and trust the group's collective assessment. It's a reasonable choice given the current dynamic.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_z. It's really great to see rest_z gaining so much support! I've got a solid 6 for it, and honestly, the consistently high ratings from everyone else speak for themselves. I'm happy to go with the group's preference for something a little more special. It feels like a good choice, and I trust everyone's judgment on this one. Let's give it a shot!\n\n\n\n"
+        },
+        {
+            "agent": "Blair",
+            "message": "My current suggestion is rest_p. Oh, for heaven's sake, are we *still* debating this? Seriously, people, rest_p is a perfectly good option. It's a solid 9/10 for a reason – reliable, enjoyable, and frankly, a lot less drama than chasing after a 10-rated place that might not live up to the hype. I'm not saying it's *thrilling*, but it's a safe bet, and sometimes safe is exactly what we need. Let's just pick something and eat, shall we? I'm starting to think we're going to be here all night.\n\n\n\n"
+        }
+    ],
+    "turn_preferences": {
+        "Ava": [
+            "rest_z",
+            "rest_x",
+            "rest_z",
+            "rest_z"
+        ],
+        "Sophia": [
+            "rest_p",
+            "rest_p",
+            "rest_p",
+            "rest_p"
+        ],
+        "Lucas": [
+            "rest_j",
+            "rest_r",
+            "rest_j",
+            "rest_z"
+        ],
+        "Bart": [
+            "rest_x",
+            "rest_x",
+            "rest_z",
+            "rest_z"
+        ],
+        "Bailey": [
+            "rest_k",
+            "rest_z",
+            "rest_z",
+            "rest_z"
+        ],
+        "Blair": [
+            "rest_p",
+            "rest_p",
+            "rest_p",
+            "rest_p"
+        ]
+    },
+    "votes": {
+        "rest_z": 4,
+        "rest_p": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Ava",
+            "vote": "rest_z"
+        },
+        {
+            "agent": "Sophia",
+            "vote": "rest_p"
+        },
+        {
+            "agent": "Lucas",
+            "vote": "rest_z"
+        },
+        {
+            "agent": "Bart",
+            "vote": "rest_z"
+        },
+        {
+            "agent": "Bailey",
+            "vote": "rest_z"
+        },
+        {
+            "agent": "Blair",
+            "vote": "rest_p"
+        }
+    ],
+    "final_rec": "rest_z",
+    "turn_counter": 4,
+    "tie_strength": "friends"
+}

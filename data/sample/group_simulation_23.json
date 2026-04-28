@@ -1,0 +1,289 @@
+{
+    "group_id": 23,
+    "group_config": "minority",
+    "restaurant_options": [
+        "rest_h",
+        "rest_b",
+        "rest_y",
+        "rest_q",
+        "rest_z",
+        "rest_a",
+        "rest_x",
+        "rest_u",
+        "rest_k",
+        "rest_p"
+    ],
+    "agents": [
+        {
+            "name": "Riley",
+            "history": {
+                "rest_h": 6,
+                "rest_b": 9,
+                "rest_y": 5,
+                "rest_q": 5,
+                "rest_z": 7,
+                "rest_a": 8,
+                "rest_x": 5,
+                "rest_u": 1,
+                "rest_k": 1,
+                "rest_p": 7
+            },
+            "tone": "Polite but skeptical",
+            "personality": {
+                "openness": 0.86,
+                "conscientiousness": 0.42,
+                "extraversion": 0.08,
+                "agreeableness": 0.1,
+                "neuroticism": 0.31
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Olivia",
+            "history": {
+                "rest_h": 3,
+                "rest_b": 10,
+                "rest_y": 4,
+                "rest_q": 1,
+                "rest_z": 4,
+                "rest_a": 7,
+                "rest_x": 9,
+                "rest_u": 5,
+                "rest_k": 5,
+                "rest_p": 1
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.74,
+                "conscientiousness": 0.05,
+                "extraversion": 0.94,
+                "agreeableness": 0.55,
+                "neuroticism": 0.24
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Maxima",
+            "history": {
+                "rest_h": 1,
+                "rest_b": 9,
+                "rest_y": 1,
+                "rest_q": 4,
+                "rest_z": 7,
+                "rest_a": 7,
+                "rest_x": 6,
+                "rest_u": 6,
+                "rest_k": 5,
+                "rest_p": 5
+            },
+            "tone": "Passive-aggressive",
+            "personality": {
+                "openness": 0.35,
+                "conscientiousness": 0.01,
+                "extraversion": 0.12,
+                "agreeableness": 0.69,
+                "neuroticism": 0.62
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Bailey",
+            "history": {
+                "rest_h": 8,
+                "rest_b": 8,
+                "rest_y": 2,
+                "rest_q": 3,
+                "rest_z": 5,
+                "rest_a": 5,
+                "rest_x": 1,
+                "rest_u": 3,
+                "rest_k": 5,
+                "rest_p": 1
+            },
+            "tone": "Cold and formal",
+            "personality": {
+                "openness": 0.47,
+                "conscientiousness": 0.48,
+                "extraversion": 0.13,
+                "agreeableness": 0.21,
+                "neuroticism": 0.54
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Lowen",
+            "history": {
+                "rest_h": 5,
+                "rest_b": 5,
+                "rest_y": 2,
+                "rest_q": 1,
+                "rest_z": 1,
+                "rest_a": 7,
+                "rest_x": 2,
+                "rest_u": 3,
+                "rest_k": 2,
+                "rest_p": 4
+            },
+            "tone": "Persuasive and charming",
+            "personality": {
+                "openness": 0.13,
+                "conscientiousness": 0.34,
+                "extraversion": 0.38,
+                "agreeableness": 0.15,
+                "neuroticism": 0.43
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Homer",
+            "history": {
+                "rest_h": 5,
+                "rest_b": 1,
+                "rest_y": 8,
+                "rest_q": 9,
+                "rest_z": 1,
+                "rest_a": 5,
+                "rest_x": 7,
+                "rest_u": 4,
+                "rest_k": 10,
+                "rest_p": 5
+            },
+            "tone": "Eager and excitable",
+            "personality": {
+                "openness": 0.12,
+                "conscientiousness": 0.42,
+                "extraversion": 0.23,
+                "agreeableness": 0.23,
+                "neuroticism": 0.13
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Riley-Olivia": 36.72873534441391,
+        "Riley-Maxima": 44.87761134463375,
+        "Riley-Bailey": 47.958315233127195,
+        "Riley-Lowen": 47.40253157796533,
+        "Riley-Homer": 37.61648574760805,
+        "Olivia-Maxima": 39.8622628559895,
+        "Olivia-Bailey": 41.38840417314975,
+        "Olivia-Lowen": 44.429719783046124,
+        "Olivia-Homer": 30.56141357987225,
+        "Maxima-Bailey": 33.25657829663178,
+        "Maxima-Lowen": 51.81698563212646,
+        "Maxima-Homer": 38.01315561749642,
+        "Bailey-Lowen": 40.90232267243512,
+        "Bailey-Homer": 37.1887079635741,
+        "Lowen-Homer": 40.570925550201586
+    },
+    "conversation": [
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_b. While I'm open to options, I've consistently rated 'rest_b' as my favorite – a solid 9/10. It offers a good balance of everything I look for. 'rest_a' and 'rest_p' are also decent choices (8/10), but 'rest_b' feels like the safest bet for a satisfying meal. What are everyone else's initial thoughts? I'm happy to hear other preferences too.\n\n\n\n"
+        },
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_b. Oh my goodness, I have to say, I'm a huge fan of that place! It's honestly one of my absolute favorites – I'd give it a solid 10/10. I know 'rest_a' and 'rest_p' are good, but 'rest_b' just hits all the right notes for me. What do you all think? I'm really curious to hear what everyone else is leaning towards!\n\n\n\n"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_b. It's... nice that it's being brought up again. I suppose it does have a lot going for it. I've always found it quite agreeable, and it's good to know it's a popular choice. I'm sure whatever we decide on will be... acceptable. I'm just hoping we can all find something we can genuinely enjoy, you know? It would be... preferable.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_h. While I acknowledge the popularity of 'rest_b', I believe 'rest_h' offers a more refined dining experience. Its ambiance and menu demonstrate a thoughtful approach to cuisine. The consistently high ratings I've observed suggest a broader appeal than simply satisfying basic preferences. I'm prepared to discuss the merits of 'rest_h' in greater detail if desired.\n\n\n\n"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_a. It's lovely to see 'rest_b' getting so much love, and I truly appreciate it too! But honestly, I find 'rest_a' offers a really delightful blend of flavors and a vibrant atmosphere that just sparks joy for me. It's a well-rounded choice, and I think it has the potential to please everyone here. What do you all think about that? I'm happy to elaborate if you'd like!\n\n\n\n"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_k! Oh boy, oh boy, oh boy! You guys HAVE to try that place! Seriously, it's the BEST! I mean, a perfect 10? That's like a winning lottery ticket for my tummy! I know 'rest_b' is popular, but 'rest_k' just… *chef's kiss*… it's got everything! Delicious food, comfy seats, the whole shebang! What do you say? Are you in?! I'm already drooling just thinking about it!"
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_b. It's interesting to see 'rest_b' getting so much support. While I appreciate the enthusiasm, I think we should consider a few other options too. 'rest_h' has a lot of potential, and I'm curious if we've fully explored that. It's a solid choice, and I'm willing to give it more consideration if it seems like a good fit for everyone. What do you all think about potentially weighing 'rest_h' against 'rest_b' more directly?"
+        },
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_b. It's so nice that 'rest_b' is getting so much love! I have to agree, it's a really solid choice. I'm happy with that, and it seems like a lot of us are feeling the same way. It's always good to go with something that generally pleases everyone, don't you think? I'm feeling good about 'rest_b' being our pick!"
+        },
+        {
+            "agent": "Maxima",
+            "message": "My current suggestion is rest_b. It's... well, it's nice that it's being mentioned so often. I suppose it's a safe choice, and I can see why people are drawn to it. I'm not sure I have any strong feelings one way or the other, really. As long as everyone else is comfortable, I'm happy to go with the flow. It's... agreeable."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_b. The consistent preference for 'rest_b' indicates a strong consensus. While 'rest_h' possesses merit, the current group dynamic suggests prioritizing a universally agreeable option. A decision that minimizes potential discord is logically sound. I will defer to the prevailing sentiment.\n\n\n\n"
+        },
+        {
+            "agent": "Lowen",
+            "message": "My current suggestion is rest_a. It's really interesting how much everyone is gravitating towards 'rest_b'! While I totally get why it's a popular pick, I still feel like 'rest_a' offers a bit more of that spark, you know? It's got a lovely energy and the food is just consistently good. I think it could be a really enjoyable option for all of us, and it would be nice to try something a little different from our usual choices. What do you think? I'm happy to chat more about why I like it!"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_y! Okay, okay, so everyone's really digging 'rest_b', and that's cool! But... have you guys ever been to 'rest_y'? Seriously, it's AMAZING! I'm talking like, a 9 out of 10 amazing! The food is so good, and it's got this really fun vibe. It's just... *chef's kiss*... a really good time! I think it would be a super fun choice for us all. What do you think? We could try it!"
+        }
+    ],
+    "turn_preferences": {
+        "Riley": [
+            "rest_b",
+            "rest_b"
+        ],
+        "Olivia": [
+            "rest_b",
+            "rest_b"
+        ],
+        "Maxima": [
+            "rest_b",
+            "rest_b"
+        ],
+        "Bailey": [
+            "rest_h",
+            "rest_b"
+        ],
+        "Lowen": [
+            "rest_a",
+            "rest_a"
+        ],
+        "Homer": [
+            "rest_k",
+            "rest_y"
+        ]
+    },
+    "votes": {
+        "rest_b": 4,
+        "rest_a": 1,
+        "rest_y": 1
+    },
+    "vote_details": [
+        {
+            "agent": "Riley",
+            "vote": "rest_b"
+        },
+        {
+            "agent": "Olivia",
+            "vote": "rest_b"
+        },
+        {
+            "agent": "Maxima",
+            "vote": "rest_b"
+        },
+        {
+            "agent": "Bailey",
+            "vote": "rest_b"
+        },
+        {
+            "agent": "Lowen",
+            "vote": "rest_a"
+        },
+        {
+            "agent": "Homer",
+            "vote": "rest_y"
+        }
+    ],
+    "final_rec": "rest_b",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

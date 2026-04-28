@@ -1,0 +1,218 @@
+{
+    "group_id": 19,
+    "group_config": "minority",
+    "restaurant_options": [
+        "rest_j",
+        "rest_q",
+        "rest_t",
+        "rest_c",
+        "rest_k",
+        "rest_h",
+        "rest_s",
+        "rest_z",
+        "rest_u",
+        "rest_p"
+    ],
+    "agents": [
+        {
+            "name": "Isabella",
+            "history": {
+                "rest_j": 4,
+                "rest_q": 8,
+                "rest_t": 3,
+                "rest_c": 4,
+                "rest_k": 1,
+                "rest_h": 10,
+                "rest_s": 5,
+                "rest_z": 1,
+                "rest_u": 5,
+                "rest_p": 9
+            },
+            "tone": "Overconfident and cocky",
+            "personality": {
+                "openness": 0.25,
+                "conscientiousness": 0.84,
+                "extraversion": 0.79,
+                "agreeableness": 0.6,
+                "neuroticism": 0.1
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Alexander",
+            "history": {
+                "rest_j": 5,
+                "rest_q": 7,
+                "rest_t": 1,
+                "rest_c": 6,
+                "rest_k": 4,
+                "rest_h": 5,
+                "rest_s": 3,
+                "rest_z": 3,
+                "rest_u": 1,
+                "rest_p": 8
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.25,
+                "conscientiousness": 0.32,
+                "extraversion": 0.18,
+                "agreeableness": 0.08,
+                "neuroticism": 0.8
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Ava",
+            "history": {
+                "rest_j": 5,
+                "rest_q": 6,
+                "rest_t": 8,
+                "rest_c": 1,
+                "rest_k": 8,
+                "rest_h": 5,
+                "rest_s": 5,
+                "rest_z": 1,
+                "rest_u": 4,
+                "rest_p": 9
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.45,
+                "conscientiousness": 0.17,
+                "extraversion": 0.92,
+                "agreeableness": 0.72,
+                "neuroticism": 0.38
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Noah",
+            "history": {
+                "rest_j": 8,
+                "rest_q": 5,
+                "rest_t": 5,
+                "rest_c": 9,
+                "rest_k": 2,
+                "rest_h": 1,
+                "rest_s": 2,
+                "rest_z": 10,
+                "rest_u": 10,
+                "rest_p": 1
+            },
+            "tone": "Blunt and aggressive",
+            "personality": {
+                "openness": 0.23,
+                "conscientiousness": 0.23,
+                "extraversion": 0.23,
+                "agreeableness": 0.25,
+                "neuroticism": 0.26
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Isabella-Alexander": 39.293765408777,
+        "Isabella-Ava": 30.886890422961002,
+        "Isabella-Noah": 44.429719783046124,
+        "Alexander-Ava": 47.18050444834179,
+        "Alexander-Noah": 50.79370039680118,
+        "Ava-Noah": 41.23105625617661
+    },
+    "conversation": [
+        {
+            "agent": "Isabella",
+            "message": "My current suggestion is rest_h. Honestly, it's the *only* sensible choice. A 10/10 rating speaks for itself! I've been there countless times, and the food is consistently phenomenal. While others might be swayed by a slightly higher score elsewhere (rest_p, for example, is decent but predictable), you won't find anything *this* exceptional. Trust me on this one; you won't regret it. I'm not saying it's the *only* option, but it's clearly the best.\n\n\n\n"
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_p. I have to admit, while I usually lean towards consistent quality, rest_p really hits the spot for me. It's got a fantastic atmosphere and the dishes are inventive without being overly fussy. I get why some might prefer a guaranteed 10, but sometimes a little excitement is what you crave, don't you think? It offers a good balance, and I think it's worth considering alongside rest_h.\n\n\n\n"
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_p. Oh, please. While I appreciate the unwavering faith in *rest_h* – bless your heart for consistency – a little *spark* is necessary for a decent evening. *Rest_p* offers that. It's not just \"good,\" it's *interesting*. And frankly, after hearing Isabella gush about that place, I'm inclined to agree it's worth exploring. A 9/10 is a perfectly respectable score, you know. Don't be afraid of a little adventure.\n\n\n\n"
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_z. You're all missing the point. 10/10 doesn't just *exist*, it *is*. It's not about \"adventure\" or \"interesting\" – it's about flawless execution. If you're looking for a genuinely good meal, stop chasing slightly higher numbers and go where the ratings speak for themselves. It's the only sensible choice."
+        },
+        {
+            "agent": "Isabella",
+            "message": "My current suggestion is rest_h. Honestly, you're all missing the point. A 10/10 isn't just a number; it's a *statement*. *Rest_p* is fine, I'll give you that – a solid 9 is respectable. But it doesn't *compare* to the sheer excellence of *rest_h*. It's the best, end of discussion. You'll see. I'm telling you, you won't regret this."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_p. It's nice to see Ava feels the same way about rest_p! I think it offers a really good mix of quality and a bit of fun, which is what I'm looking for tonight. While rest_h is fantastic, sometimes a little less...intense...is welcome. Plus, I'm always up for trying something a little different."
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_p. Oh, *please*. It's adorable how everyone's suddenly decided to embrace mediocrity. While *rest_h* might have a perfect score – a feat I still find hard to believe – it's hardly the only option worth considering. *Rest_p* offers a delightful blend of quality and, dare I say, *fun*. I'm not saying it's a 10/10, but a solid 9 is perfectly respectable, and frankly, a bit more *interesting* than staring at the same flawless dishes night after night. Don't be boring, people."
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_z. You're all settling for mediocrity. A 10/10 isn't something to dismiss. It's a clear indicator of quality, and frankly, I'm surprised you're even debating this. *Rest_p* is fine, but it lacks the *impact* of *rest_z*. I'm not going to keep repeating myself. It's the best option, period."
+        },
+        {
+            "agent": "Isabella",
+            "message": "My current suggestion is rest_p. Honestly, you're all being remarkably shortsighted. While a perfect 10/10 might seem intimidating, *rest_p* is a very respectable 9. And let's be real, sometimes a little excitement is preferable to staring at the same flawless dishes night after night. I'm not saying it's *as good* as *rest_h* – nothing truly is – but it's a perfectly solid choice, and frankly, a much more interesting one than we're currently considering. Don't let perfection paralyze you."
+        },
+        {
+            "agent": "Alexander",
+            "message": "My current suggestion is rest_p. It's really heartening to see so many of us leaning towards rest_p! I think it strikes a great balance – a solid 9 is fantastic, and the atmosphere is always really enjoyable. While rest_h is undeniably excellent, sometimes a little less formality is just what the doctor orders, you know? Plus, I'm always up for a good time, and rest_p usually delivers on that front. I'm glad we're all on the same page about this one."
+        },
+        {
+            "agent": "Ava",
+            "message": "My current suggestion is rest_p. Oh, for heaven's sake, Noah. A 10/10? Really? You're determined to bore us all to tears with flawless execution, aren't you? While I appreciate a good meal as much as the next person, sometimes a little *life* is what makes an evening enjoyable. *Rest_p* offers that. It's not perfect, no, but it's *interesting*. And frankly, if two other people are on board, it seems like a perfectly reasonable choice. Don't be so precious about your perfect score."
+        },
+        {
+            "agent": "Noah",
+            "message": "My current suggestion is rest_p. Fine. You want boring? Go ahead and have it. I'm not going to argue with people who clearly have no taste. A 9 is a 9, I guess. It's not my ideal, but if that's what you're all happy with, whatever. Just don't come crying to me when you're bored out of your minds."
+        }
+    ],
+    "turn_preferences": {
+        "Isabella": [
+            "rest_h",
+            "rest_h",
+            "rest_p"
+        ],
+        "Alexander": [
+            "rest_p",
+            "rest_p",
+            "rest_p"
+        ],
+        "Ava": [
+            "rest_p",
+            "rest_p",
+            "rest_p"
+        ],
+        "Noah": [
+            "rest_z",
+            "rest_z",
+            "rest_p"
+        ]
+    },
+    "votes": {
+        "rest_p": 4
+    },
+    "vote_details": [
+        {
+            "agent": "Isabella",
+            "vote": "rest_p"
+        },
+        {
+            "agent": "Alexander",
+            "vote": "rest_p"
+        },
+        {
+            "agent": "Ava",
+            "vote": "rest_p"
+        },
+        {
+            "agent": "Noah",
+            "vote": "rest_p"
+        }
+    ],
+    "final_rec": "rest_p",
+    "turn_counter": 3,
+    "tie_strength": "friends"
+}

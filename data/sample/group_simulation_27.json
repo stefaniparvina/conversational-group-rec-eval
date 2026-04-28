@@ -1,0 +1,461 @@
+{
+    "group_id": 27,
+    "group_config": "coalitional",
+    "restaurant_options": [
+        "rest_t",
+        "rest_k",
+        "rest_x",
+        "rest_h",
+        "rest_w",
+        "rest_u",
+        "rest_q",
+        "rest_r",
+        "rest_c",
+        "rest_f"
+    ],
+    "agents": [
+        {
+            "name": "Benjamin",
+            "history": {
+                "rest_t": 8,
+                "rest_k": 5,
+                "rest_x": 3,
+                "rest_h": 8,
+                "rest_w": 1,
+                "rest_u": 1,
+                "rest_q": 9,
+                "rest_r": 5,
+                "rest_c": 4,
+                "rest_f": 5
+            },
+            "tone": "Bitter and resentful",
+            "personality": {
+                "openness": 0.97,
+                "conscientiousness": 0.68,
+                "extraversion": 0.83,
+                "agreeableness": 0.24,
+                "neuroticism": 0.88
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Charlotte",
+            "history": {
+                "rest_t": 3,
+                "rest_k": 4,
+                "rest_x": 5,
+                "rest_h": 5,
+                "rest_w": 1,
+                "rest_u": 1,
+                "rest_q": 5,
+                "rest_r": 3,
+                "rest_c": 6,
+                "rest_f": 2
+            },
+            "tone": "Anxious and defensive",
+            "personality": {
+                "openness": 0.89,
+                "conscientiousness": 0.08,
+                "extraversion": 0.82,
+                "agreeableness": 0.18,
+                "neuroticism": 0.79
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You are bold and blunt. You state your preferences clearly.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You take control and demand others to follow your lead."
+        },
+        {
+            "name": "Homer",
+            "history": {
+                "rest_t": 7,
+                "rest_k": 7,
+                "rest_x": 5,
+                "rest_h": 7,
+                "rest_w": 1,
+                "rest_u": 4,
+                "rest_q": 7,
+                "rest_r": 1,
+                "rest_c": 5,
+                "rest_f": 8
+            },
+            "tone": "Blunt and aggressive",
+            "personality": {
+                "openness": 0.55,
+                "conscientiousness": 0.03,
+                "extraversion": 0.93,
+                "agreeableness": 0.72,
+                "neuroticism": 0.8
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Riley",
+            "history": {
+                "rest_t": 8,
+                "rest_k": 5,
+                "rest_x": 7,
+                "rest_h": 6,
+                "rest_w": 1,
+                "rest_u": 5,
+                "rest_q": 9,
+                "rest_r": 7,
+                "rest_c": 1,
+                "rest_f": 6
+            },
+            "tone": "Sarcastic and snarky",
+            "personality": {
+                "openness": 0.66,
+                "conscientiousness": 0.25,
+                "extraversion": 0.28,
+                "agreeableness": 0.39,
+                "neuroticism": 0.81
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Jordan",
+            "history": {
+                "rest_t": 2,
+                "rest_k": 5,
+                "rest_x": 5,
+                "rest_h": 9,
+                "rest_w": 10,
+                "rest_u": 8,
+                "rest_q": 1,
+                "rest_r": 7,
+                "rest_c": 1,
+                "rest_f": 9
+            },
+            "tone": "Cold and formal",
+            "personality": {
+                "openness": 0.63,
+                "conscientiousness": 0.04,
+                "extraversion": 0.64,
+                "agreeableness": 0.07,
+                "neuroticism": 0.41
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Harper",
+            "history": {
+                "rest_t": 1,
+                "rest_k": 2,
+                "rest_x": 9,
+                "rest_h": 1,
+                "rest_w": 9,
+                "rest_u": 10,
+                "rest_q": 3,
+                "rest_r": 5,
+                "rest_c": 5,
+                "rest_f": 9
+            },
+            "tone": "Blunt and aggressive",
+            "personality": {
+                "openness": 0.92,
+                "conscientiousness": 0.99,
+                "extraversion": 0.93,
+                "agreeableness": 0.55,
+                "neuroticism": 0.58
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Emma",
+            "history": {
+                "rest_t": 2,
+                "rest_k": 3,
+                "rest_x": 2,
+                "rest_h": 1,
+                "rest_w": 10,
+                "rest_u": 5,
+                "rest_q": 1,
+                "rest_r": 9,
+                "rest_c": 5,
+                "rest_f": 10
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.49,
+                "conscientiousness": 0.94,
+                "extraversion": 0.65,
+                "agreeableness": 0.91,
+                "neuroticism": 0.84
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Lucas",
+            "history": {
+                "rest_t": 5,
+                "rest_k": 1,
+                "rest_x": 4,
+                "rest_h": 3,
+                "rest_w": 10,
+                "rest_u": 9,
+                "rest_q": 1,
+                "rest_r": 5,
+                "rest_c": 1,
+                "rest_f": 9
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.5,
+                "conscientiousness": 0.12,
+                "extraversion": 0.09,
+                "agreeableness": 0.47,
+                "neuroticism": 0.61
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Benjamin-Charlotte": 49.38623289946298,
+        "Benjamin-Homer": 54.881690936048976,
+        "Benjamin-Riley": 47.23346271447817,
+        "Benjamin-Jordan": 50.813384063650005,
+        "Benjamin-Harper": 50.17967716117751,
+        "Benjamin-Emma": 45.58508528016593,
+        "Benjamin-Lucas": 31.38470965295043,
+        "Charlotte-Homer": 39.331920878594275,
+        "Charlotte-Riley": 45.05552130427524,
+        "Charlotte-Jordan": 46.2709412050371,
+        "Charlotte-Harper": 48.23898838076935,
+        "Charlotte-Emma": 45.48626166217664,
+        "Charlotte-Lucas": 48.620983124572874,
+        "Homer-Riley": 47.69696007084728,
+        "Homer-Jordan": 52.78257288158659,
+        "Homer-Harper": 49.193495504995376,
+        "Homer-Emma": 52.49761899362675,
+        "Homer-Lucas": 44.93328387732194,
+        "Riley-Jordan": 46.16275555033516,
+        "Riley-Harper": 41.65333119931706,
+        "Riley-Emma": 33.06055050963308,
+        "Riley-Lucas": 44.49719092257398,
+        "Jordan-Harper": 48.31148931672465,
+        "Jordan-Emma": 48.744230427815765,
+        "Jordan-Lucas": 52.48809388804284,
+        "Harper-Emma": 48.373546489791295,
+        "Harper-Lucas": 43.2087954009366,
+        "Emma-Lucas": 40.01249804748511
+    },
+    "conversation": [
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_q. Honestly, after all this, I deserve something *good*. That place consistently gets high marks – a 9/10 isn't something to dismiss. The others? A bunch of compromises. 'T' and 'H' are decent, but not *great*. 'K' and 'R' are…fine, I guess. 'Q' just *hits* the spot. Don't expect me to settle for less.\n\n\n\n"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_c. Honestly, I think you're all overlooking a solid option. It's not flashy like 'Q', but it's consistently good. You want something reliable, something that won't disappoint? That's 'C'. 'T' and 'H' are too… pedestrian. 'Q' is great, sure, but it's a splurge. We need practicality. Don't tell me you'd rather have mediocre than something dependable. I'm not wasting my evening on \"fine.\"\n"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_f. Look, I'm gonna be straight with ya'll. 'F' is where it's at. I know it ain't the fanciest, but it's got good food, good prices, and it doesn't take forever to get a table. We're all tired, right? I ain't got time for a three-hour wait for some fancy-pants meal. 'Q' is good, yeah, but it's a pain to get into. 'C'? It's…fine. We can do fine another night. I'm pickin' 'F'. End of discussion.\n\n\n\n"
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_q. Seriously, are we really debating this? A 9/10 isn't some flippant number, people. It means it's *good*. Like, actually good. I'm not trying to bankrupt us all for a mediocre meal. If we're going to do this, let's at least aim for something worthwhile. 'F' is…well, it's 'fine'. We're not aiming for 'fine', are we?"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_w. I find the consistently high quality and overall experience at 'W' to be demonstrably superior. While other options possess merit, 'W' offers a level of refinement and satisfaction that justifies its rating. I believe a decision should prioritize a worthwhile experience."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_u. Don't even *start* with the other places. 'U' is the only one that actually delivers. A 10/10 isn't a typo, it's a statement. 'Q' is good, but 'U' is *better*. We're not settling for \"good\" when we can have exceptional. Seriously, are we trying to be cheap?"
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_w. Oh, seriously? Are we *still* even considering other places? 'W' is a *masterpiece*, people! A perfect 10/10! It's not just good, it's an *experience*. Don't tell me you're going to pick something… pedestrian? I'm not having it. We deserve the best, and 'W' *is* the best. Don't even try to argue! 😉"
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_w. Honestly, I'm a little surprised we're still discussing other options! 'W' is truly exceptional – that 10/10 rating speaks for itself. It's not just a meal; it's a whole experience. I really think we should prioritize something that memorable. What do you all think? I'm happy to chat more about why I feel so strongly about it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_q. Seriously? Are we still banging on about 'C' and 'F'? You all clearly haven't got a clue what good food actually *is*. A 9/10 isn't a suggestion, it's a damn recommendation. If you want mediocre, go ahead. But don't expect me to waste my time on something that doesn't measure up."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_q. Seriously? You're all fixated on 'W' and 'U'? It's getting ridiculous. I'm not saying those aren't *okay*, but 'Q' is objectively better. A 9/10 isn't a typo, it's a clear indicator of quality. I'm not going to keep defending something that's being dismissed out of hand. It's frustrating! If you want something truly worthwhile, you need to acknowledge the facts. I'm not wasting another minute on this.\n\n\n\n"
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_q. Look, you're all goin' nuts over those fancy places. 'Q' is a solid choice, a real good meal. It's not gonna be some kinda disappointment, ya hear? I'm tellin' ya, it's a good bet. Don't go lookin' for a whole lotta fuss when there's good food right there."
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_q. Oh, for crying out loud. Are we *still* arguing about this? It's a 9/10! That's not some arbitrary number, it's a *statement* about how good the food is. Honestly, the amount of people pushing 'W' and 'U' is just… exhausting. Look, I get it, they're good. But 'Q' is objectively better. It's a solid choice, and frankly, I'm starting to think some of you are actively trying to avoid anything that isn't a perfect 10. Just pick 'Q', please. It'll save us all a lot of time.\n\n\n\n"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_w. The persistent emphasis on 'Q' and 'U' is… illogical. While I acknowledge their merits, 'W' consistently demonstrates a superior dining experience. The 10/10 rating isn't a mere figure; it reflects a demonstrable level of quality that the others fail to achieve. I maintain that prioritizing 'W' is the most rational course of action."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_w. Seriously? You're all stuck on 'Q'? It's a decent place, fine. But 'W' is a whole different level. A 10/10 isn't a joke, it's a *fact*. You're missing out on a genuinely *good* experience. I'm not gonna keep pushing this, but don't come crying to me when you're bored with mediocre. It's your loss if you don't see the point."
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_w. Seriously? Are we *still* debating this? It's 'W'! A perfect 10/10! Jordan, Harper, and Lucas get it – it's the *only* way to go. You guys are seriously missing out on a truly amazing meal. I'm starting to think you're actively trying to avoid anything that isn't a flawless experience. Come on, live a little! 😉"
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_w. It seems like a few of us are really feeling 'W', which is great to see! I genuinely think it's a fantastic choice – that 10/10 rating isn't given lightly. I'm happy to go with the flow if most people are on board. It would be nice to try somewhere we can all enjoy, and 'W' has consistently delivered for me. 😊"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_q. Fine, you lot want to keep banging on about 'W'? Go ahead. Enjoy your overpriced, overhyped meal. I'm not going to fight a losing battle. Just don't come crying to me when you're bored of it. I've made my point."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_q. Seriously? You're all just… ignoring the facts? 'W' has a 10/10! A *ten*. It's not some subjective whim, it's a clear indicator of exceptional quality. I'm not going to keep trying to reason with this. It's infuriating when people dismiss something so objectively good just because it's not their personal favorite. Fine, go ahead and have your overhyped meal. Don't say I didn't warn you."
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_q. Alright, alright, you lot wanna go with the fancy place? Fine. But don't come cryin' to me when it's not as good as 'Q'. I'm just sayin', a 9/10 ain't no joke. You're missin' out. But whatever, do what you wanna do. Just don't blame me when you're bored."
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_q. Oh, for goodness sake, are we *still* doing this? It's a 9/10! A *nine*. That's not some random number, it's a solid endorsement. Look, I'm not gonna keep banging my head against a brick wall here. If the majority of you are suddenly obsessed with 'W', fine. Go ahead and have your fancy, overhyped meal. Just don't come whining to me when it doesn't live up to the hype. I'm done arguing."
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_w. The continued focus on 'Q' appears to be… persistent. While I acknowledge its merits, the consensus leaning towards 'W' warrants consideration. With Harper, Emma, and Lucas in agreement, it suggests a potentially more agreeable option for the group. I will concede to the prevailing sentiment for the sake of efficiency.\n\n\n\n"
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_w. Fine, you lot want to keep insisting on 'Q'? Whatever. But honestly, you're being stubborn. 'W' is a solid choice, and it's not like 'Q' is blowing anyone's mind. I'm not going to force the issue, but don't come complaining to me later when you're bored. I'm done arguing about this. It's your loss."
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_w. Seriously, are you guys *still* stuck on 'Q'? It's… fine, I guess. But 'W' is a whole *vibe*! A 10/10 isn't a joke, it's a *statement*. Honestly, it's disappointing you're not seeing the light. Fine, have your mediocre meal. More for me then! 😉 I'm just sayin', you're missing out big time."
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_w. It seems like 'W' is really gaining traction, and honestly, the enthusiasm is infectious! With Harper, Emma, Jordan, and myself all feeling so strongly about it, I think it's worth giving it a shot. I'm happy to let the group enjoy a place we can all agree on, and 'W' has consistently impressed me. It's a solid choice, and I'm confident we'll have a good time. 😊\n\n\n\n"
+        },
+        {
+            "agent": "Benjamin",
+            "message": "My current suggestion is rest_q. Honestly, are we really going to keep circling back to 'Q'? It's… acceptable, I suppose. But it's not exactly setting anyone's world on fire, is it? Everyone else seems to have moved on to 'W', and frankly, a 10/10 is a pretty strong endorsement. I'm not going to force the issue, but if we're all happy with 'Q', then fine. Just don't expect me to pretend it's the culinary experience of a lifetime. I'm not delusional."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_q. Seriously? You're all just… ignoring the facts? 'Q' has a 9/10! A *nine*. It's not some subjective whim, it's a clear indicator of exceptional quality. I'm not going to keep trying to reason with this. It's infuriating when people dismiss something so objectively good just because it's not their personal favorite. Fine, go ahead and have your overhyped meal. Don't say I didn't warn you. I'm not backing down on this."
+        },
+        {
+            "agent": "Homer",
+            "message": "My current suggestion is rest_w. Alright, alright, you lot are all goin' nuts over 'W', huh? Fine. I ain't gonna fight it. A ten is a ten, I guess. But don't be surprised if it's just… okay. I'm still thinkin' 'Q' was a better bet, but whatever floats your boat. Just don't come cryin' to me when you're bored."
+        },
+        {
+            "agent": "Riley",
+            "message": "My current suggestion is rest_w. Oh, *great*. Everyone's suddenly decided 'W' is the culinary savior of the century. Fine. Go ahead and have your fun. I'm just saying, don't come crying to me when it turns out to be… well, *fine*. A ten is a ten, I guess, but it doesn't automatically make it a masterpiece. I'm not holding my breath."
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_w. The consistent support for 'W', particularly from Harper, Emma, Lucas, Riley, and Homer, warrants consideration. While 'Q' possesses a respectable rating, the collective enthusiasm surrounding 'W' suggests a more favorable dining experience. I will concede to the group's preference for 'W' to ensure a cohesive decision."
+        },
+        {
+            "agent": "Harper",
+            "message": "My current suggestion is rest_w. Seriously, are we still banging on about 'Q'? It's a perfectly decent place, but everyone else seems to have gotten the memo about 'W' being the better option. And honestly? A ten is a ten. I'm not going to argue with a consensus that strong. Let's just go with it. Don't expect me to be thrilled, but I'm not going to fight a good thing."
+        },
+        {
+            "agent": "Emma",
+            "message": "My current suggestion is rest_w. Seriously, are you guys *still* on 'Q'? It's like, a 9, sure, but 'W' is a *ten*! A freaking ten! It's not exactly rocket science, you know? Everyone else seems to get it. I'm not gonna badger you, but don't come crying to me when you're bored and hungry. 😉 I'm just sayin', you're missing out on some serious deliciousness."
+        },
+        {
+            "agent": "Lucas",
+            "message": "My current suggestion is rest_w. It seems like 'W' really has the group's vote, and honestly, a ten is pretty hard to ignore! I'm happy to go with what everyone else is leaning towards. It's always good to try something that's got such a strong positive reception. 😊 \n\n"
+        }
+    ],
+    "turn_preferences": {
+        "Benjamin": [
+            "rest_q",
+            "rest_q",
+            "rest_q",
+            "rest_q"
+        ],
+        "Charlotte": [
+            "rest_c",
+            "rest_q",
+            "rest_q",
+            "rest_q"
+        ],
+        "Homer": [
+            "rest_f",
+            "rest_q",
+            "rest_q",
+            "rest_w"
+        ],
+        "Riley": [
+            "rest_q",
+            "rest_q",
+            "rest_q",
+            "rest_w"
+        ],
+        "Jordan": [
+            "rest_w",
+            "rest_w",
+            "rest_w",
+            "rest_w"
+        ],
+        "Harper": [
+            "rest_u",
+            "rest_w",
+            "rest_w",
+            "rest_w"
+        ],
+        "Emma": [
+            "rest_w",
+            "rest_w",
+            "rest_w",
+            "rest_w"
+        ],
+        "Lucas": [
+            "rest_w",
+            "rest_w",
+            "rest_w",
+            "rest_w"
+        ]
+    },
+    "votes": {
+        "rest_q": 2,
+        "rest_w": 6
+    },
+    "vote_details": [
+        {
+            "agent": "Benjamin",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Charlotte",
+            "vote": "rest_q"
+        },
+        {
+            "agent": "Homer",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Riley",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Jordan",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Harper",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Emma",
+            "vote": "rest_w"
+        },
+        {
+            "agent": "Lucas",
+            "vote": "rest_w"
+        }
+    ],
+    "final_rec": "rest_w",
+    "turn_counter": 4,
+    "tie_strength": "friends"
+}

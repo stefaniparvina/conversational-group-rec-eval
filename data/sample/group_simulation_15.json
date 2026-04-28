@@ -1,0 +1,113 @@
+{
+    "group_id": 15,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_q",
+        "rest_l",
+        "rest_v",
+        "rest_b",
+        "rest_i",
+        "rest_u",
+        "rest_w",
+        "rest_g",
+        "rest_r",
+        "rest_d"
+    ],
+    "agents": [
+        {
+            "name": "Olivia",
+            "history": {
+                "rest_q": 1,
+                "rest_l": 7,
+                "rest_v": 10,
+                "rest_b": 1,
+                "rest_i": 5,
+                "rest_u": 1,
+                "rest_w": 5,
+                "rest_g": 4,
+                "rest_r": 8,
+                "rest_d": 8
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.62,
+                "conscientiousness": 0.97,
+                "extraversion": 0.7,
+                "agreeableness": 0.71,
+                "neuroticism": 0.95
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Asher",
+            "history": {
+                "rest_q": 4,
+                "rest_l": 8,
+                "rest_v": 5,
+                "rest_b": 1,
+                "rest_i": 1,
+                "rest_u": 3,
+                "rest_w": 3,
+                "rest_g": 1,
+                "rest_r": 2,
+                "rest_d": 5
+            },
+            "tone": "Passive-aggressive",
+            "personality": {
+                "openness": 0.42,
+                "conscientiousness": 0.18,
+                "extraversion": 0.91,
+                "agreeableness": 0.87,
+                "neuroticism": 0.28
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Olivia-Asher": 42.49705872175156
+    },
+    "conversation": [
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_v! Oh gosh, I'm *so* excited about this! It's my absolute favorite – a solid 10/10! It ticks *all* the boxes for me. I'm really craving something amazing, and I think it'll be the perfect spot. \n\nWe could also consider rest_r, it's a close second with a really high rating, and it has a great atmosphere! But honestly, for pure deliciousness, I'm leaning towards rest_v. What do you think? 😊\n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_l. While I appreciate the enthusiasm for rest_v – it *is* consistently well-regarded, of course – I do think we should at least give rest_l a fair consideration. It offers a more balanced experience, wouldn't you agree? A solid 8/10 is certainly worth exploring, especially if we're aiming for something that appeals to everyone. It's just… sometimes the most obvious choice isn't always the *best* choice, is it?\n\n\n\n"
+        },
+        {
+            "agent": "Olivia",
+            "message": "My current suggestion is rest_r! You know, you're totally right, Asher! A balanced experience *is* super important. And honestly, rest_r has such a lovely vibe – it's got that perfect mix of delicious food and a really comfortable atmosphere. Plus, it's got a really solid rating! I think it would make everyone really happy. 😊"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_r. Well, it seems like rest_r is the clear frontrunner now. I suppose a consistently positive rating does have *some* merit. It's just… one wonders if we're truly exploring all the *possibilities*, doesn't one? But if everyone's so set on it, I suppose we can proceed."
+        }
+    ],
+    "turn_preferences": {
+        "Olivia": [
+            "rest_v",
+            "rest_r"
+        ],
+        "Asher": [
+            "rest_l",
+            "rest_r"
+        ]
+    },
+    "votes": {
+        "rest_r": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Olivia",
+            "vote": "rest_r"
+        },
+        {
+            "agent": "Asher",
+            "vote": "rest_r"
+        }
+    ],
+    "final_rec": "rest_r",
+    "turn_counter": 2,
+    "tie_strength": "friends"
+}

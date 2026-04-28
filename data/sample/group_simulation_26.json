@@ -1,0 +1,258 @@
+{
+    "group_id": 26,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_t",
+        "rest_b",
+        "rest_m",
+        "rest_i",
+        "rest_s",
+        "rest_r",
+        "rest_k",
+        "rest_j",
+        "rest_h",
+        "rest_a"
+    ],
+    "agents": [
+        {
+            "name": "Mickey",
+            "history": {
+                "rest_t": 4,
+                "rest_b": 4,
+                "rest_m": 6,
+                "rest_i": 10,
+                "rest_s": 5,
+                "rest_r": 1,
+                "rest_k": 5,
+                "rest_j": 1,
+                "rest_h": 5,
+                "rest_a": 1
+            },
+            "tone": "Detached and analytical",
+            "personality": {
+                "openness": 0.51,
+                "conscientiousness": 0.76,
+                "extraversion": 0.11,
+                "agreeableness": 0.04,
+                "neuroticism": 0.46
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Willem-Alexander",
+            "history": {
+                "rest_t": 9,
+                "rest_b": 4,
+                "rest_m": 2,
+                "rest_i": 5,
+                "rest_s": 1,
+                "rest_r": 5,
+                "rest_k": 4,
+                "rest_j": 1,
+                "rest_h": 6,
+                "rest_a": 3
+            },
+            "tone": "Overconfident and cocky",
+            "personality": {
+                "openness": 0.38,
+                "conscientiousness": 0.82,
+                "extraversion": 0.64,
+                "agreeableness": 0.3,
+                "neuroticism": 1.0
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Asher",
+            "history": {
+                "rest_t": 7,
+                "rest_b": 5,
+                "rest_m": 3,
+                "rest_i": 9,
+                "rest_s": 1,
+                "rest_r": 8,
+                "rest_k": 1,
+                "rest_j": 4,
+                "rest_h": 5,
+                "rest_a": 1
+            },
+            "tone": "Anxious and defensive",
+            "personality": {
+                "openness": 0.3,
+                "conscientiousness": 0.33,
+                "extraversion": 0.8,
+                "agreeableness": 0.9,
+                "neuroticism": 0.34
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Jordan",
+            "history": {
+                "rest_t": 9,
+                "rest_b": 8,
+                "rest_m": 5,
+                "rest_i": 8,
+                "rest_s": 5,
+                "rest_r": 3,
+                "rest_k": 3,
+                "rest_j": 5,
+                "rest_h": 1,
+                "rest_a": 1
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.79,
+                "conscientiousness": 0.13,
+                "extraversion": 0.3,
+                "agreeableness": 0.93,
+                "neuroticism": 0.79
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You are easygoing and quick to adapt.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Icarus",
+            "history": {
+                "rest_t": 6,
+                "rest_b": 6,
+                "rest_m": 3,
+                "rest_i": 10,
+                "rest_s": 5,
+                "rest_r": 8,
+                "rest_k": 5,
+                "rest_j": 1,
+                "rest_h": 1,
+                "rest_a": 7
+            },
+            "tone": "Stoic and terse",
+            "personality": {
+                "openness": 0.45,
+                "conscientiousness": 0.58,
+                "extraversion": 0.22,
+                "agreeableness": 0.42,
+                "neuroticism": 0.13
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Evelyn",
+            "history": {
+                "rest_t": 5,
+                "rest_b": 3,
+                "rest_m": 1,
+                "rest_i": 7,
+                "rest_s": 7,
+                "rest_r": 7,
+                "rest_k": 3,
+                "rest_j": 1,
+                "rest_h": 2,
+                "rest_a": 5
+            },
+            "tone": "Playful and teasing",
+            "personality": {
+                "openness": 0.71,
+                "conscientiousness": 0.69,
+                "extraversion": 0.27,
+                "agreeableness": 0.14,
+                "neuroticism": 0.67
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Mickey-Willem-Alexander": 47.031904065219386,
+        "Mickey-Asher": 42.21374183841087,
+        "Mickey-Jordan": 48.41487374764082,
+        "Mickey-Icarus": 45.73838650411709,
+        "Mickey-Evelyn": 48.703182647543684,
+        "Willem-Alexander-Asher": 35.6931365951495,
+        "Willem-Alexander-Jordan": 38.1051177665153,
+        "Willem-Alexander-Icarus": 46.17358552246078,
+        "Willem-Alexander-Evelyn": 36.60601043544625,
+        "Asher-Jordan": 44.474711915874174,
+        "Asher-Icarus": 47.22287581247038,
+        "Asher-Evelyn": 43.474130238568314,
+        "Jordan-Icarus": 47.24404724407086,
+        "Jordan-Evelyn": 37.76241517699841,
+        "Icarus-Evelyn": 45.51922670696417
+    },
+    "conversation": [
+        {
+            "agent": "Mickey",
+            "message": "My current suggestion is rest_i. \n\nGiven my preferences, a restaurant with a rating of 10/10 is the logical choice. While other options like rest_m (6) and rest_k (5) offer acceptable alternatives, they don't align with my highest priority for quality. I'm open to discussion, but I believe this is the most efficient path to a satisfactory dining experience. I'm prepared to analyze any counter-arguments.\n\n\n\n"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "message": "My current suggestion is rest_t. Honestly, you all know I've been raving about that place. 9/10, people! It's consistently excellent. I fail to see why we'd settle for anything less. A 10/10 is a lofty goal, and that's *the* place to achieve it. Don't tell me you have better ideas. I'm not easily swayed, you know.\n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_i. I really think we should go with that one. I know it's a 9, and while it's not a perfect 10, it's consistently *good*. I've been wanting to try it again, and honestly, I'm a little anxious about other options. We'll be disappointed if we don't aim for something really solid, right? I'm happy to hear what everyone thinks, but I just... I want to make sure we have a good time. \n"
+        },
+        {
+            "agent": "Jordan",
+            "message": "My current suggestion is rest_t. Oh, I absolutely adore that place! It's just so… comforting, you know? And the food is always wonderful. I totally get wanting a 10/10, but sometimes those places can be a little… unpredictable. I think rest_t offers a really reliable, happy experience, and that's what I'm hoping for tonight! What do you all think? 😊\n\n\n\n"
+        },
+        {
+            "agent": "Icarus",
+            "message": "My current suggestion is rest_i. A 10/10 rating indicates a high probability of a satisfactory meal. While others express preference for reliability or comfort, a consistently excellent experience is the most logical choice. I will accept alternative suggestions if presented with compelling evidence."
+        },
+        {
+            "agent": "Evelyn",
+            "message": "My current suggestion is rest_i. Oh, come on, you guys! A 7/10 is *perfectly* acceptable. It's got that little something special, you know? Not stuffy like some of those 10/10 places. We can have fun *and* eat well! Besides, who wants predictable perfection? Where's the adventure in that? 😉 Don't tell me you're all secretly craving beige food and flawless service? Spill!\n\n\n\n"
+        }
+    ],
+    "turn_preferences": {
+        "Mickey": [
+            "rest_i"
+        ],
+        "Willem-Alexander": [
+            "rest_t"
+        ],
+        "Asher": [
+            "rest_i"
+        ],
+        "Jordan": [
+            "rest_t"
+        ],
+        "Icarus": [
+            "rest_i"
+        ],
+        "Evelyn": [
+            "rest_i"
+        ]
+    },
+    "votes": {
+        "rest_i": 4,
+        "rest_t": 2
+    },
+    "vote_details": [
+        {
+            "agent": "Mickey",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Willem-Alexander",
+            "vote": "rest_t"
+        },
+        {
+            "agent": "Asher",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Jordan",
+            "vote": "rest_t"
+        },
+        {
+            "agent": "Icarus",
+            "vote": "rest_i"
+        },
+        {
+            "agent": "Evelyn",
+            "vote": "rest_i"
+        }
+    ],
+    "final_rec": "rest_i",
+    "turn_counter": 1,
+    "tie_strength": "friends"
+}

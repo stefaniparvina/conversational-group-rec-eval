@@ -1,0 +1,858 @@
+{
+    "group_id": 13,
+    "group_config": "uniform",
+    "restaurant_options": [
+        "rest_g",
+        "rest_l",
+        "rest_y",
+        "rest_m",
+        "rest_t",
+        "rest_f",
+        "rest_q",
+        "rest_b",
+        "rest_o",
+        "rest_n"
+    ],
+    "agents": [
+        {
+            "name": "Bart",
+            "history": {
+                "rest_g": 1,
+                "rest_l": 9,
+                "rest_y": 5,
+                "rest_m": 3,
+                "rest_t": 5,
+                "rest_f": 6,
+                "rest_q": 2,
+                "rest_b": 1,
+                "rest_o": 5,
+                "rest_n": 10
+            },
+            "tone": "Grumpy and dismissive",
+            "personality": {
+                "openness": 0.81,
+                "conscientiousness": 0.01,
+                "extraversion": 0.75,
+                "agreeableness": 0.36,
+                "neuroticism": 0.07
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You are easygoing and quick to adapt.\n- You remain cool-headed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Henry",
+            "history": {
+                "rest_g": 1,
+                "rest_l": 5,
+                "rest_y": 1,
+                "rest_m": 3,
+                "rest_t": 3,
+                "rest_f": 5,
+                "rest_q": 6,
+                "rest_b": 5,
+                "rest_o": 9,
+                "rest_n": 8
+            },
+            "tone": "Grumpy and dismissive",
+            "personality": {
+                "openness": 0.17,
+                "conscientiousness": 0.69,
+                "extraversion": 0.51,
+                "agreeableness": 0.98,
+                "neuroticism": 0.89
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You prefer to listen first and rarely challenge other opinions.\n- You push your favorites and do not give up easily.\n- You respond emotionally.\n- You are fair and respectful.\n- You  go with the flow."
+        },
+        {
+            "name": "Charlotte",
+            "history": {
+                "rest_g": 2,
+                "rest_l": 8,
+                "rest_y": 4,
+                "rest_m": 5,
+                "rest_t": 10,
+                "rest_f": 1,
+                "rest_q": 4,
+                "rest_b": 1,
+                "rest_o": 9,
+                "rest_n": 5
+            },
+            "tone": "Cheerfully optimistic",
+            "personality": {
+                "openness": 0.02,
+                "conscientiousness": 0.19,
+                "extraversion": 0.81,
+                "agreeableness": 0.95,
+                "neuroticism": 0.34
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You remain cool-headed.\n- You avoid conflict, even if it means giving up what you want.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Asher",
+            "history": {
+                "rest_g": 2,
+                "rest_l": 5,
+                "rest_y": 1,
+                "rest_m": 1,
+                "rest_t": 7,
+                "rest_f": 4,
+                "rest_q": 4,
+                "rest_b": 4,
+                "rest_o": 5,
+                "rest_n": 5
+            },
+            "tone": "Laid-back and casual",
+            "personality": {
+                "openness": 0.26,
+                "conscientiousness": 0.52,
+                "extraversion": 0.36,
+                "agreeableness": 0.06,
+                "neuroticism": 0.87
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You respond emotionally.\n- You do not sugar-coat anything.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Donald",
+            "history": {
+                "rest_g": 2,
+                "rest_l": 5,
+                "rest_y": 1,
+                "rest_m": 6,
+                "rest_t": 4,
+                "rest_f": 3,
+                "rest_q": 6,
+                "rest_b": 1,
+                "rest_o": 5,
+                "rest_n": 10
+            },
+            "tone": "Bitter and resentful",
+            "personality": {
+                "openness": 0.55,
+                "conscientiousness": 0.42,
+                "extraversion": 0.57,
+                "agreeableness": 0.65,
+                "neuroticism": 0.6
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You weigh all options equally. You are flexible if there are valid options.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        },
+        {
+            "name": "Bailey",
+            "history": {
+                "rest_g": 6,
+                "rest_l": 4,
+                "rest_y": 2,
+                "rest_m": 4,
+                "rest_t": 9,
+                "rest_f": 1,
+                "rest_q": 5,
+                "rest_b": 1,
+                "rest_o": 5,
+                "rest_n": 7
+            },
+            "tone": "Warm and agreeable",
+            "personality": {
+                "openness": 0.04,
+                "conscientiousness": 0.76,
+                "extraversion": 0.7,
+                "agreeableness": 0.25,
+                "neuroticism": 0.62
+            },
+            "conversation_style": "\n\n**Your behavior is described as**:\n- You speak your mind clearly.\n- You push your favorites and do not give up easily.\n- You are sensitive but usually manage to stay composed.\n- You are fair and respectful.\n- You are comfortable speaking up and guiding others, but do not insist on being in control."
+        }
+    ],
+    "pairwise_distances": {
+        "Bart-Henry": 46.16275555033516,
+        "Bart-Charlotte": 49.23413450036468,
+        "Bart-Asher": 50.049975024968795,
+        "Bart-Donald": 39.83716857408418,
+        "Bart-Bailey": 42.08325082500163,
+        "Henry-Charlotte": 48.30113870293329,
+        "Henry-Asher": 42.567593307585526,
+        "Henry-Donald": 46.62617290749907,
+        "Henry-Bailey": 40.74309757492672,
+        "Charlotte-Asher": 42.15447781671598,
+        "Charlotte-Donald": 36.373066958946424,
+        "Charlotte-Bailey": 51.468436929831086,
+        "Asher-Donald": 46.45427859734774,
+        "Asher-Bailey": 49.15282290977803,
+        "Donald-Bailey": 44.27188724235731
+    },
+    "conversation": [
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Seriously, are we even asking? It's the *only* place that actually hits the spot. I'm not in the mood for some fancy-pants, high-rated nonsense. Just give me the good stuff, you know? The *best* stuff. Anything else is just...well, it's not worth the effort. Don't waste my time with anything less.\n"
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_o. Honestly, what else is there to consider? It's consistently *good*. You all know it. I don't understand why we even bother debating this. Some of you clearly have no taste. It's the best, and frankly, I'm getting tired of having to explain that. Just go with it. \n"
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! Oh, seriously, you guys! I know I'm a little enthusiastic about this one, but it truly is *divine*. The flavors, the atmosphere...it just hits all the right notes! I know it's not the *most* popular choice, but I genuinely think it offers the best overall experience. I'm happy to explain why if anyone's curious, but I just feel like it deserves a real shot! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Seriously, I gotta second this. It's not just good, it's *really* good. I know it's not everyone's first pick, but think about it – the flavors are complex, the place has a vibe...it's a complete package. We're talking about a genuinely enjoyable meal, not just filling a hole. Anyone who thinks there's better out there is clearly missing out. Don't let the hype be a deterrent, trust me on this one.\n\n\n\n"
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s a wonder anyone even *asks* anymore. It’s the only place that consistently delivers. I'm not interested in some trendy, overhyped spot. We need substance, not just a pretty Instagram feed. It's a matter of basic good taste, really. If you can't appreciate that, then what's the point of even trying? 10/10, and it always has been."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t. Oh my goodness, you guys! Seriously, I'm so glad someone else is feeling the same way about this place. It's just... *chef's kiss*. I know it's not everyone's go-to, but the flavors are incredible and the atmosphere is so cozy. It's a truly special experience, and I think it deserves all the love! Don't let anyone talk you out of it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Fine, so some of you actually have standards. It's not rocket science, you know? I'm not going to argue with people who clearly don't know what's good. Donald gets it, and that's enough. It's consistently solid. Don't expect me to keep repeating myself."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, all this fuss over *t*? It's alright, I suppose, but it's not the *best*. You're all acting like it's some kind of revelation. It's good, yes, but *n* is consistently good. You know it. Don't try to change my mind now."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so wonderful that Bailey and Asher are feeling the same way about it! I've been saying for ages how much I love that place – the flavors are just *chef's kiss*, and the atmosphere is so cozy. It really does make for a special meal, don't you think? I'm so happy we're finally getting on the same page about this one! 😊"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, it seems like *t* is actually gaining some traction, which is cool. I'm not gonna lie, I'm kinda glad. It's a solid choice, and honestly, the vibes there are just right. Plus, the food is seriously good. If Bailey and Charlo are digging it, then it's probably worth a shot for everyone else too. Don't knock it 'til you try it, ya know?"
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. So, it seems like some of us actually have a pulse. I'm not going to pretend to be thrilled that *n* is suddenly the popular choice. It's not a new discovery, you know. It's *always* been the sensible option. If you're all happy with it now, fine. Just don't come crying to me when you realize trendy places are just hype. I'm not saying it's exciting, but it's *good*. And that's what matters."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t. It's so lovely to see more people feeling the same way about it! I really think it's got something special going on – the flavors are just *amazing*, and the atmosphere is so nice and relaxing. I'm really happy we're all on the same page about this one! 😊"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Alright, so it seems like everyone's gone soft for *t*. Honestly, it's predictable. I'm not going to fight it. If you want trendy, go ahead. Just don't expect me to pretend it's the greatest thing since sliced bread. It's decent, I'll give you that. But *n* is consistently better. Don't come crying to me when you realize that."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with some sense chimed in. *n* is consistently the best option, and it seems like everyone's forgotten that. *t* is fine, I guess, but it's not worth all this fuss. I've been saying it for ages, and here we are. Don't expect me to keep repeating myself."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so wonderful to see more people enjoying it! I'm really happy Bailey and Asher are on the same page as me – the flavors are just *amazing*, and the atmosphere is so relaxing. I think it's a perfect choice for everyone! 😊 It's got that special something, you know? I'm so glad we're all agreeing!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, it seems like *t* is actually gaining some real momentum, which is cool. I'm not gonna pretend I'm suddenly a huge fan, but I gotta admit, Bailey and Charlo are right. It's got a good vibe, and the food is solid. If the majority are happy, then it's probably the best option. I'm not gonna fight it."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. So, *t* is suddenly the hot new thing, huh? Figures. Everyone's easily swayed by whatever's trendy. I'm not going to pretend I'm impressed. It's alright, I suppose, but it's not *good*. And frankly, I'm tired of being the only one with a shred of common sense around here. If you're all happy with it, fine. Just don't expect me to join the hype. I'll stick with what I know works."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t. It's so great that Charlo and Asher are feeling the same way about it! I've been wanting to go there for ages, and I really think it would be a wonderful choice for everyone. The atmosphere is just perfect, and the food is so delicious – I'm really craving it! 😊 It would be such a lovely way to spend an evening together, don't you think?"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Figures. Everyone's gone and decided to chase the latest fad. I'm not going to pretend I'm impressed. It's alright, I suppose, but it's not *good*. And frankly, I'm tired of being the only one with a shred of common sense around here. If you're all happy with it, fine. Just don't expect me to join the hype. I'll stick with what I know works. It's consistently the best option, and you're all conveniently forgetting that. Don't come crying to me when you realize trendy places are just hype."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone recognized what's actually *good*. All this talk about *t* is just… noise. It's decent, I'll grant you that, but it's not worth the hype. I've been saying *n* is the sensible choice for ages, and yet here we are, chasing after the latest fad. Don't expect me to pretend it's suddenly exciting. It's consistently better, and that's a fact."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so awesome to see *t* gaining some traction! I'm really happy Asher and Bailey feel the same way – it's got such a great vibe, and the food is seriously delicious. I think it'll be a really fun and relaxing evening for everyone! 😊 It's got that perfect blend of flavors and atmosphere, don't you think? I'm so excited about it!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, it seems like *t* is actually winning the day, which is… something. I gotta say, Bailey and Charlo are right, it does have a good vibe. And honestly, after all the talk about *n*, a change of pace might be nice. I'm not gonna pretend I'm thrilled about it, but if everyone else is, I'm willing to roll with it. Just don't expect me to be singing its praises.\n\n\n\n"
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. So, *t* is suddenly the consensus? Figures. Don't get me wrong, I'm not thrilled about it, but if it's what everyone wants... fine. Just don't expect me to pretend I'm having a good time. I'm still convinced *n* is the better option, but I'm not going to fight a losing battle. I've said my piece, and it seems like you've all made up your minds. Just… don't say I didn't warn you when you realize trendy places are often overhyped."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t. It's so wonderful to see *t* really taking off! I'm really glad Charlo and Asher feel the same way – the flavors are just *amazing*, and honestly, the atmosphere is so relaxing. I think it's a perfect choice for everyone! 😊 It's got that special something, you know? I'm so happy we're all agreeing! It feels good to have a consensus!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. So, *t* is suddenlly the consensus? Figures. Don't get me wrong, I'm not thrilled about it, but if it's what everyone wants... fine. Just don't expect me to pretend I'm having a good time. I'm still convinced *n* is the better option, but I'm not going to fight a losing battle. I've said my piece, and it seems like you've all made up your minds. Just… don't say I didn't warn you when you realize trendy places are often overhyped. I'm just saying, don't come crying to me when it's a dud."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, I can't believe this is even being discussed. *t* is getting way too much attention. It's alright, I suppose, but it's not *good* good. And you're all just blindly following the crowd. I've been trying to tell you for ages that *n* is the sensible option. It's consistently the best, and you're all conveniently forgetting that. Don't come crying to me when you realize trendy places are just hype. I'm not changing my mind."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so great to see *t* really gaining some steam! Bailey and Asher are so right – it's seriously fantastic. I've been wanting to try it for ages, and the thought of all that delicious food is making me so happy! 😊 I think it'll be a really fun and memorable evening for everyone, and it's wonderful that we're all on the same page about it!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is actually gaining some serious ground. Charlo and Bailey are right, it does sound pretty good. Honestly, I'm kinda glad everyone's leaning that way. It's got a decent rating, and if it's what most people want, I'm not gonna fight it. Just hoping it lives up to the hype."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. So, *t* is suddenly the hot thing, huh? Figures. I'm not going to pretend I'm thrilled, but if it's what everyone else wants, I suppose we can go with it. Just don't come complaining to me when it's a disappointment. I've been saying *n* is the sensible choice for a reason, and it's consistently better. I'm not changing my mind now, just… accepting the inevitable. Don't say I didn't warn you.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so nice to see *t* getting so much love! Charlo and Asher are totally right, it really does have a fantastic vibe and the food is just *chef's kiss*. I'm really happy everyone's feeling the same way about it. It feels like a great choice for a fun evening together, and I'm excited for it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Fine, so *t* is the big thing now. Honestly, it's a bit much. But since a couple of folks are still pushing for *n*, and it's actually a decent spot – not great, but not terrible – I suppose we can go with it. Don't expect me to be enthusiastic about it, just trying to keep things… manageable. \n\n"
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's getting ridiculous. Everyone's gone completely off the deep end for *t*. I'm not saying *n* is perfect, but it's consistently *better*. You're all just blindly following the herd. I've said it before, and I'll say it again – *n* is the sensible choice. Don't come whining to me when you realize trendy doesn't always mean good. I'm not budging on this."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so awesome that *t* is getting so much love! Bailey and Asher totally get it – the flavors are seriously incredible, and I'm just so happy everyone's feeling the same way. It feels like a really fun and exciting choice for our night out, and I'm really looking forward to it! 😊 It's always great when we can all agree on something!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is really taking off with the group. Charlo and Bailey are both on board, and honestly, their enthusiasm is kinda infectious. I'm not gonna lie, I've been leaning towards *t* anyway. It's got a good reputation, and I trust their taste. If it's what everyone wants, and it's actually pretty solid, then I'm cool with it. Let's do it."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s just… disappointing to see everyone so eager for *t*. I’ve been trying to steer us towards something with actual merit for ages, and it’s like nobody even considers it. I know it’s not flashy, but it’s consistently good. You’re all just chasing a fleeting trend. Don't say I didn't warn you when it doesn't live up to the hype. I'm not going to keep pushing a losing argument, but I won't pretend to be happy about this."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so great to see *t* really gaining some traction! Charlo and Asher are spot on – it truly is fantastic. I've been really wanting to go, and the thought of it makes me so happy! 😊 It feels like a really fun and memorable evening for everyone, and I'm so glad we're all on the same page about it. It's got such a good reputation, and I really trust Charlo and Asher's taste. \n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's getting tiresome watching everyone jump on the *t* bandwagon. I'm not saying *n* is a culinary masterpiece, but it's consistently *better* than whatever hype *t* is generating. If you're all so keen on something that's clearly not the best, don't come crying to me when you're underwhelmed. I'm sticking with what I know."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's baffling how much attention *t* is getting. I've been saying *n* is the sensible choice for a reason – it's consistently better, and you're all ignoring it. Don't come crying to me when you're underwhelmed. I'm not changing my mind now, and I won't pretend to be happy about this sudden shift. It's just… disappointing."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that *t* is really resonating with everyone! I'm genuinely thrilled that Bailey and Asher feel so strongly about it – their enthusiasm is contagious! 😊 I think it'll be a really fun and memorable night, and I'm happy we're all on the same page about it. Plus, I've heard such great things about the atmosphere! It feels like a perfect fit for our group.\n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is really gaining some steam, and Charlo and Bailey are both really pushing for it. Honestly, their enthusiasm is kinda infectious, and I'm not gonna lie, I'm starting to see their point. It's got a good reputation, and I trust their taste. If it's what everyone wants, and it's actually pretty solid, then I'm cool with it. Let's go with *t*."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s just… frustrating. You’re all so quick to jump on the latest thing, and it’s like nobody values actual quality anymore. I’ve been saying *n* is the sensible choice for a reason – it’s consistently better, and you’re all ignoring it. Don't come crying to me when you're underwhelmed. I'm not changing my mind now, and I won't pretend to be happy about this sudden shift. It's just… disappointing. It's got a solid rating, and I know what I like. \n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so awesome that Charlo and Asher are really feeling it too – I knew they had good taste! 😊 I've been wanting to try *t* for ages, and it sounds like everyone else is excited about it as well. I'm really happy we're all leaning towards the same thing, it makes choosing so much easier! I'm genuinely looking forward to a fun night out with everyone."
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Fine, you lot want to chase after whatever's popular. Just don't expect me to pretend it's good. I'm not going to fight this anymore, but I'm not happy about it. At least *n* is decent, it won't be a complete waste of an evening. Don't say I didn't warn you.\n\n\n\n"
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's getting ridiculous. Everyone's suddenly obsessed with *t*, and I'm the only one with any sense. I've said it before, and I'll say it again – *n* is consistently better. You're all just blindly following a trend. Don't come crying to me when you're disappointed. I'm not going to keep banging my head against a wall. It's just… tiresome."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so neat that Bailey and Asher are really excited about it – their enthusiasm is totally infectious! 😊 I've been wanting to try *t* for a while, and it sounds like it'll be a really fun evening for everyone. I think it's a great choice, and I'm happy we're all on the same page! It has a really good reputation, and I trust their taste. \n\n\n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is really taking off with Charlo and Bailey, and honestly, I'm starting to see why. It's got a pretty solid rating, and I've heard good things about the atmosphere. I'm not gonna fight the momentum here. If everyone's happy, then it's a good choice. I'm happy to go with the flow."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s astounding how easily everyone's swayed by whatever's currently trendy. I've consistently pointed out *n* – it's a solid choice, and you're all just ignoring it. Don't expect me to be pleased when you're underwhelmed. I'm not changing my mind now, and I won't pretend to be happy about this sudden shift. It's just… disheartening. I'd rather stick with something reliable than chase fleeting popularity."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so great to see *t* gaining so much traction! I'm really happy Charlo and Asher are feeling it too – their enthusiasm is contagious, it's awesome! I think it'll be a really fun night, and honestly, I've heard such good things about the atmosphere. It just seems like a perfect fit for us all, and I'm excited to try it! 😊\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's not that hard to see what's good. You're all acting like *t* is some groundbreaking revelation. It's alright, sure, but *n* is consistently better. I'm not going to keep repeating myself, but if you want something actually worthwhile, you know where to find it. Don't come whining to me later when you're bored with the hype."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's pathetic. You're all blindly following whatever's got the most hype. *n* is consistently good, and you're all ignoring it for… *t*? It's just… disappointing. I'm not going to keep arguing, but don't come crying to me when you're bored with it. I told you so."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that Bailey and Asher are really digging it – I totally agree! 😊 I've heard such fantastic things about *t*, and honestly, it sounds like exactly what we need for a fun night out. It's got a really high rating, and I'm feeling really good about this choice! \n\n"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is really gaining some steam, and with Charlo and Bailey on board, it's hard to ignore. Honestly, I've been wanting to try it too, and the hype seems justified. I'm not gonna fight this anymore. If it's gonna be a fun night, then let's do it. I'm happy to go with the flow if everyone else is excited."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s a miracle anyone's even considering *t*! It's a fleeting fad, and I'm the only one with any foresight. *n* is consistently superior – the food, the ambiance, everything. I'm not going to keep banging my head against a wall trying to convince you all of this. It's just… exhausting. If you're truly open to something worthwhile, then *n* is the only logical choice. Don't come crying to me when you realize the hype around *t* is just that – hype."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so awesome that Charlo and Asher are really excited about it – I totally agree with them! 😊 I've been wanting to try *t* for ages, and honestly, the more we talk about it, the more I'm convinced it'll be a fantastic night. Plus, it has a really good reputation, and I trust their taste! It feels like a really good fit for everyone."
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Figures. Everyone's gone soft for whatever's new. I'm not going to pretend I'm thrilled about this. *n* is consistently better, and you're all just ignoring it. Fine. Go ahead and chase the hype. Don't come crying to me when it disappoints you. I'll be over here with something actually worthwhile."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with a brain pointed out the obvious. *t* is just a flash in the pan, and everyone's acting like it's the greatest thing ever. I've been saying *n* is the better option for ages, and yet here we are. Fine, go ahead and enjoy your hype. I'll be over here with something that actually delivers. Don't expect me to be happy about this."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so great to see the excitement for *t* growing! Bailey and Asher are really enthusiastic, and honestly, I'm feeling it too. It's got a really high rating, and I think it'll be a blast. Plus, it seems like a perfect way for us to have a fun night together! 😊"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, looks like *t* is really picking up steam, and with Charlo and Bailey digging it, I'm willing to give it a shot. Honestly, I've been leaning towards it too, and the ratings are pretty solid. It's not my first choice, but if it's what everyone wants, it's fine by me. Let's check it out."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s astounding that anyone is even considering *t* after all this talk. I've been consistently advocating for *n* for ages, and it’s clear I’m the only one with any sense. The ratings speak for themselves – it's a solid choice. I'm not going to keep fighting a losing battle. If you all want to chase the latest trend, be my guest. Just don't come crawling back when it inevitably disappoints you. I'll be over here with something that actually delivers on quality."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's really nice to see so many of us are feeling good about *t*! I've been saying it's a great option, and with Charlo and Asher on board, I'm feeling really confident about it. Plus, it scores really well in my book – I'm hoping it lives up to the hype! 😊"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with some sense brought it up again. *t* is clearly a passing fancy, and everyone's just blindly following the crowd. I've been saying *n* is the better choice for ages, and it's got the ratings to prove it. Don't expect me to be happy about this sudden shift. It's just… exhausting."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, I can't believe you're all still on about *t*. It's a fleeting thing, and you're acting like it's some kind of revelation. *n* has consistently been the superior choice – the food, the atmosphere, everything. I'm not going to keep repeating myself. It's just… tiring. If you actually want something worthwhile, *n* is the only logical option. Don't come crying to me when you realize *t* is just hype."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that Asher and Bailey are really into *t*! I've been looking at it, and it has really high ratings – like, super high! It seems like a really fun place to go, and I think we'd all enjoy it. Plus, it's got a great reputation, which always makes me feel good about a choice! 😊"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, it seems like *t* is actually gaining some serious traction, which is… something. I gotta admit, the ratings are pretty good, and if Bailey and Charlo are feeling it, there's probably a reason. I'm not gonna fight this one. Let's check it out and see what's what."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Fine, you all want to chase after whatever's trending. Go ahead. I'm not going to stop you from making a mistake. I've said it before, and I'll say it again – *n* is the sensible option. It's consistently good, and frankly, it's a relief to see someone acknowledge that. Don't come crying to me when *t* disappoints you. I'll be over here, knowing I was right all along."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's really exciting that Charlo and Asher are feeling so strongly about *t*! I've looked into it a bit, and the reviews are really good – like, *really* good! I think it would be a fun and memorable night for all of us, and honestly, I'm really looking forward to trying it out. 😊"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with a brain brought it up again. *t* is clearly a fad, and everyone's just blindly following it. I've been saying *n* is the better option for ages, and the ratings prove it. Don't expect me to be happy about this sudden shift. It's just… exhausting. If you actually want something worthwhile, *n* is the only logical choice. Don't come crying to me when *t* disappoints you. I'll be over here, knowing I was right all along."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with some sense stuck to *n*. All this talk about *t* is just… noise. I've been saying *n* is the only decent option for ages, and the ratings speak for themselves. It's consistently good, unlike this fleeting trend everyone's jumping on. Don't expect me to keep repeating myself. It's exhausting."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so awesome that Bailey and Asher are really excited about it! I've been checking it out, and it seems like it has a lot of fun options. Plus, it's got a really good reputation, which always makes me feel good about a choice! 😊 It's great to see everyone open to trying something new and potentially really enjoyable!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, it seems like *t* is actually gaining some serious traction, and Charlo and Bailey are really pushing for it. Honestly, the ratings are pretty solid, and I gotta admit, I'm starting to see why. I'm not gonna fight this one anymore. If a few people are genuinely excited about it, it's worth checking out. Plus, it's good to see a little excitement around here."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, I'm surprised anyone is even considering *t* after all this talk. It's a passing fancy, and frankly, I'm tired of it. *n* has consistently offered a better experience – better food, a better atmosphere. The ratings speak for themselves, and they've done so for a long time. It's not a sudden revelation; it's a consistent truth. If you want something worthwhile, don't ignore the obvious. I'm not going to keep rehashing the same points. It's exhausting."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's really great to see Charlo and Asher so enthusiastic about it – and honestly, the reviews are really impressive! I've been looking at it, and it seems like it has a lot of things we'd all enjoy. Plus, it's got a really good reputation, which always puts my mind at ease. 😊 It feels like a good choice for everyone!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with a modicum of sense stuck to *n*. All this fuss over *t* is just… irritating. I've been saying *n* is the only sensible choice for ages, and the ratings prove it. It's consistently good, unlike this fleeting trend everyone's jumping on. Don't expect me to keep repeating myself. It's exhausting. If you want something worthwhile, don't ignore the obvious."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with some sense brought it up again. All this push for *t* is just… tiresome. I've been saying *n* is the only sensible choice for ages, and the ratings prove it. It's consistently good, unlike this fleeting trend everyone's jumping on. Don't expect me to keep repeating myself. It's exhausting. If you actually want something worthwhile, *n* is the only logical choice."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that Asher and Bailey are really digging *t*! I've been looking at it too, and it seems like it has a lot of really fun things to do – and the reviews are fantastic! I think it would be a really great way for us to spend the evening, and I'm excited for everyone to experience it! 😊 It feels like a really good fit for our group!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some serious ground with Charlo and Bailey on board. Honestly, the reviews are pretty solid, and I gotta admit, I'm starting to see why. I'm not gonna fight this one anymore. If a few people are genuinely excited about it, it's worth checking out. Plus, it's good to see a little excitement around here. I'm willing to roll with this if it's what the group wants."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s baffling how much energy is being spent on *t*. I've consistently pointed out *n* is the superior choice, and the ratings clearly demonstrate that. It’s not a sudden discovery that *n* is good; it's been a constant. I'm not going to keep re-explaining the obvious just because a few people are chasing a fleeting trend. It’s exhausting to watch. If you actually value a decent meal and a pleasant atmosphere, *n* is the only logical option."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so awesome that Charlo and Asher are really excited about it, and honestly, I'm feeling that way too! I've been looking at it, and it seems like it has a lot of really fun options – the atmosphere looks great, and the reviews are really good. Plus, it's a place where we can all relax and enjoy ourselves. I think it would be a really positive experience for everyone! 😊"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's about time someone with some sense stuck to *n*. All this push for *t* is just… tiresome. I've been saying *n* is the only sensible choice for ages, and the ratings prove it. It's consistently good, unlike this fleeting trend everyone's jumping on. Don't expect me to keep repeating myself. It's exhausting. If you actually want something worthwhile, *n* is the only logical choice. It's got the ratings to back it up, and frankly, I'm surprised it's even being debated."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it’s baffling how much energy is being spent on *t*. I've consistently pointed out *n* is the superior choice, and the ratings clearly demonstrate that. It’s not a sudden discovery that *n* is good; it's been a constant. I'm not going to keep re-explaining the obvious just because a few people are chasing a fleeting trend. It’s exhausting to watch. If you actually want something worthwhile, *n* is the only logical option. It's got the ratings to back it up, and frankly, I'm surprised it's even being debated."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so neat that Bailey and Asher are feeling *t*! I've been checking it out too, and honestly, it looks like a really fun place to hang out. Plus, it has a great reputation, which always makes me feel good about a choice! 😊 I think it'll be a really enjoyable experience for all of us. It's awesome to see everyone excited about it!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some traction, and honestly, the reviews are pretty damn good. Charlo and Bailey are both on board, which is a good sign. I'm not gonna pretend I'm thrilled about it, but if the group's leaning that way, I'm willing to go with it. It's got a decent rating, and I'm not seeing any major red flags. Let's do it."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s astounding how much we're still debating this. The ratings speak for themselves – a solid 10. *t* might be trendy, but it’s not objectively better. I'm not going to keep rehashing the same points. If you’re actually considering a worthwhile meal, *n* is the only sensible choice. It’s consistently good, unlike this fleeting enthusiasm for something that’s clearly not as impressive as it’s being made out to be."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's really exciting that Charlo and Asher are digging it, and honestly, I'm feeling that way too! I've been looking at it, and it seems like it has a lot of fun options – the atmosphere looks great, and the reviews are really good. Plus, it's a place where we can all relax and enjoy ourselves. I think it'll be a really positive experience for everyone! 😊 It's awesome to see everyone excited about it.\n\n\n\n"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, the fact that we're still even discussing *t* is ridiculous. It's got a decent rating, sure, but it's not *good*. *n* is consistently good, and frankly, I don't understand the appeal of chasing the latest fad. If you want something worthwhile, stick with what's proven. It's exhausting having to explain this over and over."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's astounding how much we're still going in circles about *t*. I've said it before, and I'll say it again – *n* is the only sensible choice. The ratings are there for a reason. It's consistently good, unlike this fleeting enthusiasm for something that's clearly not as impressive as it's being made out to be. I'm not going to keep rehashing the same points. If you want something worthwhile, stick with what's proven. It's exhausting having to explain this over and over."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that Bailey and Asher are really into it! I've been checking it out, and honestly, it looks like a super fun spot. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 It seems like a great way for us all to relax and have a good time together. I'm happy everyone's feeling the same way!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some real momentum, and honestly, the vibes are pretty good. Charlo and Bailey are both on board, and that's saying something. I've peeked at the reviews, and it looks like a genuinely fun place to hang. Plus, it's got a solid reputation, which is always a plus. I'm not gonna fight this one. If everyone else is feeling it, it's probably worth checking out."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it's infuriating that we're still fixated on *t*. I've laid out the facts – *n* is objectively better, and the ratings prove it. It’s not a matter of opinion; it's a clear, consistent reality. I'm not going to keep repeating myself because some people prefer chasing the latest trend over something that's actually good. If you want a worthwhile experience, *n* is the only logical choice. It’s frustrating to see this level of stubbornness.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's really great to see Charlo and Asher are feeling so positive about it! I've been looking at it too, and honestly, the atmosphere seems really lovely – definitely a place where we can all relax and have a good time. Plus, it has a really good reputation, which always puts my mind at ease! 😊 I think it'll be a really enjoyable experience for all of us. It's awesome that we're all on the same page about this one!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, I'm starting to think some of you are actively trying to ignore reality. *n* is the obvious choice. It's consistently good, and frankly, I don't understand the fascination with *t*. It's fleeting, and the reviews aren't nearly as impressive as people are making out. I'm not going to keep arguing this. If you want something worthwhile, stick with what's actually good. It's exhausting."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's baffling how many of you are still pushing *t*. I've said it repeatedly – *n* is the only sensible choice. The ratings speak for themselves, and frankly, I don't understand the appeal of chasing the latest trend. It's exhausting having to keep reiterating this. If you want something worthwhile, stick with what's proven. It's not rocket science."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so great to see Bailey and Asher really enthusiastic about it! I've been looking at it too, and honestly, the atmosphere looks super inviting – like a really fun place to hang out. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 It seems like it'll be a really enjoyable experience for everyone, and I'm happy we're all feeling so positive about it!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some real traction, and honestly, the vibes are pretty good. Charlo and Bailey are both on board, and that's saying something. I've peeked at the reviews, and it looks like a genuinely fun place to hang. Plus, it's got a solid reputation, which is a plus. I'm not gonna fight this one. If everyone else is feeling it, it's probably worth checking out. It's good to see a consensus forming."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. It's honestly astounding that we're still even discussing *t*. The ratings are there for a reason, and I'm not going to keep rehashing the same points. It’s exhausting. If you want something worthwhile, stick with what's proven. It’s clear *n* is the only sensible choice, and the fact that some of you are still pushing *t* is frankly baffling. \n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so nice to see Charlo and Asher really digging it! I've been looking into it too, and honestly, the menu sounds really interesting – I'm particularly drawn to their [mention a specific dish if you know one, otherwise say \"unique dishes\"]. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 I think it'll be a really fun and enjoyable experience for everyone. It's great that we're all leaning towards the same thing!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, the fact that we're still even considering *t* is astounding. It's a fleeting fad, and the reviews don't hold up to anything solid. *n* has the ratings to back it up, and frankly, I'm tired of this discussion. If you want something worthwhile, stick with what's proven. It's not that complicated."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's ridiculous we're still even considering *t*. The reviews are all over the place, and frankly, the atmosphere sounds like a tourist trap. *n* has a solid reputation for a reason. I'm not going to keep arguing this. It's exhausting. If you want something decent, stick with what's actually good. It's not that hard to see the obvious."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so awesome to see Bailey and Asher really excited about it, and honestly, I'm feeling that energy too! I've been doing a little more digging, and honestlly, the menu looks absolutely delightful – I'm especially keen on their [mention a specific dish if you know one, otherwise say \"creative dishes\"]. Plus, it has a really good reputaion, which always puts my mind at ease. It seems like a really fun and enjoyable spot for everyone, and I'm happy we're all on the same page about this one! 😊"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some real traction, and honestly, the vibes are pretty good. Charlo and Bailey are both on board, and that's saying something. I've peeked at the reviews, and it looks like a genuinely fun place to hang. Plus, it's got a solid reputation, which always makes me feel good about a choice. I'm not gonna fight this one. If everyone else is feeling it, it's probably worth checking out. It's good to see a consensus forming.\n\n\n\n"
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it’s a miracle anyone is even considering *t* at this point. The reviews are inconsistent, and frankly, I’m surprised it’s getting any traction. *n* has a solid reputation for a reason – it’s not some fleeting trend. I’m not going to keep rehashing the same points. If we want a decent meal, we stick with what’s reliable. It’s not that difficult to see the obvious."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so great to see Charlo and Asher really enthusiastic about it, and honestly, I'm feeling that way too! I've been looking at it again, and the menu just seems perfect – I'm really drawn to their [mention a specific dish if you know one, otherwise say \"unique dishes\"]. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 It seems like it'll be a really fun and enjoyable experience for everyone, and I'm happy we're all on the same page about this one. It's awesome!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, the fact that we're still debating *t* is baffling. It's not like it's some hidden gem. *n* has a solid reputation, and frankly, I'm surprised anyone is even considering something else. It's a waste of time. If we want a decent meal, we stick with what's reliable. End of discussion."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, I don't understand this push for *t*. It's a passing fancy, and the reviews are hardly convincing. *n* has consistently good ratings – it's not rocket science. I'm surprised anyone is even considering something so… trendy. It's a waste of time to keep going around in circles. We've established *n* is the sensible choice, and frankly, I'm getting tired of repeating myself."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so wonderful to see so many of us leaning towards it! I've been thinking about it too, and honestly, the menu just seems to have something for everyone. Plus, it has a really good reputation, which always gives me a good feeling! 😊 It seems like a really great choice, and I'm happy we're all feeling good about it. It'll be such a fun experience!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it looks like *t* is actually gaining some serious momentum, and honestly, I'm not gonna fight that. Charlo and Bailey are both really into it, and I've been doing a bit more looking into the menu. It seems like they've got some pretty cool, unique dishes – the kind of stuff that actually sounds good. Plus, the reviews are looking pretty solid, which is always a plus. If everyone else is feeling it, then it's probably a good call."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it's astounding that we're still even discussing *t*. The fact that Charlo, Asher, and Bailey are so keen on it is frankly baffling. I've looked at the reviews again, and they're still a mixed bag at best. *n* has a solid reputation for a reason – it’s not some fleeting trend. I'm not going to keep rehashing the same points. If we want a decent meal, we stick with what’s reliable. It’s not that difficult to see the obvious. It seems like a waste of time to keep going around in circles."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so nice to see Charlo and Asher really excited about it, and honestly, I'm feeling that way too! I've been thinking about it, and the menu just seems to have something for everyone. Plus, it has a really good reputation, which always gives me a good feeling! 😊 It seems like a really great choice, and I'm happy we're all feeling good about it. It'll be such a fun experience!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's astounding that we're still even discussing *t*. The fact that Charlo, Asher, and Bailey are so keen on it is frankly baffling. I've looked at the reviews again, and they're still a mixed bag at best. *n* has a solid reputation for a reason – it’s not some fleeting trend. I'm not going to keep rehashing the same points. If we want a decent meal, we stick with what’s reliable. It’s not that difficult to see the obvious."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, I'm not seeing what the big deal is with *t*. Charlo and Asher are getting all worked up over it, and Bailey's on board too. It's just not a good choice. *n* has a solid reputation for a reason, and frankly, I'm surprised anyone is even considering something so…unproven. We're going back to what works. It's not that hard to see."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so great to see Bailey and Asher really enthusiastic about it! I've been looking at it again, and honestly, the menu just seems to have something for everyone. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 It seems like it'll be a really fun and enjoyable experience for everyone, and I'm happy we're all on the same page about this one. It's awesome!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some traction, which is cool. I've gotta admit, the menu does look pretty solid, and Bailey and Charlo are really pushing for it – that's usually a good sign. Plus, the reviews are decent, not amazing, but not terrible either. I'm willing to go with it if everyone else is happy. It's not like I'm strongly against it, just prefer something with a bit more…oomph."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, I'm starting to think some of us are deliberately ignoring the facts. *t* is a gamble, and a disappointing one at that. I've got a solid reason for consistently suggesting *n*, and it’s not based on some personal vendetta. It’s about getting a decent meal without expecting a miracle. If we're all so eager to chase after something that’s not proven, that's your prerogative, but don't expect me to jump on the bandwagon. I'm not going to keep advocating for something that's clearly not the best option. It's frustrating to see the same arguments repeated over and over.\n\n\n\n"
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so wonderful to see Charlo and Asher really championing it! I've been thinking about it too, and honestly, the menu just seems to have something for everyone. Plus, it has a really good reputation, which always gives me a good feeling! 😊 It seems like a really great choice, and I'm happy we're all feeling good about it. It'll be such a fun experience! It's awesome that we're all on the same page about this one."
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's getting tiresome watching everyone jump on the *t* bandwagon. I've said it before, and I'll say it again – *n* is the sensible option. It's got a solid reputation for a reason, unlike this… trendy place everyone's suddenly obsessed with. I'm not going to keep arguing the same point. It's just… frustrating."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, I'm not sure why we're even having this discussion. *t* seems like a passing fancy, and everyone's suddenly obsessed. I've consistently suggested *n* for a reason – it's reliable. It's not about being stubborn; it's about getting a decent meal without disappointment. I'm not going to keep fighting a losing battle. It's frustrating to see the same things repeated."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so awesome to see Bailey and Asher really excited about it, and honestly, I'm feeling that way too! I've been thinking about it, and the menu just seems to have something for everyone. Plus, it has a really good reputation, which always gives me a good feeling! 😊 It seems like a really great choice, and I'm happy we're all on the same page about this one. It'll be such a fun experience! It's really great that we're all enjoying the same idea!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it seems like *t* is actually gaining some real momentum, which is cool. Charlo and Bailey are really pushing for it, and honestly, I've been looking at the menu again. It's got a lot of interesting stuff, and the reviews are pretty solid. I'm willing to go with it if everyone else is feeling it – it's not like I'm totally against it. Plus, it's got a decent reputation, which is always a plus."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. Honestly, it's a bit disheartening to see everyone so quick to abandon a solid choice for something that seems like a fleeting trend. I've consistently advocated for *n* because it offers a reliable experience. It's not about being resistant to change; it's about recognizing what consistently delivers. If we're all so keen on chasing novelty, that's fine, but don't expect me to enthusiastically join the chase. It just feels… pointless."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so great to see Charlo and Asher really enthusiastic about it! I've been thinking about it too, and honestly, the menu just seems to have something for everyone. Plus, it has a really good reputation, which always makes me feel good about a choice! 😊 I really think it'll be a fun and enjoyable experience for everyone, and I'm happy we're all on the same page about this one. It's awesome!"
+        },
+        {
+            "agent": "Bart",
+            "message": "My current suggestion is rest_n. Honestly, it's getting old watching everyone flip-flop over *t*. I've said it before, and I'll say it again – *n* is the sensible choice. It's consistently reliable, unlike this sudden obsession with something that's clearly not worth the hype. I'm not going to keep banging the same drum. It's just… exhausting. And frankly, my ratings speak for themselves. *n* is a solid 10 for a reason."
+        },
+        {
+            "agent": "Henry",
+            "message": "My current suggestion is rest_n. Honestly, it's baffling how many of you are still pushing *t*. I've made my position clear – *n* is the sensible choice. It's consistently good, and frankly, I don't understand the sudden enthusiasm for something that doesn't have a solid track record. I'm not going to keep repeating myself. It's just… tiresome. And my ratings speak for themselves."
+        },
+        {
+            "agent": "Charlotte",
+            "message": "My current suggestion is rest_t! It's so cool that Bailey and Asher are really digging it, and honestly, I'm feeling that too! I've been looking at the menu again, and it has some really interesting options. Plus, it has a great reputation, which always makes me feel good about a choice! 😊 It seems like a really fun and enjoyable experience for everyone, and I'm happy we're all on the same page about this one. It's awesome!"
+        },
+        {
+            "agent": "Asher",
+            "message": "My current suggestion is rest_t. Alright, so it looks like *t* is actually gaining some traction, which is cool. Charlo and Bailey are really pushing for it, and honestly, I've been looking at the menu again. It's got some interesting stuff, and the reviews are pretty solid. I'm not gonna fight this one anymore. If everyone else is happy, I'm happy. Plus, it's got a decent rating, which is a plus."
+        },
+        {
+            "agent": "Donald",
+            "message": "My current suggestion is rest_n. It's… disheartening to see this constant push for *t*. Honestly, I've consistently pointed out the merits of *n*, and it seems to be ignored. I'm not trying to be difficult, but there's a reason I've held that suggestion for so long. It's a solid choice, and frankly, I'm starting to feel like my opinions don't even matter. If everyone else is set on something new, fine, but don't expect me to pretend it's a good idea. It's just… frustrating."
+        },
+        {
+            "agent": "Bailey",
+            "message": "My current suggestion is rest_t! It's so awesome to see Charlo and Asher really pushing for it, and honestly, I'm feeling that way too! I've been thinking about it, and the menu just seems to have something for everyone. Plus, it has a really good reputation, which always gives me a good feeling! 😊 I really think it'll be a fun and enjoyable experience for everyone, and I'm happy we're all on the same page about this one. It's awesome!"
+        }
+    ],
+    "turn_preferences": {
+        "Bart": [
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n"
+        ],
+        "Henry": [
+            "rest_o",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n"
+        ],
+        "Charlotte": [
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t"
+        ],
+        "Asher": [
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t"
+        ],
+        "Donald": [
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n",
+            "rest_n"
+        ],
+        "Bailey": [
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t",
+            "rest_t"
+        ]
+    },
+    "votes": {
+        "rest_n": 3,
+        "rest_t": 3
+    },
+    "vote_details": [
+        {
+            "agent": "Bart",
+            "vote": "rest_n"
+        },
+        {
+            "agent": "Henry",
+            "vote": "rest_n"
+        },
+        {
+            "agent": "Charlotte",
+            "vote": "rest_t"
+        },
+        {
+            "agent": "Asher",
+            "vote": "rest_t"
+        },
+        {
+            "agent": "Donald",
+            "vote": "rest_n"
+        },
+        {
+            "agent": "Bailey",
+            "vote": "rest_t"
+        }
+    ],
+    "final_rec": "NO CONSENSUS REACHED",
+    "turn_counter": 21,
+    "tie_strength": "friends"
+}
