@@ -1,25 +1,38 @@
 """
 merge_dataset.py
 ================
-Merges 4 subfolders (each with 2000 group_simulation_X.json files) into
-a single folder with unique, sequential filenames and group_id values.
+Merges 4 per-model subfolders (each with 2000 group_simulation_X.json files)
+into a single folder with unique, sequential filenames and group_id values.
+
+Project layout this script assumes:
+  conversational-group-rec-eval/
+    src/module1/merge_dataset.py    ← this script
+    data/raw/gemma/                 ← 2,000 files (group_ids 1-2000)
+    data/raw/llama/                 ← 2,000 files (group_ids 2001-4000)
+    data/raw/mistral/               ← 2,000 files (group_ids 4001-6000)
+    data/raw/olmo/                  ← 2,000 files (group_ids 6001-8000)
+    data/full_dataset/              ← output, 8,000 files, sequential IDs
 
 Output layout:
-  full_dataset/
-    group_simulation_1.json     (from subfolder 1, group_id = 1)
-    group_simulation_2.json     (from subfolder 1, group_id = 2)
+  data/full_dataset/
+    group_simulation_1.json     (from gemma,   group_id = 1)
+    group_simulation_2.json     (from gemma,   group_id = 2)
     ...
-    group_simulation_2000.json  (from subfolder 1, group_id = 2000)
-    group_simulation_2001.json  (from subfolder 2, group_id = 2001)
+    group_simulation_2001.json  (from llama,   group_id = 2001)
     ...
-    group_simulation_8000.json  (from subfolder 4, group_id = 8000)
+    group_simulation_8000.json  (from olmo,    group_id = 8000)
 
 Usage:
-    1. Place this script in the same folder as your 4 subfolders.
-    2. Set SUBFOLDERS below to the actual names of your 4 subfolders.
-    3. Run: python merge_dataset.py
+    From anywhere inside the project:
+        python src/module1/merge_dataset.py
 
-The original files are never modified. Everything is written to full_dataset/.
+    Paths are anchored to this script's own location, so it works
+    regardless of which directory you run it from. To re-point at
+    different folders, edit the SUBFOLDERS and OUTPUT_FOLDER constants
+    below.
+
+The original files are never modified. Everything is written to
+data/full_dataset/, and the only field changed in each JSON is group_id.
 """
 
 import json
@@ -27,8 +40,9 @@ import shutil
 from pathlib import Path
 
 # ── CONFIGURATION ─────────────────────────────────────────────────────────────
-# Set these to the names (or full paths) of your 4 subfolders.
-# The order matters: the first folder gets IDs 1–2000, second 2001–4000, etc.
+# Paths below are relative to this script's location (src/module1/).
+# Two levels up (../../) lands in the project root, then into data/.
+# Order matters: first folder gets IDs 1–2000, second 2001–4000, etc.
 
 SUBFOLDERS = [
     "../../data/raw/gemma",
@@ -100,8 +114,8 @@ def merge():
     print(f"\nDone. {total_written} files written to '{OUTPUT_FOLDER}/'.")
     if total_skipped:
         print(f"       {total_skipped} files skipped (see warnings above).")
-    print(f"\nTo run the evaluation framework on the full dataset:")
-    print(f"  python src/module1/evaluation_framework.py {OUTPUT_FOLDER}/")
+    print(f"\nTo run the evaluation framework on the merged dataset:")
+    print(f"  python src/module1/evaluation_framework.py data/full_dataset/ data/results/")
 
 
 if __name__ == "__main__":

@@ -560,7 +560,7 @@ def print_summary(results: list[dict]) -> None:
 # MAIN
 # ──────────────────────────────────────────────────────────────────────────────
 
-def main(data_folder: str) -> None:
+def main(data_folder: str, out_folder: str | None = None) -> None:
     folder = Path(data_folder)
     if not folder.is_dir():
         print(f"Error: '{data_folder}' is not a directory.", file=sys.stderr)
@@ -578,8 +578,14 @@ def main(data_folder: str) -> None:
             data = json.load(f)
         results.append(evaluate_group(data))
 
-    # Determine output directory (parent of the data folder)
-    out_dir = folder.parent
+    # Determine output directory:
+    #   - if out_folder is given, write there (created if missing)
+    #   - else default to the parent of the input folder (legacy behaviour)
+    if out_folder is not None:
+        out_dir = Path(out_folder)
+        out_dir.mkdir(parents=True, exist_ok=True)
+    else:
+        out_dir = folder.parent
     csv_path  = out_dir / "results.csv"
     json_path = out_dir / "results.json"
 
@@ -593,8 +599,9 @@ def main(data_folder: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python evaluation_framework.py <folder_with_json_files>")
-        print("Example: python evaluation_framework.py subset_data/")
+    if len(sys.argv) not in (2, 3):
+        print("Usage: python evaluation_framework.py <folder_with_json_files> [output_folder]")
+        print("Example: python evaluation_framework.py data/full_dataset/ data/results/")
         sys.exit(1)
-    main(sys.argv[1])
+    out = sys.argv[2] if len(sys.argv) == 3 else None
+    main(sys.argv[1], out)
