@@ -2,35 +2,56 @@
 """
 hypothesis_tests.py — Formal Statistical Tests for the Thesis
 ==============================================================
-Runs the pre-specified statistical tests for hypotheses H1, H2, H4 on the
-output of evaluation_framework.py (results.csv, results.json) and reports
-the H3 subset size (H3 itself is blocked on Module 2 output).
 
-Tests performed
+Runs the pre-specified statistical tests for hypotheses H1, H2, and H4 on
+the output of `evaluation_framework.py` (`results.csv`),
+and reports the H3 subset size (the full H3 regression is blocked on
+Module 2 output).
+
+Output
+------
+A single multi-sheet Excel workbook. Every test produces one or more
+result tables; no terminal output, no text file.
+
+Sheets produced
 ---------------
-H1 — Conversations underperform formal aggregation
-     Wilcoxon signed-rank test of welfare gap vs. zero (one-sided 'less'),
-     overall and per configuration. Effect size: rank-biserial correlation.
+  H1 Distribution Diagnostic  Distribution shape of the welfare gap
+                              (skewness, kurtosis, % zero/below/above,
+                              min, max). Justifies the choice of
+                              Wilcoxon over a t-test.
+  H1 Welfare Gap              One-sample Wilcoxon (one-sided 'less')
+                              against zero, overall + per configuration.
+                              Effect size: rank-biserial correlation.
+  H2a Kruskal-Wallis          Per-configuration MinSat means + omnibus
+                              H statistic, p-value, epsilon-squared.
+  H2a Pairwise MWU            Six pairwise Mann-Whitney U comparisons
+                              on MinSat with Holm-Bonferroni correction.
+  H2b MajMinGap               One-sample Wilcoxon (one-sided 'greater')
+                              against zero on MajMinGap, per configuration.
+  H3 Subset                   H3 subset size by configuration (status only;
+                              the full H3 regression requires Module 2
+                              process metrics, which are not yet available).
+  H4 Big Five                 Pearson r between each Big Five trait and
+                              ISS at the agent level. Small-effect-bound
+                              decision rule (|r| < 0.05). Agreeableness
+                              and Neuroticism
+  H4 Tone (Supplementary)     Kruskal-Wallis across the 20 tone categories.
+                              Tone was randomly assigned and is NOT part
+                              of H4; this is reported only as a
+                              manipulation check.
 
-H2 — Configuration determines fairness
-     (a) Kruskal-Wallis on MinSat across the four configurations.
-     (b) Pairwise Mann-Whitney U with Holm-Bonferroni correction.
-     (c) Wilcoxon signed-rank on MajMinGap vs. zero (one-sided 'greater'),
-         per configuration.
+Usage
+-----
+    python src/module1/hypothesis_tests.py <results_csv> <full_dataset_folder> [output_xlsx]
 
-H3 — Structural metrics insufficient (status report only)
-     Reports the size of the H3 subset (MinSat < 0.20 AND MajMinGap > 0.30).
-     Full test requires Module 2 output.
+If `output_xlsx` is omitted, defaults to
+`<results_csv parent>/hypothesis_tests_output.xlsx`.
 
-H4 — Personality and tone do NOT predict ISS (null hypothesis)
-     (a) Pearson r between each Big Five trait and ISS at agent level.
-     (b) Kruskal-Wallis across tone categories.
-     Note: a null hypothesis cannot be 'proven' — we report effect sizes and
-     argue the null is supported when |r| < 0.05 and epsilon-squared < 0.04.
+Requirements: scipy, pandas, numpy, openpyxl.
 """
 
-import json
 import sys
+import json
 from pathlib import Path
 from itertools import combinations
 
@@ -39,15 +60,14 @@ import numpy as np
 from scipy import stats
 
 
-# ── EFFECT SIZE HELPERS ──────────────────────────────────────────────────────
+# ── EFFECT-SIZE HELPERS ──────────────────────────────────────────────────────
 
 def rank_biserial_wilcoxon(x):
     """Rank-biserial correlation for one-sample Wilcoxon (vs 0)."""
     x = np.asarray(x, dtype=float)
     x = x[x != 0]
-    n = len(x)
-    if n == 0:
-        return float('nan')
+    if len(x) == 0:
+        return float("nan")
     ranks = stats.rankdata(np.abs(x))
     w_plus  = ranks[x > 0].sum()
     w_minus = ranks[x < 0].sum()
@@ -58,13 +78,13 @@ def rank_biserial_wilcoxon(x):
 def rank_biserial_mwu(u, n1, n2):
     """Rank-biserial correlation for Mann-Whitney U."""
     if n1 == 0 or n2 == 0:
-        return float('nan')
+        return float("nan")
     return 1.0 - (2.0 * u) / (n1 * n2)
 
 
 def epsilon_squared_kw(h, n):
     """Epsilon-squared effect size for Kruskal-Wallis."""
-    return float('nan') if n <= 1 else h / (n - 1)
+    return float("nan") if n <= 1 else h / (n - 1)
 
 
 def interpret_r(r):
@@ -89,139 +109,174 @@ def holm_correction(pvals):
     return adj
 
 
-# ── FORMATTING ───────────────────────────────────────────────────────────────
+# ── CONSTANTS / STATE ────────────────────────────────────────────────────────
 
 CONFIGS = ["uniform", "divergent", "coalitional", "minority"]
-HEAD = "=" * 78
-SUB  = "-" * 78
 
-
-def section(title):    print(f"\n{HEAD}\n  {title}\n{HEAD}")
-def subsection(title): print(f"\n{SUB}\n  {title}\n{SUB}")
-def fmt_p(p):          return "< 0.0001" if p < 0.0001 else f"{p:.4f}"
+# Each test function populates this dict with one or more DataFrames.
+# main() writes them all to the Excel workbook at the end.
+FRAMES: dict[str, pd.DataFrame] = {}
 
 
 # ── H1 ───────────────────────────────────────────────────────────────────────
 
 def test_h1(df):
-    section("H1 — Conversations underperform formal aggregation")
-    print("Claim   : Welfare gap (conversation GSS - best-strategy GSS) is significantly")
-    print("          below zero, overall and within each configuration.")
-    print("Test    : Wilcoxon signed-rank against zero (one-sided alternative='less').")
-    print("Effect  : Rank-biserial correlation (negative = gap is below zero).")
-    print("Sample  : Consensus groups only.")
-
     consensus = df[df["consensus_reached"]].copy()
-
-    subsection("Overall (all consensus groups)")
     gaps = consensus["conversation_vs_best_strategy_gss"].values
+
+    # Distribution diagnostic — justifies Wilcoxon over a t-test.
+    skew = pd.Series(gaps).skew()
+    kurt = pd.Series(gaps).kurt()
+    FRAMES["H1 Distribution Diagnostic"] = pd.DataFrame({
+        "value": [
+            round(float(skew), 3),
+            round(float(kurt), 3),
+            round(float(100 * (gaps == 0).mean()), 1),
+            round(float(100 * (gaps <  0).mean()), 1),
+            round(float(100 * (gaps >  0).mean()), 1),
+            round(float(gaps.min()), 4),
+            round(float(gaps.max()), 4),
+        ],
+    }, index=[
+        "skewness", "excess_kurtosis",
+        "pct_gaps_zero", "pct_gaps_below_zero", "pct_gaps_above_zero",
+        "min_gap", "max_gap",
+    ])
+
+    # Welfare-gap Wilcoxon: overall + per configuration.
+    rows = []
     n = len(gaps)
     stat, p = stats.wilcoxon(gaps, alternative="less")
     rb = rank_biserial_wilcoxon(gaps)
-    print(f"  n            : {n}")
-    print(f"  Mean gap     : {gaps.mean():+.4f}  ({gaps.mean()*100:+.2f} pp)")
-    print(f"  Median gap   : {np.median(gaps):+.4f}")
-    print(f"  Wilcoxon W   : {stat:.1f}")
-    print(f"  p-value      : {fmt_p(p)}")
-    print(f"  Rank-biserial: {rb:+.3f}  ({interpret_r(rb)})")
-
-    subsection("By configuration")
-    print(f"  {'config':<12} {'n':>5} {'mean':>10} {'median':>10} "
-          f"{'W':>12} {'p':>10} {'r_rb':>7}")
+    rows.append({
+        "scope": "OVERALL", "n": n,
+        "mean": round(float(gaps.mean()), 4),
+        "median": round(float(np.median(gaps)), 4),
+        "std": round(float(gaps.std()), 4),
+        "wilcoxon_W": round(float(stat), 1),
+        "p_value": p,
+        "r_rank_biserial": round(float(rb), 3),
+        "supported": bool(p < 0.05 and rb < 0),
+    })
     for cfg in CONFIGS:
-        sub = consensus[consensus["group_config"] == cfg]
-        gaps_c = sub["conversation_vs_best_strategy_gss"].values
+        gaps_c = consensus.loc[consensus["group_config"] == cfg,
+                               "conversation_vs_best_strategy_gss"].values
         if len(gaps_c) == 0:
             continue
         stat, p = stats.wilcoxon(gaps_c, alternative="less")
         rb = rank_biserial_wilcoxon(gaps_c)
-        print(f"  {cfg:<12} {len(gaps_c):>5} "
-              f"{gaps_c.mean():+10.4f} {np.median(gaps_c):+10.4f} "
-              f"{stat:>12.1f} {fmt_p(p):>10} {rb:>+7.3f}")
-
-    print("\n  Decision: H1 supported wherever p < 0.05 and effect direction is negative.")
+        rows.append({
+            "scope": cfg, "n": len(gaps_c),
+            "mean": round(float(gaps_c.mean()), 4),
+            "median": round(float(np.median(gaps_c)), 4),
+            "std": round(float(gaps_c.std()), 4),
+            "wilcoxon_W": round(float(stat), 1),
+            "p_value": p,
+            "r_rank_biserial": round(float(rb), 3),
+            "supported": bool(p < 0.05 and rb < 0),
+        })
+    FRAMES["H1 Welfare Gap"] = pd.DataFrame(rows).set_index("scope")
 
 
 # ── H2 ───────────────────────────────────────────────────────────────────────
 
 def test_h2(df):
-    section("H2 — Configuration determines fairness")
-    print("Claim   : MinSat differs across configurations; MajMinGap > 0 per config.")
-    print("Tests   : (a) Kruskal-Wallis on MinSat across 4 configs.")
-    print("          (b) Pairwise Mann-Whitney U on MinSat with Holm correction.")
-    print("          (c) Wilcoxon signed-rank on MajMinGap > 0, per config.")
-    print("Sample  : Consensus groups only.")
-
     consensus = df[df["consensus_reached"]].copy()
+    samples = [consensus[consensus["group_config"] == c]["min_sat"].values
+               for c in CONFIGS]
+    sizes = [len(s) for s in samples]
+    n_total = sum(sizes)
 
     # (a) Kruskal-Wallis on MinSat
-    subsection("(a) Kruskal-Wallis on MinSat across 4 configurations")
-    samples = [consensus[consensus["group_config"] == c]["min_sat"].values for c in CONFIGS]
-    sizes   = [len(s) for s in samples]
     h, p = stats.kruskal(*samples)
-    n_total = sum(sizes)
     eps2 = epsilon_squared_kw(h, n_total)
+    kw_rows = []
     for cfg, n_, s in zip(CONFIGS, sizes, samples):
-        print(f"  {cfg:<12}  n = {n_:>5}   mean MinSat = {s.mean():.4f}   "
-              f"median = {np.median(s):.4f}")
-    print(f"\n  H statistic : {h:.3f}")
-    print(f"  p-value     : {fmt_p(p)}")
-    print(f"  epsilon²    : {eps2:.4f}  (small <0.04, medium <0.16, large ≥0.16)")
+        kw_rows.append({
+            "config": cfg, "n": n_,
+            "mean_min_sat": round(float(s.mean()), 4),
+            "median_min_sat": round(float(np.median(s)), 4),
+        })
+    kw_df = pd.DataFrame(kw_rows).set_index("config")
+    kw_df.loc["OMNIBUS_N"]   = [n_total, float("nan"), float("nan")]
+    kw_df.loc["H_statistic"] = [round(float(h), 3), float("nan"), float("nan")]
+    kw_df.loc["p_value"]     = [p, float("nan"), float("nan")]
+    kw_df.loc["epsilon_sq"]  = [round(float(eps2), 4), float("nan"), float("nan")]
+    FRAMES["H2a Kruskal-Wallis"] = kw_df
 
-    # (b) Pairwise Mann-Whitney U
-    subsection("(b) Pairwise Mann-Whitney U on MinSat (Holm-corrected)")
-    pairs = list(combinations(range(4), 2))
-    raw_p, rows = [], []
-    for i, j in pairs:
+    # (b) Pairwise Mann-Whitney U with Holm correction
+    raw_p, pair_rows = [], []
+    for i, j in combinations(range(4), 2):
         x, y = samples[i], samples[j]
-        u, p_raw = stats.mannwhitneyu(x, y, alternative="two-sided")
+        u, pr = stats.mannwhitneyu(x, y, alternative="two-sided")
         rb = rank_biserial_mwu(u, len(x), len(y))
-        raw_p.append(p_raw)
-        rows.append((CONFIGS[i], CONFIGS[j], len(x), len(y), u, p_raw, rb))
+        raw_p.append(pr)
+        pair_rows.append({
+            "config_A": CONFIGS[i], "config_B": CONFIGS[j],
+            "nA": len(x), "nB": len(y),
+            "U_statistic": round(float(u), 1),
+            "p_raw": pr,
+            "r_rank_biserial": round(float(rb), 3),
+            "effect_size": interpret_r(rb),
+        })
     adj_p = holm_correction(raw_p)
-    print(f"  {'A':<12} {'B':<12} {'nA':>5} {'nB':>5} "
-          f"{'p_raw':>10} {'p_holm':>10} {'r_rb':>7}")
-    for (ci, cj, na, nb, u, pr, rb), pa in zip(rows, adj_p):
-        print(f"  {ci:<12} {cj:<12} {na:>5} {nb:>5} "
-              f"{fmt_p(pr):>10} {fmt_p(pa):>10} {rb:>+7.3f}")
+    for row, pa in zip(pair_rows, adj_p):
+        row["p_holm"] = pa
+        row["significant_holm"] = bool(pa < 0.05)
+    # Tidy column order
+    pairwise_df = pd.DataFrame(pair_rows)[[
+        "config_A", "config_B", "nA", "nB",
+        "U_statistic", "p_raw", "p_holm",
+        "r_rank_biserial", "effect_size", "significant_holm",
+    ]]
+    FRAMES["H2a Pairwise MWU"] = pairwise_df
 
-    # (c) Wilcoxon on MajMinGap per config
-    subsection("(c) Wilcoxon signed-rank on MajMinGap > 0, per config")
-    print(f"  {'config':<12} {'n':>5} {'mean':>10} {'median':>10} "
-          f"{'W':>12} {'p':>10} {'r_rb':>7}")
+    # (c) Wilcoxon on MajMinGap per configuration (non-zero only)
+    majmin_rows = []
     for cfg in CONFIGS:
         gaps = consensus.loc[consensus["group_config"] == cfg, "maj_min_gap"].values
         nonzero = gaps[gaps != 0]
         if len(nonzero) == 0:
-            print(f"  {cfg:<12} {0:>5}   no nonzero MajMinGap")
             continue
         stat, p = stats.wilcoxon(nonzero, alternative="greater")
         rb = rank_biserial_wilcoxon(nonzero)
-        print(f"  {cfg:<12} {len(nonzero):>5} "
-              f"{nonzero.mean():+10.4f} {np.median(nonzero):+10.4f} "
-              f"{stat:>12.1f} {fmt_p(p):>10} {rb:>+7.3f}")
+        majmin_rows.append({
+            "config": cfg, "n_nonzero": len(nonzero),
+            "mean": round(float(nonzero.mean()), 4),
+            "median": round(float(np.median(nonzero)), 4),
+            "wilcoxon_W": round(float(stat), 1),
+            "p_value": p,
+            "r_rank_biserial": round(float(rb), 3),
+            "supported": bool(p < 0.05 and rb > 0),
+        })
+    FRAMES["H2b MajMinGap"] = pd.DataFrame(majmin_rows).set_index("config")
 
 
 # ── H3 ───────────────────────────────────────────────────────────────────────
 
 def test_h3(df):
-    section("H3 — Structural metrics insufficient (status report)")
-    print("Claim  : Process Quality Score (Module 2) adds variance not captured by")
-    print("         structural metrics.")
-    print("Test   : Spearman r between Process Quality Score and structural metrics on")
-    print("         the H3 subset; supplemented by ISS ~ structural + LLM regression.")
-    print("Status : BLOCKED on Module 2 run. Reporting H3 subset size only.")
-
     consensus = df[df["consensus_reached"]].copy()
     h3_mask = (consensus["min_sat"] < 0.20) & (consensus["maj_min_gap"] > 0.30)
     h3_sub = consensus[h3_mask]
-    print(f"\n  H3 subset (MinSat < 0.20 AND MajMinGap > 0.30): {len(h3_sub)} groups")
-    print(f"\n  By configuration:")
+    rows = []
     for cfg in CONFIGS:
-        n_cfg = (h3_sub["group_config"] == cfg).sum()
-        n_total = (consensus["group_config"] == cfg).sum()
+        n_cfg = int((h3_sub["group_config"] == cfg).sum())
+        n_total = int((consensus["group_config"] == cfg).sum())
         share = 100 * n_cfg / n_total if n_total else 0
-        print(f"    {cfg:<12} {n_cfg:>5} / {n_total:<5} ({share:.1f}%)")
+        rows.append({
+            "config": cfg,
+            "n_in_h3_subset": n_cfg,
+            "n_total_consensus": n_total,
+            "pct_of_config_in_h3": round(share, 1),
+        })
+    rows.append({
+        "config": "TOTAL",
+        "n_in_h3_subset": len(h3_sub),
+        "n_total_consensus": len(consensus),
+        "pct_of_config_in_h3": round(100 * len(h3_sub) / len(consensus), 1)
+                                if len(consensus) else 0,
+    })
+    FRAMES["H3 Subset"] = pd.DataFrame(rows).set_index("config")
 
 
 # ── H4 ───────────────────────────────────────────────────────────────────────
@@ -261,59 +316,74 @@ def collect_agent_level(full_dataset_folder, results_json_path):
 
 
 def test_h4(full_dataset_folder, results_json_path):
-    section("H4 — Personality and tone do NOT predict ISS (null hypothesis)")
-    print("Claim   : Big Five traits and tone categories show no meaningful relationship")
-    print("          with individual satisfaction.")
-    print("Tests   : (a) Pearson r between each Big Five trait and ISS at agent level.")
-    print("          (b) Kruskal-Wallis across tone categories.")
-    print("Sample  : Consensus agents only.")
-    print("Caveat  : A null hypothesis cannot be 'proven'. We treat the null as")
-    print("          supported when |r| < 0.05 (and epsilon² < 0.04 for tone).")
-
-    print(f"\n  Loading agent-level data from {full_dataset_folder} ...")
     agents = collect_agent_level(full_dataset_folder, results_json_path)
-    print(f"  Loaded {len(agents)} consensus-agent observations.")
 
-    subsection("(a) Pearson r — each Big Five trait vs. ISS")
-    print(f"  {'trait':<20} {'n':>6} {'r':>9} {'p':>10}  interpretation")
-    for trait in ["openness", "conscientiousness", "extraversion",
-                  "agreeableness", "neuroticism"]:
+    # Big Five: highlighted traits listed first.
+    ordered_traits = [
+        ("agreeableness",     "primary focus (Barile 2024)"),
+        ("neuroticism",       "primary focus (= reversed Emotional Stability)"),
+        ("openness",          ""),
+        ("conscientiousness", ""),
+        ("extraversion",      ""),
+    ]
+    rows = []
+    all_within_bound = True
+    for trait, note in ordered_traits:
         sub = agents.dropna(subset=[trait])
         if len(sub) < 3:
             continue
         r, p = stats.pearsonr(sub[trait].values, sub["iss"].values)
-        print(f"  {trait:<20} {len(sub):>6} {r:>+9.4f} {fmt_p(p):>10}  {interpret_r(r)}")
+        within = abs(r) < 0.05
+        all_within_bound = all_within_bound and within
+        rows.append({
+            "trait": trait, "n": len(sub),
+            "pearson_r": round(float(r), 4),
+            "abs_r": round(float(abs(r)), 4),
+            "p_value": p,
+            "within_bound_neg_005": bool(within),
+            "focus_note": note,
+        })
+    h4_df = pd.DataFrame(rows).set_index("trait")
+    h4_df.loc["RESULT"] = [
+        len(agents), float("nan"), float("nan"), float("nan"),
+        bool(all_within_bound),
+        "H4 SUPPORTED" if all_within_bound else "H4 NOT SUPPORTED",
+    ]
+    FRAMES["H4 Big Five"] = h4_df
 
-    subsection("(b) Kruskal-Wallis — ISS across tone categories")
+    # Supplementary: tone manipulation check (NOT part of H4).
     by_tone = agents.dropna(subset=["tone"]).groupby("tone")["iss"].apply(list)
     samples = list(by_tone.values)
     sizes   = [len(s) for s in samples]
     n_tones = len(samples)
-    if n_tones < 2:
-        print("  Not enough tone categories for KW.")
-    else:
+    if n_tones >= 2:
         h, p = stats.kruskal(*samples)
         eps2 = epsilon_squared_kw(h, sum(sizes))
         means = [np.mean(s) for s in samples]
-        print(f"  Number of tone categories : {n_tones}")
-        print(f"  Total observations        : {sum(sizes)}")
-        print(f"  Mean ISS by tone (range)  : [{min(means):.3f}, {max(means):.3f}]")
-        print(f"  H statistic               : {h:.3f}")
-        print(f"  p-value                   : {fmt_p(p)}")
-        print(f"  epsilon²                  : {eps2:.4f}  ({interpret_r(eps2**0.5)})")
-
-    print("\n  Decision: H4 retained if all |r| < 0.05 and epsilon² < 0.04.")
+        FRAMES["H4 Tone (Supplementary)"] = pd.DataFrame({
+            "value": [
+                n_tones, sum(sizes),
+                round(min(means), 3), round(max(means), 3),
+                round(float(h), 3), p, round(float(eps2), 4),
+            ],
+        }, index=[
+            "n_tone_categories", "n_observations",
+            "mean_iss_tone_min", "mean_iss_tone_max",
+            "H_statistic", "p_value", "epsilon_sq",
+        ])
 
 
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python hypothesis_tests.py <results_csv> <full_dataset_folder>")
-        sys.exit(1)
+    if len(sys.argv) not in (3, 4):
+        sys.exit("Usage: python hypothesis_tests.py "
+                 "<results_csv> <full_dataset_folder> [output_xlsx]")
 
     results_csv  = Path(sys.argv[1])
     full_dataset = Path(sys.argv[2])
+    xlsx_path = (Path(sys.argv[3]) if len(sys.argv) == 4
+                 else results_csv.parent / "hypothesis_tests_output.xlsx")
     results_json = results_csv.parent / "results.json"
 
     if not results_csv.exists():
@@ -324,19 +394,16 @@ def main():
         sys.exit(f"results.json not found: {results_json}")
 
     df = pd.read_csv(results_csv)
-
-    print(HEAD)
-    print(f"  HYPOTHESIS TESTS — {len(df)} groups loaded")
-    print(f"  results.csv  : {results_csv}")
-    print(f"  full_dataset : {full_dataset}")
-    print(HEAD)
-
     test_h1(df)
     test_h2(df)
     test_h3(df)
     test_h4(full_dataset, results_json)
 
-    print(f"\n{HEAD}\n  All tests completed.\n{HEAD}\n")
+    xlsx_path.parent.mkdir(parents=True, exist_ok=True)
+    with pd.ExcelWriter(xlsx_path, engine="openpyxl") as writer:
+        for sheet_name, frame in FRAMES.items():
+            frame.to_excel(writer, sheet_name=sheet_name[:31])
+    print(f"Saved: {xlsx_path}")
 
 
 if __name__ == "__main__":
