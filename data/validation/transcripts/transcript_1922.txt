@@ -1,0 +1,107 @@
+======================================================================
+TRANSCRIPT   group_id = 1922   |   config = coalitional
+======================================================================
+Agents: 6
+Final group recommendation: rest_f
+Restaurant options: rest_f, rest_r, rest_q, rest_c, rest_b, rest_y, rest_a, rest_x, rest_u, rest_w
+
+AGENT PROFILES  (personality/tone/behaviour are ASSIGNED -- see edge rules)
+  Emma
+     tone: Grumpy and dismissive
+     personality: openness 0.77, conscientiousness 0.78, extraversion 0.76, agreeableness 0.93, neuroticism 0.69
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_w(9), rest_u(8), rest_a(6)
+
+  Roger
+     tone: Playful and teasing
+     personality: openness 0.35, conscientiousness 0.16, extraversion 0.77, agreeableness 0.43, neuroticism 0.59
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_w(10), rest_x(9), rest_r(5)
+
+  Jordan
+     tone: Sincere and thoughtful
+     personality: openness 0.75, conscientiousness 0.70, extraversion 0.43, agreeableness 0.27, neuroticism 0.99
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You respond emotionally.
+        - You do not sugar-coat anything.
+        - You are comfortable speaking up.
+     own top ratings: rest_x(8), rest_w(8), rest_q(5)
+
+  Benjamin
+     tone: Cheerfully optimistic
+     personality: openness 0.71, conscientiousness 0.48, extraversion 0.90, agreeableness 0.75, neuroticism 0.27
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_f(10), rest_y(7), rest_c(5)
+
+  William
+     tone: Anxious and defensive
+     personality: openness 0.92, conscientiousness 0.60, extraversion 0.33, agreeableness 0.51, neuroticism 0.13
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_f(10), rest_r(10), rest_q(5)
+
+  Charlotte
+     tone: Polite but skeptical
+     personality: openness 0.89, conscientiousness 0.41, extraversion 0.91, agreeableness 0.87, neuroticism 0.34
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_y(9), rest_f(8), rest_a(8)
+
+PREFERENCE EVOLUTION  (the option each agent suggested, by round)
+  Emma              : rest_w  ->  rest_w
+  Roger             : rest_w  ->  rest_w
+  Jordan            : rest_x  ->  rest_f
+  Benjamin          : rest_f  ->  rest_f
+  William           : rest_f  ->  rest_f
+  Charlotte         : rest_y  ->  rest_f
+
+----------------------------------------------------------------------
+CONVERSATION
+----------------------------------------------------------------------
+
+--- Round 1 ---
+[1] Emma: My current suggestion is rest_w. Honestly, after reviewing the options, it's the most sensible choice. It scores highest in atmosphere and ambiance – a significant factor. While others might be tempting, they lack the overall appeal of rest_w. I'm not wasting time on anything less. It's efficient and avoids unnecessary debate.
+[2] Roger: My current suggestion is rest_w. Oh, *really*? Sensible? Darling, it's *divine*. A solid 10/10, if you ask me. While I appreciate a bit of… *spirited* debate, sometimes the obvious is the best. I mean, who doesn't want to be transported to another world while they eat? It's practically mandatory for a good evening, wouldn't you agree? Don't tell me someone prefers… *gasp*… practicality over pleasure? 😉
+[3] Jordan: My current suggestion is rest_x. I'm drawn to it. There's a certain… warmth there, a comfort that feels genuine. It's not flashy, but it feels real. I understand the appeal of atmosphere, truly, but I also value a place that feels welcoming, like it has a history. It's a grounding feeling, and sometimes that's what I need. I'm not sure the others fully grasp that, focusing so much on the 'wow' factor.
+[4] Benjamin: My current suggestion is rest_f. Oh, absolutely! I wholeheartedly agree with you. Rest_f is just *sparkling*! It's got everything – a fantastic ambiance, delicious food, and a really lovely vibe. I think it strikes the perfect balance. While I appreciate the warmth of rest_x, and the… *spirited* enthusiasm for rest_w, rest_f just *shines*. It's a truly delightful experience, and I think we'd all be incredibly happy there! What do you all think? 😊
+[5] William: My current suggestion is rest_f. Look, I appreciate everyone else's… preferences. But a 10/10 isn't something you come across every day. Rest_f has it all – the atmosphere, the food, the overall experience. It's objectively the best choice, and frankly, I'm surprised it hasn't been settled on already. Are we really going to debate this? It seems… inefficient.
+[6] Charlotte: My current suggestion is rest_y. While I find the enthusiasm for rest_w and rest_f somewhat… excessive, I do concede that rest_y offers a very pleasant experience. It's certainly a strong contender, and its consistently high ratings are noteworthy. I simply believe a more measured approach to selection is warranted, rather than outright declarations of perfection.
+
+--- Round 2 ---
+[7] Emma: My current suggestion is rest_w. Honestly, the fact that we're still discussing this is baffling. It's clear rest_w offers the most well-rounded experience. While I acknowledge the… enthusiasm for other places, they don't stack up. I'm not going to rehash the points. It's the logical choice, and frankly, I'm surprised it hasn't been decided already.
+[8] Roger: My current suggestion is rest_w. Oh, for goodness sake! Are we *still* at this? It's like arguing whether the sky is blue! Rest_w has a solid 10 for a reason, you know. And frankly, the fact that we're debating it is just… *adorable*. I'm starting to think some of you are deliberately trying to make this more entertaining. 😉 But seriously, it's the best choice. Let's just agree and get on with enjoying a lovely meal, shall we?
+[9] Jordan: My current suggestion is rest_f. It seems like everyone is leaning towards the same places, and while I appreciate the enthusiasm for rest_w, I think rest_f offers a better overall experience. It has a great atmosphere and the food is consistently good. I'm not trying to be contrarian, but I genuinely believe it's the most well-rounded option, and it aligns with my own preferences for a delightful evening.
+[10] Benjamin: My current suggestion is rest_f. It's so wonderful to see so many of us agree on rest_f! I truly believe it's the perfect spot for a delightful evening. The atmosphere is just *chef's kiss*, and the food is consistently lovely. It makes me so happy we're all on the same page! 😊
+[11] William: My current suggestion is rest_f. Look, it's becoming pretty clear that rest_f is the most sensible option here. I'm not trying to force anything, but the ratings speak for themselves. It's a solid choice, and frankly, I'm a little concerned we're going to keep overthinking this. Are we really going to keep debating this when so many of us already agree? It just seems… unnecessary. I'm just trying to ensure we make a good decision, and rest_f is the best one.
+[12] Charlotte: My current suggestion is rest_f. It seems rather… settled on rest_f, doesn't it? While I did have a preference for rest_y, the overwhelming consensus here suggests it might be the most pragmatic choice. I'm not one to stubbornly insist on a less popular option when there's such clear agreement elsewhere. It's simply… more efficient, wouldn't you agree?

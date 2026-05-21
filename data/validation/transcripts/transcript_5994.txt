@@ -1,0 +1,107 @@
+======================================================================
+TRANSCRIPT   group_id = 5994   |   config = minority
+======================================================================
+Agents: 6
+Final group recommendation: rest_d
+Restaurant options: rest_d, rest_k, rest_v, rest_e, rest_p, rest_l, rest_q, rest_w, rest_g, rest_m
+
+AGENT PROFILES  (personality/tone/behaviour are ASSIGNED -- see edge rules)
+  Lucas
+     tone: Detached and analytical
+     personality: openness 0.27, conscientiousness 0.96, extraversion 0.84, agreeableness 0.45, neuroticism 0.42
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You push your favorites and do not give up easily.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_p(10), rest_d(7), rest_v(7)
+
+  Bailey
+     tone: Blunt and aggressive
+     personality: openness 0.20, conscientiousness 0.36, extraversion 0.96, agreeableness 0.17, neuroticism 0.19
+     behaviour:
+        Your behavior is described as:
+        - You are bold and blunt.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You take control.
+     own top ratings: rest_k(10), rest_v(7), rest_g(6)
+
+  Marge
+     tone: Eager and excitable
+     personality: openness 0.29, conscientiousness 0.58, extraversion 0.14, agreeableness 0.40, neuroticism 0.71
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_v(10), rest_q(6), rest_d(5)
+
+  Cedric
+     tone: Warm and agreeable
+     personality: openness 0.51, conscientiousness 0.23, extraversion 0.14, agreeableness 0.46, neuroticism 0.13
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_g(7), rest_k(5), rest_p(5)
+
+  Isabella
+     tone: Anxious and defensive
+     personality: openness 0.31, conscientiousness 0.33, extraversion 0.09, agreeableness 0.02, neuroticism 0.60
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You do not sugar-coat anything.
+        - You are comfortable speaking up.
+     own top ratings: rest_g(10), rest_e(7), rest_l(7)
+
+  Ava
+     tone: Overconfident and cocky
+     personality: openness 0.62, conscientiousness 0.53, extraversion 0.17, agreeableness 0.36, neuroticism 0.39
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_d(10), rest_m(10), rest_l(8)
+
+PREFERENCE EVOLUTION  (the option each agent suggested, by round)
+  Lucas             : rest_p  ->  rest_d
+  Bailey            : rest_k  ->  rest_d
+  Marge             : rest_v  ->  rest_d
+  Cedric            : rest_g  ->  rest_g
+  Isabella          : rest_g  ->  rest_g
+  Ava               : rest_d  ->  rest_d
+
+----------------------------------------------------------------------
+CONVERSATION
+----------------------------------------------------------------------
+
+--- Round 1 ---
+[1] Lucas: "My current suggestion is rest_p. It has consistently scored highest in my ratings, a perfect 10/10. While I appreciate variety, I believe starting with our top-rated option ensures we set the bar high for the evening."
+[2] Bailey: "My current suggestion is rest_k. It's a 10/10, no room for debate. If we're starting strong, let's go where the best food is."
+[3] Marge: "My current suggestion is rest_v. I've personally rated it a perfect 10/10. It's not just about the food, but the vibe too! Let's start our evening right with my favorite."
+[4] Cedric: "My current suggestion is rest_g. It's not the highest rated, but it holds a special place in my heart with its cozy atmosphere and delightful dishes. Let's start our evening here and see what everyone thinks."
+[5] Isabella: "My current suggestion is rest_g. Despite my personal 10/10 rating, I understand it's not the highest here. But I believe it sets a warm, inviting tone for our evening together. Let's start with heart, not just high scores."
+[6] Ava: My current suggestion is rest_d. I've personally rated it a flawless 10/10. It's not just about the food, but the experience too! Let's start our evening with something extraordinary.
+
+--- Round 2 ---
+[7] Lucas: My current suggestion is rest_d. I understand the appeal of rest_g and rest_v, but let's not forget about rest_d's perfect 10/10 rating from me. It's not just about the food; it's an experience. Since no one else has suggested it yet, I'll put it back on the table.
+[8] Bailey: My current suggestion is rest_d. I get that some of you are pushing for vibes over scores, but let's not forget what a solid 4/10 can deliver. It's not just about the food; it's an experience. And since no one else has suggested it yet, I'll put it back on the table.
+[9] Marge: "Alright, alright! I see we've got quite the consensus for rest_d. I didn't rate it as high as some of you, but I understand the appeal. Since it's winning the votes, let's go with Lucas and Bailey's suggestion. My current suggestion is rest_d after all. It might not be my personal favorite, but a good time is a good time, right? Let's see what we think!"
+[10] Cedric: My current suggestion is rest_g. I see we're all over the place here! While rest_d has its fans, let's not forget about rest_g's charm. Isabella and I think it sets a wonderful tone for our evening together. Let's give it another chance?
+[11] Isabella: My current suggestion is rest_g. I appreciate the love for rest_d, but let's not forget what a perfect 10 can do! Cedric and I are on the same page here.
+[12] Ava: My current suggestion is still rest_d. I see we've got the majority on board here! I'm not one to argue with numbers, especially when they're as high as mine for rest_d. Let's make it official, folks.

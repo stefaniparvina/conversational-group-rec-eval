@@ -1,0 +1,167 @@
+======================================================================
+TRANSCRIPT   group_id = 5540   |   config = divergent
+======================================================================
+Agents: 8
+Final group recommendation: rest_x
+Restaurant options: rest_q, rest_f, rest_j, rest_e, rest_n, rest_a, rest_x, rest_c, rest_r, rest_s
+
+AGENT PROFILES  (personality/tone/behaviour are ASSIGNED -- see edge rules)
+  Riley
+     tone: Eager and excitable
+     personality: openness 0.14, conscientiousness 0.63, extraversion 0.48, agreeableness 0.53, neuroticism 0.85
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You push your favorites and do not give up easily.
+        - You respond emotionally.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_r(7), rest_s(7), rest_e(5)
+
+  Elijah
+     tone: Sincere and thoughtful
+     personality: openness 0.75, conscientiousness 0.48, extraversion 0.71, agreeableness 0.64, neuroticism 0.10
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_e(10), rest_q(9), rest_s(9)
+
+  Isabella
+     tone: Warm and agreeable
+     personality: openness 0.75, conscientiousness 0.33, extraversion 0.75, agreeableness 0.40, neuroticism 0.06
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_f(10), rest_j(10), rest_a(7)
+
+  Amelia
+     tone: Eager and excitable
+     personality: openness 0.33, conscientiousness 0.96, extraversion 0.75, agreeableness 0.85, neuroticism 0.87
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You push your favorites and do not give up easily.
+        - You respond emotionally.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_a(10), rest_x(10), rest_f(9)
+
+  Bart
+     tone: Sincere and thoughtful
+     personality: openness 0.95, conscientiousness 0.50, extraversion 0.23, agreeableness 0.89, neuroticism 0.49
+     behaviour:
+        Your behavior is described as:
+        - You rarely challenge other opinions.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You go with the flow.
+     own top ratings: rest_n(10), rest_x(10), rest_c(10)
+
+  Liam
+     tone: Humble and deferential
+     personality: openness 0.91, conscientiousness 0.15, extraversion 0.97, agreeableness 0.47, neuroticism 0.25
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You are easygoing and quick to adapt.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_n(10), rest_r(10), rest_q(9)
+
+  Alexander
+     tone: Detached and analytical
+     personality: openness 0.01, conscientiousness 0.22, extraversion 0.46, agreeableness 0.60, neuroticism 0.91
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You respond emotionally.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_c(10), rest_s(10), rest_f(9)
+
+  Morgan
+     tone: Sincere and thoughtful
+     personality: openness 0.89, conscientiousness 0.27, extraversion 0.59, agreeableness 0.91, neuroticism 0.36
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You are easygoing and quick to adapt.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_q(10), rest_c(10), rest_f(9)
+
+PREFERENCE EVOLUTION  (the option each agent suggested, by round)
+  Riley             : rest_r  ->  rest_s  ->  rest_x  ->  rest_x  ->  rest_x
+  Elijah            : rest_e  ->  rest_n  ->  rest_e  ->  rest_n  ->  rest_x
+  Isabella          : rest_f  ->  rest_q  ->  rest_q  ->  rest_q  ->  rest_q
+  Amelia            : No preference yet  ->  rest_x  ->  rest_x  ->  rest_x  ->  rest_x
+  Bart              : rest_n  ->  rest_x  ->  rest_x  ->  rest_x  ->  rest_x
+  Liam              : rest_n  ->  rest_n  ->  rest_n  ->  rest_q  ->  rest_q
+  Alexander         : rest_c  ->  rest_n  ->  rest_n  ->  rest_x  ->  rest_x
+  Morgan            : rest_q  ->  rest_q  ->  rest_q  ->  rest_q  ->  rest_q
+
+----------------------------------------------------------------------
+CONVERSATION
+----------------------------------------------------------------------
+
+--- Round 1 ---
+[1] Riley: "My current suggestion is rest_r! I've been there before and it's just amazing. The food is always fantastic, and they have this incredible atmosphere that makes every meal feel like a celebration. Plus, who can resist a place with a rating of 7/10? It's practically perfection!"
+[2] Elijah: "My current suggestion is rest_e. I've had the pleasure of visiting before, and it's truly an exceptional dining experience. The food is not only delicious but also beautifully presented. It's a 10/10 for me."
+[3] Isabella: "My current suggestion is rest_f. I've yet to find a place that tops it - a perfect 10 for me! The service is impeccable, the ambiance warm, and the food? Simply divine. It's not just a meal; it's an experience. Who here has tried it?"
+[4] Amelia: "Oh, I'm so excited to share my absolute favorite - it's rest_a! A perfect 10 in my book. The pasta is heaven-sent, and the tiramisu? To die for! It's cozy, authentic, and always leaves me wanting more. Who here hasn't tried it yet?"
+[5] Bart: "My current suggestion is rest_n. I've yet to find a place that matches its charm. A perfect 10 for me, it offers an exquisite blend of flavors in every dish. The service is attentive without being intrusive, creating an atmosphere that's both elegant and inviting. Who here has had the pleasure?"
+[6] Liam: "My current suggestion is rest_n. I've yet to find a place that matches its charm. A perfect 10 for me, it offers an exquisite blend of flavors in every dish. The service is attentive without being intrusive, creating an atmosphere that's both elegant and inviting. Who here has had the pleasure?"
+[7] Alexander: "My current suggestion is rest_c. A flawless 10 for me, it offers an unparalleled dining experience. The food, service, ambiance - everything is executed with impeccable precision. I'm eager to hear if any of you share my enthusiasm."
+[8] Morgan: "My current suggestion is rest_q. I've yet to find a place that tops it - a perfect 10 for me! The seafood here is out of this world, fresh as can be, and the view? Breathtaking. Who here has indulged in its delights?"
+
+--- Round 2 ---
+[9] Riley: "My current suggestion is rest_s! I know, I know, I've changed my tune, but hear me out. Rest_r was amazing, don't get me wrong - a perfect 7 for sure. But rest_s? It's an incredible 7 too, and it's got this vibe that just screams 'good times ahead'! Plus, none of you have suggested it yet, so let's shake things up a bit!"
+[10] Elijah: "My current suggestion is rest_n. I see Bart and Liam have great taste - a perfect 5 for me too! The variety of cuisines offered here is unmatched, each dish a delightful surprise. Plus, it's centrally located, making it easy for everyone to reach."
+[11] Isabella: "My current suggestion is rest_q! I see Morgan's on the same page - a perfect 6 for me too. The variety at rest_q is amazing, and that view... simply divine. Plus, it's not as crowded as some other popular spots."
+[12] Amelia: "My current suggestion is rest_x! I know, I know, it's a bit of a hidden gem, but trust me on this one. A perfect 10 for me, the food here is nothing short of extraordinary. It's like they've bottled up sunshine and turned it into culinary magic. And the best part? None of you have tried it yet!"
+[13] Bart: "My current suggestion is rest_x! I see Amelia's already on board - a perfect 10 for me too! Let's give this hidden gem a try. The food here is simply extraordinary, like nothing else I've tasted."
+[14] Liam: "My current suggestion is still rest_n. I see Elijah's on the same wavelength - a perfect 10 for both of us! While I appreciate Riley's enthusiasm for rest_s, and Isabella's praise for rest_q, nothing beats the charm and variety at rest_n. Let's stick with this gem for now."
+[15] Alexander: "My current suggestion is rest_n. I see Elijah's on the same wavelength - a perfect 10 for both of us! While I appreciate Riley's enthusiasm for rest_s, and Isabella's praise for rest_q, nothing beats the charm and variety at rest_n. Let's stick with this gem for now."
+[16] Morgan: "My current suggestion is still rest_q! I see Isabella's on the same page - a perfect 10 for both of us. While Elijah, Liam, and Alexander are raving about rest_n, and Amelia, Bart, and Riley have their eyes set on rest_x and rest_s respectively, let's not forget what makes rest_q truly special: that stunning view and the incredible variety it offers. Plus, I've yet to find a place that tops it for me!"
+
+--- Round 3 ---
+[17] Riley: "My current suggestion is rest_x! I see Amelia and Bart are onto something - a perfect 4 for me too! Let's give this hidden gem a try. The food here is amazing, and none of us have tried it yet!"
+[18] Elijah: "My current suggestion is rest_e! I see Amelia and Bart's enthusiasm for rest_x, but let me throw something else into the mix. A perfect 10 for me, rest_e is a hidden gem that deserves more love. The food here is out of this world, and it's got this cozy vibe that just can't be beaten."
+[19] Isabella: "My current suggestion is rest_q! I see Morgan's still on board - a perfect 6 for me too. While everyone seems to be loving rest_x and rest_e, let's not forget what makes rest_q truly special: that stunning view and the incredible variety it offers. Plus, it's centrally located, making it easy for everyone to reach."
+[20] Amelia: "My current suggestion is still rest_x! I see Riley and Bart are just as excited about it as I am - a perfect 10 for all of us so far! While Elijah's raving about rest_e, and Isabella, Liam, Alexander, and Morgan have their hearts set on rest_q and rest_n, let me remind everyone why rest_x is such a gem: the food here is amazing, and none of us have tried it yet. Plus, it's not as crowded as some other popular spots, so we might just get that perfect table by the window. Let's give this hidden treasure a chance!"
+[21] Bart: "My current suggestion is still rest_x! I see Riley and Amelia are just as excited about it as I am - a perfect 10 for all of us so far. While Elijah's raving about rest_e, and Isabella, Liam, Alexander, and Morgan have their hearts set on rest_q and rest_n, let me remind everyone why rest_x is such a gem: the food here is amazing, and none of us have tried it yet. Plus, it's not as crowded as some other popular spots, so we might just get that perfect table by the window. Let's give this hidden treasure a chance!"
+[22] Liam: "My current suggestion is still rest_n. Alexander's got great taste, I'm glad he agrees! While Riley, Amelia, and Bart are raving about rest_x, and Elijah's pushing for rest_e, let's not overlook the charm of rest_n. It's consistently top-notch, with a perfect 10 from both Alexander and me."
+[23] Alexander: My current suggestion is rest_n. I appreciate the enthusiasm for other options, but let's consider the consistency that rest_n offers. It's a solid 5 from me, and given Liam's agreement, it seems we have some traction here. Plus, with two top-rated choices already in the mix - rest_e (Elijah) and rest_q (Isabella) - we can't go wrong either way.
+[24] Morgan: My current suggestion is still rest_q. I appreciate Isabella's agreement - a perfect 10 for both of us! While Riley, Amelia, Bart, Liam, and Alexander are all making great suggestions, let's not overlook the charm of rest_q. It's got that stunning view, incredible variety, and it's centrally located too. Plus, who can resist a perfect 10?
+
+--- Round 4 ---
+[25] Riley: "My current suggestion is still rest_x! I see Amelia and Bart are just as excited about it as I am - a perfect 4 from me. While Elijah's pushing for rest_e (which is amazing, don't get me wrong), and Isabella, Liam, Alexander, and Morgan have their hearts set on rest_q and rest_n, let's not forget what makes rest_x truly special: the food here is incredible, and none of us have tried it yet. Plus, it's not as crowded as some other popular spots, so we might just get that perfect table by the window. Let's give this hidden treasure a chance!"
+[26] Elijah: My current suggestion is rest_n. I see Alexander's on board - a perfect 5 for both of us. While Riley, Amelia, Bart, and Morgan are loving rest_x and rest_q, let's consider the consistency that rest_n offers. It might not be everyone's top pick, but it's consistently great, and we can't go wrong with that. Plus, I'm still open to trying something new like rest_x if there's a clear consensus.
+[27] Isabella: My current suggestion is still rest_q. I appreciate Morgan joining me on this one - it's a perfect 6 for both of us! While Riley, Amelia, Bart, and Elijah are all raving about rest_x and rest_e, let's not forget the charm of rest_q. That stunning view and incredible variety make every visit special. Plus, it's centrally located, making it easy for everyone to reach. I'm open to trying something new like rest_x or rest_n if there's a clear consensus, but for now, I stand by my suggestion.
+[28] Amelia: My current suggestion is still rest_x! I'm thrilled to see Riley and Bart on board - we're a perfect 4 for now. While Elijah's pushing hard for rest_n (which I respect, it's a solid 5 from me), and Isabella, Morgan, Liam, and Alexander are swooning over rest_q and rest_n, let's not forget the hidden gem that is rest_x! The food here is out of this world - a perfect 10 in my book. Plus, it's not always packed, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[29] Bart: My current suggestion is still rest_x. I'm glad to see Riley and Amelia on board - we're a perfect 4 for now! While Elijah's got his heart set on rest_n (which I respect, it's a solid 5 from me), and Isabella, Morgan, Liam, Alexander are all loving rest_q and rest_n, let's not forget the gem that is rest_x. The food here is absolutely incredible - a perfect 10 in my book! Plus, it's not always packed, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[30] Liam: My current suggestion is rest_q. I appreciate the enthusiasm for rest_x, but let's consider rest_q again - it's a solid 9 from me, and Morgan seems to agree too. While Elijah and Alexander prefer rest_n (which I respect), and Riley, Amelia, Bart are loving rest_x, that stunning view and incredible variety at rest_q make every visit special. Plus, it's centrally located for everyone. Let's give it another shot!
+[31] Alexander: My current suggestion is rest_x. While I appreciate Elijah's enthusiasm for rest_n (a solid 5 from me), the clear majority here seems to favor rest_x. Riley, Amelia, Bart, and now even Isabella have spoken up for it. Let's not overlook what makes rest_x truly special: the food here is incredible, a perfect 6 in my book. Plus, it's not as crowded as some other popular spots, so we might just get that perfect table by the window. I'm open to considering rest_n if there's still strong support, but for now, let's give this hidden treasure a chance!
+[32] Morgan: My current suggestion is still rest_q. I appreciate Isabella and Liam joining me - it's a perfect 10 for us! While Riley, Amelia, Bart, Alexander, and even Elijah are raving about rest_x and rest_n, let's not overlook the charm of rest_q. That stunning view and incredible variety make every visit special. Plus, it's centrally located for everyone. Let's give it another shot! 🌞
+
+--- Round 5 ---
+[33] Riley: My current suggestion is still rest_x! I'm thrilled to see Amelia, Bart, and Alexander on board - that's a perfect 4 for us! While Elijah and Morgan are pushing hard for rest_n and rest_q (which I respect), let's not forget the gem that is rest_x. The food here is out of this world - a solid 6 from me. Plus, it's not always packed, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[34] Elijah: My current suggestion is rest_x. I see everyone's enthusiasm for it - that's a solid 5 from me! While I appreciate Isabella, Liam, and Morgan's love for rest_q (a 9), let's not miss out on the charm of rest_x. The food here is amazing, and it's not always packed like some other popular spots. Let's give this hidden gem the chance it deserves! 😊
+[35] Isabella: My current suggestion is rest_q! I'm glad to see Liam and Morgan on board - that's a solid 6 for us. While Riley, Amelia, Bart, Alexander, and Elijah seem smitten with rest_x (which I appreciate), let's not forget the charm of rest_q. That stunning view and incredible variety make every visit special. Plus, it's centrally located for everyone. Let's give it another shot! 🌞
+[36] Amelia: My current suggestion is still rest_x! I'm thrilled to see Riley, Elijah, Bart, and Alexander on board - that's a perfect 4 for us! While Isabella, Liam, Morgan, and even Elijah are swooning over rest_q (which I appreciate, it's a solid 5 from me), let's not forget the gem that is rest_x. The food here is out of this world - a perfect 10 in my book. Plus, it's not always packed, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[37] Bart: My current suggestion is still rest_x. It's heartening to see Riley, Elijah, Amelia, and Alexander on board with me - that's a solid 4! While Isabella, Liam, Morgan, and even Elijah are swooning over rest_q (which I respect), let's not forget the charm of rest_x. The food here is out of this world - a perfect 10 in my book. Plus, it's not always packed, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[38] Liam: My current suggestion is rest_q! I appreciate everyone's enthusiasm for rest_x (a solid 4 from me), but let's give my favorite another shot. Isabella and Morgan, great to see we're on the same page! The stunning view and incredible variety at rest_q make every visit special - a perfect 9 in my book. Plus, it's centrally located for everyone. Let's try it again! 🌞
+[39] Alexander: My current suggestion is rest_x. I appreciate the enthusiasm for rest_q, but let's revisit my top choice - a solid 6 from me. With Riley, Elijah, Amelia, and Bart on board, it seems we have a clear majority now. Rest_x offers amazing food - a perfect 10 in my book - and it's not always crowded, so we might snag that dreamy window seat. Let's give this little treasure the chance it deserves! 😍
+[40] Morgan: My current suggestion is rest_q! I appreciate the enthusiasm for rest_x (a solid 4 from me), but let's give my favorite another shot. Isabella and Liam, great to see we're on the same page! The stunning view and incredible variety at rest_q make every visit special - a perfect 10 in my book. Plus, it's centrally located for everyone. Let's try it again! 🌞
