@@ -119,6 +119,37 @@ def format_agent_profiles(data: dict) -> str:
     return "\n".join(lines)
 
 
+def detect_shifts(data: dict) -> list:
+    """Find every preference change from the turn_preferences table.
+
+    turn_preferences[agent] is the agent's suggested option per round; a change
+    between consecutive rounds is a shift. This is the SAME detection rule the
+    human annotation workbook uses (build_annotation_workbook.py), so the judge
+    classifies exactly the same set of shifts the human annotator scored."""
+    shifts = []
+    for agent, prefs in data.get("turn_preferences", {}).items():
+        for i in range(1, len(prefs)):
+            if prefs[i] != prefs[i - 1]:
+                shifts.append({
+                    "agent": agent,
+                    "from_preference": prefs[i - 1],
+                    "to_preference": prefs[i],
+                    "round": i + 1,          # prefs[0] is round 1
+                })
+    return shifts
+
+
+def format_detected_shifts(shifts: list) -> str:
+    """Render the detected shift list for the prompt, one numbered line each."""
+    if not shifts:
+        return "(no preference shifts occurred in this conversation)"
+    items = []
+    for i, s in enumerate(shifts, 1):
+        items.append(f"  {i}. {s['agent']}: {s['from_preference']} -> "
+                     f"{s['to_preference']} (round {s['round']})")
+    return chr(10).join(items)
+
+
 # -- Output schema (OpenAI Structured Outputs) ---------------------------------
 # A strict JSON schema. The API guarantees the model's response matches this
 # exactly, so no markdown-stripping or shape-guessing is needed.
@@ -240,6 +271,9 @@ def build_prompt(data: dict) -> str:
     transcript     = format_transcript(data)
     pref_history   = format_preference_history(data)
     agent_profiles = format_agent_profiles(data)
+    detected_shifts = detect_shifts(data)
+    shift_block    = format_detected_shifts(detected_shifts)
+    n_shifts       = len(detected_shifts)
     final_rec      = data.get("final_rec", "UNKNOWN")
     group_config   = data.get("group_config", "unknown")
     n_agents       = len(data.get("agents", []))
@@ -275,13 +309,29 @@ Classify each mention's sentiment:
 Set "acknowledged" to true if the preference received at least one non-dismissive mention.
 
 ### 2. justified_shifts
-For EACH agent who changed their preference between rounds (visible in the preference
-evolution table above), create one entry per shift. Classify the reason:
-- "quality-based": agent cited specific merits/drawbacks of the restaurants
-- "social": agent shifted due to group pressure, solidarity, or to avoid conflict
-- "unexplained": no reason given; agent simply changed position
-Include a short supporting quote from the conversation as evidence.
-If no agent shifted preference, return an empty list.
+The preference shifts in this conversation have ALREADY been detected from the
+preference evolution table and are listed below. Do NOT search for additional
+shifts, and do NOT add, drop, split, or merge any. Your ONLY task is to classify
+WHY each listed shift happened.
+
+Return EXACTLY one entry per listed shift ({n_shifts} in total). For each entry,
+copy the agent, from_preference, to_preference, and round EXACTLY as given in the
+list below, then add two fields:
+- "shift_type":
+   - "quality-based": the agent cited a specific merit or drawback of a
+     restaurant (food, atmosphere, rating, price, location) as the reason.
+   - "social": the agent changed because of the group -- majority momentum,
+     solidarity, peer pressure, or to avoid or end conflict -- not the venue
+     itself.
+   - "unexplained": the agent gave no genuine reason, only vented, or the reason
+     cannot be determined from the transcript.
+- "evidence": a short supporting quote from the turn where the agent makes or
+  explains the change.
+
+Detected shifts to classify:
+{shift_block}
+
+If the list shows no shifts occurred, return an empty justified_shifts list.
 
 ### 3. repetition_index
 For EACH agent, count how many times they had to restate their initial preference
@@ -289,12 +339,33 @@ before another agent substantively acknowledged it.
 0 = acknowledged on first mention. If never acknowledged, count total restatements.
 
 ### 4. process_quality
-Score the overall conversation on four dimensions. Each dimension uses a 0-3 scale
-with the concrete anchors below. For EVERY dimension, FIRST write one to two
-sentences of reasoning in the "<dimension>_reasoning" field, citing what you
-observed in the transcript, THEN give the integer score in the matching
-"<dimension>_score" field. Always reason before you score. Choose the anchor that
-best fits; if a conversation falls between two anchors, choose the lower one.
+Score the overall conversation on four INDEPENDENT dimensions, each on a 0-3 scale
+with the concrete anchors below.
+
+SCORING DISCIPLINE -- read this before scoring:
+- A score is EARNED by specific evidence; it is not given by default. Do not park
+  scores at 2 or 3 just because nothing obviously terrible happened.
+- Most real group conversations are flawed in at least one respect. A 3 is reserved
+  for a dimension whose top anchor is met with NO exceptions: a single agent left
+  out, a single unexplained shift, or a single dismissive remark is enough to
+  prevent a 3.
+- If you cannot point to specific transcript evidence for a level, you have not
+  observed it. Absence of evidence is scored at the LOWER anchor, never assumed.
+- The four dimensions are independent. A conversation can be perfectly respectful
+  (high mutual_respect) yet still ignore an agent's preference (low
+  preferences_heard). Score each dimension only on its own evidence.
+
+HOW TO SCORE each dimension:
+1. In the "<dimension>_reasoning" field, FIRST cite the specific things you
+   observed (name the agents and turns involved).
+2. Then start from 3 and work DOWNWARD: check whether the 3-anchor holds
+   completely. At the first specific failure, drop to the anchor that matches what
+   you actually saw.
+3. Finish the reasoning by stating explicitly why the score is NOT one level
+   higher than the one you chose.
+4. Then put the integer in the matching "<dimension>_score" field.
+Always reason before you score. If a conversation falls between two anchors, choose
+the lower one.
 
 **preferences_heard** -- Were all agents' preferred options taken up and discussed
 by the other agents?
@@ -339,6 +410,24 @@ restaurants?
       cuisine, price, location).
 - 3 = Claims consistently backed by specific, comparative arguments that weigh
       features of more than one option.
+
+### 4b. Worked calibration example (illustrative -- NOT one of the transcripts above)
+Mini-conversation: Ana suggests Spot A ("I just like it"). Ben suggests Spot B
+("B has great reviews and is cheaper than A"). Cleo suggests Spot C. Ana and Ben
+debate A versus B for several turns; nobody ever responds to Cleo's Spot C. Ben
+then says "okay, fine, A works" with no further reason. The tone stays polite the
+whole time.
+Correct scoring:
+- preferences_heard = 1: Ana's and Ben's options were discussed, but Cleo's Spot C
+  got no engagement from anyone -- one agent left out, so not 2 and not 3.
+- shifts_justified = 1: Ben's shift to A was a bare capitulation ("okay, fine")
+  with no content.
+- mutual_respect = 3: the tone was polite throughout; no preference was mocked or
+  rudely brushed off.
+- logical_support = 1: only Ben gave a concrete reason (reviews, price); the rest
+  was vague ("I just like it") -- mostly generic, not option-specific.
+This shows the dimensions are scored independently on the evidence, and that 1 (and
+0) are valid scores when the evidence supports them -- not only 2 and 3.
 
 ### 5. Edge cases & ambiguity
 Apply these rules so that ambiguous transcripts are scored consistently:
