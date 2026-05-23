@@ -109,7 +109,7 @@ rows = []
 for fp in sorted(FULL_DATASET.glob("group_simulation_*.json")):
     d = json.load(open(fp, encoding="utf-8"))
     f = d.get("final_rec", "")
-    if f == "NO CONSENSUS REACHED":
+    if f in ("NO CONSENSUS REACHED", "No preference yet"):
         continue
     for ag in d["agents"]:
         h = ag.get("history", {})
