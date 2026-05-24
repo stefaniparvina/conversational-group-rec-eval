@@ -293,7 +293,7 @@ def collect_agent_level(full_dataset_folder, results_json_path):
         with open(jf, encoding="utf-8") as f:
             data = json.load(f)
         gid = data["group_id"]
-        if data["final_rec"] == "NO CONSENSUS REACHED":
+        if data["final_rec"] in ("NO CONSENSUS REACHED", "No preference yet"):
             continue
         per_agent_iss = iss_lookup.get(gid, {})
         for a in data["agents"]:
