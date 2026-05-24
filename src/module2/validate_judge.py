@@ -21,7 +21,7 @@
 #   data/validation/validation_set.csv      <- select_validation_set.py
 #   data/validation/annotation_workbook.xlsx<- build_annotation_workbook.py, then
 #                                              FILLED IN BY THE HUMAN ANNOTATOR
-#   data/results/llm_results.jsonl          <- llm_evaluator.py --mode validate
+#   data/validation/llm_results_validation.jsonl          <- llm_evaluator.py --mode validate
 #
 # Output:
 #   data/validation/judge_validation_report.txt
@@ -46,7 +46,7 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent
 VAL_DIR    = PROJECT_ROOT / "data" / "validation"
 VAL_CSV    = VAL_DIR / "validation_set.csv"
 WB         = VAL_DIR / "annotation_workbook.xlsx"
-LLM_JSONL  = PROJECT_ROOT / "data" / "results" / "llm_results.jsonl"
+LLM_JSONL  = VAL_DIR / "llm_results_validation.jsonl"
 OUT_TXT    = VAL_DIR / "judge_validation_report.txt"
 OUT_CSV    = VAL_DIR / "judge_validation_report.csv"
 

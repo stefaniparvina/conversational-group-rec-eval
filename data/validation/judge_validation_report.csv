@@ -1,9 +1,9 @@
 metric,n,exact,within1,kappa,ci_low,ci_high,weighted,pabak,reading,note
-Process Quality - preferences_heard,15,0.6,0.933,0.043,-0.531,0.138,-0.25,,poor (worse than chance),
+Process Quality - preferences_heard,15,0.267,0.8,-0.093,-0.089,0.441,0.161,,slight,
 Process Quality - shifts_justified,15,0.8,1.0,0.489,0.0,1.0,0.587,,moderate,
 Process Quality - mutual_respect,15,0.6,0.867,0.286,0.0,0.651,0.231,,fair,
 Process Quality - logical_support,15,0.667,1.0,-0.136,-0.154,0.118,0.0,,slight,
-Process Quality - ALL DIMENSIONS POOLED,60,0.667,0.95,0.338,-0.062,0.522,0.2,,slight,headline kappa for the Process Quality Score
+Process Quality - ALL DIMENSIONS POOLED,60,0.583,0.917,0.259,0.057,0.5,0.274,,fair,headline kappa for the Process Quality Score
 Mention Rate - acknowledged,94,0.862,,0.319,0.037,0.582,,0.723,fair,
 Mention Rate - dominant_sentiment,78,0.731,,0.445,0.264,0.627,,,moderate,
 Justified Shifts - shift_type,117,0.632,,0.389,0.263,0.516,,,fair,

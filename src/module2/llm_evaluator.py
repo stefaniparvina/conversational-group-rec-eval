@@ -23,6 +23,8 @@
 #   data/results/results.csv              <- input  (used to select the H3 subset)
 #   data/results/llm_results.jsonl        <- output (one raw record per group)
 #   data/results/llm_results_summary.csv  <- output (flat metrics per group)
+#   NOTE: --mode validate writes instead to data/validation/ (the files
+#   llm_results_validation.jsonl and llm_results_summary_validation.csv).
 #
 # Usage (run from anywhere inside the project):
 #   python src/module2/llm_evaluator.py --mode test      # 20 random H3 groups (smoke test)
@@ -537,6 +539,121 @@ def finalize_scores(llm_out: dict) -> dict:
     return llm_out
 
 
+def sanitize_counts(llm_out: dict) -> dict:
+    """Force the model's integer count fields to be non-negative integers.
+
+    Structured Outputs guarantee these fields are integers but cannot bound
+    them -- the strict-schema format supports no minimum/maximum -- so a stray
+    negative or non-integer value is corrected here, the same defensive step
+    finalize_scores applies to the 0-3 process-quality scores.
+    """
+    def nonneg_int(v):
+        try:
+            return max(0, int(v))
+        except (TypeError, ValueError):
+            return 0
+    for e in llm_out.get("mention_rate", []):
+        if "total_mentions" in e:
+            e["total_mentions"] = nonneg_int(e.get("total_mentions"))
+    for e in llm_out.get("repetition_index", []):
+        if "times_repeated_before_ack" in e:
+            e["times_repeated_before_ack"] = nonneg_int(
+                e.get("times_repeated_before_ack"))
+    return llm_out
+
+
+# -- Structural audit ----------------------------------------------------------
+
+def audit_structure(data: dict, llm_out: dict) -> dict:
+    """Verify the judge returned complete, correctly-identified output.
+
+    Structured Outputs guarantee the SHAPE of the response but not its
+    CARDINALITY or IDENTITY: the model could omit an agent, misspell a name,
+    or return a shift that was not in the detected list. This audit checks,
+    per group, that mention_rate and repetition_index each carry exactly one
+    entry per real agent, and that justified_shifts matches the pre-detected
+    shift set exactly. It never raises -- it returns a flag plus a list of
+    human-readable issues, which are stored in the JSONL record so flagged
+    groups can be reviewed after the run.
+    """
+    real_set = {a["name"] for a in data.get("agents", [])}
+    issues = []
+
+    for field in ("mention_rate", "repetition_index"):
+        names = [e.get("agent") for e in llm_out.get(field, [])]
+        got = set(names)
+        missing = real_set - got
+        extra = got - real_set
+        if missing:
+            issues.append(f"{field}: missing agent(s) {sorted(missing)}")
+        if extra:
+            issues.append(f"{field}: unknown agent name(s) {sorted(extra)}")
+        if len(names) != len(got):
+            dups = sorted({n for n in names if names.count(n) > 1})
+            issues.append(f"{field}: duplicate entr(ies) for {dups}")
+
+    # Per-entry consistency checks on the mention_rate records.
+    turn_prefs = data.get("turn_preferences", {})
+    for e in llm_out.get("mention_rate", []):
+        ag = e.get("agent")
+        mentions = e.get("mentions", [])
+        init_pref = e.get("initial_preference")
+        total = e.get("total_mentions")
+        rounds = turn_prefs.get(ag) or []
+        real_rounds = [r for r in rounds if r != "No preference yet"]
+        if real_rounds and init_pref != real_rounds[0]:
+            issues.append(f"mention_rate: {ag} initial_preference "
+                          f"{init_pref!r} != first stated preference "
+                          f"{real_rounds[0]!r}")
+        if total != len(mentions):
+            issues.append(f"mention_rate: {ag} total_mentions {total} != "
+                          f"mentions list length {len(mentions)}")
+        unknown = sorted({m.get("by_agent") for m in mentions
+                          if m.get("by_agent") not in real_set})
+        if unknown:
+            issues.append(f"mention_rate: {ag} has mention(s) by unknown "
+                          f"agent(s) {unknown}")
+        # "acknowledged" = engaged with by ANOTHER agent. Self-mentions (the
+        # judge sometimes logs the opening declaration) are excluded here.
+        other = [m for m in mentions if m.get("by_agent") != ag]
+        expected_ack = any(m.get("sentiment") != "dismissive" for m in other)
+        if bool(e.get("acknowledged")) != expected_ack:
+            issues.append(f"mention_rate: {ag} acknowledged="
+                          f"{bool(e.get('acknowledged'))} but its mentions imply "
+                          f"{expected_ack}")
+
+    detected_list = detect_shifts(data)
+    judged_list = llm_out.get("justified_shifts", [])
+    if len(judged_list) != len(detected_list):
+        issues.append(f"justified_shifts: returned {len(judged_list)} entr(ies) "
+                      f"for {len(detected_list)} detected shift(s)")
+    detected = {(s["agent"], s["from_preference"], s["to_preference"],
+                 s["round"]) for s in detected_list}
+    judged = {(s.get("agent"), s.get("from_preference"),
+               s.get("to_preference"), s.get("round"))
+              for s in judged_list}
+    if detected - judged:
+        issues.append(f"justified_shifts: {len(detected - judged)} detected "
+                      f"shift(s) missing or altered")
+    if judged - detected:
+        issues.append(f"justified_shifts: {len(judged - detected)} extra "
+                      f"shift(s) not in the detected list")
+
+    # Cross-field rubric check: an agent with zero mentions cannot be reconciled
+    # with a preferences-heard score of 2 or 3 (those anchors require every
+    # preference to have been engaged with).
+    zero_mention = sorted(
+        e.get("agent") for e in llm_out.get("mention_rate", [])
+        if not any(m.get("by_agent") != e.get("agent")
+                   for m in e.get("mentions", [])))
+    ph = llm_out.get("process_quality", {}).get("preferences_heard_score")
+    if zero_mention and isinstance(ph, int) and ph >= 2:
+        issues.append(f"process_quality: preferences_heard_score={ph} but "
+                      f"agent(s) {zero_mention} received zero mentions")
+
+    return {"structural_ok": not issues, "issues": issues}
+
+
 # -- Results flattener ---------------------------------------------------------
 
 def flatten_result(group_id: int, data: dict, llm_out: dict) -> dict:
@@ -623,17 +740,57 @@ def already_done() -> set:
     return done
 
 
+def rebuild_summary_csv() -> None:
+    """Rebuild the summary CSV from scratch from the full JSONL.
+
+    The JSONL is the crash-safe source of truth -- one line per group, written
+    the moment that group is judged. Rebuilding the summary CSV from it at the
+    end of every run, rather than appending newly-judged rows to the old CSV,
+    keeps the CSV complete and correct even when an earlier run was interrupted
+    and resumed, and means a missing or corrupt previous CSV can never abort
+    the run.
+    """
+    if not OUT_JSONL.exists():
+        return
+    summary_rows = []
+    for line in OUT_JSONL.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            rec = json.loads(line)
+            gid = int(rec["group_id"])
+        except Exception:
+            continue
+        path = DATA_DIR / f"group_simulation_{gid}.json"
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        summary_rows.append(flatten_result(gid, data, rec.get("llm_output", {})))
+    if summary_rows:
+        df = pd.DataFrame(summary_rows).drop_duplicates(
+            subset="group_id", keep="last").sort_values("group_id")
+        try:
+            df.to_csv(OUT_CSV, index=False)
+            print(f"Summary CSV rebuilt from JSONL: {len(df)} rows -> {OUT_CSV}")
+        except OSError as exc:
+            print(f"WARNING: could not write the summary CSV ({exc}). The raw "
+                  f"results in {OUT_JSONL} are complete and safe -- close the "
+                  f"file if it is open, then re-run to rebuild the CSV.")
+
+
 # -- Main ----------------------------------------------------------------------
 
 def run(mode: str):
-    from openai import OpenAI
-
-    if not os.getenv("OPENAI_API_KEY"):
-        raise SystemExit(
-            "OPENAI_API_KEY is not set. Put it in a .env file at the project "
-            "root as a line:  OPENAI_API_KEY=sk-...  (or set it as a real "
-            "environment variable).")
-    client = OpenAI()      # reads OPENAI_API_KEY from the environment (or .env)
+    # Validation output is kept separate from the main H3 results so the two
+    # runs never collide: validate -> data/validation/, test/h3 -> data/results/.
+    global OUT_JSONL, OUT_CSV
+    if mode == "validate":
+        OUT_JSONL = PROJECT_ROOT / "data" / "validation" / "llm_results_validation.jsonl"
+        OUT_CSV   = PROJECT_ROOT / "data" / "validation" / "llm_results_summary_validation.csv"
+    else:
+        OUT_JSONL = PROJECT_ROOT / "data" / "results" / "llm_results.jsonl"
+        OUT_CSV   = PROJECT_ROOT / "data" / "results" / "llm_results_summary.csv"
 
     group_ids = get_group_ids(mode)
     done      = already_done()
@@ -643,10 +800,22 @@ def run(mode: str):
     print(f"Total in scope: {len(group_ids)} | Already done: {len(done)} | To process: {len(todo)}")
     if not todo:
         print("Nothing to do.")
+        rebuild_summary_csv()   # keep the summary CSV in sync even with no new work
         return
 
+    # Work remains -- only now are the OpenAI client and an API key
+    # needed, so a no-work run (e.g. a CSV-only rebuild) needs no key.
+    from openai import OpenAI
+
+    if not os.getenv("OPENAI_API_KEY"):
+        raise SystemExit(
+            "OPENAI_API_KEY is not set. Put it in a .env file at the project "
+            "root as a line:  OPENAI_API_KEY=sk-...  (or set it as a real "
+            "environment variable).")
+    client = OpenAI()      # reads OPENAI_API_KEY from the environment (or .env)
+
     OUT_JSONL.parent.mkdir(parents=True, exist_ok=True)
-    rows = []
+    flagged = []
     total_tokens = 0
 
     for i, gid in enumerate(todo, 1):
@@ -655,15 +824,16 @@ def run(mode: str):
             print(f"[{i}/{len(todo)}] SKIP {gid} -- file not found")
             continue
 
-        data = json.loads(path.read_text(encoding="utf-8"))
-        cfg  = data["group_config"]
-        n    = len(data["agents"])
-        print(f"[{i}/{len(todo)}] group {gid} ({cfg}, {n} agents) ... ", end="", flush=True)
-
         try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            cfg  = data["group_config"]
+            n    = len(data["agents"])
+            print(f"[{i}/{len(todo)}] group {gid} ({cfg}, {n} agents) ... ", end="", flush=True)
             prompt        = build_prompt(data)
             llm_out, meta = call_llm(client, prompt)
             llm_out       = finalize_scores(llm_out)
+            llm_out       = sanitize_counts(llm_out)
+            audit         = audit_structure(data, llm_out)
 
             # Save the raw record immediately (safe against crashes)
             record = {
@@ -675,6 +845,7 @@ def run(mode: str):
                 "system_fingerprint": meta["system_fingerprint"],
                 "finish_reason":      meta["finish_reason"],
                 "usage":              meta["usage"],
+                "structural_audit":   audit,
                 "llm_output":         llm_out,
             }
             with open(OUT_JSONL, "a", encoding="utf-8") as f:
@@ -683,23 +854,34 @@ def run(mode: str):
             if meta["usage"]:
                 total_tokens += meta["usage"]["total_tokens"]
 
-            rows.append(flatten_result(gid, data, llm_out))
-            print(f"OK  pq_score={llm_out['process_quality']['score']}")
+            if audit["structural_ok"]:
+                print(f"OK  pq_score={llm_out['process_quality']['score']}")
+            else:
+                flagged.append((gid, audit["issues"]))
+                print(f"OK  pq_score={llm_out['process_quality']['score']}"
+                      f"  [!] STRUCTURAL FLAG: {'; '.join(audit['issues'])}")
 
         except Exception as e:
-            print(f"ERROR: {e}")
+            print(f"ERROR group {gid}: {e}")
             traceback.print_exc()
 
-    # Write / append the summary CSV
-    if rows:
-        new_df = pd.DataFrame(rows)
-        if OUT_CSV.exists():
-            existing = pd.read_csv(OUT_CSV)
-            combined = pd.concat([existing, new_df], ignore_index=True)
-            combined.drop_duplicates(subset="group_id", keep="last").to_csv(OUT_CSV, index=False)
-        else:
-            new_df.to_csv(OUT_CSV, index=False)
-        print(f"\nSaved {len(rows)} new rows -> {OUT_CSV}")
+    # Rebuild the summary CSV from the full JSONL: it is always complete, and
+    # it never reads the previous CSV, so an interrupted or corrupt earlier
+    # CSV from a prior run can never abort this one.
+    rebuild_summary_csv()
+
+    # Structural audit summary
+    print("")
+    if flagged:
+        print(f"[!] STRUCTURAL AUDIT: {len(flagged)} of {len(todo)} group(s) "
+              f"flagged for review:")
+        for gid, issues in flagged:
+            print(f"    group {gid}: {'; '.join(issues)}")
+        print("    (recorded under 'structural_audit' in the JSONL; the run "
+              "itself completed normally)")
+    else:
+        print("Structural audit: all processed groups complete and "
+              "consistent -- no flags.")
 
     print(f"Total tokens used this run: {total_tokens:,}")
 
