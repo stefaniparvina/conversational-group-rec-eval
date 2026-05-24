@@ -15,7 +15,7 @@ Aggregation strategies implemented (Barile et al. 2024):
   ADD - Additive Utilitarian: highest sum of ratings
   LMS - Least Misery: highest minimum rating
   MPL - Most Pleasure: highest individual rating
-  MAJ - Majority: top choice of most agents; ADD tiebreak
+  MAJ - Majority: top choice of most agents (fractional vote on ties); ADD tiebreak
   APP - Approval Voting: most ratings >= APP_APPROVAL_THRESHOLD (5/10)
   FAI - Fairness (round-robin): each agent picks top item in turn; most-picked wins.
         Agents start at equal satisfaction (no prior history). FAI and MAJ diverge
@@ -24,7 +24,8 @@ Aggregation strategies implemented (Barile et al. 2024):
 
 ISS convention for no-consensus groups
 ---------------------------------------
-When final_rec == "NO CONSENSUS REACHED", ISS is set to 0.0 for every agent.
+When final_rec == "NO CONSENSUS REACHED" or "No preference yet", ISS is set to 0.0 for every agent.
+
 This is a deliberate design choice: a failed conversation produces no benefit for
 any participant. These zero values are included in all aggregate statistics
 (GSS, MinSat, SatVariance) so that no-consensus groups are properly penalised in
@@ -38,6 +39,7 @@ import json
 import statistics
 import sys
 from collections import defaultdict
+from fractions import Fraction
 from pathlib import Path
 
 # Approval Voting threshold: a rating >= this value counts as an "approval."
@@ -56,7 +58,7 @@ def compute_iss(agent_history: dict, final_rec: str) -> float:
     ISS = agent's rating of final_rec / agent's maximum rating.
     Returns 0.0 if no consensus was reached or restaurant is unknown.
     """
-    if final_rec == "NO CONSENSUS REACHED":
+    if final_rec in ("NO CONSENSUS REACHED", "No preference yet"):
         return 0.0
     if final_rec not in agent_history:
         return 0.0
@@ -81,94 +83,138 @@ def hypothetical_gss(agents: list, restaurant: str) -> float:
 
 
 # ── Aggregation strategy recommendations ──────────────────────────────────────
+#
+# Each strategy scores the restaurants on its own criterion and returns a
+# (recommendation, optimal_set) pair:
+#   * optimal_set     every restaurant tied for the best score on that
+#                     criterion. A strategy "matches" the conversation when the
+#                     agreed restaurant lies in this set.
+#   * recommendation  the single restaurant reported for the strategy (the
+#                     *_rec columns) - the strategy's declared tie-break applied
+#                     to the optimal set. The final, universal tie-break is
+#                     lexicographic restaurant ID: an arbitrary but
+#                     deterministic rule that, unlike list-insertion order, is
+#                     independent of the restaurant ordering and therefore does
+#                     not bias the strategy-match statistics.
 
-def strategy_add(agents: list, restaurants: list) -> str | None:
-    """ADD: restaurant with the highest sum of all agents' ratings."""
-    scores = {
-        r: sum(a["history"].get(r, 0) for a in agents)
-        for r in restaurants
-    }
-    return max(scores, key=scores.get) if scores else None
+
+def _optimal_set(scores: dict) -> list[str]:
+    """Every restaurant tied for the highest score, sorted by restaurant ID."""
+    if not scores:
+        return []
+    best = max(scores.values())
+    return sorted(r for r, v in scores.items() if v == best)
 
 
-def strategy_lms(agents: list, restaurants: list) -> str | None:
-    """LMS (Least Misery): restaurant where the minimum individual rating is highest."""
+def _resolve(candidates: list[str], *tiebreaks: dict) -> str | None:
+    """
+    Reduce tied candidates to a single restaurant.
+
+    Each map in `tiebreaks` is applied in order, narrowing the pool to the
+    candidates that maximise it. Anything still tied afterwards is resolved by
+    lexicographic restaurant ID (declared, deterministic, order-independent).
+    """
+    if not candidates:
+        return None
+    pool = list(candidates)
+    for scores in tiebreaks:
+        if len(pool) == 1:
+            break
+        best = max(scores.get(r, 0) for r in pool)
+        pool = [r for r in pool if scores.get(r, 0) == best]
+    return min(pool)
+
+
+def _add_scores(agents: list, restaurants: list) -> dict:
+    """Total of every agent's rating for each restaurant (the ADD criterion)."""
+    return {r: sum(a["history"].get(r, 0) for a in agents) for r in restaurants}
+
+
+def strategy_add(agents: list, restaurants: list) -> tuple[str | None, list[str]]:
+    """
+    ADD (Additive Utilitarian): restaurant with the highest sum of all agents'
+    ratings. Ties broken by lexicographic restaurant ID.
+    Returns (recommendation, optimal_set).
+    """
+    scores = _add_scores(agents, restaurants)
+    opt = _optimal_set(scores)
+    return _resolve(opt), opt
+
+
+def strategy_lms(agents: list, restaurants: list) -> tuple[str | None, list[str]]:
+    """
+    LMS (Least Misery): restaurant where the minimum individual rating is
+    highest. Ties broken by lexicographic restaurant ID.
+    Returns (recommendation, optimal_set).
+    """
     scores = {
         r: min(a["history"].get(r, 0) for a in agents)
         for r in restaurants
     }
-    return max(scores, key=scores.get) if scores else None
+    opt = _optimal_set(scores)
+    return _resolve(opt), opt
 
 
-def strategy_mpl(agents: list, restaurants: list) -> str | None:
-    """MPL (Most Pleasure): restaurant with the highest single rating from any agent."""
+def strategy_mpl(agents: list, restaurants: list) -> tuple[str | None, list[str]]:
+    """
+    MPL (Most Pleasure): restaurant with the highest single rating from any
+    agent. Ties broken by lexicographic restaurant ID.
+    Returns (recommendation, optimal_set).
+    """
     scores = {
         r: max(a["history"].get(r, 0) for a in agents)
         for r in restaurants
     }
-    return max(scores, key=scores.get) if scores else None
+    opt = _optimal_set(scores)
+    return _resolve(opt), opt
 
 
-def strategy_maj(agents: list, restaurants: list) -> str | None:
+def strategy_maj(agents: list, restaurants: list) -> tuple[str | None, list[str]]:
     """
     MAJ (Majority): restaurant that is the top preference of the most agents.
-    Ties broken by ADD score (highest total ratings).
+
+    Each agent casts one vote for its top-rated restaurant. An agent with
+    several joint-favourite restaurants splits its vote equally among them
+    (fractional voting, kept exact with Fraction), so the outcome never depends
+    on the insertion order of an agent's rating history. Ties on the vote total
+    are broken first by ADD score, then by lexicographic restaurant ID.
+    Returns (recommendation, optimal_set).
     """
-    top_counts: dict[str, int] = defaultdict(int)
+    votes: dict = defaultdict(Fraction)
     for a in agents:
-        if a["history"]:
-            top = max(a["history"], key=a["history"].get)
-            top_counts[top] += 1
-
-    if not top_counts:
-        return None
-
-    max_count = max(top_counts.values())
-    candidates = [r for r, c in top_counts.items() if c == max_count]
-
-    if len(candidates) == 1:
-        return candidates[0]
-
-    # Tiebreak: highest ADD score among tied candidates
-    add_scores = {
-        r: sum(a["history"].get(r, 0) for a in agents)
-        for r in candidates
-    }
-    return max(add_scores, key=add_scores.get)
+        hist = a["history"]
+        if not hist:
+            continue
+        best = max(hist.values())
+        tops = [r for r, v in hist.items() if v == best]
+        share = Fraction(1, len(tops))
+        for r in tops:
+            votes[r] += share
+    opt = _optimal_set(dict(votes))
+    return _resolve(opt, _add_scores(agents, restaurants)), opt
 
 
 def strategy_app(agents: list, restaurants: list,
-                 threshold: int = APP_APPROVAL_THRESHOLD) -> str | None:
+                 threshold: int = APP_APPROVAL_THRESHOLD
+                 ) -> tuple[str | None, list[str]]:
     """
     APP (Approval Voting): restaurant with the most ratings >= threshold.
-    Ties broken by ADD score (highest total ratings).
+    Ties broken first by ADD score, then by lexicographic restaurant ID.
     Threshold defaults to APP_APPROVAL_THRESHOLD (5 / 10-point scale).
+    Returns (recommendation, optimal_set).
     """
-    approval_counts = {
+    scores = {
         r: sum(1 for a in agents if a["history"].get(r, 0) >= threshold)
         for r in restaurants
     }
-    if not approval_counts:
-        return None
-
-    max_approvals = max(approval_counts.values())
-    candidates = [r for r, cnt in approval_counts.items() if cnt == max_approvals]
-
-    if len(candidates) == 1:
-        return candidates[0]
-
-    # Tiebreak: highest ADD score
-    add_scores = {
-        r: sum(a["history"].get(r, 0) for a in agents)
-        for r in candidates
-    }
-    return max(add_scores, key=add_scores.get)
+    opt = _optimal_set(scores)
+    return _resolve(opt, _add_scores(agents, restaurants)), opt
 
 
-def strategy_fai(agents: list, restaurants: list) -> str | None:
+def strategy_fai(agents: list, restaurants: list) -> tuple[str | None, list[str]]:
     """
-    FAI (Fairness / Round-Robin): items are ranked by how individuals choose them
-    in turn.
+    FAI (Fairness / Round-Robin): items are ranked by how individuals choose
+    them in turn.
 
     Each agent (ordered by ascending cumulative satisfaction, ties broken by
     original JSON position) claims their top-rated unclaimed item. The item
@@ -176,13 +222,17 @@ def strategy_fai(agents: list, restaurants: list) -> str | None:
 
     FAI differs from MAJ when agents share the same top preference: MAJ gives
     that item a plurality win immediately, while FAI assigns it to the first
-    agent in the rotation and forces the remaining agents to claim their next-best
-    unclaimed items. If the ADD score of one of those next-best items exceeds the
-    ADD score of the jointly preferred item, FAI and MAJ will recommend different
-    restaurants.
+    agent in the rotation and forces the remaining agents to claim their
+    next-best unclaimed items. If the ADD score of one of those next-best items
+    exceeds the ADD score of the jointly preferred item, FAI and MAJ will
+    recommend different restaurants.
+
+    Among the most-claimed items, FAI's optimal_set is those tied for the
+    highest ADD score; the recommendation is its lexicographically smallest
+    member. Returns (recommendation, optimal_set).
     """
     if not agents or not restaurants:
-        return None
+        return None, []
 
     agents_snapshot = list(agents)          # preserve original order for stable tiebreak
     agents_remaining = list(agents_snapshot)
@@ -206,20 +256,20 @@ def strategy_fai(agents: list, restaurants: list) -> str | None:
         remaining.remove(best)
 
     if not pick_counts:
-        return None
+        return None, []
 
     max_picks = max(pick_counts.values())
     candidates = [r for r, cnt in pick_counts.items() if cnt == max_picks]
 
-    if len(candidates) == 1:
-        return candidates[0]
-
-    # Tiebreak: ADD score using the full original agents list
+    # FAI resolves the most-claimed items by ADD score: the optimal set is
+    # every such item tied for the highest ADD score, and the recommendation
+    # is its lexicographically smallest member.
     add_scores = {
         r: sum(a["history"].get(r, 0) for a in agents_snapshot)
         for r in candidates
     }
-    return max(add_scores, key=add_scores.get)
+    opt = _optimal_set(add_scores)
+    return _resolve(opt), opt
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -251,7 +301,7 @@ def evaluate_group(data: dict) -> dict:
     turn_counter = data.get("turn_counter", 0)
 
     N = len(agents)
-    consensus = (final_rec != "NO CONSENSUS REACHED")
+    consensus = (final_rec not in ("NO CONSENSUS REACHED", "No preference yet"))
 
     # ── 1. ISS per agent ──────────────────────────────────────────────────────
     iss_map: dict[str, float] = {
@@ -307,9 +357,13 @@ def evaluate_group(data: dict) -> dict:
             maj_min_gap = maj_mean - min_mean
 
     # ── 9. Strategy Comparison ────────────────────────────────────────────────
-    # All six strategies.
-    # Note: FAI == MAJ for single-recommendation with no prior satisfaction history.
-    strat_recs = {
+    # Each strategy yields a single recommendation (the *_rec columns) and an
+    # optimal set - every restaurant tied for the best score on that strategy's
+    # criterion. A strategy "matches" the conversation when the agreed
+    # restaurant lies in that optimal set, i.e. the outcome is something the
+    # strategy regards as optimal; this keeps the match independent of how an
+    # arbitrary tie among equally-optimal restaurants is broken.
+    strat = {
         "ADD": strategy_add(agents, restaurants),
         "LMS": strategy_lms(agents, restaurants),
         "MPL": strategy_mpl(agents, restaurants),
@@ -317,13 +371,15 @@ def evaluate_group(data: dict) -> dict:
         "APP": strategy_app(agents, restaurants),
         "FAI": strategy_fai(agents, restaurants),
     }
+    strat_recs = {s: rec for s, (rec, _opt) in strat.items()}
+    strat_sets = {s: opt for s, (_rec, opt) in strat.items()}
     strat_match = {
-        s: bool(rec and rec == final_rec and consensus)
-        for s, rec in strat_recs.items()
+        s: bool(consensus and final_rec in strat_sets[s])
+        for s in strat
     }
     strategies_matched = [s for s, matched in strat_match.items() if matched]
 
-    # Hypothetical GSS under each strategy
+    # Hypothetical GSS under each strategy's single recommendation
     strat_gss = {
         s: (hypothetical_gss(agents, rec) if rec else 0.0)
         for s, rec in strat_recs.items()
@@ -358,6 +414,7 @@ def evaluate_group(data: dict) -> dict:
         "minority_voters": minority_voters,
         # Strategy comparison
         "strategy_recommendations":          strat_recs,
+        "strategy_optimal_sets":             strat_sets,
         "strategy_match":                    strat_match,
         "strategies_matched":                strategies_matched,
         "n_strategies_matched":              len(strategies_matched),
