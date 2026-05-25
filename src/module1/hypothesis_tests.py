@@ -19,22 +19,30 @@ Sheets produced
                               (skewness, kurtosis, % zero/below/above,
                               min, max). Justifies the choice of
                               Wilcoxon over a t-test.
-  H1 Welfare Gap              One-sample Wilcoxon (one-sided 'less')
-                              against zero, overall + per configuration.
-                              Effect size: rank-biserial correlation.
+  H1 Welfare Gap              One-sample Wilcoxon (one-sided 'less') vs
+                              zero, overall + per configuration. An
+                              assumption-free sign test is reported
+                              alongside as a robustness backup, and Holm-
+                              Bonferroni is applied across the per-config
+                              tests. Effect size: rank-biserial.
   H2a Kruskal-Wallis          Per-configuration MinSat means + omnibus
                               H statistic, p-value, epsilon-squared.
   H2a Pairwise MWU            Six pairwise Mann-Whitney U comparisons
                               on MinSat with Holm-Bonferroni correction.
-  H2b MajMinGap               One-sample Wilcoxon (one-sided 'greater')
-                              against zero on MajMinGap, per configuration.
+  H2b MajMinGap               One-sample Wilcoxon (one-sided 'greater') on
+                              MajMinGap, per configuration, Holm-corrected.
+                              Non-zero gaps only: groups with a realized
+                              majority-minority satisfaction difference.
+                              Zero gaps are excluded because they provide
+                              no signed evidence for the direction of the gap.
   H3 Subset                   H3 subset size by configuration (status only;
                               the full H3 regression requires Module 2
                               process metrics, which are not yet available).
   H4 Big Five                 Pearson r between each Big Five trait and
-                              ISS at the agent level. Small-effect-bound
-                              decision rule (|r| < 0.05). Agreeableness
-                              and Neuroticism
+                              ISS at the agent level, each with a 95%
+                              confidence interval. Equivalence decision
+                              rule: H4 holds iff every CI lies entirely
+                              within +/-0.05 (a negligible effect).
   H4 Tone (Supplementary)     Kruskal-Wallis across the 20 tone categories.
                               Tone was randomly assigned and is NOT part
                               of H4; this is reported only as a
@@ -76,10 +84,15 @@ def rank_biserial_wilcoxon(x):
 
 
 def rank_biserial_mwu(u, n1, n2):
-    """Rank-biserial correlation for Mann-Whitney U."""
+    """Rank-biserial correlation for Mann-Whitney U.
+
+    SciPy's mannwhitneyu returns U for the FIRST sample (config_A). With
+    the convention r = 2U/(n1*n2) - 1, a POSITIVE r means config_A tends
+    to rank HIGHER than config_B (negative means lower).
+    """
     if n1 == 0 or n2 == 0:
         return float("nan")
-    return 1.0 - (2.0 * u) / (n1 * n2)
+    return (2.0 * u) / (n1 * n2) - 1.0
 
 
 def epsilon_squared_kw(h, n):
@@ -107,6 +120,41 @@ def holm_correction(pvals):
         running_max = max(running_max, adj_p)
         adj[idx] = min(running_max, 1.0)
     return adj
+
+
+def sign_test(x, alternative):
+    """Assumption-free sign test that the median differs from 0.
+
+    Unlike the Wilcoxon signed-rank test it makes NO symmetry assumption,
+    so it is a robust backup when the data is strongly skewed. Zeros are
+    ignored.
+      alternative='less'    -> evidence the median is below 0 (few positives)
+      alternative='greater' -> evidence the median is above 0 (few negatives)
+    Returns (n_positive, n_negative, p_value).
+    """
+    x = np.asarray(x, dtype=float)
+    n_pos = int((x > 0).sum())
+    n_neg = int((x < 0).sum())
+    n = n_pos + n_neg
+    if n == 0:
+        return n_pos, n_neg, float("nan")
+    k = n_pos if alternative == "less" else n_neg
+    p = stats.binomtest(k, n, 0.5, alternative="less").pvalue
+    return n_pos, n_neg, float(p)
+
+
+def pearson_ci(r, n, conf=0.95):
+    """Fisher z-transform confidence interval for a Pearson correlation r.
+
+    Version-independent: does not rely on SciPy returning a CI object.
+    Returns (low, high), or (nan, nan) if n is too small.
+    """
+    if n < 4 or abs(r) >= 1.0:
+        return float("nan"), float("nan")
+    z = np.arctanh(r)
+    se = 1.0 / np.sqrt(n - 3)
+    crit = stats.norm.ppf(1.0 - (1.0 - conf) / 2.0)
+    return float(np.tanh(z - crit * se)), float(np.tanh(z + crit * se))
 
 
 # ── CONSTANTS / STATE ────────────────────────────────────────────────────────
@@ -143,21 +191,30 @@ def test_h1(df):
         "min_gap", "max_gap",
     ])
 
-    # Welfare-gap Wilcoxon: overall + per configuration.
+    # Welfare-gap test: overall + per configuration.
+    #   Primary test : one-sample Wilcoxon (one-sided 'less').
+    #   Backup test  : sign test -- makes no symmetry assumption, so it
+    #                  confirms the result is not an artefact of the gap's
+    #                  strong skew.
+    #   The four per-configuration Wilcoxon p-values are Holm-corrected;
+    #   the OVERALL row is the single primary test and is left uncorrected.
     rows = []
-    n = len(gaps)
     stat, p = stats.wilcoxon(gaps, alternative="less")
     rb = rank_biserial_wilcoxon(gaps)
+    s_pos, s_neg, s_p = sign_test(gaps, "less")
     rows.append({
-        "scope": "OVERALL", "n": n,
+        "scope": "OVERALL", "n": len(gaps),
         "mean": round(float(gaps.mean()), 4),
         "median": round(float(np.median(gaps)), 4),
         "std": round(float(gaps.std()), 4),
         "wilcoxon_W": round(float(stat), 1),
         "p_value": p,
+        "p_holm": float("nan"),
         "r_rank_biserial": round(float(rb), 3),
+        "sign_pos": s_pos, "sign_neg": s_neg, "sign_test_p": s_p,
         "supported": bool(p < 0.05 and rb < 0),
     })
+    cfg_rows = []
     for cfg in CONFIGS:
         gaps_c = consensus.loc[consensus["group_config"] == cfg,
                                "conversation_vs_best_strategy_gss"].values
@@ -165,7 +222,8 @@ def test_h1(df):
             continue
         stat, p = stats.wilcoxon(gaps_c, alternative="less")
         rb = rank_biserial_wilcoxon(gaps_c)
-        rows.append({
+        s_pos, s_neg, s_p = sign_test(gaps_c, "less")
+        cfg_rows.append({
             "scope": cfg, "n": len(gaps_c),
             "mean": round(float(gaps_c.mean()), 4),
             "median": round(float(np.median(gaps_c)), 4),
@@ -173,8 +231,14 @@ def test_h1(df):
             "wilcoxon_W": round(float(stat), 1),
             "p_value": p,
             "r_rank_biserial": round(float(rb), 3),
-            "supported": bool(p < 0.05 and rb < 0),
+            "sign_pos": s_pos, "sign_neg": s_neg, "sign_test_p": s_p,
         })
+    if cfg_rows:
+        adj = holm_correction([row["p_value"] for row in cfg_rows])
+        for row, pa in zip(cfg_rows, adj):
+            row["p_holm"] = pa
+            row["supported"] = bool(pa < 0.05 and row["r_rank_biserial"] < 0)
+    rows.extend(cfg_rows)
     FRAMES["H1 Welfare Gap"] = pd.DataFrame(rows).set_index("scope")
 
 
@@ -231,7 +295,13 @@ def test_h2(df):
     ]]
     FRAMES["H2a Pairwise MWU"] = pairwise_df
 
-    # (c) Wilcoxon on MajMinGap per configuration (non-zero only)
+    # (c) Wilcoxon on MajMinGap per configuration.
+    #     NON-ZERO gaps only: zero gaps can come from unanimous groups OR
+    #     from split-vote groups where majority and minority voters have equal
+    #     ISS. They provide no signed evidence for whether the realized
+    #     majority-minority satisfaction gap is positive, so the tested
+    #     population is consensus groups with a non-zero realized gap.
+    #     The four per-configuration p-values are Holm-Bonferroni corrected.
     majmin_rows = []
     for cfg in CONFIGS:
         gaps = consensus.loc[consensus["group_config"] == cfg, "maj_min_gap"].values
@@ -247,8 +317,12 @@ def test_h2(df):
             "wilcoxon_W": round(float(stat), 1),
             "p_value": p,
             "r_rank_biserial": round(float(rb), 3),
-            "supported": bool(p < 0.05 and rb > 0),
         })
+    if majmin_rows:
+        adj = holm_correction([row["p_value"] for row in majmin_rows])
+        for row, pa in zip(majmin_rows, adj):
+            row["p_holm"] = pa
+            row["supported"] = bool(pa < 0.05 and row["r_rank_biserial"] > 0)
     FRAMES["H2b MajMinGap"] = pd.DataFrame(majmin_rows).set_index("config")
 
 
@@ -326,28 +400,41 @@ def test_h4(full_dataset_folder, results_json_path):
         ("conscientiousness", ""),
         ("extraversion",      ""),
     ]
+    # Each correlation gets a 95% confidence interval (Fisher z-transform).
+    # H4 claims the effect is NEGLIGIBLE, so the decision rule is an
+    # equivalence-style test: H4 holds only if the WHOLE confidence
+    # interval of every trait lies within +/-0.05. Checking the point
+    # estimate alone would ignore the uncertainty around it.
     rows = []
-    all_within_bound = True
+    all_point_within = True
+    all_ci_within = True
     for trait, note in ordered_traits:
         sub = agents.dropna(subset=[trait])
-        if len(sub) < 3:
+        if len(sub) < 4:
             continue
         r, p = stats.pearsonr(sub[trait].values, sub["iss"].values)
-        within = abs(r) < 0.05
-        all_within_bound = all_within_bound and within
+        ci_lo, ci_hi = pearson_ci(float(r), len(sub), conf=0.95)
+        point_within = abs(r) < 0.05
+        ci_within = (ci_lo > -0.05) and (ci_hi < 0.05)
+        all_point_within = all_point_within and point_within
+        all_ci_within = all_ci_within and ci_within
         rows.append({
             "trait": trait, "n": len(sub),
             "pearson_r": round(float(r), 4),
             "abs_r": round(float(abs(r)), 4),
+            "ci95_low": round(float(ci_lo), 4),
+            "ci95_high": round(float(ci_hi), 4),
             "p_value": p,
-            "within_bound_neg_005": bool(within),
+            "point_within_005": bool(point_within),
+            "ci_within_005": bool(ci_within),
             "focus_note": note,
         })
     h4_df = pd.DataFrame(rows).set_index("trait")
     h4_df.loc["RESULT"] = [
         len(agents), float("nan"), float("nan"), float("nan"),
-        bool(all_within_bound),
-        "H4 SUPPORTED" if all_within_bound else "H4 NOT SUPPORTED",
+        float("nan"), float("nan"),
+        bool(all_point_within), bool(all_ci_within),
+        "H4 SUPPORTED" if all_ci_within else "H4 NOT SUPPORTED",
     ]
     FRAMES["H4 Big Five"] = h4_df
 

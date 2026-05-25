@@ -27,11 +27,15 @@ ISS convention for no-consensus groups
 When final_rec == "NO CONSENSUS REACHED" or "No preference yet", ISS is set to 0.0 for every agent.
 
 This is a deliberate design choice: a failed conversation produces no benefit for
-any participant. These zero values are included in all aggregate statistics
-(GSS, MinSat, SatVariance) so that no-consensus groups are properly penalised in
-cross-group comparisons - they represent the worst-case outcome and should not be
-excluded from analysis. The `consensus_reached` flag in the output allows filtering
-them out for subset analyses if desired.
+any participant. These zero values are computed and stored for every group, so a
+no-consensus group CAN be carried into an analysis as a worst-case outcome when
+that is wanted; the `consensus_reached` flag lets each downstream script decide.
+What the downstream scripts actually do: the formal hypothesis tests
+(hypothesis_tests.py) and the descriptive statistics (reproduce_stats.py) are run
+on consensus groups ONLY -- metrics such as the welfare gap and the
+majority-minority gap are only defined for a conversation that produced an
+outcome. The thesis therefore reports H1, H2 and H4 as conditional on consensus,
+and analyses the consensus rate itself as a separate result.
 """
 
 import csv
