@@ -41,6 +41,8 @@ Robustness checks (secondary, reported in the workbook / appendix)
  1. worst-agent ISS as DV, group level
  2. Model 2 on the full judged set (not only the H3 subset)
  3. Model 2 fit separately within each group configuration
+ 4. primary test re-run with the audit-flagged groups removed
+    (sensitivity analysis -- see audit_ok in build_h3_dataset.py)
 
 Requires: pandas, numpy, statsmodels, openpyxl     (pip install statsmodels)
 
@@ -213,6 +215,8 @@ def run_primary(df_h3: pd.DataFrame) -> dict:
            for i in range(len(names))}
     vif_no_int = {k: v for k, v in vif.items() if k != "Intercept"}
     max_vif = max(vif_no_int.values()) if vif_no_int else float("nan")
+    high_vif = {k: v for k, v in vif_no_int.items() if v > 5}
+    high_vif_process = [k for k in high_vif if k in PROCESS_TERMS]
 
     # --- report ------------------------------------------------------
     out(f"Model 1 (baseline): R2 = {r2_1:.4f}   adj-R2 = {r2a_1:.4f}"
@@ -240,10 +244,25 @@ def run_primary(df_h3: pd.DataFrame) -> dict:
         out(f"   {t:18s} {coef:>+10.4f}  exp {want} got {got} {flag:>3s}"
             f"  {raw_p[t]:>10.4g}  {holm_p[t]:>10.4g}")
     out("")
-    out(f"VIF (max non-intercept) = {max_vif:.2f}"
-        + ("  -- EXCEEDS 5: inspect collinearity (consider dropping the "
-           "more redundant of mention_rate / process_quality)"
-           if max_vif > 5 else "  -- OK (<= 5)"))
+    out(f"VIF (max non-intercept) = {max_vif:.2f}")
+    if not high_vif:
+        out("   all predictors have VIF <= 5 -- OK, no collinearity concern.")
+    else:
+        out(f"   {len(high_vif)} term(s) have VIF > 5:")
+        for _k, _v in sorted(high_vif.items(), key=lambda kv: -kv[1]):
+            _kind = ("process predictor" if _k in PROCESS_TERMS
+                     else "structural control" if _k in STRUCT_TERMS
+                     else "group_config dummy")
+            out(f"      {_v:7.2f}  {_k}  [{_kind}]")
+        if high_vif_process:
+            out(f"   WARNING: process predictor(s) collinear "
+                f"({', '.join(high_vif_process)}); inspect before trusting "
+                f"their individual coefficients.")
+        else:
+            out("   No process predictor exceeds 5 -- the four process metrics")
+            out("   are not collinear.  Elevated VIFs on group_config dummies are")
+            out("   an expected artifact of dummy coding (one categorical factor)")
+            out("   and do NOT bias the process-predictor estimates.  No action.")
     out("")
 
     # --- decision rule ----------------------------------------------
@@ -314,7 +333,7 @@ def run_primary(df_h3: pd.DataFrame) -> dict:
         "Model2_coef": coef_table(m2, holm_p=holm_p),
         "Model_comparison": cmp_tbl,
         "VIF": vif_tbl,
-    }
+    }, verdict
 
 
 # --------------------------------------------------------------------
@@ -329,7 +348,6 @@ def run_worst_iss(df_h3: pd.DataFrame) -> pd.DataFrame:
     g = data.groupby("group_id")
     grp = pd.DataFrame({
         "worst_iss": g["iss"].min(),
-        "min_sat": g["min_sat"].first(),
         "maj_min_gap": g["maj_min_gap"].first(),
         "n_agents": g["n_agents"].first(),
         "group_config": g["group_config"].first(),
@@ -338,16 +356,20 @@ def run_worst_iss(df_h3: pd.DataFrame) -> pd.DataFrame:
         "social_shift": g["social_shift"].mean(),      # = proportion shifted
         "process_quality": g["process_quality"].first(),
     }).reset_index()
-    out(f"groups: {len(grp)}  (one row per group; majority_voter is agent-")
-    out("level and is therefore omitted; agent-level process predictors are")
-    out("entered as group means. One row per group -> HC3 robust SE, no clustering.")
-    n_params_m2 = 1 + 3 + len(STRUCT_TERMS) - 1 + len(PROCESS_TERMS)
+    out(f"groups: {len(grp)}  (one row per group.  Two structural terms are")
+    out("deliberately omitted: majority_voter is agent-level, and min_sat is")
+    out("EXCLUDED because min_sat == min(iss) by construction -- it IS the")
+    out("dependent variable, so regressing worst_iss on min_sat would be")
+    out("tautological.  maj_min_gap + n_agents + group_config remain as the")
+    out("structural controls; agent-level process predictors enter as group")
+    out("means. One row per group -> HC3 robust SE, no clustering.")
+    n_params_m2 = 1 + 3 + 2 + len(PROCESS_TERMS)   # intercept+3 cfg+gap+n+process
     if len(grp) <= n_params_m2 + 1:
         out(f"SKIPPED: only {len(grp)} groups for ~{n_params_m2} parameters.")
         out("")
         return pd.DataFrame()
 
-    f_struct = "min_sat + maj_min_gap + n_agents + " + CONFIG_TERM
+    f_struct = "maj_min_gap + n_agents + " + CONFIG_TERM
     f1 = f"worst_iss ~ {f_struct}"
     f2 = f"{f1} + " + " + ".join(PROCESS_TERMS)
     m1 = smf.ols(f1, data=grp).fit(cov_type="HC3")
@@ -430,6 +452,85 @@ def run_per_config(df_h3: pd.DataFrame) -> pd.DataFrame:
 
 
 # --------------------------------------------------------------------
+# ROBUSTNESS 4 -- primary test re-run with audit-flagged groups removed
+# --------------------------------------------------------------------
+def run_audit_clean(df_h3: pd.DataFrame, primary_verdict: str) -> pd.DataFrame:
+    """Sensitivity analysis: repeat the primary H3 test on only those groups
+    whose LLM-judge output passed the structural audit (audit_ok == 1).
+    If the verdict is unchanged, the H3 conclusion is robust to the
+    audit-flagged groups."""
+    rule("=")
+    out("ROBUSTNESS 4  --  primary H3 test excluding audit-flagged groups")
+    rule("=")
+    if "audit_ok" not in df_h3.columns:
+        out("SKIPPED: the input CSV has no 'audit_ok' column.  Rebuild it with")
+        out("the current build_h3_dataset.py to enable this sensitivity check.")
+        out("")
+        return pd.DataFrame()
+
+    model_vars = [DV, "group_id", "group_config"] + STRUCT_TERMS + PROCESS_TERMS
+    clean = df_h3[df_h3["audit_ok"] == 1].copy()
+    n_grp_before = df_h3["group_id"].nunique()
+    data, _ = drop_incomplete(clean, model_vars)
+    n_obs = len(data)
+    n_grp = data["group_id"].nunique()
+    out(f"audit-flagged groups removed : "
+        f"{n_grp_before - clean['group_id'].nunique()}")
+    out(f"agent observations           : {n_obs}")
+    out(f"groups (clusters)            : {n_grp}")
+    if n_grp < MIN_CLUSTERS_WARN:
+        out(f"WARNING: only {n_grp} clusters -- treat this as a pipeline test.")
+    out("")
+
+    f_struct = " + ".join(STRUCT_TERMS) + " + " + CONFIG_TERM
+    f_m1 = f"{DV} ~ {f_struct}"
+    f_m2 = f"{f_m1} + " + " + ".join(PROCESS_TERMS)
+    m1 = fit_clustered(f_m1, data)
+    m2 = fit_clustered(f_m2, data)
+
+    fF, fp, df_num, df_den = joint_F(m2, PROCESS_TERMS)
+    r2_inc = m2.rsquared - m1.rsquared
+    raw_p = {t: float(m2.pvalues[t]) for t in PROCESS_TERMS}
+    _, p_holm_arr, _, _ = multipletests([raw_p[t] for t in PROCESS_TERMS],
+                                        alpha=ALPHA, method="holm")
+    holm_p = dict(zip(PROCESS_TERMS, [float(x) for x in p_holm_arr]))
+    sig_correct = [t for t in PROCESS_TERMS
+                   if holm_p[t] < ALPHA
+                   and np.sign(m2.params[t]) == EXPECTED_SIGN[t]]
+
+    cond1 = fp < ALPHA
+    cond2 = len(sig_correct) >= 2
+    cond3 = r2_inc >= R2_INCREMENT_MIN
+    if cond1 and cond2 and cond3:
+        verdict = "H3 SUPPORTED"
+    elif len(sig_correct) == 1:
+        verdict = "H3 PARTIALLY SUPPORTED"
+    elif len(sig_correct) == 0:
+        verdict = "H3 REJECTED"
+    else:
+        verdict = "H3 NOT FULLY SUPPORTED"
+
+    out(f"joint process F({df_num:.0f}, {df_den:.0f}) = {fF:.3f}   p = {fp:.4g}")
+    out(f"R2 increment = {r2_inc:+.4f}    process predictors Holm-significant "
+        f"with the expected sign: {len(sig_correct)}")
+    out(f"  [{'PASS' if cond1 else 'FAIL'}] (1) joint F-test significant")
+    out(f"  [{'PASS' if cond2 else 'FAIL'}] (2) >= 2 process predictors correct")
+    out(f"  [{'PASS' if cond3 else 'FAIL'}] (3) R2 increment >= {R2_INCREMENT_MIN}")
+    out(f"  VERDICT (audit-clean subset): {verdict}")
+
+    prim_short = primary_verdict.split(" -- ")[0].strip()
+    if verdict == prim_short:
+        out(f"  -> MATCHES the primary verdict ({prim_short}).  The H3")
+        out("     conclusion is ROBUST to removing the audit-flagged groups.")
+    else:
+        out(f"  -> DIFFERS from the primary verdict ({prim_short}).  The")
+        out("     audit-flagged groups DO move the conclusion -- report and")
+        out("     discuss this in the thesis.")
+    out("")
+    return coef_table(m2, holm_p=holm_p)
+
+
+# --------------------------------------------------------------------
 # main
 # --------------------------------------------------------------------
 def main() -> int:
@@ -454,7 +555,8 @@ def main() -> int:
         sys.exit("No H3 rows in the input CSV -- nothing to test.")
 
     sheets: dict = {}
-    sheets.update(run_primary(df_h3))
+    primary_sheets, primary_verdict = run_primary(df_h3)
+    sheets.update(primary_sheets)
 
     try:
         rob1 = run_worst_iss(df_h3)
@@ -480,20 +582,37 @@ def main() -> int:
         out(f"ROBUSTNESS 3 failed: {exc}")
         out("")
 
-    # --- write workbook ---------------------------------------------
-    xlsx_path = Path(args.xlsx)
-    xlsx_path.parent.mkdir(parents=True, exist_ok=True)
-    with pd.ExcelWriter(xlsx_path, engine="openpyxl") as xw:
-        for name, tbl in sheets.items():
-            if tbl is None or tbl.empty:
-                continue
-            tbl.to_excel(xw, sheet_name=name[:31], index=False)
-    out(f"workbook written : {xlsx_path}")
+    try:
+        rob4 = run_audit_clean(df_h3, primary_verdict)
+        if not rob4.empty:
+            sheets["Rob4_auditclean"] = rob4
+    except Exception as exc:                       # noqa: BLE001
+        out(f"ROBUSTNESS 4 failed: {exc}")
+        out("")
 
-    # --- write text report ------------------------------------------
+    # --- write workbook (guarded: a failed .xlsx must not crash the run
+    #     or lose the .txt report) -------------------------------------
+    xlsx_path = Path(args.xlsx)
+    try:
+        xlsx_path.parent.mkdir(parents=True, exist_ok=True)
+        with pd.ExcelWriter(xlsx_path, engine="openpyxl") as xw:
+            for name, tbl in sheets.items():
+                if tbl is None or tbl.empty:
+                    continue
+                tbl.to_excel(xw, sheet_name=name[:31], index=False)
+        out(f"workbook written : {xlsx_path}")
+    except Exception as exc:                       # noqa: BLE001
+        out(f"WARNING: could not write the .xlsx workbook ({exc}).")
+        out("         All results are still in the .txt report below.")
+
+    # --- write text report (last, so it always captures the full run) -
     txt_path = Path(args.txt)
-    txt_path.write_text("\n".join(LOG) + "\n", encoding="utf-8")
-    print(f"text report written : {txt_path}")
+    try:
+        txt_path.parent.mkdir(parents=True, exist_ok=True)
+        txt_path.write_text("\n".join(LOG) + "\n", encoding="utf-8")
+        print(f"text report written : {txt_path}")
+    except OSError as exc:
+        print(f"WARNING: could not write the .txt report ({exc})")
     return 0
 
 

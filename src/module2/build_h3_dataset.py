@@ -24,6 +24,9 @@ group_config        str    uniform / divergent / coalitional / minority
 n_agents            int    group size
 is_h3               int    1 if the group is in the H3 subset
                            (consensus & min_sat < 0.20 & maj_min_gap > 0.30)
+audit_ok            int    1 if the judge's structural_audit passed, 0 if the
+                           judge output was flagged (group-level; drives the
+                           Robustness-4 sensitivity check in regression_h3.py)
 iss                 float  DEPENDENT VARIABLE: individual satisfaction (0-1)
 mention_rate        float  process predictor 1 (sentiment-weighted, agent)
 repetition_index    int    process predictor 2 (agent)
@@ -113,6 +116,7 @@ def main() -> int:
     rows: list[dict] = []
     name_mismatches: list[tuple] = []
     missing_metric: list[tuple] = []
+    missing_audit: list[int] = []
 
     for gid, jrec in sorted(judge.items()):
         if gid not in by_gid:
@@ -122,6 +126,12 @@ def main() -> int:
         out = jrec["llm_output"]
         n_agents = int(r["n_agents"])
         h3 = is_h3_group(r)
+        audit = jrec.get("structural_audit")
+        if audit is None:
+            missing_audit.append(gid)
+        # audit_ok = 1 unless the judge's structural audit explicitly failed
+        audit_ok = 0 if (audit is not None
+                         and audit.get("structural_ok") is False) else 1
 
         # index the judge's per-agent lists by agent name
         mr_by_agent = {e["agent"]: e for e in out.get("mention_rate", [])}
@@ -153,6 +163,7 @@ def main() -> int:
                 "group_config": r["group_config"],
                 "n_agents": n_agents,
                 "is_h3": int(h3),
+                "audit_ok": audit_ok,
                 "iss": iss,
                 "mention_rate": mention_rate,
                 "repetition_index": repetition_index,
@@ -165,8 +176,9 @@ def main() -> int:
 
     # ---- write CSV --------------------------------------------------
     fields = ["group_id", "agent", "group_config", "n_agents", "is_h3",
-              "iss", "mention_rate", "repetition_index", "social_shift",
-              "process_quality", "min_sat", "maj_min_gap", "majority_voter"]
+              "audit_ok", "iss", "mention_rate", "repetition_index",
+              "social_shift", "process_quality", "min_sat", "maj_min_gap",
+              "majority_voter"]
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", newline="", encoding="utf-8") as fh:
@@ -176,10 +188,17 @@ def main() -> int:
 
     # ---- report -----------------------------------------------------
     n_h3 = sum(1 for x in rows if x["is_h3"])
+    n_audit_flag = sum(1 for x in rows if x["audit_ok"] == 0)
+    flagged_groups = {x["group_id"] for x in rows if x["audit_ok"] == 0}
     print("-" * 62)
     print(f"agent rows written  : {len(rows)}  ->  {out_path}")
     print(f"  in H3 subset      : {n_h3}")
     print(f"  outside H3 subset : {len(rows) - n_h3}")
+    print(f"  audit-flagged     : {n_audit_flag} agent rows in "
+          f"{len(flagged_groups)} groups (structural_ok=False)")
+    if missing_audit:
+        print(f"  !! {len(missing_audit)} group(s) had NO structural_audit "
+              f"record -- treated as audit_ok=1")
     if name_mismatches:
         print(f"  !! {len(name_mismatches)} agent(s) had no judge entry "
               f"(possible name mismatch) -- first few:")
