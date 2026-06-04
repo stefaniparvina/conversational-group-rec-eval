@@ -91,6 +91,11 @@ MIN_CLUSTERS_WARN = 30           # below this, cluster-robust SEs are shaky
 
 LOG: list = []
 
+# Collects the headline statistics of each robustness check (joint-F, its p,
+# R2 increment, group/agent counts) so they are written to the workbook, not
+# only to the .txt report.
+ROB_SUMMARY: list = []
+
 
 def out(s: str = "") -> None:
     """Print to stdout and capture the line for the .txt report."""
@@ -381,6 +386,15 @@ def run_worst_iss(df_h3: pd.DataFrame) -> pd.DataFrame:
         f"   increment = {m2.rsquared - m1.rsquared:+.4f}")
     out(f"joint process F = {fF:.3f}   p = {fp:.4g}")
     out("")
+    for _metric, _value in [
+            ("n_groups", len(grp)),
+            ("R2_model1", round(float(m1.rsquared), 4)),
+            ("R2_model2", round(float(m2.rsquared), 4)),
+            ("R2_increment", round(float(m2.rsquared - m1.rsquared), 4)),
+            ("joint_process_F", round(fF, 4)),
+            ("joint_process_F_p", fp)]:
+        ROB_SUMMARY.append({"check": "Rob1_worstISS",
+                            "metric": _metric, "value": _value})
     return coef_table(m2)
 
 
@@ -439,6 +453,12 @@ def run_per_config(df_h3: pd.DataFrame) -> pd.DataFrame:
             fp = float(np.asarray(ft.pvalue).squeeze())
             out(f"  {cfg:12s}: {n_grp} groups / {n_obs} agents   "
                 f"R2 = {m2.rsquared:.4f}   joint process F p = {fp:.4g}")
+            for _metric, _value in [
+                    ("R2", round(float(m2.rsquared), 4)),
+                    ("joint_process_F_p", fp),
+                    ("n_groups", n_grp), ("n_agents", n_obs)]:
+                ROB_SUMMARY.append({"check": f"Rob3_{cfg}",
+                                    "metric": _metric, "value": _value})
             for t in PROCESS_TERMS:
                 rows.append({"config": cfg, "term": t,
                              "coef": float(m2.params[t]),
@@ -513,6 +533,16 @@ def run_audit_clean(df_h3: pd.DataFrame, primary_verdict: str) -> pd.DataFrame:
     out(f"joint process F({df_num:.0f}, {df_den:.0f}) = {fF:.3f}   p = {fp:.4g}")
     out(f"R2 increment = {r2_inc:+.4f}    process predictors Holm-significant "
         f"with the expected sign: {len(sig_correct)}")
+    for _metric, _value in [
+            ("n_flagged_removed", int(n_grp_before - clean["group_id"].nunique())),
+            ("n_groups", n_grp), ("n_agents", n_obs),
+            ("joint_process_F", round(fF, 4)),
+            ("joint_F_df_num", df_num), ("joint_F_df_denom", df_den),
+            ("joint_process_F_p", fp),
+            ("R2_increment", round(float(r2_inc), 4)),
+            ("verdict", verdict)]:
+        ROB_SUMMARY.append({"check": "Rob4_auditclean",
+                            "metric": _metric, "value": _value})
     out(f"  [{'PASS' if cond1 else 'FAIL'}] (1) joint F-test significant")
     out(f"  [{'PASS' if cond2 else 'FAIL'}] (2) >= 2 process predictors correct")
     out(f"  [{'PASS' if cond3 else 'FAIL'}] (3) R2 increment >= {R2_INCREMENT_MIN}")
@@ -589,6 +619,11 @@ def main() -> int:
     except Exception as exc:                       # noqa: BLE001
         out(f"ROBUSTNESS 4 failed: {exc}")
         out("")
+
+    # Headline robustness statistics (joint-F, its p, R2 increment, counts)
+    # collected from Rob1/Rob3/Rob4, so they live in the workbook too.
+    if ROB_SUMMARY:
+        sheets["Robustness_Summary"] = pd.DataFrame(ROB_SUMMARY)
 
     # --- write workbook (guarded: a failed .xlsx must not crash the run
     #     or lose the .txt report) -------------------------------------

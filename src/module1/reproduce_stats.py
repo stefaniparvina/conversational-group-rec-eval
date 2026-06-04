@@ -135,6 +135,74 @@ for t in ["openness", "conscientiousness", "extraversion", "agreeableness", "neu
 personality_df = pd.DataFrame(trait_results).set_index("trait")
 frames["Personality Correlations"] = personality_df
 
+# ── Section 7 — Report-traceability additions ────────────────────────────────
+# Every figure quoted in the thesis but not previously written to a result file
+# is computed here so the report is fully traceable to stats_output.xlsx.
+print("\n=== Section 7: Report-traceability additions ===")
+
+# 7a. Per-config standard deviations for Table I (population SD, ddof=0, to
+#     match the values rounded to 2 dp in the report).
+oq_sd_by_config = dc.groupby("group_config")[metrics_cfg].std(ddof=0).round(4)
+frames["Outcome Quality SD by Config"] = oq_sd_by_config
+print(oq_sd_by_config)
+
+# 7b. Mean number of rounds to consensus, per config and overall.
+rounds_df = dc.groupby("group_config")["turn_counter"].mean().round(2).to_frame("mean_rounds")
+rounds_df.loc["OVERALL"] = round(float(dc["turn_counter"].mean()), 2)
+frames["Rounds to Consensus"] = rounds_df
+print(rounds_df)
+
+# 7c. Single-round fraction (consensus groups and all groups), so the report's
+#     "single round" figure is traceable.
+single_round_df = pd.DataFrame(
+    {"value": [round(float(dc["single_round_group"].mean()), 4),
+               round(float(df["single_round_group"].mean()), 4)]},
+    index=["single_round_frac_consensus", "single_round_frac_all_groups"])
+frames["Single-Round Fraction"] = single_round_df
+print(single_round_df)
+
+# 7d. Agent-level ISS melt that ALSO carries n_agents, for ISS<0.20 by size and
+#     by config x size (the existing `m` only carries group_config).
+m_sz = (df.melt(id_vars=["group_id", "group_config", "n_agents", "consensus_reached"],
+                value_vars=iss_cols, var_name="agent", value_name="iss")
+          .dropna()
+          .query("consensus_reached"))
+
+# Overall ISS<0.20 share appended to the ISS Overall sheet.
+frames["ISS Overall"].loc["pct_lt_0.20"] = round(float((m_sz["iss"] < 0.20).mean()), 4)
+
+# ISS distribution by group size.
+frames["ISS by Size"] = (m_sz.groupby("n_agents")["iss"]
+    .agg(mean="mean", median="median", std="std",
+         pct_lt_02=lambda x: (x < 0.20).mean())
+    .round(4))
+print(frames["ISS by Size"])
+
+# ISS<0.20 by config x size (shows the n=2 divergent case the report rounds over).
+frames["ISS by Config x Size"] = (m_sz.groupby(["group_config", "n_agents"])["iss"]
+    .agg(mean="mean", pct_lt_02=lambda x: (x < 0.20).mean())
+    .round(4))
+
+# 7e. Overall strategy-match row appended to the per-config match-rate sheet
+#     (this is the "Overall" row of Table II).
+frames["Strategy Match Rates"].loc["OVERALL"] = (
+    dc[[f"matches_{s}" for s in strats]].mean().round(4).values)
+print(frames["Strategy Match Rates"])
+
+# 7f. H3-subset threshold justification (median MinSat, 75th-percentile
+#     MajMinGap, the two threshold shares, and the resulting subset size).
+thr_min_sat = dc["min_sat"]
+thr_maj_gap = dc["maj_min_gap"]
+frames["H3 Threshold Justification"] = pd.DataFrame(
+    {"value": [round(float(thr_min_sat.median()), 4),
+               round(float(thr_maj_gap.quantile(0.75)), 4),
+               round(float((thr_min_sat < 0.20).mean()), 4),
+               round(float((thr_maj_gap > 0.30).mean()), 4),
+               int(((dc["min_sat"] < 0.20) & (dc["maj_min_gap"] > 0.30)).sum())]},
+    index=["median_MinSat", "MajMinGap_75th_pct", "frac_MinSat_lt_0.20",
+           "frac_MajMinGap_gt_0.30", "n_H3_subset"])
+print(frames["H3 Threshold Justification"])
+
 # ── Excel output ──────────────────────────────────────────────────────────────
 OUT_XLSX.parent.mkdir(parents=True, exist_ok=True)
 try:

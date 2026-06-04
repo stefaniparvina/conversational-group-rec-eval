@@ -460,6 +460,35 @@ def test_h4(full_dataset_folder, results_json_path):
         ])
 
 
+# ── H2b SUPPORTING BREAKDOWN ─────────────────────────────────────────────────
+
+def h2b_zero_gap_breakdown(results_json_path):
+    """Make the H2b group counts traceable.
+
+    H2b is tested only on consensus groups with a NON-ZERO majority-minority
+    gap. A zero gap arises either because the group has no minority side (a
+    unanimous vote, so G\\W is empty) or because the majority and minority
+    voters happen to have an equal mean ISS (an exact tie). This records the
+    split (reported in the thesis as 4,533 non-zero, 3,058 no-minority,
+    33 exact ties) so every number is reproducible from a result file.
+    """
+    with open(results_json_path, encoding="utf-8") as f:
+        results = json.load(f)
+    consensus = [g for g in results if g.get("consensus_reached")]
+    n_nonzero = n_no_minority = n_exact_tie = 0
+    for g in consensus:
+        if abs(g.get("maj_min_gap", 0.0)) > 1e-12:
+            n_nonzero += 1
+        elif len(g.get("minority_voters", [])) == 0:
+            n_no_minority += 1
+        else:
+            n_exact_tie += 1
+    FRAMES["H2b Zero-Gap Breakdown"] = pd.DataFrame(
+        {"value": [n_nonzero, n_no_minority, n_exact_tie, len(consensus)]},
+        index=["n_nonzero_gap", "n_zero_no_minority_side",
+               "n_zero_exact_tie", "n_total_consensus"])
+
+
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -483,6 +512,7 @@ def main():
     df = pd.read_csv(results_csv)
     test_h1(df)
     test_h2(df)
+    h2b_zero_gap_breakdown(results_json)
     test_h3(df)
     test_h4(full_dataset, results_json)
 
