@@ -1,0 +1,16 @@
+group_id,group_config,n_agents,turn_counter,total_messages,min_sat,maj_min_gap,final_rec
+11,divergent,4,2,8,0.1667,0.8,rest_w
+508,coalitional,8,11,88,0.1,0.5921,rest_y
+1234,minority,8,1,8,0.1,0.5667,rest_z
+1530,coalitional,6,8,48,0.1,0.5822,rest_d
+1922,coalitional,6,2,12,0.1,0.7417,rest_f
+2136,divergent,6,3,18,0.1,0.5222,rest_p
+2273,coalitional,6,3,18,0.1111,0.6044,rest_c
+2434,minority,6,3,18,0.125,0.3312,rest_a
+2767,divergent,6,16,96,0.1,0.3607,rest_i
+4638,coalitional,4,2,8,0.1111,0.5306,rest_x
+5412,divergent,8,2,16,0.1,0.4496,rest_n
+5540,divergent,8,5,40,0.1,0.4343,rest_x
+5994,minority,6,2,12,0.1429,0.3786,rest_d
+6301,divergent,6,2,12,0.1,0.5278,rest_i
+6410,uniform,6,2,12,0.1667,0.5516,rest_s

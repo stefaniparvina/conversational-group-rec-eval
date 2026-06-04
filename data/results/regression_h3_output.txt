@@ -1,0 +1,93 @@
+regression_h3.py  --  Module 2 / RQ3-H3 nested OLS regression
+input: C:\Users\stefa\OneDrive\Documents\Thesis\Thesis folder\conversational-group-rec-eval\data\results\h3_agent_level.csv
+total agent rows: 8524   (H3 = 8524, non-H3 = 0)
+
+======================================================================
+PRIMARY H3 TEST  --  agent-level nested OLS, cluster-robust by group
+======================================================================
+agent observations : 8524
+groups (clusters)  : 1376
+
+Model 1 (baseline): R2 = 0.4073   adj-R2 = 0.4069   overall F p = 0
+Model 2 (full)    : R2 = 0.5300   adj-R2 = 0.5294   overall F p = 0
+R2 increment      : +0.1227   (threshold >= 0.03)
+
+Model 1 vs Model 2 -- cluster-robust joint F-test on the 4 process terms:
+   F(4, 1375) = 593.400   p = 1.541e-297
+   (classical homoscedastic F = 555.596, p = 0 -- reference only; the clustered test
+    above is the one the decision rule uses)
+
+Process predictors in Model 2:
+   term                     coef         sign       p_raw      p_holm
+   mention_rate          +0.2291  exp + got +  ok   1.365e-93   4.096e-93
+   repetition_index      -0.0032  exp - got -  ok      0.6682      0.6682
+   social_shift          -0.1892  exp - got -  ok   1.48e-151  5.922e-151
+   process_quality       -0.1141  exp + got - WRONG   5.358e-07   1.072e-06
+
+VIF (max non-intercept) = 6.78
+   3 term(s) have VIF > 5:
+         6.78  C(group_config, Treatment(reference='uniform'))[T.divergent]  [group_config dummy]
+         6.34  C(group_config, Treatment(reference='uniform'))[T.coalitional]  [group_config dummy]
+         5.03  C(group_config, Treatment(reference='uniform'))[T.minority]  [group_config dummy]
+   No process predictor exceeds 5 -- the four process metrics
+   are not collinear.  Elevated VIFs on group_config dummies are
+   an expected artifact of dummy coding (one categorical factor)
+   and do NOT bias the process-predictor estimates.  No action.
+
+----------------------------------------------------------------------
+DECISION RULE
+  [PASS] (1) joint F-test significant (p = 1.541e-297 < 0.05)
+  [PASS] (2) >= 2 process predictors Holm-significant with the expected sign
+           -> have 2: mention_rate, social_shift
+  [PASS] (3) R2 increment >= 0.03  (have +0.1227)
+  note: process_quality reached significance but with the WRONG sign -- not counted toward support
+
+  VERDICT: H3 SUPPORTED
+----------------------------------------------------------------------
+
+======================================================================
+ROBUSTNESS 1  --  worst-agent ISS as dependent variable (group level)
+======================================================================
+groups: 1376  (one row per group.  Two structural terms are
+deliberately omitted: majority_voter is agent-level, and min_sat is
+EXCLUDED because min_sat == min(iss) by construction -- it IS the
+dependent variable, so regressing worst_iss on min_sat would be
+tautological.  maj_min_gap + n_agents + group_config remain as the
+structural controls; agent-level process predictors enter as group
+means. One row per group -> HC3 robust SE, no clustering.
+Model 1 R2 = 0.1040   Model 2 R2 = 0.1056   increment = +0.0016
+joint process F = 0.591   p = 0.669
+
+======================================================================
+ROBUSTNESS 2  --  Model 2 on the full judged set (not only H3)
+======================================================================
+All judged groups are inside the H3 subset, so this check is
+identical to the primary test.  To run it as the plan intends,
+the LLM judge must also be run on consensus groups OUTSIDE the
+H3 subset (a larger / costlier judging run than the H3-only one).
+
+======================================================================
+ROBUSTNESS 3  --  Model 2 fit separately within each configuration
+======================================================================
+  uniform     : 62 groups / 380 agents   R2 = 0.5602   joint process F p = 8.622e-11
+  divergent   : 530 groups / 3290 agents   R2 = 0.4939   joint process F p = 2.433e-130
+  coalitional : 472 groups / 2996 agents   R2 = 0.5258   joint process F p = 6.722e-106
+  minority    : 312 groups / 1858 agents   R2 = 0.5822   joint process F p = 2.677e-54
+
+======================================================================
+ROBUSTNESS 4  --  primary H3 test excluding audit-flagged groups
+======================================================================
+audit-flagged groups removed : 344
+agent observations           : 6206
+groups (clusters)            : 1032
+
+joint process F(4, 1031) = 432.304   p = 1.095e-218
+R2 increment = +0.1223    process predictors Holm-significant with the expected sign: 2
+  [PASS] (1) joint F-test significant
+  [PASS] (2) >= 2 process predictors correct
+  [PASS] (3) R2 increment >= 0.03
+  VERDICT (audit-clean subset): H3 SUPPORTED
+  -> MATCHES the primary verdict (H3 SUPPORTED).  The H3
+     conclusion is ROBUST to removing the audit-flagged groups.
+
+workbook written : C:\Users\stefa\OneDrive\Documents\Thesis\Thesis folder\conversational-group-rec-eval\data\results\regression_h3_output.xlsx

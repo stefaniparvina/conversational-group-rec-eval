@@ -1,0 +1,50 @@
+==============================================================================
+MODULE 2 -- JUDGE VALIDATION REPORT  (GPT-4o judge vs. human annotator)
+==============================================================================
+Judge results found for 15/15 validation transcripts.
+Human annotation sheets with data: 4/4.
+
+Metric                                       n   exact   kappa           95% CI  reading
+------------------------------------------------------------------------------
+Process Quality - preferences_heard         15     27%  +0.16w   [-0.09, +0.44]  slight
+Process Quality - shifts_justified          15     80%  +0.59w   [+0.00, +1.00]  moderate
+Process Quality - mutual_respect            15     60%  +0.23w   [+0.00, +0.65]  fair
+Process Quality - logical_support           15     67%  +0.00w   [-0.15, +0.12]  slight
+Process Quality - ALL DIMENSIONS POOLED     60     58%  +0.27w   [+0.06, +0.50]  fair
+                                            -> headline kappa for the Process Quality Score
+Mention Rate - acknowledged                 94     86%   +0.32   [+0.04, +0.58]  fair
+Mention Rate - dominant_sentiment           78     73%   +0.45   [+0.26, +0.63]  moderate
+Justified Shifts - shift_type              117     63%   +0.39   [+0.26, +0.52]  fair
+Repetition Index - any repetition           94     86%   -0.07   [-0.11, -0.02]  poor (worse than chance)
+                                            -> raw-count exact agreement 0.862, mean abs. difference 0.17
+------------------------------------------------------------------------------
+
+Supplementary agreement statistics
+(robust to the kappa prevalence paradox -- see notes below):
+Metric                                       exact  within1   PABAK
+Process Quality - preferences_heard            27%      80%     n/a
+Process Quality - shifts_justified             80%     100%     n/a
+Process Quality - mutual_respect               60%      87%     n/a
+Process Quality - logical_support              67%     100%     n/a
+Process Quality - ALL DIMENSIONS POOLED        58%      92%     n/a
+Mention Rate - acknowledged                    86%      n/a   +0.72
+Mention Rate - dominant_sentiment              73%      n/a     n/a
+Justified Shifts - shift_type                  63%      n/a     n/a
+Repetition Index - any repetition              86%      n/a   +0.72
+
+Notes:
+- 'kappa' shows quadratic-weighted kappa (suffix w) for the ordinal
+  0-3 Process Quality dimensions, and unweighted Cohen's kappa
+  otherwise. Verbal labels follow Landis & Koch (1977):
+  <=.20 slight, <=.40 fair, <=.60 moderate, <=.80 substantial,
+  >.80 almost perfect.
+- The validation set is 15 transcripts. Per-dimension n is small (15),
+  so the bootstrap CI is wide -- always report kappa WITH its CI, and
+  lean on the pooled Process Quality row (n=60) as the headline.
+- A judge that does not reach 'substantial' agreement on a metric is a
+  finding to report and discuss, not a failure to hide.
+- 'within1' = adjacent agreement: share of ordinal 0-3 score pairs
+  agreeing within one point. 'PABAK' (Byrt et al. 1993) is a
+  prevalence-adjusted agreement index for the binary metrics, where
+  Cohen's kappa is distorted when one category dominates.
+==============================================================================

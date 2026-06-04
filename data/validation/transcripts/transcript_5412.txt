@@ -1,0 +1,137 @@
+======================================================================
+TRANSCRIPT   group_id = 5412   |   config = divergent
+======================================================================
+Agents: 8
+Final group recommendation: rest_n
+Restaurant options: rest_c, rest_n, rest_z, rest_j, rest_q, rest_g, rest_i, rest_h, rest_l, rest_x
+
+AGENT PROFILES  (personality/tone/behaviour are ASSIGNED -- see edge rules)
+  Morgan
+     tone: Sarcastic and snarky
+     personality: openness 0.96, conscientiousness 0.74, extraversion 0.44, agreeableness 0.03, neuroticism 0.07
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_h(10), rest_n(6), rest_q(6)
+
+  Lowen
+     tone: Bitter and resentful
+     personality: openness 0.21, conscientiousness 0.45, extraversion 0.45, agreeableness 0.07, neuroticism 0.40
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_j(9), rest_i(9), rest_x(9)
+
+  Harper
+     tone: Friendly but firm
+     personality: openness 0.14, conscientiousness 0.47, extraversion 0.52, agreeableness 0.62, neuroticism 0.36
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_c(9), rest_z(9), rest_g(9)
+
+  Homer
+     tone: Blunt and aggressive
+     personality: openness 0.39, conscientiousness 0.19, extraversion 0.85, agreeableness 0.06, neuroticism 0.51
+     behaviour:
+        Your behavior is described as:
+        - You are bold and blunt.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You do not sugar-coat anything.
+        - You take control.
+     own top ratings: rest_c(10), rest_n(10), rest_j(9)
+
+  William
+     tone: Warm and agreeable
+     personality: openness 0.74, conscientiousness 0.29, extraversion 0.57, agreeableness 0.64, neuroticism 0.89
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You weigh all options equally.
+        - You respond emotionally.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_n(10), rest_z(10), rest_x(10)
+
+  Evelyn
+     tone: Humble and deferential
+     personality: openness 0.11, conscientiousness 0.34, extraversion 0.05, agreeableness 0.98, neuroticism 0.21
+     behaviour:
+        Your behavior is described as:
+        - You rarely challenge other opinions.
+        - You weigh all options equally.
+        - You remain cool-headed.
+        - You avoid conflict.
+        - You go with the flow.
+     own top ratings: rest_n(10), rest_l(10), rest_z(7)
+
+  James
+     tone: Sarcastic and snarky
+     personality: openness 0.15, conscientiousness 0.57, extraversion 0.51, agreeableness 0.68, neuroticism 0.70
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind.
+        - You push your favorites and do not give up easily.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up.
+     own top ratings: rest_z(10), rest_q(10), rest_x(10)
+
+  Liam
+     tone: Overconfident and cocky
+     personality: openness 0.86, conscientiousness 0.59, extraversion 0.35, agreeableness 0.75, neuroticism 0.46
+     behaviour:
+        Your behavior is described as:
+        - You rarely challenge other opinions.
+        - You weigh all options equally.
+        - You usually manage to stay composed.
+        - You are fair and respectful.
+        - You go with the flow.
+     own top ratings: rest_c(10), rest_n(10), rest_l(10)
+
+PREFERENCE EVOLUTION  (the option each agent suggested, by round)
+  Morgan            : rest_h  ->  rest_n
+  Lowen             : rest_j  ->  rest_n
+  Harper            : rest_c  ->  rest_z
+  Homer             : rest_c  ->  rest_n
+  William           : rest_n  ->  rest_n
+  Evelyn            : rest_n  ->  rest_n
+  James             : rest_z  ->  rest_z
+  Liam              : rest_c  ->  rest_z
+
+----------------------------------------------------------------------
+CONVERSATION
+----------------------------------------------------------------------
+
+--- Round 1 ---
+[1] Morgan: My current suggestion is rest_h. I mean, why mess with perfection? It's got a perfect ten rating from yours truly. But hey, I'm not one to hog the spotlight, so let's hear some alternatives. Rest_q and rest_i are no slouches either, both rated six and five respectively. Rest_c's a solid choice too, clocking in at five. The rest? Well, they're just that - the rest. So, who's got something to add or am I just gonna keep hearing crickets here?
+[2] Lowen: My current suggestion is rest_j. I've been there, tried it, loved it - nine out of ten, can't beat that. But hey, I'm not here to shove my preferences down everyone's throats. If someone's got a six or seven they swear by, let's hear it. Just don't make me eat at some dump rated lower than my mood after a long day.
+[3] Harper: My current suggestion is rest_c. I've been there, done that, and it's a nine out of ten for me. Great vibes, fantastic food - what's not to love? But hey, I'm all ears if someone else has a gem they swear by. Let's hear it!
+[4] Homer: My current suggestion is rest_c. I've been there, done that, and it's a ten out of ten for me. Best damn food in town, ain't no debate. But hey, I'm not here to twist arms, so let's hear if anyone's got something better.
+[5] William: My current suggestion is rest_n. I've hit a ten with this one, folks. Best pasta in the city, hands down. But hey, I'm eager to hear what's tickled everyone else's fancy.
+[6] Evelyn: My current suggestion is rest_n. I've hit a ten with this one, folks. Best pasta in the city, hands down. But hey, I'm eager to hear what's tickled everyone else's fancy.
+[7] James: My current suggestion is rest_z. I've hit the jackpot with this one - a perfect ten. Best steak in town, hands down. But hey, I'm not here to preach to the choir. If someone's got a hidden gem that'll blow my socks off, let's hear it!
+[8] Liam: My current suggestion is rest_c. I've been there, done that, and it's a ten out of ten for me. Best damn food in town, ain't no debate. But hey, I'm not here to twist arms, so let's hear if anyone's got something better.
+
+--- Round 2 ---
+[9] Morgan: My current suggestion is rest_n. I've seen some familiar faces pushing for rest_c, but let's mix it up. William and Evelyn seem to share my love for rest_n - six out of ten, can't argue with that. It's not a perfect ten like my beloved rest_h, but who said we need perfection every time? Let's give this pasta paradise another shot.
+[10] Lowen: My current suggestion is rest_n. I see it's got some love here - William, Evelyn, Morgan all on board. Can't fault a six out of ten, can we? I've had my share of rest_c, but variety is the spice of life, ain't it? Let's give this pasta joint another go, who knows, might hit that perfect ten after all!
+[11] Harper: My current suggestion is rest_z. I see we've got some fans of rest_c here - Homer, Liam, you know what's good! But let's not forget, variety is the spice of life. James seems to agree with me on this one, and I can't blame him. That steak at rest_z is something else. Nine out of ten, folks. Let's give it a shot, who knows? We might find our new favorite spot!
+[12] Homer: My current suggestion is rest_n. I see Morgan, Lowen, William, Evelyn all on board. Can't fault a six out of ten, can we? Let's not forget, variety's the spice of life!
+[13] William: My current suggestion is rest_n. I see we've got a crowd here - Morgan, Lowen, Homer, Evelyn all on board. Can't fault a ten out of ten, can we? Let's not forget, variety's the spice of life! But hey, I'm open to new flavors too. How about we mix things up next time, give rest_z or even rest_c a shot? Just sayin', let's keep our options open!
+[14] Evelyn: My current suggestion is rest_n. It's great to see Morgan, Lowen, Homer, and William on board - that makes me feel even better about my choice! Rest_n might not be perfect for everyone, but with a solid six out of ten, it's still a worthy contender. Let's give it another shot, who knows? We might all hit a seven this time!
+[15] James: My current suggestion is rest_z. Harper's on board, and I ain't one to argue with a perfect ten. That steak's got my vote every time. But hey, I'm not here to force anyone's hand. If the pasta parade at rest_n floats everyone else's boat, who am I to stop it?
+[16] Liam: My current suggestion is rest_z. I see we've got a split here - half of y'all want rest_n, but let's not forget about the steakhouse that started it all! Harper, James, and I know what's good. That nine out of ten ain't nothing to scoff at. Let's give this place another shot, who knows? We might just find our new favorite spot again!

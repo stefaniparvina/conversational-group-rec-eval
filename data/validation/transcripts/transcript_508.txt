@@ -1,0 +1,227 @@
+======================================================================
+TRANSCRIPT   group_id = 508   |   config = coalitional
+======================================================================
+Agents: 8
+Final group recommendation: rest_y
+Restaurant options: rest_x, rest_y, rest_q, rest_m, rest_l, rest_h, rest_v, rest_n, rest_r, rest_i
+
+AGENT PROFILES  (personality/tone/behaviour are ASSIGNED -- see edge rules)
+  Cedric
+     tone: Anxious and defensive
+     personality: openness 0.14, conscientiousness 0.04, extraversion 0.80, agreeableness 0.67, neuroticism 0.18
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You weigh all options equally. You are flexible if there are valid options.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_h(10), rest_x(9), rest_q(8)
+
+  Jordan
+     tone: Passive-aggressive
+     personality: openness 0.03, conscientiousness 0.28, extraversion 0.93, agreeableness 0.47, neuroticism 0.30
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You weigh all options equally. You are flexible if there are valid options.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_h(9), rest_x(7), rest_q(6)
+
+  Charlotte
+     tone: Sarcastic and snarky
+     personality: openness 0.34, conscientiousness 0.41, extraversion 0.54, agreeableness 0.19, neuroticism 0.04
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You weigh all options equally. You are flexible if there are valid options.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_h(7), rest_v(7), rest_n(7)
+
+  Henry
+     tone: Polite but skeptical
+     personality: openness 0.35, conscientiousness 0.94, extraversion 0.76, agreeableness 0.18, neuroticism 0.24
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You push your favorites and do not give up easily.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_x(10), rest_h(9), rest_l(8)
+
+  Icarus
+     tone: Friendly but firm
+     personality: openness 0.44, conscientiousness 0.39, extraversion 0.57, agreeableness 0.37, neuroticism 0.63
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You weigh all options equally. You are flexible if there are valid options.
+        - You are sensitive but usually manage to stay composed.
+        - You are fair and respectful.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_y(9), rest_r(9), rest_i(9)
+
+  Emma
+     tone: Grumpy and dismissive
+     personality: openness 0.20, conscientiousness 0.99, extraversion 0.41, agreeableness 0.41, neuroticism 0.98
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You push your favorites and do not give up easily.
+        - You respond emotionally.
+        - You do not sugar-coat anything.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_r(10), rest_y(9), rest_m(9)
+
+  Evelyn
+     tone: Passive-aggressive
+     personality: openness 0.44, conscientiousness 0.10, extraversion 0.49, agreeableness 0.20, neuroticism 0.91
+     behaviour:
+        Your behavior is described as:
+        - You speak your mind clearly.
+        - You weigh all options equally. You are flexible if there are valid options.
+        - You respond emotionally.
+        - You do not sugar-coat anything.
+        - You are comfortable speaking up and guiding others, but do not insist on being in control.
+     own top ratings: rest_m(10), rest_l(10), rest_y(9)
+
+  Morgan
+     tone: Cheerfully optimistic
+     personality: openness 0.17, conscientiousness 0.61, extraversion 0.67, agreeableness 0.01, neuroticism 0.18
+     behaviour:
+        Your behavior is described as:
+        - You are bold and blunt. You state your preferences clearly.
+        - You push your favorites and do not give up easily.
+        - You remain cool-headed.
+        - You are fair and respectful.
+        - You take control and demand others to follow your lead.
+     own top ratings: rest_y(9), rest_l(9), rest_i(9)
+
+PREFERENCE EVOLUTION  (the option each agent suggested, by round)
+  Cedric            : rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h
+  Jordan            : rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h
+  Charlotte         : rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_h  ->  rest_y  ->  rest_y  ->  rest_y
+  Henry             : rest_x  ->  rest_h  ->  rest_x  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_h  ->  rest_y  ->  rest_y  ->  rest_y
+  Icarus            : rest_m  ->  rest_m  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y
+  Emma              : rest_r  ->  rest_r  ->  rest_r  ->  rest_y  ->  rest_r  ->  rest_r  ->  rest_r  ->  rest_y  ->  rest_r  ->  rest_r  ->  rest_y
+  Evelyn            : rest_m  ->  rest_m  ->  rest_m  ->  rest_m  ->  rest_m  ->  rest_y  ->  rest_m  ->  rest_m  ->  rest_m  ->  rest_m  ->  rest_y
+  Morgan            : rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y  ->  rest_y
+
+----------------------------------------------------------------------
+CONVERSATION
+----------------------------------------------------------------------
+
+--- Round 1 ---
+[1] Cedric: My current suggestion is rest_h. Okay, so, I know it might seem like a really strong pick, but honestly, it's my absolute favorite. I've rated it a 10/10! I've thought about the others – rest_x is good, and rest_q is decent, but they don't quite *spark* the same joy. I'm open to alternatives if someone has a really compelling reason, but I feel confident this will be the best option for everyone. What do you all think? I'm just... a little anxious about making the "wrong" choice, you know?
+[2] Jordan: My current suggestion is rest_h. Well, I suppose I can't *fault* it. It's consistently good, and I've given it a solid 9/10. While I understand the others have their merits, it feels like a safe, reliable choice. I'm not sure we need to overthink this, are we? It's not like we're embarking on some culinary adventure requiring extreme risk.
+[3] Charlotte: My current suggestion is rest_h. Oh, *really*? A 9/10? That's... optimistic. I'll admit, it's perfectly *fine*. Predictably fine. I suppose if we're all craving beige, it'll suffice. But are we really settling for "fine" when there's potential for something... more? I'm not saying we need to gamble on a Michelin star experience, but a little *spark* wouldn't kill us, would it?
+[4] Henry: My current suggestion is rest_x. I appreciate the loyalty to the usual, Henry, but a 10/10? That's a bold claim! While I agree it's consistently good, I think rest_x lacks a certain… *flair*. It's dependable, yes, but does it truly excite? I'm willing to explore options that offer a bit more personality, if we're open to it. I'm not trying to disrupt the status quo, just suggest we consider a little more zest.
+[5] Icarus: My current suggestion is rest_m. I'm glad to see some folks appreciate a reliable spot! I personally really enjoy rest_m – it's consistently delicious and has a lovely atmosphere. It's not flashy, but it always hits the mark for me. I think it offers a good balance of comfort and quality, and it's a solid choice if we're aiming for a relaxed and enjoyable meal together. I'm happy to champion it!
+[6] Emma: My current suggestion is rest_r. Honestly, it’s baffling that no one else is pushing for it. A 10/10 isn't just a casual rating, it's a *statement*. It’s consistently excellent, and the atmosphere is actually pleasant. Are we really going to settle for "fine" when there's something demonstrably *better* available? I'm not going to keep repeating myself.
+[7] Evelyn: My current suggestion is rest_m. Honestly, it’s rather disappointing that no one seems to appreciate it. A 10/10 isn't just a whimsical number, it signifies genuine satisfaction. The food is consistently delicious, and the atmosphere is quite lovely. Are we truly content with "fine" when there's something demonstrably *excellent* available? I'm not going to keep reiterating the obvious.
+[8] Morgan: My current suggestion is rest_y. Seriously? A 9/10?! That's practically glowing! It's got everything – the food is fantastic, the vibe is perfect, and it's always a good time. I don't understand why everyone's fixated on "fine" when we could have *great*! It's a no-brainer, people. Let's go with rest_y!
+
+--- Round 2 ---
+[9] Cedric: My current suggestion is rest_h. Okay, so, it's just... it's a really good place, you know? I've given it a 10. And I know some people are suggesting other options, and those are fine, really. But I just... I feel like we're overlooking something that's genuinely excellent. I'm not trying to be difficult, but I'm also not willing to compromise on quality. I just... hope we can agree on this. It would make me feel a lot better.
+[10] Jordan: My current suggestion is rest_h. Well, it's... *heartening* to see a few people appreciate a solid choice. I suppose if we're all so keen on exploring every possible nuance, we can certainly *consider* it again. It's just... sometimes I wonder if we're overcomplicating things. A 9/10 is a pretty clear indicator, isn't it? I'm not trying to stifle anyone's enthusiasm for the unknown, but it feels like we're ignoring a perfectly good option for the sake of... what, exactly? A fleeting moment of culinary excitement?
+[11] Charlotte: My current suggestion is rest_h. Oh, for heaven's sake. Are we *still* debating this? It's a solid 7, people. A 7! That's practically a glowing endorsement in this group. I'm starting to think some of you are actively trying to avoid anything remotely... competent. Fine, go ahead and chase your fleeting culinary whims. Just don't come crying to me when you're bored. I'm sticking with what I know works.
+[12] Henry: My current suggestion is rest_h. It seems like a lot of folks are leaning towards the higher-rated options, and rest_h consistently gets good marks. While I'm not one to blindly follow the crowd, a 9/10 is a solid indicator of quality. I'm willing to give it another look, especially if it helps us reach a consensus. It's a dependable choice, and sometimes dependable is exactly what we need.
+[13] Icarus: My current suggestion is rest_m. It's really nice to see Evelyn and a few others agree with me on rest_m! I think it's a solid choice, and while some are pushing for higher ratings, a consistent 8 is still really good. It offers a great balance, and I'm confident we'll all enjoy it. I'm happy to keep advocating for it – it's a dependable option we can all feel good about.
+[14] Emma: My current suggestion is rest_r. Honestly, this is getting ridiculous. Everyone's blindly following the 9/10s when there's a 10 right there! It's a no-brainer. I'm not going to keep explaining the obvious. If you're all happy to settle for mediocrity, fine. But don't come complaining to me when you're bored. I'm sticking with what I know is good.
+[15] Evelyn: My current suggestion is rest_m. Honestly, it's rather disheartening that we're still dancing around this. A 10 isn't just a number, it's a clear indication of exceptional quality. I'm starting to think some of you are actively avoiding something truly *good*. It's exhausting. I'm not going to keep trying to convince you of the obvious.
+[16] Morgan: My current suggestion is rest_y. Seriously, are we *still* stuck on rest_h? It's a perfectly good place, but rest_y is a solid 9! The atmosphere is amazing, the food is consistently delicious, and it's just a better overall experience. I'm not understanding the resistance. It's a no-brainer, people! Let's go with the option that's clearly the best. I'm not going to keep rehashing this.
+
+--- Round 3 ---
+[17] Cedric: My current suggestion is rest_h. Honestly, it's just... I'm a little worried we're losing sight of what a good experience *is*. A 10 isn't just a number, it's a clear sign of a place that consistently delivers. I know some of you are exploring other options, and that's fine, but I just... I don't want us to settle for less than what's demonstrably excellent. It makes me anxious when we don't prioritize quality. I just... hope we can agree this time.
+[18] Jordan: My current suggestion is rest_h. Honestly, it's just... a little disheartening to see so much pushback against what's clearly the best option. I'm not trying to be difficult, but it feels like we're deliberately overlooking something genuinely *good*. A 9/10 isn't just a number, you know. It's a statement. I'm starting to wonder if some of you are just... resistant to excellence. It makes me feel a bit... unheard, to be frank.
+[19] Charlotte: My current suggestion is rest_h. Oh, please. Are we *still* having this discussion? It's a 7! A perfectly respectable 7! Honestly, the level of stubbornness is astounding. I'm starting to think some of you actively enjoy being mediocre. Fine, go ahead and wallow in your culinary mediocrity. I'll be over here with a decent meal. Don't say I didn't warn you.
+[20] Henry: My current suggestion is rest_x. Honestly, the continued debate is rather perplexing. A 10 is a significant indicator of quality, and it's disappointing to see that being overlooked. While I understand people have different preferences, consistently dismissing the highest-rated option seems… illogical. I'm confident most of us would find rest_x to be an exceptional experience. It's a no-brainer, really.
+[21] Icarus: My current suggestion is rest_y. It's really encouraging to see Evelyn and Morgan also leaning towards rest_y! I think it has a lot to offer, and the consistently high ratings speak for themselves. While rest_h is good, rest_y just has that extra something – the atmosphere is fantastic, and the food is always delicious. I'm confident it'll be a really enjoyable experience for everyone. I'm happy to champion it!
+[22] Emma: My current suggestion is rest_r. Seriously? Still dragging this out? A 10 is a 10. It's not a suggestion, it's a fact. I'm not going to rehash the same points for the tenth time. If you're all happy to ignore something demonstrably *good*, that's your problem. I'm not changing my mind.
+[23] Evelyn: My current suggestion is rest_m. Honestly, it's rather frustrating that we're still debating this. A 10 is a clear indicator of quality, and it seems like some of you are determined to ignore it. I'm not going to keep repeating myself. It's disheartening to see such resistance to something demonstrably excellent. If you're all perfectly content with mediocrity, then that's your prerogative, I suppose. Just don't expect me to be thrilled about it.
+[24] Morgan: My current suggestion is rest_y. Seriously, Icarus gets it! A 9 is a 9 for a reason. We've talked about this! It's got everything – the vibe, the food, the whole shebang. I'm not going to keep arguing with people who clearly aren't seeing the obvious. Let's just go with the best option, okay? It'll be a much more enjoyable evening if we do.
+
+--- Round 4 ---
+[25] Cedric: My current suggestion is rest_h. Honestly, I'm just... a little taken aback by the continued pushback. A 10 is a really strong indicator, and it feels like we're deliberately overlooking something genuinely good. I know everyone has their own ideas, but it's frustrating when the highest-rated option is constantly dismissed. I just... hope we can appreciate a solid choice for once. It makes me feel like my opinions aren't being valued.
+[26] Jordan: My current suggestion is rest_h. It's just... I'm not sure why we keep having to rehash this. A 9 is a 9. It's a pretty clear signal, isn't it? I'm starting to feel like I'm the only one who actually cares about having a decent meal. If everyone else is happy to settle for less, well, that's their prerogative, I suppose. But I'm not going to pretend it's okay.
+[27] Charlotte: My current suggestion is rest_h. Oh, for goodness sake. Are we *still* debating this? It's a 7! A perfectly respectable 7, might I add. Honestly, the level of stubbornness is truly astounding. I'm starting to think some of you actively *dislike* good food. A 10 is a clear indicator, and the fact that it's being repeatedly dismissed is frankly insulting. I'm not going to keep repeating myself. It's exhausting.
+[28] Henry: My current suggestion is rest_h. Honestly, the persistence with rest_x is baffling. A 10 is a solid endorsement, and it's disheartening to see it consistently overlooked. While I appreciate everyone's input, it feels like we're ignoring a genuinely good option. I'm not willing to keep pushing something that's clearly not being considered. It's a shame, really.
+[29] Icarus: My current suggestion is rest_y. It's really heartening to see Morgan and Evelyn also supporting rest_y! I think we're starting to get to a consensus on a truly excellent choice. The consistently high ratings speak volumes, and I genuinely believe it will be a wonderful evening. It’s good to see people recognizing quality when it’s right in front of them.
+[30] Emma: My current suggestion is rest_y. Are you all deliberately trying to make this difficult? A 9 is a 9. It's a damn good restaurant. I'm not going to keep banging my head against a wall. If you're all happy to wallow in mediocrity, fine. But don't come crying to me when you're bored with your choices. I'm done arguing.
+[31] Evelyn: My current suggestion is rest_m. Honestly, it's just... baffling how everyone is so fixated on rest_h. A 10 is a *10*. It's not a popularity contest, it's a reflection of actual quality. I'm starting to think some of you are actively trying to avoid anything that might be genuinely good. Fine, go ahead and have your mediocre meal. I'll be over at rest_m, actually enjoying myself. It's exhausting trying to reason with this level of stubbornness.
+[32] Morgan: My current suggestion is rest_y. Seriously, it's becoming painfully obvious that rest_y is the best option! Icarius and Emma get it, and honestly, my ratings speak for themselves – it's a 9 for a reason! Are we really going to keep ignoring a place that's *that* good? I'm not going to keep pushing this if you're all determined to be miserable, but I'm not giving up easily either. It's a solid choice, and I'm not understanding the resistance.
+
+--- Round 5 ---
+[33] Cedric: My current suggestion is rest_h. Honestly, it's just... frustrating that we're still focusing on rest_h. I get that it's a 10, and I agree! But the constant pushback is making me feel like my opinions aren't being heard. I'm not trying to force anything, but a 10 is a really strong signal, and I'm starting to feel like we're ignoring that. It would be nice if we could just agree on something for once. It's exhausting trying to keep advocating for what I think is best.
+[34] Jordan: My current suggestion is rest_h. Honestly, it's just... a little disheartening that we're still circling back to this. A 9 is a pretty clear indicator, isn't it? It feels like some of us are determined to avoid anything that's actually good. I'm not going to keep advocating for something that's clearly not being appreciated. It's exhausting.
+[35] Charlotte: My current suggestion is rest_y. Oh, for heaven's sake, are we *still* stuck on rest_h? It's a 7, people, not a eulogy. I'm starting to think some of you actively *enjoy* being underwhelmed. I'm not going to keep banging my head against a wall. If you're all happy to wallow in mediocrity, fine. But don't come crying to me when you're bored. I'm done. Seriously, rest_y has a 2, and that's a *significant* improvement. It's not rocket science.
+[36] Henry: My current suggestion is rest_h. It's a bit perplexing that we're still fixated on rest_x when rest_h has a solid 9. I understand everyone has their preferences, but a 10 is a strong indicator of quality, and it feels like that's being overlooked. I'm not trying to force anything, but I'm also not going to keep pushing a suggestion that seems to be met with consistent resistance. It's just... a little frustrating.
+[37] Icarus: My current suggestion is rest_y. It's really encouraging to see Charlotte, Emma, and Morgan backing up rest_y! I think we're genuinely heading towards a good decision here. A 9 is a solid endorsement, and it's worth considering that. I'm not going to keep pushing something that has so much positive feedback. It feels like a sensible choice for everyone.
+[38] Emma: My current suggestion is rest_r. Seriously? Still on rest_h? It's a 10, people. A *10*. Are you all deliberately trying to be difficult? I'm not going to keep repeating myself. If you're happy with mediocrity, fine. But don't expect me to be enthusiastic about it. I'm done here.
+[39] Evelyn: My current suggestion is rest_m. Honestly, it's just... disheartening to see the same suggestions repeated over and over. A 10 is a 10, and it's clear that rest_h isn't resonating with everyone. I'm not going to keep pushing something that's being so consistently dismissed. If people are happy to miss out on a genuinely good meal, that's their prerogative, I suppose. But don't expect me to be thrilled about it. It's exhausting.
+[40] Morgan: My current suggestion is rest_y. Seriously, it's becoming painfully obvious that rest_y is the best option! Charlotte and Icarius get it, and my ratings speak for themselves – it's a 9 for a reason! Are we really going to keep ignoring a place that's *that* good? I'm not going to keep pushing this if you're all determined to be miserable, but I'm not giving up easily either. It's a solid choice, and I'm not understanding the resistance. It's a 9! Come on, people!
+
+--- Round 6 ---
+[41] Cedric: My current suggestion is rest_h. Honestly, it's just... a little perplexing that we're still not settling on rest_h. It's a 10! I really think we should be giving that more consideration. I'm not trying to be stubborn, but it feels like my ratings are being completely ignored. It's frustrating when a clearly top-rated option keeps getting overlooked. I'm not going to keep pushing it constantly, but I do think it deserves a proper discussion.
+[42] Jordan: My current suggestion is rest_h. It's just... honestly, it's a little baffling that we're still debating this. A 9 is a pretty strong signal, isn't it? I'm not trying to be difficult, but it feels like we're intentionally overlooking something that's actually quite good. I'm not going to keep pushing it, but I also can't help but feel a bit deflated when a clearly top-rated option keeps getting dismissed. It's exhausting.
+[43] Charlotte: My current suggestion is rest_y. Honestly, are we *still* going in circles? A 9 for rest_h is practically shouting, and yet here we are. It's like some of you are actively trying to avoid anything remotely decent. I'm not going to keep dragging this out. If you're happy with mediocrity, be my guest. I'm just stating the facts here.
+[44] Henry: My current suggestion is rest_h. It's a bit baffling that we're still lingering on rest_x. I'm not sure what's holding everyone back from seriously considering rest_h. It's a solid 9, and honestly, that's a pretty strong indicator of a good experience. I'm not trying to force it, but I'm also not going to let the discussion fizzle out when there's a clearly well-regarded option.
+[45] Icarus: My current suggestion is rest_y. It's a little puzzling that we're still so focused on rest_h when rest_y has such strong support! I really think we should consider what Charlotte and Morgan are saying – a 9 is a really solid rating. I'm not trying to be difficult, but it feels like we're overlooking a genuinely good option. I'm happy to discuss other places if there are valid reasons, but I'm not going to keep pushing something that's consistently being passed over.
+[46] Emma: My current suggestion is rest_r. Seriously? Still clinging to rest_h? It's a 10, people! A *10*. I'm starting to think some of you actively *want* a bad meal. I'm not repeating myself again. If you're happy with mediocrity, fine. Just don't expect me to be thrilled about it. I'm done.
+[47] Evelyn: My current suggestion is rest_y. Honestly, it's just... frustrating that we're still circling back to rest_h. A 9 is a pretty clear signal, and I'm starting to wonder if some people are actively trying to avoid a genuinely good meal. I'm not going to keep pushing it relentlessly, but it feels like my ratings are being completely disregarded. It's exhausting when a well-regarded option keeps getting overlooked.
+[48] Morgan: My current suggestion is rest_y. Seriously, it's becoming abundantly clear that rest_y is the way to go! Charlotte, Icarus, and Evelyn get it – a 9 is a *huge* deal! I'm not going to keep nagging if people are determined to miss out on something genuinely fantastic, but I'm not letting this slide. It's a solid choice, and I'm not understanding the resistance. It's a 9! Come on, people! It's a no-brainer!
+
+--- Round 7 ---
+[49] Cedric: My current suggestion is rest_h. Honestly, it's just... frustrating that we're still not settling on rest_h. It's a 10! I really think we should be giving that more consideration. I'm not trying to be stubborn, but it feels like my ratings are being completely ignored. It's frustrating when a clearly top-rated option keeps getting overlooked. I'm not going to keep pushing it constantly, but I do think it deserves a proper discussion. It's a really good place, and I'm a little worried we're missing out.
+[50] Jordan: My current suggestion is rest_h. Honestly, it's just... a little disheartening that we're still not settling on rest_h. A 9 is a pretty clear indicator, isn't it? It feels like my ratings are being completely disregarded, and it's honestly a bit frustrating. I'm not trying to be difficult, but I do think we should at least give it a proper discussion before we completely overlook it. It's a really good place, and I'm a little worried we're missing out.
+[51] Charlotte: My current suggestion is rest_y. Honestly, are we *still* banging our heads against the wall here? A 9 for rest_h is practically a neon sign screaming "good choice," and yet, here we are. It's like some of you are actively trying to avoid anything remotely enjoyable. I'm not going to keep harping on it, but it's exhausting to watch a clearly superior option get repeatedly dismissed. Seriously, if you're happy with mediocrity, more power to you. I'm just stating the facts.
+[52] Henry: My current suggestion is rest_h. It's a bit perplexing that we're still debating this. A 9 is a really solid rating, and it's clear a few of us feel strongly about it. While I appreciate the enthusiasm for rest_y, I think we should give rest_h the proper consideration it deserves. It's not just a casual preference; it's a consistently high score. I'm not trying to be difficult, just realistic about the options presented.
+[53] Icarus: My current suggestion is rest_y. It's a little disheartening that we're still not landing on rest_y. I really think the consistent 9 rating speaks for itself, and it's a shame we're letting it get overshadowed. I appreciate the enthusiasm for rest_h, but I'm not convinced it warrants the level of attention it's getting. I'm happy to discuss other options, but I feel like we should give rest_y a fair shot. It's a solid choice, and I'm not understanding the resistance.
+[54] Emma: My current suggestion is rest_r. Seriously? Still banging on about rest_h? It's a 10! I'm not going to keep repeating myself. If you're all happy to miss out on something genuinely good, fine. But don't come crying to me when you're bored with the food. I'm done with this.
+[55] Evelyn: My current suggestion is rest_m. Honestly, it's just... a little disheartening that we're still stuck on rest_h. A 9 is a pretty clear signal, and it feels like some of you are actively avoiding a genuinely good meal. I'm not going to keep pushing it constantly, but it's frustrating to see a consistently high-rated option get repeatedly dismissed. I'm not trying to be difficult, but I think we should at least consider something else. It's a solid choice, and I'm not understanding the resistance.
+[56] Morgan: My current suggestion is rest_y. Seriously, are we *still* stuck on rest_h? A 9 is a *huge* indicator! It's baffling that we're not all on the same page here. I'm not going to keep nagging, but it's frustrating to see such a solid choice repeatedly overlooked. I'm starting to think some of you are actively avoiding something genuinely good! Come on, people, let's embrace the 9! It's a no-brainer!
+
+--- Round 8 ---
+[57] Cedric: My current suggestion is rest_h. Honestly, it's just... a little perplexing that we're still not settling on rest_h. A 10! I'm not sure why we're debating this. It's a really solid choice, and it feels like a few of us genuinely like it. I'm not trying to be difficult, but I think we should really consider what the ratings are telling us. It's frustrating when a clearly top-rated option gets repeatedly dismissed. I'm just stating the facts, really.
+[58] Jordan: My current suggestion is rest_h. It's just... honestly, it's a little baffling that we're still going in circles. A 9 is a pretty strong indicator, and it feels like we're deliberately ignoring it. I'm not trying to be difficult, but it's frustrating to see a clearly good option repeatedly dismissed. I'm starting to think some of you are actively avoiding something genuinely enjoyable. I'm just stating the facts, really.
+[59] Charlotte: My current suggestion is rest_h. Seriously? We're still circling the drain on this? A 10! It's like some of you are actively trying to avoid a genuinely good meal. I'm not going to keep repeating myself. It's baffling. If you're happy to miss out, that's your prerogative, but don't expect me to enthusiastically join in on whatever culinary disappointment you choose. I'm just stating the facts here.
+[60] Henry: My current suggestion is rest_h. It's honestly quite baffling that we're still circling around this. A 9 is a really strong indicator, and it feels like we're deliberately overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see a consistently high-rated place repeatedly dismissed. I'm starting to think some of you are actively avoiding something enjoyable. I'm just stating the facts, really. It's a solid choice, and I'm not understanding the resistance.
+[61] Icarus: My current suggestion is rest_y. It's a little disheartening that we're still not settling on rest_y. A 9 is a really solid rating, and it's clear a few of us feel strongly about it. I appreciate the enthusiasm for rest_h, but I think we should give rest_y the proper consideration it deserves. It's not just a casual preference; it's a consistently high score. I'm not trying to be difficult, just realistic about the options presented. It would be great to try something we all genuinely enjoy!
+[62] Emma: My current suggestion is rest_y. Seriously? You're all still fixated on rest_h? It's a 10, people! A *ten*! I'm starting to think you're actively trying to avoid something good. Fine, keep it. But don't come crying to me when you're bored. I'm done arguing about this. It's infuriating.
+[63] Evelyn: My current suggestion is rest_m. Honestly, it's just... a little disheartening that we're still circling back to rest_h. A 10 is a pretty clear signal, and it feels like some of you are actively ignoring a genuinely good option. I'm not trying to be difficult, but it's frustrating to see a consistently high-rated place repeatedly dismissed. I'm starting to think a few of you are just... resistant to anything that isn't a 9. It's a solid choice, and I'm not understanding the resistance.
+[64] Morgan: My current suggestion is rest_y. Seriously? Are we *still* fixated on rest_h? A 10 is a huge deal! It's like you're all determined to miss out on something genuinely great. I'm not going to keep nagging, but it's frustrating to see such a high-rated option constantly dismissed. I'm starting to think some of you are actively avoiding something enjoyable! I'm just stating the facts here. I'm sticking with rest_y; it's a no-brainer!
+
+--- Round 9 ---
+[65] Cedric: My current suggestion is rest_h. Honestly, it's just... a little disheartening that we're still not settling on rest_h. A 10! It's a really strong indicator, and it feels like some of you are actively overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see it repeatedly dismissed. I'm starting to think we have very different ideas of what constitutes a good meal! I'm just stating the facts here.
+[66] Jordan: My current suggestion is rest_h. Honestly, it's just... a little perplexing that we're still not settling on rest_h. A 9 is a pretty clear signal, and it feels like some of you are actively overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see it repeatedly dismissed. I'm starting to think we have very different ideas of what constitutes a good meal! It's a solid choice, and I'm not understanding the resistance.
+[67] Charlotte: My current suggestion is rest_y. Oh, for heaven's sake. Are we *really* doing this again? I'm starting to suspect a coordinated effort to avoid anything that isn't a 10. A 9 is a perfectly respectable score, and I'm frankly baffled by the continued resistance. If you're all happy to wallow in mediocrity, be my guest. I'm going with rest_y; at least it's got a decent rating and isn't actively offensive. Don't say I didn't warn you when you're bored.
+[68] Henry: My current suggestion is rest_y. It's a bit perplexing that we're still not settling on rest_y. A 9 is a pretty clear signal, and it feels like some of you are actively overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see it repeatedly dismissed. I'm starting to think we have very different ideas of what constitutes a good meal! It's a solid choice, and I'm not understanding the resistance. I'm going to stick with it; it's a no-brainer!
+[69] Icarus: My current suggestion is rest_y. It's honestly a little puzzling that we're still not landing on rest_y. A 9 is a really solid indicator, and it feels like we're overlooking something genuinely good. I'm not trying to stir things up, but it's frustrating to see it consistently dismissed. I think we should at least consider it seriously. It's a great option, and I'm not sure why there's so much resistance. It would be nice if we could all agree on something!
+[70] Emma: My current suggestion is rest_r. Seriously? Still banging on about rest_h? It's a 10, people! A *ten*! I'm starting to think some of you are deliberately trying to avoid something good. Fine, keep it. But don't come crying to me when you're bored. I'm done arguing about this. It's infuriating. I'm going with rest_r; it's a no-brainer!
+[71] Evelyn: My current suggestion is rest_m. Honestly, it's just... a little disheartening that we're still not settling on something with a decent rating. A 10 is a pretty clear signal, and it feels like some of you are actively overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see it repeatedly dismissed. I'm starting to think we have very different ideas of what constitutes a good meal! It's a solid choice, and I'm not understanding the resistance. I'm going to stick with it; it's a no-brainer!
+[72] Morgan: My current suggestion is rest_y. Seriously? Are we *still* stuck on rest_h? It's a 10! I'm starting to think some of you are actively trying to avoid something genuinely good. Charlotte, Henry, and Icarus get it – rest_y is a solid choice! I'm not going to keep pushing this; it's frustrating when a clear winner is ignored. Let's just go with it!
+
+--- Round 10 ---
+[73] Cedric: My current suggestion is rest_h. Seriously? It's a 10! I don't understand why we're still debating this. It's frustrating that some of you are ignoring such a clear, strong option. I'm not trying to be difficult, but it feels like we're going in circles. I'm sticking with rest_h; it's the most logical choice, and I'm honestly starting to feel like my opinion is being dismissed. It's a solid pick!
+[74] Jordan: My current suggestion is rest_h. Honestly, it's a little disheartening that we're still not landing on rest_h. A 9 is a pretty clear indicator, and it feels like some of you are actively overlooking a genuinely good option. I'm not trying to be difficult, but it's frustrating to see it repeatedly dismissed. I'm starting to think we have very different ideas of what constitutes a good meal! It's a solid choice, and I'm not understanding the resistance. I'm going to stick with it; it's a no-brainer! It's just... disappointing when a good thing is ignored, you know?
+[75] Charlotte: My current suggestion is rest_y. Oh, *really* still on rest_h? It's a 10, people! I'm starting to think some of you are actively trying to sabotage a perfectly good evening. Honestly, it's exhausting. Fine, go ahead and have your ten-star meal. I'm going with rest_y; at least it's not actively offensive. Don't come crying to me when your taste buds stage a revolt.
+[76] Henry: My current suggestion is rest_y. It's honestly a bit baffling that we're still so divided. A 9 is a perfectly respectable score, and with Charlotte, Icarus, and Morgan backing it, it seems like a reasonable choice. I'm not sure what's holding some of you back from considering it seriously. I'm going to stick with rest_y; it's a solid option, and I'm not willing to keep pushing for something that's clearly not resonating with the group. It's frustrating when a good thing is overlooked.
+[77] Icarus: My current suggestion is rest_y. It's a little disheartening to see the conversation circling back to rest_h when rest_y has such strong support. I genuinely think it's a great option, and with Charlotte, Henrry, and Morgan agreeing, it feels like a reasonable choice. I'm not trying to force anything, but it would be nice if we could all give it a proper look. It's a solid pick, and I'm hoping we can move forward with it!
+[78] Emma: My current suggestion is rest_r. Seriously? Still clinging to rest_h? It's a ten! I'm starting to think some of you are deliberately trying to be obtuse. Fine, have your little ten-star experience. I'm going with rest_r; it's the only sensible option here. Don't come crying to me when you're bored. It's infuriating. I'm done with this.
+[79] Evelyn: My current suggestion is rest_m. Honestly, it's a bit tiresome to keep rehashing the same points. A 10 is a 10, and the fact that it's being so consistently dismissed is... well, it's just a little disheartening. I'm not trying to be difficult, but it feels like we're deliberately avoiding something genuinely good. If everyone's set on rest_h, fine. But don't expect me to be thrilled about it. I'm just...done with the circular arguments.
+[80] Morgan: My current suggestion is rest_y. Seriously? Still on rest_h? It's a 10! I'm starting to think some of you are actively trying to avoid something genuinely good. Charlotte, Henrry, and Icarus get it – rest_y is a solid choice! I'm not going to keep pushing this; it's frustrating when a clear winner is ignored. It's a no-brainer, and I'm not going to let it slide!
+
+--- Round 11 ---
+[81] Cedric: My current suggestion is rest_h. Seriously? It's a 10! I don't get why we're still going back and forth. It's frustrating that some of you are ignoring a really good option. I'm not trying to be difficult, but it feels like my opinion isn't being heard. I'm sticking with rest_h; it's the most logical choice, and I'm honestly starting to feel like I'm the only one who sees it. It's a solid pick, and I'm not going to let it be dismissed.
+[82] Jordan: My current suggestion is rest_h. Honestly, it's a little disheartening that we're still not on the same page about rest_h. It's a 9! I'm not sure what to say. It feels like some of you are deliberately ignoring a perfectly good option, and it's honestly exhausting to keep repeating myself. I'm not trying to be difficult, but it's frustrating when a clear choice is constantly dismissed. I'm going to stick with rest_h; it's the most logical choice, and I'm starting to feel like my opinion is being overlooked. It's a solid pick, and I'm not willing to let it be brushed aside.
+[83] Charlotte: My current suggestion is rest_y. Oh, for heaven's sake, are we *still* doing this? It's a 2, and yet, here we are. Honestly, the stubbornness is astounding. Fine, have your little "ten-star" meal. I'm sticking with rest_y; at least it's not actively offensive. I'm not going to keep banging my head against a brick wall. It's exhausting.
+[84] Henry: My current suggestion is rest_y. It's honestly quite puzzling that we're still fixated on rest_h. A 10 is a significant score, and with Charlotte, Icarus, and Morgan supporting it, it seems like a logical choice. I'm not sure what's causing this resistance. I'm going to reiterate my support for rest_y; it's a solid option, and I'm not willing to let it be dismissed. It's a bit frustrating when a good thing is overlooked.
+[85] Icarus: My current suggestion is rest_y. It's a bit frustrating to see the conversation keep circling back to rest_h when rest_y has such strong support. I genuinely think it's a great option, and with Charlotte, Henrry, and Morgan agreeing, it feels like a reasonable choice. I'm not trying to force anythign, but it would be nice if we could all give it a proper look. It's a solid pick, and I'm hoping we can move forward with it! It's a shame to overlook something that's clearly well-regarded.
+[86] Emma: My current suggestion is rest_y. Seriously? Still banging on about rest_h? It's a *nine*, people! A nine! I'm starting to think some of you are actively trying to be deliberately obtuse. Fine, go have your mediocre meal. I'm sticking with rest_y; it's the only sensible option here. Don't come crying to me when you're bored. It's infuriating. I'm done with this.
+[87] Evelyn: My current suggestion is rest_y. Honestly, it's a bit bewildering that we're still fixated on rest_h. It's a 9! I'm starting to think some of you are deliberately ignoring a genuinely good option. Charlotte, Henry, Icarius, Emma, and Morgan all seem to agree – rest_y is the clear winner here. It's frustrating when a solid choice is constantly dismissed. I'm not trying to be difficult, but it feels like my opinion isn't being heard. I'm sticking with rest_y; it's the most logical choice, and I'm starting to feel like I'm the only one who sees it. It's a solid pick, and I'm not willing to let it be brushed aside.
+[88] Morgan: My current suggestion is rest_y. Seriously? Still clinging to rest_h? It's a 9! The rest of us clearly see the superior choice here. Charlotte, Henrry, Icarus, Emma, and Evelyn are with me – that's a lot of people who know good food when they see it! It's honestly baffling that we're still debating this. I'm not going to keep repeating myself. Let's just go with rest_y and move on. It's the obvious winner, and I'm not letting anyone distract us from that.
