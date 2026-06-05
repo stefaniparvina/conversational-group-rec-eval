@@ -1,32 +1,8 @@
-# =============================================================================
-# Module 2: Human-annotation workbook builder
-# =============================================================================
-# Builds the materials a human annotator needs to score the 15 validation
-# transcripts by hand. The human scores are later compared with the GPT-4o
-# judge (validate_judge.py) to estimate agreement (Cohen's kappa).
-#
-# It produces two things:
-#   1. data/validation/transcripts/transcript_<id>.txt
-#      A clean, readable rendering of each transcript (agent profiles,
-#      preference evolution, and the full conversation grouped by round).
-#   2. data/validation/annotation_workbook.xlsx
-#      An Excel workbook the annotator fills in. Sheets:
-#        - Guidelines      : the rubric anchors, label definitions, edge cases
-#        - ProcessQuality  : 4 dimension scores (0-3) per transcript
-#        - MentionRate     : per agent -- was the preference acknowledged + sentiment
-#        - JustifiedShifts : per detected preference shift -- the shift type
-#        - RepetitionIndex : per agent -- restatements before acknowledgement
-#      Categorical cells use dropdowns so the human's labels match the judge's
-#      output schema exactly, which lets validate_judge.py compute kappa directly.
-#
-# The annotator uses the SAME rubric anchors as the LLM judge -- this is what
-# makes the judge-vs-human agreement comparison valid.
-#
-# Run select_validation_set.py first (it produces validation_set.csv).
-#
-# Usage:  python src/module2/build_annotation_workbook.py
-# Requirements:  pip install pandas openpyxl
-# =============================================================================
+"""Module 2: build the human-annotation materials for the 15 validation transcripts
+-- one readable .txt per transcript plus an Excel workbook (Guidelines + four metric
+sheets with dropdowns matching the judge's output schema) for a human to fill in.
+The human scores are later compared with the GPT-4o judge (validate_judge.py) to
+estimate agreement. Run select_validation_set.py first."""
 
 import json
 from pathlib import Path

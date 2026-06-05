@@ -1,36 +1,12 @@
-# =============================================================================
-# Module 2: Validation-set selector
-# =============================================================================
-# Picks a small, reproducible set of H3 transcripts to be hand-annotated by a
-# human. Those human annotations are later compared against the GPT-4o judge
-# (see validate_judge.py) to measure agreement (Cohen's kappa) -- i.e. to check
-# whether the LLM judge can be trusted to stand in for a human annotator.
-#
-# Sampling design: STRATIFIED PROPORTIONAL sampling by group_config.
-#   The H3 subset is roughly 38.5% divergent / 34.3% coalitional /
-#   22.7% minority / 4.5% uniform. A 15-transcript sample is therefore
-#   allocated 6 / 5 / 3 / 1, so the validation set mirrors the composition of
-#   the data the judge will actually score. Proportional stratification keeps
-#   the agreement estimate representative rather than skewed toward one
-#   conversation type.
-#
-# Reproducibility: a single fixed RNG seed. Rerunning this script always
-# returns exactly the same 15 transcripts.
-#
-# Paths are resolved relative to this script's location, so it runs from anywhere:
-#   src/module2/select_validation_set.py    <- this script
-#   data/results/results.csv                <- input  (Module 1 structural results)
-#   data/validation/validation_set.csv      <- output (the 15 chosen transcripts)
-#
-# Usage:  python src/module2/select_validation_set.py
-# Requirements:  pip install pandas
-# =============================================================================
+"""Module 2: pick a reproducible, stratified sample of 15 H3 transcripts for a
+human to annotate (later compared against the GPT-4o judge in validate_judge.py).
+Reads data/results/results.csv, writes data/validation/validation_set.csv.
+Stratified proportionally by group_config; fixed seed -> same 15 every run."""
 
 from pathlib import Path
 
 import pandas as pd
 
-# -- Configuration -------------------------------------------------------------
 SCRIPT_DIR   = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 

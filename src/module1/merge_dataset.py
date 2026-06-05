@@ -1,49 +1,13 @@
-"""
-merge_dataset.py
-================
-Merges 4 per-model subfolders (each with 2000 group_simulation_X.json files)
-into a single folder with unique, sequential filenames and group_id values.
-
-Project layout this script assumes:
-  conversational-group-rec-eval/
-    src/module1/merge_dataset.py    ← this script
-    data/raw/gemma/                 ← 2,000 files (group_ids 1-2000)
-    data/raw/llama/                 ← 2,000 files (group_ids 2001-4000)
-    data/raw/mistral/               ← 2,000 files (group_ids 4001-6000)
-    data/raw/olmo/                  ← 2,000 files (group_ids 6001-8000)
-    data/full_dataset/              ← output, 8,000 files, sequential IDs
-
-Output layout:
-  data/full_dataset/
-    group_simulation_1.json     (from gemma,   group_id = 1)
-    group_simulation_2.json     (from gemma,   group_id = 2)
-    ...
-    group_simulation_2001.json  (from llama,   group_id = 2001)
-    ...
-    group_simulation_8000.json  (from olmo,    group_id = 8000)
-
-Usage:
-    From anywhere inside the project:
-        python src/module1/merge_dataset.py
-
-    Paths are anchored to this script's own location, so it works
-    regardless of which directory you run it from. To re-point at
-    different folders, edit the SUBFOLDERS and OUTPUT_FOLDER constants
-    below.
-
-The original files are never modified. Everything is written to
-data/full_dataset/, and the only field changed in each JSON is group_id.
-"""
+"""Merge the four per-model raw subfolders (data/raw/{gemma,llama,mistral,olmo},
+2,000 files each) into data/full_dataset/ with sequential group_ids 1-8000. Only
+group_id is changed; the originals are left untouched."""
 
 import json
 import shutil
 from pathlib import Path
 
-# ── CONFIGURATION ─────────────────────────────────────────────────────────────
-# Paths below are relative to this script's location (src/module1/).
-# Two levels up (../../) lands in the project root, then into data/.
-# Order matters: first folder gets IDs 1–2000, second 2001–4000, etc.
-
+# Paths are relative to this script (src/module1/). Order sets the ID ranges:
+# first folder -> IDs 1-2000, second -> 2001-4000, and so on.
 SUBFOLDERS = [
     "../../data/raw/gemma",
     "../../data/raw/llama",
@@ -53,9 +17,7 @@ SUBFOLDERS = [
 
 OUTPUT_FOLDER = "../../data/full_dataset"
 
-# How many files per subfolder (change if yours differ)
-FILES_PER_SUBFOLDER = 2000
-# ── END CONFIGURATION ─────────────────────────────────────────────────────────
+FILES_PER_SUBFOLDER = 2000 
 
 
 def merge():

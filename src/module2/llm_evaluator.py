@@ -1,40 +1,9 @@
-# =============================================================================
-# Module 2: LLM Evaluator -- Process-Level Evaluation of Group Recommendation Dialogs
-# =============================================================================
-# Evaluates the PROCESS of each conversation with an LLM judge (OpenAI GPT-4o).
-#
-# Four metrics:
-#   1. Mention Rate          - Was each agent's preference acknowledged, and with
-#                              what sentiment?
-#   2. Justified Shifts      - When agents changed preference, was a reason given?
-#   3. Repetition Index      - How many times did an agent repeat before being heard?
-#   4. Process Quality Score - Rubric score over four dimensions (0-3 each). The
-#                              total (0-12) and normalised score (0-1) are computed
-#                              in Python, NOT by the model.
-#
-# Judge model: gpt-4o-2024-11-20 -- a pinned, dated snapshot (not the moving
-# "gpt-4o" alias), called with temperature=0 and a fixed seed for reproducibility.
-# The model returns its answer via OpenAI Structured Outputs (a strict JSON
-# schema), so the response shape is guaranteed.
-#
-# Paths are resolved relative to this script's location, so it runs from anywhere:
-#   src/module2/llm_evaluator.py          <- this script
-#   data/full_dataset/                    <- input  (8,000 group_simulation_*.json)
-#   data/results/results.csv              <- input  (used to select the H3 subset)
-#   data/results/llm_results.jsonl        <- output (one raw record per group)
-#   data/results/llm_results_summary.csv  <- output (flat metrics per group)
-#   NOTE: --mode validate writes instead to data/validation/ (the files
-#   llm_results_validation.jsonl and llm_results_summary_validation.csv).
-#
-# Usage (run from anywhere inside the project):
-#   python src/module2/llm_evaluator.py --mode test      # 20 random H3 groups (smoke test)
-#   python src/module2/llm_evaluator.py --mode validate  # the 15 human-annotated transcripts
-#   python src/module2/llm_evaluator.py --mode h3        # full H3 subset (the analysis run)
-#
-# Requirements:  pip install openai pandas  (no python-dotenv needed)
-# API key:       put OPENAI_API_KEY=sk-... in a .env file at the project root
-#                (or set the environment variable directly).
-# =============================================================================
+"""Module 2: the GPT-4o judge. Scores four process metrics per dialog (mention rate,
+justified/social shifts, repetition index, and a 0-3 process-quality rubric) via
+OpenAI Structured Outputs; the rubric totals are computed in Python, not by the
+model. Modes: --mode test / validate / h3. Reads data/full_dataset/ and
+data/results/results.csv; writes llm_results.jsonl and llm_results_summary.csv
+(data/validation/ in validate mode). Needs OPENAI_API_KEY (env or .env)."""
 
 import argparse
 import json
@@ -46,9 +15,7 @@ from pathlib import Path
 
 import pandas as pd
 
-# -- Configuration -------------------------------------------------------------
-# Paths are anchored to this script's location (src/module2/), two levels below
-# the project root, so the script works regardless of the current directory.
+# Paths are anchored to this script (src/module2/), so it runs from anywhere.
 SCRIPT_DIR   = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent.parent
 
@@ -69,11 +36,8 @@ MAX_RETRIES = 3
 RETRY_DELAY = 10     # seconds between retries
 
 
-# -- API key loading -----------------------------------------------------------
-# The OpenAI client reads the key from the OPENAI_API_KEY environment variable.
-# To make a .env file work too, this loads KEY=VALUE lines from .env (checked at
-# the project root, then src/module2/) into the environment. A real environment
-# variable always takes precedence. No python-dotenv dependency needed.
+# Load KEY=VALUE lines from a .env (project root, then src/module2/) into the
+# environment, so no python-dotenv is needed. A real env var always takes precedence.
 
 def _load_env_file():
     for env_path in (PROJECT_ROOT / ".env", SCRIPT_DIR / ".env"):
@@ -122,12 +86,9 @@ def format_agent_profiles(data: dict) -> str:
 
 
 def detect_shifts(data: dict) -> list:
-    """Find every preference change from the turn_preferences table.
-
-    turn_preferences[agent] is the agent's suggested option per round; a change
-    between consecutive rounds is a shift. This is the SAME detection rule the
-    human annotation workbook uses (build_annotation_workbook.py), so the judge
-    classifies exactly the same set of shifts the human annotator scored."""
+    """Every preference change in turn_preferences (a change between consecutive
+    rounds). Same detection rule as build_annotation_workbook.py, so the judge
+    classifies exactly the shifts the human annotator scored."""
     shifts = []
     for agent, prefs in data.get("turn_preferences", {}).items():
         for i in range(1, len(prefs)):
@@ -152,11 +113,9 @@ def format_detected_shifts(shifts: list) -> str:
     return chr(10).join(items)
 
 
-# -- Output schema (OpenAI Structured Outputs) ---------------------------------
-# A strict JSON schema. The API guarantees the model's response matches this
-# exactly, so no markdown-stripping or shape-guessing is needed.
-# Note: in process_quality, each dimension's *reasoning* field is placed before
-# its *score* field -- the model reasons first, then scores (chain-of-thought).
+# Strict JSON schema for OpenAI Structured Outputs -- the response is guaranteed to
+# match it. In process_quality each *_reasoning field precedes its *_score, so the
+# model reasons before it scores (chain-of-thought).
 
 RESPONSE_SCHEMA = {
     "type": "object",
@@ -540,13 +499,9 @@ def finalize_scores(llm_out: dict) -> dict:
 
 
 def sanitize_counts(llm_out: dict) -> dict:
-    """Force the model's integer count fields to be non-negative integers.
-
-    Structured Outputs guarantee these fields are integers but cannot bound
-    them -- the strict-schema format supports no minimum/maximum -- so a stray
-    negative or non-integer value is corrected here, the same defensive step
-    finalize_scores applies to the 0-3 process-quality scores.
-    """
+    """Clamp the model's integer count fields to non-negative integers. Structured
+    Outputs guarantee they are integers but cannot bound them, so a stray negative
+    is corrected here (as finalize_scores does for the 0-3 scores)."""
     def nonneg_int(v):
         try:
             return max(0, int(v))
@@ -565,17 +520,12 @@ def sanitize_counts(llm_out: dict) -> dict:
 # -- Structural audit ----------------------------------------------------------
 
 def audit_structure(data: dict, llm_out: dict) -> dict:
-    """Verify the judge returned complete, correctly-identified output.
-
-    Structured Outputs guarantee the SHAPE of the response but not its
-    CARDINALITY or IDENTITY: the model could omit an agent, misspell a name,
-    or return a shift that was not in the detected list. This audit checks,
-    per group, that mention_rate and repetition_index each carry exactly one
-    entry per real agent, and that justified_shifts matches the pre-detected
-    shift set exactly. It never raises -- it returns a flag plus a list of
-    human-readable issues, which are stored in the JSONL record so flagged
-    groups can be reviewed after the run.
-    """
+    """Check the judge output is complete and correctly identified. Structured
+    Outputs guarantee the response SHAPE but not its cardinality/identity (an omitted
+    agent, misspelled name, or a shift not in the detected list). Verifies that
+    mention_rate and repetition_index carry one entry per real agent and that
+    justified_shifts matches the detected set. Never raises -- returns a flag plus
+    human-readable issues, stored in the JSONL for later review."""
     real_set = {a["name"] for a in data.get("agents", [])}
     issues = []
 
@@ -741,15 +691,10 @@ def already_done() -> set:
 
 
 def rebuild_summary_csv() -> None:
-    """Rebuild the summary CSV from scratch from the full JSONL.
-
-    The JSONL is the crash-safe source of truth -- one line per group, written
-    the moment that group is judged. Rebuilding the summary CSV from it at the
-    end of every run, rather than appending newly-judged rows to the old CSV,
-    keeps the CSV complete and correct even when an earlier run was interrupted
-    and resumed, and means a missing or corrupt previous CSV can never abort
-    the run.
-    """
+    """Rebuild the summary CSV from scratch from the full JSONL (the crash-safe
+    source of truth, one line per group). Rebuilding rather than appending keeps the
+    CSV complete after an interrupted/resumed run, and a missing or corrupt prior CSV
+    can never abort the run."""
     if not OUT_JSONL.exists():
         return
     summary_rows = []
