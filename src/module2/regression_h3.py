@@ -1,54 +1,14 @@
 #!/usr/bin/env python3
-"""
-regression_h3.py  --  Module 2 / RQ3-H3 nested OLS regression
-=============================================================
-Tests H3: within structurally-unfair groups (the H3 subset), do
-process-level metrics add diagnostic information BEYOND structural
-metrics?
-
-Input : data/results/h3_agent_level.csv     (built by build_h3_dataset.py)
-Output: data/results/regression_h3_output.xlsx
-        data/results/regression_h3_output.txt
-
-Design (see more/module2_analysis_plan.md)
-------------------------------------------
-Dependent variable : iss  (individual satisfaction, 0-1, agent level)
-
-Model 1 (baseline) : structural controls only
-    iss ~ min_sat + maj_min_gap + n_agents + majority_voter
-          + C(group_config)              [uniform = reference]
-
-Model 2 (full)     : Model 1 + the four process predictors
-    + mention_rate + repetition_index + social_shift + process_quality
-
-Both models are OLS at the agent level with cluster-robust (Huber-White)
-standard errors clustered by group_id, and -- crucially -- are fit on the
-EXACT SAME ROWS, so the nested comparison is valid.
-
-Decision rule (H3 supported iff all three hold)
------------------------------------------------
- 1. the cluster-robust joint F-test that the 4 process coefficients are
-    all zero is significant at alpha = 0.05  (this IS the Model 1 vs
-    Model 2 comparison);
- 2. >= 2 of the 4 process predictors have Holm-corrected p < 0.05 with
-    the expected sign (mention_rate +, repetition_index -,
-    social_shift -, process_quality +);
- 3. the R-squared increment from Model 1 to Model 2 is >= 0.03.
-Exactly one significant process predictor -> "partially supported".
-None -> "rejected".
-
-Robustness checks (secondary, reported in the workbook / appendix)
- 1. worst-agent ISS as DV, group level
- 2. Model 2 on the full judged set (not only the H3 subset)
- 3. Model 2 fit separately within each group configuration
- 4. primary test re-run with the audit-flagged groups removed
-    (sensitivity analysis -- see audit_ok in build_h3_dataset.py)
-
-Requires: pandas, numpy, statsmodels, openpyxl     (pip install statsmodels)
-
-Run from the repo root:
-    python src/module2/regression_h3.py
-"""
+"""Module 2: the H3 nested OLS regression. Tests whether the process metrics add
+diagnostic information about individual satisfaction (iss) beyond the structural
+controls, within the structurally-unfair H3 subset. Model 1 = structural controls
+(min_sat, maj_min_gap, n_agents, majority_voter, group_config); Model 2 adds the four
+process predictors; both are agent-level OLS with cluster-robust SE by group, fit on
+the same rows. H3 holds iff the joint F-test is significant, >=2 process predictors
+are Holm-significant with the expected sign, and the R2 increment >= 0.03. Four
+robustness checks follow (worst-agent ISS, full judged set, per-configuration,
+audit-clean). Reads data/results/h3_agent_level.csv; writes
+regression_h3_output.xlsx/.txt. Requires statsmodels."""
 from __future__ import annotations
 
 import argparse

@@ -1,62 +1,9 @@
 #!/usr/bin/env python3
-"""
-hypothesis_tests.py — Formal Statistical Tests for the Thesis
-==============================================================
+"""Formal statistical tests for H1, H2, H4 (plus the H3-subset counts) on
+evaluation_framework.py's results.csv. Writes one Excel sheet per test to
+hypothesis_tests_output.xlsx. Requires scipy, pandas, numpy, openpyxl.
 
-Runs the pre-specified statistical tests for hypotheses H1, H2, and H4 on
-the output of `evaluation_framework.py` (`results.csv`),
-and reports the H3 subset size (the full H3 regression is blocked on
-Module 2 output).
-
-Output
-------
-A single multi-sheet Excel workbook. Every test produces one or more
-result tables; no terminal output, no text file.
-
-Sheets produced
----------------
-  H1 Distribution Diagnostic  Distribution shape of the welfare gap
-                              (skewness, kurtosis, % zero/below/above,
-                              min, max). Justifies the choice of
-                              Wilcoxon over a t-test.
-  H1 Welfare Gap              One-sample Wilcoxon (one-sided 'less') vs
-                              zero, overall + per configuration. An
-                              assumption-free sign test is reported
-                              alongside as a robustness backup, and Holm-
-                              Bonferroni is applied across the per-config
-                              tests. Effect size: rank-biserial.
-  H2a Kruskal-Wallis          Per-configuration MinSat means + omnibus
-                              H statistic, p-value, epsilon-squared.
-  H2a Pairwise MWU            Six pairwise Mann-Whitney U comparisons
-                              on MinSat with Holm-Bonferroni correction.
-  H2b MajMinGap               One-sample Wilcoxon (one-sided 'greater') on
-                              MajMinGap, per configuration, Holm-corrected.
-                              Non-zero gaps only: groups with a realized
-                              majority-minority satisfaction difference.
-                              Zero gaps are excluded because they provide
-                              no signed evidence for the direction of the gap.
-  H3 Subset                   H3 subset size by configuration (status only;
-                              the full H3 regression requires Module 2
-                              process metrics, which are not yet available).
-  H4 Big Five                 Pearson r between each Big Five trait and
-                              ISS at the agent level, each with a 95%
-                              confidence interval. Equivalence decision
-                              rule: H4 holds iff every CI lies entirely
-                              within +/-0.05 (a negligible effect).
-  H4 Tone (Supplementary)     Kruskal-Wallis across the 20 tone categories.
-                              Tone was randomly assigned and is NOT part
-                              of H4; this is reported only as a
-                              manipulation check.
-
-Usage
------
-    python src/module1/hypothesis_tests.py <results_csv> <full_dataset_folder> [output_xlsx]
-
-If `output_xlsx` is omitted, defaults to
-`<results_csv parent>/hypothesis_tests_output.xlsx`.
-
-Requirements: scipy, pandas, numpy, openpyxl.
-"""
+Usage: python hypothesis_tests.py <results_csv> <full_dataset_folder> [output_xlsx]"""
 
 import sys
 import json
@@ -84,12 +31,8 @@ def rank_biserial_wilcoxon(x):
 
 
 def rank_biserial_mwu(u, n1, n2):
-    """Rank-biserial correlation for Mann-Whitney U.
-
-    SciPy's mannwhitneyu returns U for the FIRST sample (config_A). With
-    the convention r = 2U/(n1*n2) - 1, a POSITIVE r means config_A tends
-    to rank HIGHER than config_B (negative means lower).
-    """
+    """Rank-biserial r for Mann-Whitney U (U is for config_A); +r means config_A
+    ranks higher than config_B."""
     if n1 == 0 or n2 == 0:
         return float("nan")
     return (2.0 * u) / (n1 * n2) - 1.0
@@ -123,15 +66,9 @@ def holm_correction(pvals):
 
 
 def sign_test(x, alternative):
-    """Assumption-free sign test that the median differs from 0.
-
-    Unlike the Wilcoxon signed-rank test it makes NO symmetry assumption,
-    so it is a robust backup when the data is strongly skewed. Zeros are
-    ignored.
-      alternative='less'    -> evidence the median is below 0 (few positives)
-      alternative='greater' -> evidence the median is above 0 (few negatives)
-    Returns (n_positive, n_negative, p_value).
-    """
+    """Assumption-free sign test that the median differs from 0 (no symmetry
+    assumption; zeros ignored). alternative='less'/'greater'. Returns
+    (n_positive, n_negative, p_value)."""
     x = np.asarray(x, dtype=float)
     n_pos = int((x > 0).sum())
     n_neg = int((x < 0).sum())
@@ -144,11 +81,8 @@ def sign_test(x, alternative):
 
 
 def pearson_ci(r, n, conf=0.95):
-    """Fisher z-transform confidence interval for a Pearson correlation r.
-
-    Version-independent: does not rely on SciPy returning a CI object.
-    Returns (low, high), or (nan, nan) if n is too small.
-    """
+    """Fisher z-transform CI for a Pearson r. Returns (low, high), or (nan, nan)
+    if n < 4."""
     if n < 4 or abs(r) >= 1.0:
         return float("nan"), float("nan")
     z = np.arctanh(r)
@@ -191,13 +125,9 @@ def test_h1(df):
         "min_gap", "max_gap",
     ])
 
-    # Welfare-gap test: overall + per configuration.
-    #   Primary test : one-sample Wilcoxon (one-sided 'less').
-    #   Backup test  : sign test -- makes no symmetry assumption, so it
-    #                  confirms the result is not an artefact of the gap's
-    #                  strong skew.
-    #   The four per-configuration Wilcoxon p-values are Holm-corrected;
-    #   the OVERALL row is the single primary test and is left uncorrected.
+    # Welfare-gap test, overall + per config. Primary: one-sided Wilcoxon; backup:
+    # a sign test (no symmetry assumption). Per-config p-values are Holm-corrected;
+    # the OVERALL row is the single primary test and is left uncorrected.
     rows = []
     stat, p = stats.wilcoxon(gaps, alternative="less")
     rb = rank_biserial_wilcoxon(gaps)
@@ -295,13 +225,9 @@ def test_h2(df):
     ]]
     FRAMES["H2a Pairwise MWU"] = pairwise_df
 
-    # (c) Wilcoxon on MajMinGap per configuration.
-    #     NON-ZERO gaps only: zero gaps can come from unanimous groups OR
-    #     from split-vote groups where majority and minority voters have equal
-    #     ISS. They provide no signed evidence for whether the realized
-    #     majority-minority satisfaction gap is positive, so the tested
-    #     population is consensus groups with a non-zero realized gap.
-    #     The four per-configuration p-values are Holm-Bonferroni corrected.
+    # (c) Wilcoxon on MajMinGap per config, NON-ZERO gaps only (zero gaps -- from
+    #     unanimous groups or exact ties -- give no signed evidence for the gap's
+    #     direction). Per-config p-values are Holm-Bonferroni corrected.
     majmin_rows = []
     for cfg in CONFIGS:
         gaps = consensus.loc[consensus["group_config"] == cfg, "maj_min_gap"].values
@@ -400,11 +326,8 @@ def test_h4(full_dataset_folder, results_json_path):
         ("conscientiousness", ""),
         ("extraversion",      ""),
     ]
-    # Each correlation gets a 95% confidence interval (Fisher z-transform).
-    # H4 claims the effect is NEGLIGIBLE, so the decision rule is an
-    # equivalence-style test: H4 holds only if the WHOLE confidence
-    # interval of every trait lies within +/-0.05. Checking the point
-    # estimate alone would ignore the uncertainty around it.
+    # Each r gets a 95% Fisher-z CI. H4 is an equivalence test: it holds only if
+    # the WHOLE CI of every trait lies within +/-0.05, not just the point estimate.
     rows = []
     all_point_within = True
     all_ci_within = True
@@ -463,15 +386,9 @@ def test_h4(full_dataset_folder, results_json_path):
 # ── H2b SUPPORTING BREAKDOWN ─────────────────────────────────────────────────
 
 def h2b_zero_gap_breakdown(results_json_path):
-    """Make the H2b group counts traceable.
-
-    H2b is tested only on consensus groups with a NON-ZERO majority-minority
-    gap. A zero gap arises either because the group has no minority side (a
-    unanimous vote, so G\\W is empty) or because the majority and minority
-    voters happen to have an equal mean ISS (an exact tie). This records the
-    split (reported in the thesis as 4,533 non-zero, 3,058 no-minority,
-    33 exact ties) so every number is reproducible from a result file.
-    """
+    """Record the H2b group split so it is reproducible from a result file:
+    consensus groups with a non-zero gap vs. zero-gap groups (no minority side, or
+    an exact majority/minority ISS tie). Thesis figures: 4,533 / 3,058 / 33."""
     with open(results_json_path, encoding="utf-8") as f:
         results = json.load(f)
     consensus = [g for g in results if g.get("consensus_reached")]

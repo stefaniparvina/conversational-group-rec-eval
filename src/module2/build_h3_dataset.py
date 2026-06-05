@@ -1,44 +1,11 @@
 #!/usr/bin/env python3
-"""
-build_h3_dataset.py  --  Module 2 / RQ3-H3 dataset assembler
-============================================================
-Joins the structural results (results.json) with the LLM-judge process
-metrics (llm_results.jsonl) and expands everything to ONE ROW PER AGENT.
-
-Output: data/results/h3_agent_level.csv  -- the input to regression_h3.py.
-
-Why two source files
---------------------
-* results.json       : group-level structural metrics, per-agent ISS, and
-                       the majority / minority voter lists.
-* llm_results.jsonl  : the LLM judge's raw output.  The *per-agent* process
-                       metrics live ONLY here -- the companion file
-                       llm_results_summary.csv holds group-level averages
-                       and therefore cannot drive an agent-level regression.
-
-Columns written
----------------
-group_id            int    group identifier
-agent               str    agent (first) name
-group_config        str    uniform / divergent / coalitional / minority
-n_agents            int    group size
-is_h3               int    1 if the group is in the H3 subset
-                           (consensus & min_sat < 0.20 & maj_min_gap > 0.30)
-audit_ok            int    1 if the judge's structural_audit passed, 0 if the
-                           judge output was flagged (group-level; drives the
-                           Robustness-4 sensitivity check in regression_h3.py)
-iss                 float  DEPENDENT VARIABLE: individual satisfaction (0-1)
-mention_rate        float  process predictor 1 (sentiment-weighted, agent)
-repetition_index    int    process predictor 2 (agent)
-social_shift        int    process predictor 3 (agent, binary)
-process_quality     float  process predictor 4 (group, broadcast, 0-1)
-min_sat             float  structural control (group)
-maj_min_gap         float  structural control (group)
-majority_voter      int    structural control (agent, 1 = voted the winner)
-
-Run from the repo root:
-    python src/module2/build_h3_dataset.py
-"""
+"""Module 2: assemble the agent-level H3 regression dataset. Joins the structural
+results (results.json: per-agent ISS, structural metrics, voter lists) with the LLM
+judge's per-agent process metrics (llm_results.jsonl) into one row per agent, written
+to data/results/h3_agent_level.csv (the input to regression_h3.py). DV is iss;
+predictors mention_rate / repetition_index / social_shift / process_quality; controls
+min_sat / maj_min_gap / majority_voter / n_agents / group_config; is_h3 and audit_ok
+flag the subset membership and structural-audit pass."""
 from __future__ import annotations
 
 import argparse
@@ -71,11 +38,8 @@ def is_h3_group(r: dict) -> bool:
 
 
 def agent_mention_rate(mr_entry: dict, agent: str, n_agents: int) -> float:
-    """Sentiment-weighted Mention Rate for one agent.
-
-    +1 per positive, 0 per neutral, -1 per dismissive mention received
-    from OTHER agents, normalised by (n_agents - 1).
-    """
+    """Sentiment-weighted Mention Rate for one agent: +1 / 0 / -1 per positive /
+    neutral / dismissive mention from OTHER agents, normalised by (n_agents - 1)."""
     if n_agents < 2:
         return 0.0
     total = 0
