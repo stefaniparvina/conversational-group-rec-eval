@@ -108,7 +108,7 @@ python src/module1/reproduce_stats.py
 python src/module1/hypothesis_tests.py data/results/results.csv data/full_dataset/
 ```
 
-**Module 2 — process evaluation** (needs an OpenAI API key; the judge run costs money)
+**Module 2 — process evaluation** (needs an OpenAI API key)
 
 ```bash
 # 5. Run the GPT-4o judge on the H3 subset  ->  llm_results.jsonl
