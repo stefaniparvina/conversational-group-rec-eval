@@ -1,54 +1,14 @@
 #!/usr/bin/env python3
-"""
-regression_h3.py  --  Module 2 / RQ3-H3 nested OLS regression
-=============================================================
-Tests H3: within structurally-unfair groups (the H3 subset), do
-process-level metrics add diagnostic information BEYOND structural
-metrics?
-
-Input : data/results/h3_agent_level.csv     (built by build_h3_dataset.py)
-Output: data/results/regression_h3_output.xlsx
-        data/results/regression_h3_output.txt
-
-Design (see more/module2_analysis_plan.md)
-------------------------------------------
-Dependent variable : iss  (individual satisfaction, 0-1, agent level)
-
-Model 1 (baseline) : structural controls only
-    iss ~ min_sat + maj_min_gap + n_agents + majority_voter
-          + C(group_config)              [uniform = reference]
-
-Model 2 (full)     : Model 1 + the four process predictors
-    + mention_rate + repetition_index + social_shift + process_quality
-
-Both models are OLS at the agent level with cluster-robust (Huber-White)
-standard errors clustered by group_id, and -- crucially -- are fit on the
-EXACT SAME ROWS, so the nested comparison is valid.
-
-Decision rule (H3 supported iff all three hold)
------------------------------------------------
- 1. the cluster-robust joint F-test that the 4 process coefficients are
-    all zero is significant at alpha = 0.05  (this IS the Model 1 vs
-    Model 2 comparison);
- 2. >= 2 of the 4 process predictors have Holm-corrected p < 0.05 with
-    the expected sign (mention_rate +, repetition_index -,
-    social_shift -, process_quality +);
- 3. the R-squared increment from Model 1 to Model 2 is >= 0.03.
-Exactly one significant process predictor -> "partially supported".
-None -> "rejected".
-
-Robustness checks (secondary, reported in the workbook / appendix)
- 1. worst-agent ISS as DV, group level
- 2. Model 2 on the full judged set (not only the H3 subset)
- 3. Model 2 fit separately within each group configuration
- 4. primary test re-run with the audit-flagged groups removed
-    (sensitivity analysis -- see audit_ok in build_h3_dataset.py)
-
-Requires: pandas, numpy, statsmodels, openpyxl     (pip install statsmodels)
-
-Run from the repo root:
-    python src/module2/regression_h3.py
-"""
+"""Module 2: the H3 nested OLS regression. Tests whether the process metrics add
+diagnostic information about individual satisfaction (iss) beyond the structural
+controls, within the structurally-unfair H3 subset. Model 1 = structural controls
+(min_sat, maj_min_gap, n_agents, majority_voter, group_config); Model 2 adds the four
+process predictors; both are agent-level OLS with cluster-robust SE by group, fit on
+the same rows. H3 holds iff the joint F-test is significant, >=2 process predictors
+are Holm-significant with the expected sign, and the R2 increment >= 0.03. Four
+robustness checks follow (worst-agent ISS, full judged set, per-configuration,
+audit-clean). Reads data/results/h3_agent_level.csv; writes
+regression_h3_output.xlsx/.txt. Requires statsmodels."""
 from __future__ import annotations
 
 import argparse
@@ -90,6 +50,11 @@ R2_INCREMENT_MIN = 0.03
 MIN_CLUSTERS_WARN = 30           # below this, cluster-robust SEs are shaky
 
 LOG: list = []
+
+# Collects the headline statistics of each robustness check (joint-F, its p,
+# R2 increment, group/agent counts) so they are written to the workbook, not
+# only to the .txt report.
+ROB_SUMMARY: list = []
 
 
 def out(s: str = "") -> None:
@@ -381,6 +346,15 @@ def run_worst_iss(df_h3: pd.DataFrame) -> pd.DataFrame:
         f"   increment = {m2.rsquared - m1.rsquared:+.4f}")
     out(f"joint process F = {fF:.3f}   p = {fp:.4g}")
     out("")
+    for _metric, _value in [
+            ("n_groups", len(grp)),
+            ("R2_model1", round(float(m1.rsquared), 4)),
+            ("R2_model2", round(float(m2.rsquared), 4)),
+            ("R2_increment", round(float(m2.rsquared - m1.rsquared), 4)),
+            ("joint_process_F", round(fF, 4)),
+            ("joint_process_F_p", fp)]:
+        ROB_SUMMARY.append({"check": "Rob1_worstISS",
+                            "metric": _metric, "value": _value})
     return coef_table(m2)
 
 
@@ -439,6 +413,12 @@ def run_per_config(df_h3: pd.DataFrame) -> pd.DataFrame:
             fp = float(np.asarray(ft.pvalue).squeeze())
             out(f"  {cfg:12s}: {n_grp} groups / {n_obs} agents   "
                 f"R2 = {m2.rsquared:.4f}   joint process F p = {fp:.4g}")
+            for _metric, _value in [
+                    ("R2", round(float(m2.rsquared), 4)),
+                    ("joint_process_F_p", fp),
+                    ("n_groups", n_grp), ("n_agents", n_obs)]:
+                ROB_SUMMARY.append({"check": f"Rob3_{cfg}",
+                                    "metric": _metric, "value": _value})
             for t in PROCESS_TERMS:
                 rows.append({"config": cfg, "term": t,
                              "coef": float(m2.params[t]),
@@ -513,6 +493,16 @@ def run_audit_clean(df_h3: pd.DataFrame, primary_verdict: str) -> pd.DataFrame:
     out(f"joint process F({df_num:.0f}, {df_den:.0f}) = {fF:.3f}   p = {fp:.4g}")
     out(f"R2 increment = {r2_inc:+.4f}    process predictors Holm-significant "
         f"with the expected sign: {len(sig_correct)}")
+    for _metric, _value in [
+            ("n_flagged_removed", int(n_grp_before - clean["group_id"].nunique())),
+            ("n_groups", n_grp), ("n_agents", n_obs),
+            ("joint_process_F", round(fF, 4)),
+            ("joint_F_df_num", df_num), ("joint_F_df_denom", df_den),
+            ("joint_process_F_p", fp),
+            ("R2_increment", round(float(r2_inc), 4)),
+            ("verdict", verdict)]:
+        ROB_SUMMARY.append({"check": "Rob4_auditclean",
+                            "metric": _metric, "value": _value})
     out(f"  [{'PASS' if cond1 else 'FAIL'}] (1) joint F-test significant")
     out(f"  [{'PASS' if cond2 else 'FAIL'}] (2) >= 2 process predictors correct")
     out(f"  [{'PASS' if cond3 else 'FAIL'}] (3) R2 increment >= {R2_INCREMENT_MIN}")
@@ -589,6 +579,11 @@ def main() -> int:
     except Exception as exc:                       # noqa: BLE001
         out(f"ROBUSTNESS 4 failed: {exc}")
         out("")
+
+    # Headline robustness statistics (joint-F, its p, R2 increment, counts)
+    # collected from Rob1/Rob3/Rob4, so they live in the workbook too.
+    if ROB_SUMMARY:
+        sheets["Robustness_Summary"] = pd.DataFrame(ROB_SUMMARY)
 
     # --- write workbook (guarded: a failed .xlsx must not crash the run
     #     or lose the .txt report) -------------------------------------

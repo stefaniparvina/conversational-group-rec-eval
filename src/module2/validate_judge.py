@@ -1,35 +1,8 @@
-# =============================================================================
-# Module 2: Judge validation -- LLM vs. human agreement
-# =============================================================================
-# Compares the GPT-4o judge against the human annotations on the 15 validation
-# transcripts and reports inter-rater agreement (Cohen's kappa). This is the
-# evidence that the LLM judge can be trusted to stand in for a human annotator.
-#
-# For each metric it reports:
-#   - n          : number of paired (human, judge) labels
-#   - exact %    : proportion of exact matches
-#   - kappa      : Cohen's kappa (chance-corrected agreement)
-#   - 95% CI     : bootstrap confidence interval for kappa
-#   - weighted   : quadratic-weighted kappa for the ordinal 0-3 rubric scores
-#   - reading    : the Landis & Koch (1977) verbal label
-#
-# Methodology references: Cohen's kappa and inter-coder agreement
-# (Artstein & Poesio 2008); verbal bands (Landis & Koch 1977); validating an
-# LLM judge against a small human-annotated set (Calderon, Reichart & Dror 2025).
-#
-# Inputs (run these first):
-#   data/validation/validation_set.csv      <- select_validation_set.py
-#   data/validation/annotation_workbook.xlsx<- build_annotation_workbook.py, then
-#                                              FILLED IN BY THE HUMAN ANNOTATOR
-#   data/validation/llm_results_validation.jsonl          <- llm_evaluator.py --mode validate
-#
-# Output:
-#   data/validation/judge_validation_report.txt
-#   data/validation/judge_validation_report.csv
-#
-# Usage:  python src/module2/validate_judge.py
-# Requirements:  pip install pandas numpy openpyxl
-# =============================================================================
+"""Module 2: validate the GPT-4o judge against the human annotations on the 15
+validation transcripts, reporting inter-rater agreement per metric (Cohen's kappa,
+within-1, PABAK, and Landis & Koch labels). Reads validation_set.csv, the
+human-filled annotation_workbook.xlsx, and llm_results_validation.jsonl; writes
+judge_validation_report.txt/.csv."""
 
 import json
 import sys
@@ -77,15 +50,9 @@ def landis_koch(k) -> str:
 
 
 def cohen_kappa(y1, y2, labels=None, weights=None):
-    """Cohen's kappa between two label sequences, computed directly.
-
-    weights=None        -> standard unweighted kappa (Cohen, 1960)
-    weights='linear'    -> linear-weighted kappa
-    weights='quadratic' -> quadratic-weighted kappa (for ordinal scales)
-
-    Equivalent to sklearn.metrics.cohen_kappa_score; implemented here so the
-    script depends only on numpy/pandas. Returns None when kappa is undefined
-    (no expected disagreement -- e.g. both raters used a single label)."""
+    """Cohen's kappa between two label sequences (weights None / 'linear' /
+    'quadratic'). Pure numpy/pandas, equivalent to sklearn's cohen_kappa_score.
+    Returns None when kappa is undefined (no expected disagreement)."""
     if labels is None:
         labels = sorted(set(y1) | set(y2), key=str)
     idx = {lab: i for i, lab in enumerate(labels)}
@@ -166,10 +133,8 @@ def within1_pct(human, judge):
 
 
 def pabak(human, judge):
-    """Prevalence-adjusted bias-adjusted kappa = 2 * p_observed - 1
-    (Byrt, Bishop & Carlin, 1993). A chance-corrected agreement index that,
-    unlike Cohen's kappa, is not deflated when one category dominates -- the
-    'prevalence paradox'. Reported for the binary metrics."""
+    """Prevalence-adjusted bias-adjusted kappa = 2*p_observed - 1: a chance-corrected index not deflated when one category dominates (the
+    'prevalence paradox'). Reported for the binary metrics."""
     if not human:
         return None
     p_o = sum(1 for h, j in zip(human, judge) if h == j) / len(human)
@@ -412,7 +377,7 @@ def write_report(results: list, n_llm: int, n_human_sheets: int):
     lines.append("Notes:")
     lines.append("- 'kappa' shows quadratic-weighted kappa (suffix w) for the ordinal")
     lines.append("  0-3 Process Quality dimensions, and unweighted Cohen's kappa")
-    lines.append("  otherwise. Verbal labels follow Landis & Koch (1977):")
+    lines.append("  otherwise. Verbal labels:")
     lines.append("  <=.20 slight, <=.40 fair, <=.60 moderate, <=.80 substantial,")
     lines.append("  >.80 almost perfect.")
     lines.append("- The validation set is 15 transcripts. Per-dimension n is small (15),")
@@ -421,7 +386,7 @@ def write_report(results: list, n_llm: int, n_human_sheets: int):
     lines.append("- A judge that does not reach 'substantial' agreement on a metric is a")
     lines.append("  finding to report and discuss, not a failure to hide.")
     lines.append("- 'within1' = adjacent agreement: share of ordinal 0-3 score pairs")
-    lines.append("  agreeing within one point. 'PABAK' (Byrt et al. 1993) is a")
+    lines.append("  agreeing within one point. 'PABAK' is a")
     lines.append("  prevalence-adjusted agreement index for the binary metrics, where")
     lines.append("  Cohen's kappa is distorted when one category dominates.")
     lines.append("=" * 78)
